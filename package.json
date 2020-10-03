@@ -5,10 +5,11 @@
   "main": "./src/index.jsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build-posts": "node ./posts/build.js",
     "build": "webpack --config ./webpack/dev.cjs",
     "watch": "webpack --config ./webpack/dev.cjs --watch",
     "start": "webpack-dev-server --config ./webpack/dev.cjs --open",
-    "build-prod": "webpack --config ./webpack/prod.cjs"
+    "build-prod": "npm run build-posts && webpack --config ./webpack/prod.cjs"
   },
   "keywords": [
     "blog"
@@ -29,12 +30,13 @@
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
     "babel-loader": "^8.1.0",
-    "clean-webpack-plugin": "^3.0.0",
     "html-webpack-plugin": "^4.5.0",
+    "marked": "^1.2.0",
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0",
-    "webpack-merge": "^5.1.4"
+    "webpack-merge": "^5.1.4",
+    "yaml": "^1.10.0"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
