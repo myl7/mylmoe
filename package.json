@@ -1,0 +1,46 @@
+{
+  "name": "mlblog",
+  "version": "0.1.0",
+  "description": "",
+  "main": "./src/index.jsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config config/webpack.dev.cjs",
+    "watch": "webpack --config config/webpack.dev.cjs --watch",
+    "start": "webpack-dev-server --config config/webpack.dev.cjs --open",
+    "build-prod": "webpack --config config/webpack.prod.cjs"
+  },
+  "keywords": [
+    "blog"
+  ],
+  "author": "myl7",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/myl7/mlblog.git"
+  },
+  "bugs": {
+    "url": "https://github.com/myl7/mlblog/issues"
+  },
+  "homepage": "https://github.com/myl7/mlblog#readme",
+  "type": "module",
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "html-webpack-plugin": "^4.5.0",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.1.4"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0"
+  }
+}
