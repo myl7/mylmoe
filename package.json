@@ -5,10 +5,10 @@
   "main": "./src/index.jsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config ./config/webpack.dev.cjs",
-    "watch": "webpack --config ./config/webpack.dev.cjs --watch",
-    "start": "webpack-dev-server --config ./config/webpack.dev.cjs --open",
-    "build-prod": "webpack --config ./config/webpack.prod.cjs"
+    "build": "webpack --config ./webpack/dev.cjs",
+    "watch": "webpack --config ./webpack/dev.cjs --watch",
+    "start": "webpack-dev-server --config ./webpack/dev.cjs --open",
+    "build-prod": "webpack --config ./webpack/prod.cjs"
   },
   "keywords": [
     "blog"
