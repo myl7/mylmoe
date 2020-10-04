@@ -4,6 +4,7 @@ import {AppBar, Toolbar, IconButton, Link, Typography} from '@material-ui/core'
 import {Home as HomeIcon, GitHub as GitHubIcon, Mail as MailIcon} from '@material-ui/icons'
 import {Link as RouterLink} from 'react-router-dom'
 import IndexView from './views/IndexView'
+import PostView from './views/PostView'
 
 export default () => {
   return (
@@ -21,7 +22,8 @@ export default () => {
         </AppBar>
 
         <Switch>
-          <Route path={'/'} children={<IndexView />} />
+          <Route exact path={'/'} children={<IndexView />} />
+          <Route path={'/posts/:slug'} children={<PostView />} />
         </Switch>
       </Router>
     </div>
