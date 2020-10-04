@@ -18,7 +18,7 @@ renderer.link = (href, title, text) => {
   if (!href.startsWith('/')) {
     // Use relative urls in markdown to link to local posts.
     // For external urls, set proper attributes.
-    html = html.replace(/^<a /, '<a target="_blank" rel="noopener" ')
+    html = html.replace(/^<a /, '<a class="MuiLink-underlineHover" target="_blank" rel="noopener" ')
   }
   return html
 }
