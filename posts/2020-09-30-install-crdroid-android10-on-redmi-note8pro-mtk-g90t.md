@@ -2,7 +2,7 @@ title: 红米 Note 8 Pro 联发科 G90T 版刷入类原生安卓系统 crDroid A
 ---
 ## 解锁 Bootloader
 
-按照小米官方指引：[申请解锁小米手机](http://www.miui.com/unlock/download.html){:target="_blank"} 即可。
+按照小米官方指引：[申请解锁小米手机](http://www.miui.com/unlock/download.html) 即可。
 
 记得关闭“查找我的手机”此功能，否则在绑定账号与手机这一步时，会报“绑定失败”这样不明所以的错误。
 （连错误出在哪儿都不说，没干过的谁能知道怎么解决啊！）
