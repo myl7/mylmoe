@@ -5,8 +5,8 @@ import posts from '../posts.json'
 
 export default () => {
   return (<div>{
-    posts.map((post) => (
-      <Card>
+    posts.map((post, i) => (
+      <Card key={i}>
         <CardContent>
           <Typography variant={'subtitle1'} color={'inherit'} style={{textDecoration: 'none'}}
                       component={RouterLink} to={`/posts/${post.slug}`}>
