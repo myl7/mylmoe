@@ -5,12 +5,12 @@ import posts from '../posts.json'
 
 export default () => {
   return (<div>{
-    Object.keys(posts).map((slug) => (
+    posts.map((post) => (
       <Card>
         <CardContent>
           <Typography variant={'subtitle1'} color={'inherit'} style={{textDecoration: 'none'}}
-                      component={RouterLink} to={`/posts/${slug}`}>
-            {posts[slug].title}
+                      component={RouterLink} to={`/posts/${post.slug}`}>
+            {post.title}
           </Typography>
         </CardContent>
       </Card>

@@ -25,7 +25,7 @@ renderer.link = (href, title, text) => {
 
 marked.setOptions({renderer})
 
-let metaInfo = {}
+let metaInfo = []
 
 // Loop over .md posts, convert with `marked` and emit content in html and meta info in json.
 const postDir = './posts/'
@@ -45,6 +45,7 @@ fs.readdirSync(postDir, {withFileTypes: true}).forEach((file, _) => {
 
   // Generate meta info.
   let frontMatter = YAML.parse(content.substring(0, sep))
+  frontMatter.slug = name
   const date = name.substring(0, 10)
   let title = name.substring(11)
   if (!frontMatter.date) {
@@ -57,7 +58,7 @@ fs.readdirSync(postDir, {withFileTypes: true}).forEach((file, _) => {
     }
     frontMatter.title = title
   }
-  metaInfo[name] = frontMatter
+  metaInfo.push(frontMatter)
 
   // Convert markdown and write to target file.
   fs.writeFile(postHTMLDir + name + '.html', marked(body), (e) => {
@@ -67,6 +68,7 @@ fs.readdirSync(postDir, {withFileTypes: true}).forEach((file, _) => {
 
 // Emit meta info.
 const metaPath = './src/posts.json'
+metaInfo.sort((a, b) => a.date < b.date ? 1 : -1)
 const metaContent = JSON.stringify(metaInfo, null, 2) + '\n'
 fs.writeFile(metaPath, metaContent, (e) => {
   if (e) throw e
