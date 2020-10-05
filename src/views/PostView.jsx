@@ -20,7 +20,7 @@ export default () => {
         })
       })
     }).catch((e) => throw e)
-  }, [setBody, hljs])
+  }, [setBody])
 
   return (
     <Card>
