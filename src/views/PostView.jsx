@@ -17,7 +17,7 @@ export default () => {
           hljs.registerLanguage('bash', bash)
           hljs.registerLanguage('python', python)
           hljs.initHighlighting()
-        })
+        }).catch(e => throw e)
       })
     }).catch((e) => throw e)
   }, [setBody])
