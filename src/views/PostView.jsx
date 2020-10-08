@@ -15,6 +15,12 @@ renderer.link = (href, title, text) => {
   }
   return html
 }
+const codeRenderer = renderer.code
+renderer.code = (code, infostring, escaped) => {
+  let html = codeRenderer.call(renderer, code, infostring, escaped)
+  html = html.replace(/<code>/, '<code class="plaintext">')
+  return html
+}
 marked.setOptions({renderer})
 
 export default () => {
@@ -26,7 +32,7 @@ export default () => {
       resp.text().then((content) => {
         setBody(marked(content))
 
-        import(/* webpackChunkName: "highlight" */ 'highlight.js/lib/highlight').then((hljs) => {
+        import(/* webpackChunkName: "highlight" */ 'highlight.js/lib/core').then((hljs) => {
           hljs.registerLanguage('bash', bash)
           hljs.registerLanguage('python', python)
           hljs.initHighlighting()
