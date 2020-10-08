@@ -1,5 +1,3 @@
-title: Python YAML + Beautiful Soup reports RecursionError
----
 ## Problem
 
 Today I am writting a Telegram bot.

@@ -1,5 +1,3 @@
-title: 红米 Note 8 Pro 联发科 G90T 版刷入类原生安卓系统 crDroid Android 10
----
 ## 解锁 Bootloader
 
 按照小米官方指引：[申请解锁小米手机](http://www.miui.com/unlock/download.html) 即可。

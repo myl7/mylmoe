@@ -1,5 +1,3 @@
-title: Minimized dotfiles sharing
----
 ## Principles
 
 Prefer to default keymap.
