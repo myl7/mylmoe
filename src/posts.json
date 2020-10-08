@@ -1,5 +1,10 @@
 [
   {
+    "title": "Minimized dotfiles sharing",
+    "slug": "2020-10-08-min-dotfiles",
+    "date": "2020-10-08"
+  },
+  {
     "title": "Python YAML + Beautiful Soup reports RecursionError",
     "slug": "2020-10-02-yaml-beautifulsoup-recusive-error",
     "date": "2020-10-02"
