@@ -69,4 +69,4 @@ fastboot reboot
 比如 crDroid 就没有开箱即用的全面屏手势，文件管理之类的应用也得自己安装。
 作为日用设备，手机还是稳定省心点更好。
 
-我自己的 MIUI 配置方案在 [这里](/posts/2020-09-30-miui-setup)，勉强能用。
+我自己的 MIUI 配置方案在 [这里](/src/posts/2020-09-30-miui-setup)，勉强能用。
