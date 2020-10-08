@@ -1,5 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 
 module.exports = {
   entry: './src/index.jsx',
@@ -38,7 +39,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'mlblog',
       template: 'assets/index.html'
-    })
+    }),
+    new CleanWebpackPlugin()
   ],
   output: {
     filename: 'index.bundle.js',
