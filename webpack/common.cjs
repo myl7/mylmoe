@@ -16,6 +16,18 @@ module.exports = {
             cacheDirectory: true
           }
         }
+      },
+      {
+        test: /\.md$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              outputPath: './raw/posts/',
+              name: '[name].[ext]'
+            }
+          }
+        ]
       }
     ]
   },

@@ -3,15 +3,28 @@ import {Card, CardContent} from '@material-ui/core'
 import {useParams} from 'react-router-dom'
 import bash from 'highlight.js/lib/languages/bash'
 import python from 'highlight.js/lib/languages/python'
+import marked from 'marked'
+import posts from '../posts'
+
+const renderer = new marked.Renderer()
+const linkRenderer = renderer.link
+renderer.link = (href, title, text) => {
+  let html = linkRenderer.call(renderer, href, title, text)
+  if (!href.startsWith('/')) {
+    html = html.replace(/^<a /, '<a class="MuiLink-underlineHover" target="_blank" rel="noopener" ')
+  }
+  return html
+}
+marked.setOptions({renderer})
 
 export default () => {
   const {slug} = useParams()
 
   const [body, setBody] = useState('')
   useEffect(() => {
-    fetch(`/posts-html/${slug}.html`).then((resp) => {
+    fetch(posts.find((p, _i) => p.slug === slug).url).then((resp) => {
       resp.text().then((content) => {
-        setBody(content)
+        setBody(marked(content))
 
         import(/* webpackChunkName: "highlight" */ 'highlight.js/lib/highlight').then((hljs) => {
           hljs.registerLanguage('bash', bash)
