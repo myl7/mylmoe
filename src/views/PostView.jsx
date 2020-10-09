@@ -14,7 +14,7 @@ export default () => {
   useEffect(() => {
     fetch(posts.find((p, _i) => p.slug === slug).url).then((resp) => {
       resp.text().then((content) => {
-        setBody(content)
+        setBody(content.replace(/\n\n/g, '<br>'))
 
         const markedPromise = import(/* webpackChunkName: "marked" */ 'marked')
         const highlightJsPromise = import(/* webpackChunkName: "highlight.js" */ 'highlight.js/lib/core')
