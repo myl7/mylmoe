@@ -1,0 +1,44 @@
+<rss version="2.0">
+  <channel>
+    <title>mlblog</title>
+    <link>https://myl.moe</link>
+    <description />
+    <language>en</language>
+    <copyright>Copyright (c) 2020 myl7</copyright>
+    <managingEditor>myl.ustc@gmail.com (myl7)</managingEditor>
+    <webMaster>myl.ustc@gmail.com (myl7)</webMaster>
+    <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+    <item>
+      <title>Minimized dotfiles sharing</title>
+      <link>https://myl.moe/posts/2020-10-08-min-dotfiles</link>
+      <description />
+      <author>myl7</author>
+      <guid>https://myl.moe/posts/2020-10-08-min-dotfiles</guid>
+      <pubDate>2020-10-08</pubDate>
+    </item>
+    <item>
+      <title>Python YAML + Beautiful Soup reports RecursionError</title>
+      <link>https://myl.moe/posts/2020-10-02-yaml-beautifulsoup-recusive-error</link>
+      <description />
+      <author>myl7</author>
+      <guid>https://myl.moe/posts/2020-10-02-yaml-beautifulsoup-recusive-error</guid>
+      <pubDate>2020-10-02</pubDate>
+    </item>
+    <item>
+      <title>配置 MIUI 国内版为基本能用的系统</title>
+      <link>https://myl.moe/posts/2020-09-30-miui-setup</link>
+      <description />
+      <author>myl7</author>
+      <guid>https://myl.moe/posts/2020-09-30-miui-setup</guid>
+      <pubDate>2020-09-30</pubDate>
+    </item>
+    <item>
+      <title>红米 Note 8 Pro 联发科 G90T 版刷入类原生安卓系统 crDroid Android 10</title>
+      <link>https://myl.moe/posts/2020-09-30-install-crdroid-android10-on-redmi-note8pro-mtk-g90t</link>
+      <description />
+      <author>myl7</author>
+      <guid>https://myl.moe/posts/2020-09-30-install-crdroid-android10-on-redmi-note8pro-mtk-g90t</guid>
+      <pubDate>2020-09-30</pubDate>
+    </item>
+  </channel>
+</rss>

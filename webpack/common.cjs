@@ -29,6 +29,17 @@ module.exports = {
             }
           }
         ]
+      },
+      {
+        test: /\/rss.xml$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]'
+            }
+          }
+        ]
       }
     ]
   },
