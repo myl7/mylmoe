@@ -46,7 +46,10 @@ export default () => {
             hljs.registerLanguage('python', python)
             hljs.registerLanguage('vim', vim)
             hljs.registerLanguage('json', json)
-            hljs.initHighlighting()
+
+            document.querySelectorAll('div#root pre > code').forEach(elem => {
+              hljs.highlightBlock(elem)
+            })
           }).catch(e => throw e)
         })
       })
