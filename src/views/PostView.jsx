@@ -14,6 +14,8 @@ export default () => {
   useEffect(() => {
     fetch(posts.find((p, _i) => p.slug === slug).url).then((resp) => {
       resp.text().then((content) => {
+        content = content.substring(content.indexOf('---') + 4)
+
         setBody(content.replace(/\n\n/g, '<br>'))
 
         const markedPromise = import(/* webpackChunkName: "marked" */ 'marked')
