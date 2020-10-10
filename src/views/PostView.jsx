@@ -50,10 +50,10 @@ export default () => {
             document.querySelectorAll('div#root pre > code').forEach(elem => {
               hljs.highlightBlock(elem)
             })
-          }).catch(e => throw e)
+          })
         })
       })
-    }).catch((e) => throw e)
+    })
   }, [setBody])
 
   return (
