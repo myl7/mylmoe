@@ -4,6 +4,7 @@ import url3 from './posts/2020-10-02-yaml-beautifulsoup-recusive-error.md'
 import url1 from './posts/2020-09-30-install-crdroid-android10-on-redmi-note8pro-mtk-g90t.md'
 import url2 from './posts/2020-09-30-miui-setup.md'
 
+// noinspection SpellCheckingInspection
 export default [
   {
     "title": "Arcaea 付费建议",

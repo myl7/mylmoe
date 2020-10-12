@@ -8,9 +8,13 @@ export default () => {
   const postPaths = glob.sync(postPattern)
 
   let postMeta = []
+  let postImages = []
   postPaths.forEach((postPath) => {
     let content = fs.readFileSync(postPath).toString()
-    const header = content.substring(0, content.indexOf('---'))
+    const sep = content.indexOf('---')
+    const header = content.substring(0, sep)
+    const body = content.substring(sep + 4)
+
     let meta = YAML.safeLoad(header)
 
     const setIfNot = (obj, k, v) => {
@@ -24,8 +28,11 @@ export default () => {
     meta.url = 'url' + meta.id
 
     postMeta.push(meta)
+
+    const imageMatch = body.matchAll(/!\[.+]\(\.\/images\/(.+)\)/g)
+    postImages.concat([...imageMatch].map(m => m[1]))
   })
 
   postMeta.sort((a, b) => -a.date.localeCompare(b.date))
-  return postMeta
+  return {meta: postMeta, images: postImages}
 }

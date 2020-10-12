@@ -1,6 +1,6 @@
 import fs from 'fs'
-import getPostMeta from './getPostMeta.js'
 import dayjs from 'dayjs'
+import parsePosts from './parsePosts.js'
 
 const rssPath = './src/rss.xml'
 
@@ -18,7 +18,7 @@ const itemTemplate = (meta) => {
 `
 }
 
-const postMeta = getPostMeta()
+const postMeta = parsePosts().meta
 const content = `\
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
