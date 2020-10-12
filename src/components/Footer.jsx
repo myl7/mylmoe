@@ -1,5 +1,6 @@
-import {Card, CardContent, Link, Box, makeStyles} from '@material-ui/core'
+import {Card, CardContent, Box, makeStyles} from '@material-ui/core'
 import React from 'react'
+import ExternalLink from './ExternalLink'
 
 const useStyles = makeStyles({
   ccIcon: {
@@ -22,11 +23,11 @@ export default () => {
         <Box component={'p'} className={styles.footerText} xmlnsDct="http://purl.org/dc/terms/"
              xmlnsCc="http://creativecommons.org/ns#">
           All displayed content on{' '}
-          <Link rel="cc:attributionURL" property="dct:title" href="https://myl.moe">mlblog</Link>
+          <ExternalLink rel="cc:attributionURL" property="dct:title" href="https://myl.moe">mlblog</ExternalLink>
           {' '}by{' '}
           <span property="cc:attributionName">myl7</span>
           {' '}is licensed under{' '}
-          <Link rel="license" href="https://creativecommons.org/licenses/by-nc/4.0">
+          <ExternalLink rel="license" href="https://creativecommons.org/licenses/by-nc/4.0">
             CC BY-NC 4.0
             <Box component={'img'} className={styles.ccIcon}
                  src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt="CC" />
@@ -34,15 +35,16 @@ export default () => {
                  src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt="BY" />
             <Box component={'img'} className={styles.ccIcon}
                  src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt="NC" />
-          </Link>
+          </ExternalLink>
         </Box>
-        <Box component={'p'} className={styles.footerText} xmlnsDct="http://purl.org/dc/terms/" style={{marginTop: '0.5em'}}>
+        <Box component={'p'} className={styles.footerText} xmlnsDct="http://purl.org/dc/terms/"
+             style={{marginTop: '0.5em'}}>
           Source code of{' '}
-          <Link property="dct:title" href="https://myl.moe">mlblog</Link>
+          <ExternalLink property="dct:title" href="https://myl.moe">mlblog</ExternalLink>
           {' '}is located at{' '}
-          <Link href={'https://github.com/myl7/mlblog'}>myl7/mlblog</Link>
+          <ExternalLink href={'https://github.com/myl7/mlblog'}>myl7/mlblog</ExternalLink>
           , which is licensed under{' '}
-          <Link rel="license" href={'https://github.com/myl7/mlblog/blob/master/LICENSE'}>MIT</Link>
+          <ExternalLink rel="license" href={'https://github.com/myl7/mlblog/blob/master/LICENSE'}>MIT</ExternalLink>
           .
         </Box>
       </CardContent>

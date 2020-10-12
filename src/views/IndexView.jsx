@@ -1,6 +1,6 @@
 import React from 'react'
-import {Card, CardContent, Link, Typography} from '@material-ui/core'
-import {Link as RouterLink} from 'react-router-dom'
+import {Card, CardContent, Typography} from '@material-ui/core'
+import RouterLink from '../components/RouterLink'
 import posts from '../posts'
 
 export default () => {
@@ -8,9 +8,9 @@ export default () => {
     posts.map((post, i) => (
       <Card key={i}>
         <CardContent>
-          <Link component={RouterLink} to={`/posts/${post.slug}`}>
+          <RouterLink to={`/posts/${post.slug}`}>
             <Typography variant={'subtitle1'}>{post.title}</Typography>
-          </Link>
+          </RouterLink>
         </CardContent>
       </Card>
     ))
