@@ -1,9 +1,17 @@
+import url5 from './posts/2020-10-13-arcaea-pay.md'
 import url4 from './posts/2020-10-08-min-dotfiles.md'
 import url3 from './posts/2020-10-02-yaml-beautifulsoup-recusive-error.md'
 import url1 from './posts/2020-09-30-install-crdroid-android10-on-redmi-note8pro-mtk-g90t.md'
 import url2 from './posts/2020-09-30-miui-setup.md'
 
 export default [
+  {
+    "title": "Arcaea 付费建议",
+    "id": 5,
+    "slug": "2020-10-13-arcaea-pay",
+    "date": "2020-10-13",
+    "url": url5
+  },
   {
     "title": "Minimized dotfiles sharing",
     "id": 4,

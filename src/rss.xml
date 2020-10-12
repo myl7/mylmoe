@@ -10,6 +10,14 @@
     <atom:link href="https://myl.moe/rss.xml" rel="self" type="application/rss+xml" />
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <item>
+      <title>Arcaea 付费建议</title>
+      <link>https://myl.moe/posts/2020-10-13-arcaea-pay</link>
+      <description />
+      <author>myl.ustc@gmail.com (myl7)</author>
+      <guid>https://myl.moe/posts/2020-10-13-arcaea-pay</guid>
+      <pubDate>Tue, 13 Oct 2020 12:00:00 +0800</pubDate>
+    </item>
+    <item>
       <title>Minimized dotfiles sharing</title>
       <link>https://myl.moe/posts/2020-10-08-min-dotfiles</link>
       <description />
