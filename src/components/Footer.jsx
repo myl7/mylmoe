@@ -6,6 +6,10 @@ const useStyles = makeStyles({
     height: '22px !important',
     marginLeft: '3px',
     verticalAlign: 'text-bottom'
+  },
+  footerText: {
+    marginTop: 0,
+    marginBottom: 0
   }
 })
 
@@ -15,7 +19,8 @@ export default () => {
   return (
     <Card style={{marginTop: '1em'}} variant={'outlined'}>
       <CardContent>
-        <p style={{marginTop: 0, marginBottom: 0}} xmlnsDct="http://purl.org/dc/terms/" xmlnsCc="http://creativecommons.org/ns#">
+        <Box component={'p'} className={styles.footerText} xmlnsDct="http://purl.org/dc/terms/"
+             xmlnsCc="http://creativecommons.org/ns#">
           All displayed content on{' '}
           <Link rel="cc:attributionURL" property="dct:title" href="https://myl.moe">mlblog</Link>
           {' '}by{' '}
@@ -30,7 +35,16 @@ export default () => {
             <Box component={'img'} className={styles.ccIcon}
                  src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt="NC" />
           </Link>
-        </p>
+        </Box>
+        <Box component={'p'} className={styles.footerText} xmlnsDct="http://purl.org/dc/terms/" style={{marginTop: '0.5em'}}>
+          Source code of{' '}
+          <Link property="dct:title" href="https://myl.moe">mlblog</Link>
+          {' '}is located at{' '}
+          <Link href={'https://github.com/myl7/mlblog'}>myl7/mlblog</Link>
+          , which is licensed under{' '}
+          <Link rel="license" href={'https://github.com/myl7/mlblog/blob/master/LICENSE'}>MIT</Link>
+          .
+        </Box>
       </CardContent>
     </Card>
   )
