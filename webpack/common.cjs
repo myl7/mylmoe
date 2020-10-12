@@ -33,6 +33,18 @@ module.exports = {
         ]
       },
       {
+        test: /\.(a?png|gif|jpe?g|svg|webp)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              outputPath: './images/',
+              name: '[name].[ext]'
+            }
+          }
+        ]
+      },
+      {
         test: /\/rss.xml$/,
         use: [
           {
