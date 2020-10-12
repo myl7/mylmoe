@@ -5,6 +5,7 @@ import {Home as HomeIcon, GitHub as GitHubIcon, Mail as MailIcon, RssFeed as Rss
 import {Link as RouterLink} from 'react-router-dom'
 import IndexView from './views/IndexView'
 import PostView from './views/PostView'
+import Footer from './components/Footer'
 
 export default () => {
   return (
@@ -27,6 +28,8 @@ export default () => {
           <Route exact path={'/'} children={<IndexView />} />
           <Route path={'/posts/:slug'} children={<PostView />} />
         </Switch>
+
+        <Footer />
       </Router>
     </div>
   )
