@@ -20,8 +20,8 @@ export default () => {
   return (
     <Card style={{marginTop: '1em'}} variant={'outlined'}>
       <CardContent>
-        <Box component={'p'} className={styles.footerText} xmlnsDct="http://purl.org/dc/terms/"
-             xmlnsCc="http://creativecommons.org/ns#">
+        <Box component={'p'} className={styles.footerText} xmlns:dct="http://purl.org/dc/terms/"
+             xmlns:cc="http://creativecommons.org/ns#">
           All displayed content on{' '}
           <ExternalLink rel="cc:attributionURL" property="dct:title" href="https://myl.moe">mlblog</ExternalLink>
           {' '}by{' '}
@@ -37,7 +37,7 @@ export default () => {
                  src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt="NC" />
           </ExternalLink>
         </Box>
-        <Box component={'p'} className={styles.footerText} xmlnsDct="http://purl.org/dc/terms/"
+        <Box component={'p'} className={styles.footerText} xmlns:dct="http://purl.org/dc/terms/"
              style={{marginTop: '0.5em'}}>
           Source code of{' '}
           <ExternalLink property="dct:title" href="https://myl.moe">mlblog</ExternalLink>
