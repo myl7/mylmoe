@@ -1,6 +1,6 @@
 mod utils;
 
-use brotli::BrotliDecompress;
+use brotli_decompressor::BrotliDecompress;
 use wasm_bindgen::prelude::*;
 
 #[cfg(feature = "wee_alloc")]
