@@ -29,7 +29,7 @@ export default () => {
 
     postMeta.push(meta)
 
-    const imageMatch = body.matchAll(/!\[.+]\(\.\/images\/(.+)\)/g)
+    const imageMatch = body.matchAll(/!\[.+?]\(\.\/images\/(.+?)\)/g)
     postImages.push(...[...imageMatch].map(m => m[1]))
   })
 

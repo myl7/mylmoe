@@ -21,5 +21,14 @@ export default (marked) => {
   }
   marked.setOptions({renderer})
 
+  const imageRenderer = renderer.image
+  renderer.image = (href, title, text) => {
+    let html = imageRenderer.call(renderer, href, title, text)
+    if (href.startsWith('./images/')) {
+      html = html.replace(/src="\.\/images\//, 'src="/images/')
+    }
+    return html
+  }
+
   return marked
 }

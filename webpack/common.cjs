@@ -38,7 +38,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              outputPath: './images/',
+              outputPath: (url, imagePath, context) => './images/' + path.relative(context + '/assets/images/', imagePath),
               name: '[name].[ext]'
             }
           }
