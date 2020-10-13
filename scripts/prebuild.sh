@@ -1,3 +1,3 @@
 #!/bin/bash
-node ./scripts/buildPostMeta.js
+node ./scripts/buildPosts.js
 node ./scripts/buildRSS.js

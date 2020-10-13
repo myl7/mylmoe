@@ -30,7 +30,7 @@ export default () => {
     postMeta.push(meta)
 
     const imageMatch = body.matchAll(/!\[.+]\(\.\/images\/(.+)\)/g)
-    postImages.concat([...imageMatch].map(m => m[1]))
+    postImages.push(...[...imageMatch].map(m => m[1]))
   })
 
   postMeta.sort((a, b) => -a.date.localeCompare(b.date))
