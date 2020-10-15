@@ -1,0 +1,6 @@
+azure-functions
+websockets
+brotli
+
+# Test
+# pytest
