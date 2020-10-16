@@ -11,15 +11,16 @@ USER_ID = '984569312'
 
 
 async def handle(_req):
+    headers = {'Access-Control-Allow-Origin': '*'}
     try:
         data = await ws_arcaea_prober()
         data = await process_data(data)
-        body = json.dumps(data)
         logging.info('success')
+        return web.json_response(data, headers=headers)
     except Exception as e:
-        body = str(e)
-        logging.error(e)
-    return func.HttpResponse(body)
+        reason = str(e)
+        logging.error(reason)
+        raise web.HTTPServerError(reason=reason, headers=headers)
 
 
 async def ws_arcaea_prober():
@@ -116,8 +117,7 @@ async def process_data(data):
     }
 
 
-app = web.Application()
-app.add_routes([web.get('/arcaea-prober-api', handle)])
-
-if __name__ == '__main__':
-    web.run_app(app)
+def init(_argv):
+    app = web.Application()
+    app.add_routes([web.get('/arcaea-prober-api', handle)])
+    return app
