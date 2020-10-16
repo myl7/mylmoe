@@ -56,10 +56,6 @@ export default (props) => {
   )
 }
 
-/**
- * @param {HTMLDivElement[]} elems
- * @param {Song[]} songs
- */
 export const drawHealthCharts = (elems, songs) => {
   elems.forEach((elem, i) => {
     const healthChart = echarts.init(elem)
@@ -92,10 +88,6 @@ export const drawHealthCharts = (elems, songs) => {
   })
 }
 
-/**
- * @param {HTMLDivElement[]} elems
- * @param {Song[]} songs
- */
 export const drawCountCharts = (elems, songs) => {
   elems.forEach((elem, i) => {
     const countChart = echarts.init(elem)
