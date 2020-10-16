@@ -30,7 +30,8 @@ export default () => {
     setTabNum(newTabNum)
   }
 
-  const data = arcaeaProberData
+  const [songs, userInfo] = arcaeaProberData
+  const [c11, c10p, c10, c9p, c9, c8, c7] = songs
   return (
     <Card>
       <CardContent>
@@ -40,14 +41,14 @@ export default () => {
         <Divider style={{marginTop: '0.5em', marginBottom: '0.5em'}} />
         <Typography variant={'body1'}>
           <Typography component={'span'} variant={'h5'}>
-            {data.user_info.name}
+            {userInfo.name}
           </Typography>
           {' '}
           <Box component={'span'} fontWeight={'fontWeightLight'}>
-            {data.user_info.code}
+            {userInfo.code}
           </Box>
-          {' '}| PTT {data.user_info.ptt / 100} | Join at{' '}
-          {dayjs.utc(data.user_info.join_date).local().format('YYYY-MM-DD HH:mm:ss')}
+          {' '}| PTT {userInfo.ptt / 100} | Join at{' '}
+          {dayjs.utc(userInfo.join_date).local().format('YYYY-MM-DD HH:mm:ss')}
         </Typography>
 
         <TabContext value={tabNum} style={{marginTop: '0.5em'}}>
@@ -62,15 +63,13 @@ export default () => {
               <Tab label="7" value="7" />
             </TabList>
           </AppBar>
-          <TabPanel value="11">
-            <ArcaeaSongStatusList songs={data.songs} />
-          </TabPanel>
-          <TabPanel value="10+" />
-          <TabPanel value="10" />
-          <TabPanel value="9+" />
-          <TabPanel value="9" />
-          <TabPanel value="8" />
-          <TabPanel value="7" />
+          <TabPanel value="11"><ArcaeaSongStatusList songs={c11} /></TabPanel>
+          <TabPanel value="10+"><ArcaeaSongStatusList songs={c10p} /></TabPanel>
+          <TabPanel value="10"><ArcaeaSongStatusList songs={c10} /></TabPanel>
+          <TabPanel value="9+"><ArcaeaSongStatusList songs={c9p} /></TabPanel>
+          <TabPanel value="9"><ArcaeaSongStatusList songs={c9} /></TabPanel>
+          <TabPanel value="8"><ArcaeaSongStatusList songs={c8} /></TabPanel>
+          <TabPanel value="7"><ArcaeaSongStatusList songs={c7} /></TabPanel>
         </TabContext>
       </CardContent>
     </Card>
