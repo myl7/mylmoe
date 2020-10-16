@@ -88,7 +88,7 @@ export default () => {
         </Typography>
         <Grid container spacing={4} style={{marginTop: '0.5em'}} wrap={'wrap'}>
           {data.songs.map(song => (
-            <Grid item key={song.id} xs={6}>
+            <Grid item key={song.id} xs={4}>
               <Card variant={'outlined'}>
                 <CardContent>
                   <Typography variant={'subtitle1'}>
@@ -117,7 +117,7 @@ export default () => {
                           </div>
                         </Grid>
                         <Grid item>
-                          <div className={'echart-pie'} style={{width: 400, height: 160}}>
+                          <div className={'echart-pie'} style={{width: 350, height: 160}}>
                             Pure {song.count.pure}({song.count.strict_pure}){' '}
                             Far {song.count.far} Miss {song.count.lost}
                           </div>
