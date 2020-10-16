@@ -1,6 +1,5 @@
-azure-functions
 websockets
-brotli
+aiohttp[speedups]
 
 # Test:
 # pytest

@@ -1,21 +1,16 @@
 import logging
-import asyncio
 import json
 from datetime import datetime
 
-import azure.functions as func
 import websockets
 import brotli
+from aiohttp import web
 
 ARCAEA_PROBER_URL = 'wss://arc.estertion.win:616'
 USER_ID = '984569312'
 
 
-def main(req: func.HttpRequest) -> func.HttpResponse:
-    return asyncio.run(handleReq(req))
-
-
-async def handleReq(_req):
+async def handle(_req):
     try:
         data = await ws_arcaea_prober()
         data = await process_data(data)
@@ -119,3 +114,10 @@ async def process_data(data):
             'code': user_info['user_code']
         }
     }
+
+
+app = web.Application()
+app.add_routes([web.get('/arcaea-prober-api', handle)])
+
+if __name__ == '__main__':
+    web.run_app(app)
