@@ -4,11 +4,13 @@ import {TabList, TabPanel, TabContext} from '@material-ui/lab'
 import dayjs from 'dayjs'
 import arcaeaProberApi from '../apis/arcaeaProberApi'
 import ArcaeaSongStatusList, {drawCountCharts, drawHealthCharts} from '../components/ArcaeaSongStatusList'
-import {initArcaeaUserInfo} from '../redux/initState'
+
+const initArcaeaSongs = {c11: [], c10p: [], c10: [], c9p: [], c9: [], c8: [], c7: []}
+const initArcaeaUserInfo = {name: null, code: null, ptt: null, join_date: null}
 
 export default () => {
   const [arcaeaProberData, setArcaeaProberData] = useState({
-    songs: [], user_info: initArcaeaUserInfo
+    songs: initArcaeaSongs, user_info: initArcaeaUserInfo
   })
 
   useEffect(() => {
