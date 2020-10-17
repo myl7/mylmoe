@@ -1,7 +1,42 @@
 {
   "songs": {
-    "c11": [],
-    "c10p": [
+    "11": [
+      {
+        "id": "grievouslady",
+        "title": "Grievous Lady",
+        "score": 8573432,
+        "count": {
+          "strict_pure": 1019,
+          "pure": 1183,
+          "far": 120,
+          "lost": 147
+        },
+        "health": 3,
+        "play_date": "2020-09-21T16:30:37.856000",
+        "get_date": "1970-01-18T11:21:07.208000",
+        "clear_type": "Track Lost",
+        "constant": 11.3,
+        "rating": 8.21144
+      }
+    ],
+    "10+": [
+      {
+        "id": "axiumcrisis",
+        "title": "Axium Crisis",
+        "score": 9168955,
+        "count": {
+          "strict_pure": 765,
+          "pure": 962,
+          "far": 82,
+          "lost": 50
+        },
+        "health": 99,
+        "play_date": "2020-09-20T16:05:01.956000",
+        "get_date": "1970-01-18T11:21:07.207000",
+        "clear_type": "Easy Clear",
+        "constant": 10.9,
+        "rating": 9.796516666666667
+      },
       {
         "id": "ifi",
         "title": "#1f1e33",
@@ -139,7 +174,24 @@
         "rating": 9.794176666666667
       }
     ],
-    "c10": [
+    "10": [
+      {
+        "id": "valhallazero",
+        "title": "Valhalla:0",
+        "score": 9340203,
+        "count": {
+          "strict_pure": 903,
+          "pure": 1059,
+          "far": 73,
+          "lost": 41
+        },
+        "health": 95,
+        "play_date": "2020-09-07T15:27:22.918000",
+        "get_date": "1970-01-19T03:07:12.004000",
+        "clear_type": "Easy Clear",
+        "constant": 10.4,
+        "rating": 9.867343333333334
+      },
       {
         "id": "garakuta",
         "title": "Garakuta Doll Play",
@@ -379,7 +431,24 @@
         "rating": 10.634033333333333
       }
     ],
-    "c9p": [
+    "9+": [
+      {
+        "id": "antagonism",
+        "title": "Antagonism",
+        "score": 9414123,
+        "count": {
+          "strict_pure": 814,
+          "pure": 1030,
+          "far": 90,
+          "lost": 22
+        },
+        "health": 91,
+        "play_date": "2020-09-12T05:07:55.416000",
+        "get_date": "1970-01-19T09:48:57.601000",
+        "clear_type": "Easy Clear",
+        "constant": 9.9,
+        "rating": 9.613743333333334
+      },
       {
         "id": "nhelv",
         "title": "Nhelv",
@@ -738,7 +807,24 @@
         "rating": 10.32356
       }
     ],
-    "c9": [
+    "9": [
+      {
+        "id": "redandblue",
+        "title": "Red and Blue",
+        "score": 9491826,
+        "count": {
+          "strict_pure": 702,
+          "pure": 789,
+          "far": 26,
+          "lost": 30
+        },
+        "health": 82,
+        "play_date": "2020-08-10T11:04:24.213000",
+        "get_date": "1970-01-18T11:21:07.202000",
+        "clear_type": "Easy Clear",
+        "constant": 9.4,
+        "rating": 9.372753333333334
+      },
       {
         "id": "crossover",
         "title": "CROSS†OVER",
@@ -1063,7 +1149,24 @@
         "rating": 10.23999
       }
     ],
-    "c8p": [
+    "8": [
+      {
+        "id": "mazenine",
+        "title": "九番目の迷路",
+        "score": 9807153,
+        "count": {
+          "strict_pure": 702,
+          "pure": 755,
+          "far": 10,
+          "lost": 10
+        },
+        "health": 95,
+        "play_date": "2020-09-12T07:17:44.521000",
+        "get_date": "1970-01-18T17:28:19.203000",
+        "clear_type": "Pure Memory",
+        "constant": 8.9,
+        "rating": 9.935765
+      },
       {
         "id": "memoryfactory",
         "title": "memoryfactory.lzh",
@@ -1352,9 +1455,24 @@
         "clear_type": "Pure Memory",
         "constant": 8.5,
         "rating": 9.52347
-      }
-    ],
-    "c8": [
+      },
+      {
+        "id": "snowwhite",
+        "title": "Snow White",
+        "score": 9530468,
+        "count": {
+          "strict_pure": 816,
+          "pure": 914,
+          "far": 36,
+          "lost": 28
+        },
+        "health": 21,
+        "play_date": "2020-07-06T12:38:57.226000",
+        "get_date": "1970-01-18T05:19:40.805000",
+        "clear_type": "Pure Memory",
+        "constant": 8.4,
+        "rating": 8.50156
+      },
       {
         "id": "rabbitintheblackroom",
         "title": "Rabbit In The Black Room",
@@ -1560,7 +1678,24 @@
         "rating": 9.21635
       }
     ],
-    "c7p": [
+    "7": [
+      {
+        "id": "paradise",
+        "title": "Paradise",
+        "score": 9911456,
+        "count": {
+          "strict_pure": 620,
+          "pure": 716,
+          "far": 13,
+          "lost": 0
+        },
+        "health": 100,
+        "play_date": "2020-10-12T17:09:57.020000",
+        "get_date": "1970-01-18T07:09:07.201000",
+        "clear_type": "Normal Clear",
+        "constant": 7.5,
+        "rating": 9.05728
+      },
       {
         "id": "suomi",
         "title": "Suomi",
@@ -1679,9 +1814,24 @@
         "clear_type": "Pure Memory",
         "constant": 7.5,
         "rating": 9.246695
-      }
-    ],
-    "c7": [
+      },
+      {
+        "id": "sayonarahatsukoi",
+        "title": "Sayonara Hatsukoi",
+        "score": 9903012,
+        "count": {
+          "strict_pure": 610,
+          "pure": 654,
+          "far": 11,
+          "lost": 1
+        },
+        "health": 100,
+        "play_date": "2020-08-20T08:39:49.546000",
+        "get_date": "1970-01-18T05:19:40.800000",
+        "clear_type": "Pure Memory",
+        "constant": 7,
+        "rating": 8.51506
+      },
       {
         "id": "vexaria",
         "title": "Vexaria",

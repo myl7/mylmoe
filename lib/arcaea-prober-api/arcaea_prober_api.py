@@ -12,7 +12,7 @@ USER_ID = '984569312'
 
 async def main():
     try:
-        data = await ws_arcaea_prober()
+        data = await req_api()
         data = await process_data(data)
         logging.info('success')
         return data
@@ -22,7 +22,7 @@ async def main():
         return
 
 
-async def ws_arcaea_prober():
+async def req_api():
     async with websockets.connect(ARCAEA_PROBER_URL) as ws:
         # Send query cmd.
         await ws.send(f'{USER_ID} 7 12')
@@ -81,7 +81,10 @@ async def process_data(data):
             continue
 
         c = song['constant']
-        level = 'c' + str(int(c)) + ('p' if c >= int(c) + 0.5 else '')
+        if c < 9:
+            level = str(int(c))
+        else:
+            level = str(int(c)) + ('+' if c - int(c) >= 0.5 else '')
 
         song_info = {
             'id': song['song_id'],
@@ -105,7 +108,7 @@ async def process_data(data):
         if level in song_infos.keys():
             song_infos[level].append(song_info)
         else:
-            song_infos[level] = []
+            song_infos[level] = [song_info]
 
     for k in song_infos.keys():
         song_infos[k].sort(key=lambda info: -info['constant'])
