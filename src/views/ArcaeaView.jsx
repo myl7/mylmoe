@@ -3,7 +3,7 @@ import {Card, CardContent, Divider, AppBar, Tab, Typography, Box} from '@materia
 import {TabList, TabPanel, TabContext} from '@material-ui/lab'
 import dayjs from 'dayjs'
 import arcaeaProberApi from '../apis/arcaeaProberApi'
-import ArcaeaSongStatusList, {drawCountCharts, drawHealthCharts} from '../components/ArcaeaSongStatusList'
+import ArcaeaSongs, {drawCountCharts, drawHealthCharts} from '../components/ArcaeaSongs'
 
 const initArcaeaSongs = {c11: [], c10p: [], c10: [], c9p: [], c9: [], c8: [], c7: []}
 const initArcaeaUserInfo = {name: null, code: null, ptt: null, join_date: null}
@@ -82,13 +82,13 @@ export default () => {
               <Tab label="7" value="7" />
             </TabList>
           </AppBar>
-          <TabPanel value="11"><ArcaeaSongStatusList songs={c11} /></TabPanel>
-          <TabPanel value="10p"><ArcaeaSongStatusList songs={c10p} /></TabPanel>
-          <TabPanel value="10"><ArcaeaSongStatusList songs={c10} /></TabPanel>
-          <TabPanel value="9p"><ArcaeaSongStatusList songs={c9p} /></TabPanel>
-          <TabPanel value="9"><ArcaeaSongStatusList songs={c9} /></TabPanel>
-          <TabPanel value="8"><ArcaeaSongStatusList songs={c8} /></TabPanel>
-          <TabPanel value="7"><ArcaeaSongStatusList songs={c7} /></TabPanel>
+          <TabPanel value="11"><ArcaeaSongs songs={c11} /></TabPanel>
+          <TabPanel value="10p"><ArcaeaSongs songs={c10p} /></TabPanel>
+          <TabPanel value="10"><ArcaeaSongs songs={c10} /></TabPanel>
+          <TabPanel value="9p"><ArcaeaSongs songs={c9p} /></TabPanel>
+          <TabPanel value="9"><ArcaeaSongs songs={c9} /></TabPanel>
+          <TabPanel value="8"><ArcaeaSongs songs={c8} /></TabPanel>
+          <TabPanel value="7"><ArcaeaSongs songs={c7} /></TabPanel>
         </TabContext>
       </CardContent>
     </Card>
