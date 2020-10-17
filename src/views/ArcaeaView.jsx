@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import {Card, CardContent, Divider, AppBar, Tab, Typography} from '@material-ui/core'
 import {TabList, TabPanel, TabContext} from '@material-ui/lab'
 import arcaeaProberApi from '../apis/arcaeaProberApi'
-import ArcaeaSongs, {drawCountCharts, drawHealthCharts} from '../components/ArcaeaSongs'
+import ArcaeaSongs from '../components/ArcaeaSongs'
 import ArcaeaUserInfo from '../components/ArcaeaUserInfo'
 
 const initArcaeaSongs = {'11': [], '10+': [], '10': [], '9+': [], '9': [], '8': [], '7': []}
@@ -18,26 +18,11 @@ export default () => {
     setTabNum(newTabNum)
   }
 
-  const handleCharts = (tabNum) => {
-    const {songs} = arcaeaProberData
-
-    const countChartElems = document.querySelectorAll('div.echart-pie')
-    drawCountCharts(countChartElems, songs[tabNum])
-
-    const healthChartElems = document.querySelectorAll('div.echart-bar')
-    drawHealthCharts(healthChartElems, songs[tabNum])
-  }
-
   useEffect(() => {
     arcaeaProberApi().then(data => {
       setArcaeaProberData(data)
-      handleCharts('10')
     })
   }, [])
-
-  useEffect(() => {
-    handleCharts(tabNum)
-  }, [tabNum])
 
   const {songs, userInfo} = arcaeaProberData
   const {'11': s11, '10+': s10p, '10': s10, '9+': s9p, '9': s9, '8': s8, '7': s7} = songs
