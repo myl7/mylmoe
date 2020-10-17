@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react'
-import {Card, CardContent, Divider, AppBar, Tab, Typography, Box} from '@material-ui/core'
+import {Card, CardContent, Divider, AppBar, Tab, Typography} from '@material-ui/core'
 import {TabList, TabPanel, TabContext} from '@material-ui/lab'
-import dayjs from 'dayjs'
 import arcaeaProberApi from '../apis/arcaeaProberApi'
 import ArcaeaSongs, {drawCountCharts, drawHealthCharts} from '../components/ArcaeaSongs'
+import ArcaeaUserInfo from '../components/ArcaeaUserInfo'
 
 const initArcaeaSongs = {c11: [], c10p: [], c10: [], c9p: [], c9: [], c8: [], c7: []}
 const initArcaeaUserInfo = {name: null, code: null, ptt: null, join_date: null}
@@ -58,17 +58,8 @@ export default () => {
           Arcaea
         </Typography>
         <Divider style={{marginTop: '0.5em', marginBottom: '0.5em'}} />
-        <Typography variant={'body1'}>
-          <Typography component={'span'} variant={'h5'}>
-            {userInfo.name}
-          </Typography>
-          {' '}
-          <Box component={'span'} fontWeight={'fontWeightLight'}>
-            {userInfo.code}
-          </Box>
-          {' '}| PTT {userInfo.ptt / 100} | Join at{' '}
-          {dayjs.utc(userInfo.join_date).local().format('YYYY-MM-DD HH:mm:ss')}
-        </Typography>
+
+        <ArcaeaUserInfo userInfo={userInfo} />
 
         <TabContext value={tabNum} style={{marginTop: '0.5em'}}>
           <AppBar>
