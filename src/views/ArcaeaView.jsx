@@ -13,15 +13,20 @@ export default () => {
     songs: initArcaeaSongs, user_info: initArcaeaUserInfo
   })
 
+  const handleCharts = (tabNum) => {
+    const {songs} = arcaeaProberData
+
+    const countChartElems = document.querySelectorAll('div.echart-pie')
+    drawCountCharts(countChartElems, songs['c' + tabNum])
+
+    const healthChartElems = document.querySelectorAll('div.echart-bar')
+    drawHealthCharts(healthChartElems, songs['c' + tabNum])
+  }
+
   useEffect(() => {
     arcaeaProberApi().then(data => {
       setArcaeaProberData(data)
-
-      const countChartElems = document.querySelectorAll('div.echart-pie')
-      drawCountCharts(countChartElems, data.songs)
-
-      const healthChartElems = document.querySelectorAll('div.echart-bar')
-      drawHealthCharts(healthChartElems, data.songs)
+      handleCharts('10')
     })
   }, [])
 
@@ -30,8 +35,22 @@ export default () => {
     setTabNum(newTabNum)
   }
 
-  const [songs, userInfo] = arcaeaProberData
-  const [c11, c10p, c10, c9p, c9, c8, c7] = songs
+  useEffect(() => {
+    handleCharts(tabNum)
+  }, [tabNum])
+
+  useEffect(() => {
+    const {songs} = arcaeaProberData
+
+    const countChartElems = document.querySelectorAll('div.echart-pie')
+    drawCountCharts(countChartElems, songs['c' + tabNum])
+
+    const healthChartElems = document.querySelectorAll('div.echart-bar')
+    drawHealthCharts(healthChartElems, songs['c' + tabNum])
+  }, [tabNum])
+
+  const {songs, user_info: userInfo} = arcaeaProberData
+  const {c11, c10p, c10, c9p, c9, c8, c7} = songs
   return (
     <Card>
       <CardContent>
@@ -55,18 +74,18 @@ export default () => {
           <AppBar>
             <TabList onChange={handleTabSwitch} aria-label={'select Arcaea song levels'}>
               <Tab label="11" value="11" />
-              <Tab label="10+" value="10+" />
+              <Tab label="10+" value="10p" />
               <Tab label="10" value="10" />
-              <Tab label="9+" value="9+" />
+              <Tab label="9+" value="9p" />
               <Tab label="9" value="9" />
               <Tab label="8" value="8" />
               <Tab label="7" value="7" />
             </TabList>
           </AppBar>
           <TabPanel value="11"><ArcaeaSongStatusList songs={c11} /></TabPanel>
-          <TabPanel value="10+"><ArcaeaSongStatusList songs={c10p} /></TabPanel>
+          <TabPanel value="10p"><ArcaeaSongStatusList songs={c10p} /></TabPanel>
           <TabPanel value="10"><ArcaeaSongStatusList songs={c10} /></TabPanel>
-          <TabPanel value="9+"><ArcaeaSongStatusList songs={c9p} /></TabPanel>
+          <TabPanel value="9p"><ArcaeaSongStatusList songs={c9p} /></TabPanel>
           <TabPanel value="9"><ArcaeaSongStatusList songs={c9} /></TabPanel>
           <TabPanel value="8"><ArcaeaSongStatusList songs={c8} /></TabPanel>
           <TabPanel value="7"><ArcaeaSongStatusList songs={c7} /></TabPanel>
