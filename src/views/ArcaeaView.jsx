@@ -17,10 +17,10 @@ export default () => {
     const {songs} = arcaeaProberData
 
     const countChartElems = document.querySelectorAll('div.echart-pie')
-    drawCountCharts(countChartElems, songs['c' + tabNum])
+    drawCountCharts(countChartElems, songs[tabNum])
 
     const healthChartElems = document.querySelectorAll('div.echart-bar')
-    drawHealthCharts(healthChartElems, songs['c' + tabNum])
+    drawHealthCharts(healthChartElems, songs[tabNum])
   }
 
   useEffect(() => {
@@ -43,10 +43,10 @@ export default () => {
     const {songs} = arcaeaProberData
 
     const countChartElems = document.querySelectorAll('div.echart-pie')
-    drawCountCharts(countChartElems, songs['c' + tabNum])
+    drawCountCharts(countChartElems, songs[tabNum])
 
     const healthChartElems = document.querySelectorAll('div.echart-bar')
-    drawHealthCharts(healthChartElems, songs['c' + tabNum])
+    drawHealthCharts(healthChartElems, songs[tabNum])
   }, [tabNum])
 
   const {songs, userInfo} = arcaeaProberData
@@ -65,18 +65,18 @@ export default () => {
           <AppBar>
             <TabList onChange={handleTabSwitch} aria-label={'select Arcaea song levels'}>
               <Tab label="11" value="11" />
-              <Tab label="10+" value="10p" />
+              <Tab label="10+" value="10+" />
               <Tab label="10" value="10" />
-              <Tab label="9+" value="9p" />
+              <Tab label="9+" value="9+" />
               <Tab label="9" value="9" />
               <Tab label="8" value="8" />
               <Tab label="7" value="7" />
             </TabList>
           </AppBar>
           <TabPanel value="11"><ArcaeaSongs songs={c11} /></TabPanel>
-          <TabPanel value="10p"><ArcaeaSongs songs={c10p} /></TabPanel>
+          <TabPanel value="10+"><ArcaeaSongs songs={c10p} /></TabPanel>
           <TabPanel value="10"><ArcaeaSongs songs={c10} /></TabPanel>
-          <TabPanel value="9p"><ArcaeaSongs songs={c9p} /></TabPanel>
+          <TabPanel value="9+"><ArcaeaSongs songs={c9p} /></TabPanel>
           <TabPanel value="9"><ArcaeaSongs songs={c9} /></TabPanel>
           <TabPanel value="8"><ArcaeaSongs songs={c8} /></TabPanel>
           <TabPanel value="7"><ArcaeaSongs songs={c7} /></TabPanel>
