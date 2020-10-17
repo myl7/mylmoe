@@ -10,7 +10,7 @@ const initArcaeaUserInfo = {name: null, code: null, ptt: null, join_date: null}
 
 export default () => {
   const [arcaeaProberData, setArcaeaProberData] = useState({
-    songs: initArcaeaSongs, user_info: initArcaeaUserInfo
+    songs: initArcaeaSongs, userInfo: initArcaeaUserInfo
   })
 
   const handleCharts = (tabNum) => {
@@ -49,7 +49,7 @@ export default () => {
     drawHealthCharts(healthChartElems, songs['c' + tabNum])
   }, [tabNum])
 
-  const {songs, user_info: userInfo} = arcaeaProberData
+  const {songs, userInfo} = arcaeaProberData
   const {c11, c10p, c10, c9p, c9, c8, c7} = songs
   return (
     <Card>

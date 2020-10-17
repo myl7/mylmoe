@@ -115,7 +115,7 @@ async def process_data(data):
 
     return {
         'songs': song_infos,
-        'user_info': {
+        'userInfo': {
             'id': user_info['user_id'],
             'name': user_info['name'],
             'recent_song_id': user_info['recent_score'][0]['song_id'],
