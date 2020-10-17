@@ -52,8 +52,8 @@ export default () => {
         <ArcaeaUserInfo userInfo={userInfo} />
 
         <TabContext value={tabNum} style={{marginTop: '0.5em'}}>
-          <AppBar>
-            <TabList onChange={handleTabSwitch} aria-label={'select Arcaea song levels'}>
+          <AppBar position={'sticky'}>
+            <TabList onChange={handleTabSwitch} aria-label={'select Arcaea song levels'} centered>
               <Tab label="11" value="11" />
               <Tab label="10+" value="10+" />
               <Tab label="10" value="10" />
