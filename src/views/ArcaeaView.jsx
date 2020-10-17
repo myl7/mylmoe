@@ -5,7 +5,7 @@ import arcaeaProberApi from '../apis/arcaeaProberApi'
 import ArcaeaSongs, {drawCountCharts, drawHealthCharts} from '../components/ArcaeaSongs'
 import ArcaeaUserInfo from '../components/ArcaeaUserInfo'
 
-const initArcaeaSongs = {c11: [], c10p: [], c10: [], c9p: [], c9: [], c8: [], c7: []}
+const initArcaeaSongs = {'11': [], '10+': [], '10': [], '9+': [], '9': [], '8': [], '7': []}
 const initArcaeaUserInfo = {name: null, code: null, ptt: null, join_date: null}
 
 export default () => {
@@ -50,7 +50,7 @@ export default () => {
   }, [tabNum])
 
   const {songs, userInfo} = arcaeaProberData
-  const {c11, c10p, c10, c9p, c9, c8, c7} = songs
+  const {'11': s11, '10+': s10p, '10': s10, '9+': s9p, '9': s9, '8': s8, '7': s7} = songs
   return (
     <Card>
       <CardContent>
@@ -73,13 +73,13 @@ export default () => {
               <Tab label="7" value="7" />
             </TabList>
           </AppBar>
-          <TabPanel value="11"><ArcaeaSongs songs={c11} /></TabPanel>
-          <TabPanel value="10+"><ArcaeaSongs songs={c10p} /></TabPanel>
-          <TabPanel value="10"><ArcaeaSongs songs={c10} /></TabPanel>
-          <TabPanel value="9+"><ArcaeaSongs songs={c9p} /></TabPanel>
-          <TabPanel value="9"><ArcaeaSongs songs={c9} /></TabPanel>
-          <TabPanel value="8"><ArcaeaSongs songs={c8} /></TabPanel>
-          <TabPanel value="7"><ArcaeaSongs songs={c7} /></TabPanel>
+          <TabPanel value="11"><ArcaeaSongs songs={s11} /></TabPanel>
+          <TabPanel value="10+"><ArcaeaSongs songs={s10p} /></TabPanel>
+          <TabPanel value="10"><ArcaeaSongs songs={s10} /></TabPanel>
+          <TabPanel value="9+"><ArcaeaSongs songs={s9p} /></TabPanel>
+          <TabPanel value="9"><ArcaeaSongs songs={s9} /></TabPanel>
+          <TabPanel value="8"><ArcaeaSongs songs={s8} /></TabPanel>
+          <TabPanel value="7"><ArcaeaSongs songs={s7} /></TabPanel>
         </TabContext>
       </CardContent>
     </Card>
