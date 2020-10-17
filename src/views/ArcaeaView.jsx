@@ -13,6 +13,11 @@ export default () => {
     songs: initArcaeaSongs, userInfo: initArcaeaUserInfo
   })
 
+  const [tabNum, setTabNum] = useState('10')
+  const handleTabSwitch = (_e, newTabNum) => {
+    setTabNum(newTabNum)
+  }
+
   const handleCharts = (tabNum) => {
     const {songs} = arcaeaProberData
 
@@ -30,23 +35,8 @@ export default () => {
     })
   }, [])
 
-  const [tabNum, setTabNum] = useState('10')
-  const handleTabSwitch = (_e, newTabNum) => {
-    setTabNum(newTabNum)
-  }
-
   useEffect(() => {
     handleCharts(tabNum)
-  }, [tabNum])
-
-  useEffect(() => {
-    const {songs} = arcaeaProberData
-
-    const countChartElems = document.querySelectorAll('div.echart-pie')
-    drawCountCharts(countChartElems, songs[tabNum])
-
-    const healthChartElems = document.querySelectorAll('div.echart-bar')
-    drawHealthCharts(healthChartElems, songs[tabNum])
   }, [tabNum])
 
   const {songs, userInfo} = arcaeaProberData
