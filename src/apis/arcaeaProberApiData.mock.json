@@ -1,1865 +1,1729 @@
 {
-  "songs": [
-    {
-      "id": "grievouslady",
-      "title": "Grievous Lady",
-      "score": 8573432,
-      "count": {
-        "strict_pure": 1019,
-        "pure": 1183,
-        "far": 120,
-        "lost": 147
-      },
-      "health": 3,
-      "play_date": "2020-09-21T16:30:37.856000",
-      "get_date": "1970-01-18T11:21:07.208000",
-      "clear_type": "Track Lost",
-      "constant": 11.3,
-      "rating": 8.21144
-    },
-    {
-      "id": "axiumcrisis",
-      "title": "Axium Crisis",
-      "score": 9168955,
-      "count": {
-        "strict_pure": 765,
-        "pure": 962,
-        "far": 82,
-        "lost": 50
-      },
-      "health": 99,
-      "play_date": "2020-09-20T16:05:01.956000",
-      "get_date": "1970-01-18T11:21:07.207000",
-      "clear_type": "Easy Clear",
-      "constant": 10.9,
-      "rating": 9.796516666666667
-    },
-    {
-      "id": "ifi",
-      "title": "#1f1e33",
-      "score": 8411531,
-      "count": {
-        "strict_pure": 999,
-        "pure": 1236,
-        "far": 179,
-        "lost": 161
-      },
-      "health": 0,
-      "play_date": "2020-10-12T04:28:29.786000",
-      "get_date": "1970-01-19T09:48:57.604000",
-      "clear_type": "Track Lost",
-      "constant": 10.9,
-      "rating": 7.27177
-    },
-    {
-      "id": "worldvanquisher",
-      "title": "World Vanquisher",
-      "score": 8654557,
-      "count": {
-        "strict_pure": 976,
-        "pure": 1176,
-        "far": 161,
-        "lost": 115
-      },
-      "health": 9,
-      "play_date": "2020-10-15T12:03:31.601000",
-      "get_date": "1970-01-19T00:56:13.202000",
-      "clear_type": "Track Lost",
-      "constant": 10.9,
-      "rating": 8.081856666666667
-    },
-    {
-      "id": "cyaegha",
-      "title": "Cyaegha",
-      "score": 9419921,
-      "count": {
-        "strict_pure": 1062,
-        "pure": 1259,
-        "far": 59,
-        "lost": 50
-      },
-      "health": 93,
-      "play_date": "2020-10-07T13:50:44.751000",
-      "get_date": "1970-01-18T23:25:26.406000",
-      "clear_type": "Easy Clear",
-      "constant": 10.8,
-      "rating": 10.53307
-    },
-    {
-      "id": "dantalion",
-      "title": "Dantalion",
-      "score": 8689965,
-      "count": {
-        "strict_pure": 941,
-        "pure": 1200,
-        "far": 165,
-        "lost": 111
-      },
-      "health": 16,
-      "play_date": "2020-10-07T14:09:20.725000",
-      "get_date": "1970-01-19T09:48:57.603000",
-      "clear_type": "Track Lost",
-      "constant": 10.8,
-      "rating": 8.099883333333334
-    },
-    {
-      "id": "ringedgenesis",
-      "title": "Ringed Genesis",
-      "score": 8718026,
-      "count": {
-        "strict_pure": 749,
-        "pure": 941,
-        "far": 116,
-        "lost": 89
-      },
-      "health": 5,
-      "play_date": "2020-09-19T16:15:08.892000",
-      "get_date": "1970-01-19T02:16:48.004000",
-      "clear_type": "Track Lost",
-      "constant": 10.8,
-      "rating": 8.19342
-    },
-    {
-      "id": "singularity",
-      "title": "Singularity",
-      "score": 9353699,
-      "count": {
-        "strict_pure": 758,
-        "pure": 988,
-        "far": 91,
-        "lost": 26
-      },
-      "health": 99,
-      "play_date": "2020-10-09T08:33:38.203000",
-      "get_date": "1970-01-18T14:42:43.204000",
-      "clear_type": "Easy Clear",
-      "constant": 10.7,
-      "rating": 10.21233
-    },
-    {
-      "id": "halcyon",
-      "title": "Halcyon",
-      "score": 9381535,
-      "count": {
-        "strict_pure": 932,
-        "pure": 1109,
-        "far": 84,
-        "lost": 34
-      },
-      "health": 100,
-      "play_date": "2020-10-12T04:31:56.543000",
-      "get_date": "1970-01-18T17:28:19.206000",
-      "clear_type": "Easy Clear",
-      "constant": 10.7,
-      "rating": 10.305116666666667
-    },
-    {
-      "id": "ikazuchi",
-      "title": "怒槌",
-      "score": 9288253,
-      "count": {
-        "strict_pure": 948,
-        "pure": 1198,
-        "far": 106,
-        "lost": 43
-      },
-      "health": 100,
-      "play_date": "2020-10-13T18:05:11.699000",
-      "get_date": "1970-01-19T00:56:13.201000",
-      "clear_type": "Easy Clear",
-      "constant": 10.5,
-      "rating": 9.794176666666667
-    },
-    {
-      "id": "valhallazero",
-      "title": "Valhalla:0",
-      "score": 9340203,
-      "count": {
-        "strict_pure": 903,
-        "pure": 1059,
-        "far": 73,
-        "lost": 41
-      },
-      "health": 95,
-      "play_date": "2020-09-07T15:27:22.918000",
-      "get_date": "1970-01-19T03:07:12.004000",
-      "clear_type": "Easy Clear",
-      "constant": 10.4,
-      "rating": 9.867343333333334
-    },
-    {
-      "id": "garakuta",
-      "title": "Garakuta Doll Play",
-      "score": 9227816,
-      "count": {
-        "strict_pure": 763,
-        "pure": 923,
-        "far": 64,
-        "lost": 48
-      },
-      "health": 68,
-      "play_date": "2020-09-12T07:10:40.161000",
-      "get_date": "1970-01-19T00:56:13.200000",
-      "clear_type": "Easy Clear",
-      "constant": 10.4,
-      "rating": 9.49272
-    },
-    {
-      "id": "nirvluce",
-      "title": "Nirv lucE",
-      "score": 9311913,
-      "count": {
-        "strict_pure": 689,
-        "pure": 863,
-        "far": 99,
-        "lost": 18
-      },
-      "health": 100,
-      "play_date": "2020-10-14T08:13:03.443000",
-      "get_date": "1970-01-18T07:09:07.205000",
-      "clear_type": "Easy Clear",
-      "constant": 10.3,
-      "rating": 9.673043333333334
-    },
-    {
-      "id": "etherstrike",
-      "title": "Ether Strike",
-      "score": 9107705,
-      "count": {
-        "strict_pure": 868,
-        "pure": 1023,
-        "far": 85,
-        "lost": 62
-      },
-      "health": 48,
-      "play_date": "2020-09-12T05:04:37.925000",
-      "get_date": "1970-01-18T17:28:19.207000",
-      "clear_type": "Track Lost",
-      "constant": 10.3,
-      "rating": 8.99235
-    },
-    {
-      "id": "metallicpunisher",
-      "title": "Metallic Punisher",
-      "score": 9112316,
-      "count": {
-        "strict_pure": 846,
-        "pure": 1055,
-        "far": 146,
-        "lost": 37
-      },
-      "health": 98,
-      "play_date": "2020-10-15T11:55:49.504000",
-      "get_date": "1970-01-18T13:48:00",
-      "clear_type": "Easy Clear",
-      "constant": 10.2,
-      "rating": 8.90772
-    },
-    {
-      "id": "sheriruth",
-      "title": "Sheriruth",
-      "score": 9618591,
-      "count": {
-        "strict_pure": 868,
-        "pure": 1087,
-        "far": 40,
-        "lost": 24
-      },
-      "health": 17,
-      "play_date": "2020-09-06T03:16:20.390000",
-      "get_date": "1970-01-18T05:19:40.818000",
-      "clear_type": "Easy Clear",
-      "constant": 10.2,
-      "rating": 10.595303333333332
-    },
-    {
-      "id": "izana",
-      "title": "IZANA",
-      "score": 9211742,
-      "count": {
-        "strict_pure": 677,
-        "pure": 851,
-        "far": 96,
-        "lost": 29
-      },
-      "health": 96,
-      "play_date": "2020-10-07T14:27:39.906000",
-      "get_date": "1970-01-19T06:44:38.402000",
-      "clear_type": "Easy Clear",
-      "constant": 10.2,
-      "rating": 9.239139999999999
-    },
-    {
-      "id": "conflict",
-      "title": "conflict",
-      "score": 9522584,
-      "count": {
-        "strict_pure": 804,
-        "pure": 969,
-        "far": 73,
-        "lost": 14
-      },
-      "health": 100,
-      "play_date": "2020-10-12T15:05:42.104000",
-      "get_date": "1970-01-18T11:21:07.206000",
-      "clear_type": "Easy Clear",
-      "constant": 10.1,
-      "rating": 10.175279999999999
-    },
-    {
-      "id": "pragmatism",
-      "title": "PRAGMATISM",
-      "score": 9342515,
-      "count": {
-        "strict_pure": 690,
-        "pure": 845,
-        "far": 70,
-        "lost": 27
-      },
-      "health": 97,
-      "play_date": "2020-10-14T08:20:28.750000",
-      "get_date": "1970-01-18T05:19:40.817000",
-      "clear_type": "Easy Clear",
-      "constant": 10.1,
-      "rating": 9.57505
-    },
-    {
-      "id": "maliciousmischance",
-      "title": "Malicious Mischance",
-      "score": 9099341,
-      "count": {
-        "strict_pure": 762,
-        "pure": 966,
-        "far": 117,
-        "lost": 43
-      },
-      "health": 83,
-      "play_date": "2020-10-14T08:34:44.484000",
-      "get_date": "1970-01-19T12:12:57.600000",
-      "clear_type": "Easy Clear",
-      "constant": 10.1,
-      "rating": 8.76447
-    },
-    {
-      "id": "modelista",
-      "title": "Modelista",
-      "score": 9089780,
-      "count": {
-        "strict_pure": 672,
-        "pure": 869,
-        "far": 98,
-        "lost": 43
-      },
-      "health": 76,
-      "play_date": "2020-10-15T11:52:40.977000",
-      "get_date": "1970-01-18T10:12:00.001000",
-      "clear_type": "Easy Clear",
-      "constant": 10,
-      "rating": 8.6326
-    },
-    {
-      "id": "alexandrite",
-      "title": "Alexandrite",
-      "score": 9462306,
-      "count": {
-        "strict_pure": 768,
-        "pure": 944,
-        "far": 80,
-        "lost": 16
-      },
-      "health": 100,
-      "play_date": "2020-10-14T08:08:59.449000",
-      "get_date": "1970-01-18T18:59:02.401000",
-      "clear_type": "Easy Clear",
-      "constant": 10,
-      "rating": 9.874353333333334
-    },
-    {
-      "id": "trappola",
-      "title": "妖艶魔女 -trappola bewitching-",
-      "score": 9665616,
-      "count": {
-        "strict_pure": 866,
-        "pure": 991,
-        "far": 36,
-        "lost": 17
-      },
-      "health": 100,
-      "play_date": "2020-09-10T02:58:42.597000",
-      "get_date": "1970-01-18T11:21:07.205000",
-      "clear_type": "Easy Clear",
-      "constant": 10,
-      "rating": 10.552053333333333
-    },
-    {
-      "id": "viciousheroism",
-      "title": "Vicious Heroism",
-      "score": 9735682,
-      "count": {
-        "strict_pure": 900,
-        "pure": 1092,
-        "far": 55,
-        "lost": 3
-      },
-      "health": 100,
-      "play_date": "2020-09-08T16:01:07.018000",
-      "get_date": "1970-01-18T23:25:26.405000",
-      "clear_type": "Easy Clear",
-      "constant": 10,
-      "rating": 10.785606666666666
-    },
-    {
-      "id": "mirzam",
-      "title": "Mirzam",
-      "score": 9690210,
-      "count": {
-        "strict_pure": 1032,
-        "pure": 1236,
-        "far": 53,
-        "lost": 14
-      },
-      "health": 100,
-      "play_date": "2020-10-12T16:20:55.482000",
-      "get_date": "1970-01-19T03:37:26.400000",
-      "clear_type": "Easy Clear",
-      "constant": 10,
-      "rating": 10.634033333333333
-    },
-    {
-      "id": "antagonism",
-      "title": "Antagonism",
-      "score": 9414123,
-      "count": {
-        "strict_pure": 814,
-        "pure": 1030,
-        "far": 90,
-        "lost": 22
-      },
-      "health": 91,
-      "play_date": "2020-09-12T05:07:55.416000",
-      "get_date": "1970-01-19T09:48:57.601000",
-      "clear_type": "Easy Clear",
-      "constant": 9.9,
-      "rating": 9.613743333333334
-    },
-    {
-      "id": "nhelv",
-      "title": "Nhelv",
-      "score": 8683074,
-      "count": {
-        "strict_pure": 764,
-        "pure": 899,
-        "far": 126,
-        "lost": 83
-      },
-      "health": 60,
-      "play_date": "2020-08-31T15:52:11.826000",
-      "get_date": "1970-01-18T18:04:19.200000",
-      "clear_type": "Track Lost",
-      "constant": 9.9,
-      "rating": 7.176913333333333
-    },
-    {
-      "id": "corruption",
-      "title": "Corruption",
-      "score": 9687918,
-      "count": {
-        "strict_pure": 1144,
-        "pure": 1244,
-        "far": 17,
-        "lost": 32
-      },
-      "health": 98,
-      "play_date": "2020-09-10T02:52:53.165000",
-      "get_date": "1970-01-18T23:25:26.404000",
-      "clear_type": "Easy Clear",
-      "constant": 9.9,
-      "rating": 10.526393333333333
-    },
-    {
-      "id": "heavensdoor",
-      "title": "Heavensdoor",
-      "score": 9778370,
-      "count": {
-        "strict_pure": 895,
-        "pure": 1061,
-        "far": 31,
-        "lost": 9
-      },
-      "health": 100,
-      "play_date": "2020-10-07T14:17:56.245000",
-      "get_date": "1970-01-19T02:16:48.003000",
-      "clear_type": "Easy Clear",
-      "constant": 9.9,
-      "rating": 10.8279
-    },
-    {
-      "id": "soundwitch",
-      "title": "SOUNDWiTCH",
-      "score": 9522858,
-      "count": {
-        "strict_pure": 566,
-        "pure": 723,
-        "far": 49,
-        "lost": 13
-      },
-      "health": 100,
-      "play_date": "2020-09-07T11:16:50.650000",
-      "get_date": "1970-01-18T11:21:07.204000",
-      "clear_type": "Easy Clear",
-      "constant": 9.9,
-      "rating": 9.976193333333335
-    },
-    {
-      "id": "arcahv",
-      "title": "Arcahv",
-      "score": 9198023,
-      "count": {
-        "strict_pure": 840,
-        "pure": 948,
-        "far": 63,
-        "lost": 54
-      },
-      "health": 58,
-      "play_date": "2020-08-31T07:48:20.119000",
-      "get_date": "1970-01-19T09:48:57.606000",
-      "clear_type": "Track Lost",
-      "constant": 9.9,
-      "rating": 8.89341
-    },
-    {
-      "id": "lostdesire",
-      "title": "Lost Desire",
-      "score": 9294620,
-      "count": {
-        "strict_pure": 860,
-        "pure": 1020,
-        "far": 105,
-        "lost": 29
-      },
-      "health": 100,
-      "play_date": "2020-10-14T08:17:16.251000",
-      "get_date": "1970-01-19T09:48:57.602000",
-      "clear_type": "Easy Clear",
-      "constant": 9.8,
-      "rating": 9.115400000000001
-    },
-    {
-      "id": "memoryforest",
-      "title": "Memory Forest",
-      "score": 9678747,
-      "count": {
-        "strict_pure": 833,
-        "pure": 930,
-        "far": 33,
-        "lost": 15
-      },
-      "health": 100,
-      "play_date": "2020-09-14T06:43:17.650000",
-      "get_date": "1970-01-18T14:42:43.203000",
-      "clear_type": "Easy Clear",
-      "constant": 9.8,
-      "rating": 10.395823333333334
-    },
-    {
-      "id": "sulfur",
-      "title": "Sulfur",
-      "score": 9646754,
-      "count": {
-        "strict_pure": 821,
-        "pure": 980,
-        "far": 56,
-        "lost": 9
-      },
-      "health": 100,
-      "play_date": "2020-10-12T04:07:21.457000",
-      "get_date": "1970-01-18T17:28:19.205000",
-      "clear_type": "Easy Clear",
-      "constant": 9.7,
-      "rating": 10.189179999999999
-    },
-    {
-      "id": "themessage",
-      "title": "The Message",
-      "score": 9834533,
-      "count": {
-        "strict_pure": 864,
-        "pure": 968,
-        "far": 15,
-        "lost": 9
-      },
-      "health": 100,
-      "play_date": "2020-08-31T15:21:41.296000",
-      "get_date": "1970-01-18T17:28:19.204000",
-      "clear_type": "Easy Clear",
-      "constant": 9.7,
-      "rating": 10.872665
-    },
-    {
-      "id": "blrink",
-      "title": "BLRINK",
-      "score": 9724938,
-      "count": {
-        "strict_pure": 801,
-        "pure": 968,
-        "far": 38,
-        "lost": 9
-      },
-      "health": 96,
-      "play_date": "2020-08-19T02:12:43.879000",
-      "get_date": "1970-01-19T07:55:12",
-      "clear_type": "Pure Memory",
-      "constant": 9.7,
-      "rating": 10.449793333333332
-    },
-    {
-      "id": "melodyoflove",
-      "title": "迷える音色は恋の唄",
-      "score": 9699990,
-      "count": {
-        "strict_pure": 742,
-        "pure": 890,
-        "far": 26,
-        "lost": 15
-      },
-      "health": 100,
-      "play_date": "2020-10-11T16:17:08.147000",
-      "get_date": "1970-01-19T03:07:12.002000",
-      "clear_type": "Easy Clear",
-      "constant": 9.7,
-      "rating": 10.366633333333333
-    },
-    {
-      "id": "blacklotus",
-      "title": "Black Lotus",
-      "score": 9456702,
-      "count": {
-        "strict_pure": 744,
-        "pure": 887,
-        "far": 51,
-        "lost": 27
-      },
-      "health": 100,
-      "play_date": "2020-10-11T16:00:11.226000",
-      "get_date": "1970-01-19T09:48:57.611000",
-      "clear_type": "Easy Clear",
-      "constant": 9.7,
-      "rating": 9.555673333333333
-    },
-    {
-      "id": "blackterritory",
-      "title": "Black Territory",
-      "score": 9578396,
-      "count": {
-        "strict_pure": 991,
-        "pure": 1123,
-        "far": 43,
-        "lost": 29
-      },
-      "health": 20,
-      "play_date": "2020-08-31T07:30:45.320000",
-      "get_date": "1970-01-18T23:25:26.403000",
-      "clear_type": "Easy Clear",
-      "constant": 9.7,
-      "rating": 9.961319999999999
-    },
-    {
-      "id": "espebranch",
-      "title": "白道、多希望羊と信じありく。",
-      "score": 9490453,
-      "count": {
-        "strict_pure": 850,
-        "pure": 984,
-        "far": 40,
-        "lost": 34
-      },
-      "health": 100,
-      "play_date": "2020-08-30T04:22:24.252000",
-      "get_date": "1970-01-18T18:34:33.600000",
-      "clear_type": "Easy Clear",
-      "constant": 9.6,
-      "rating": 9.568176666666666
-    },
-    {
-      "id": "vindication",
-      "title": "Vindication",
-      "score": 9828872,
-      "count": {
-        "strict_pure": 966,
-        "pure": 1046,
-        "far": 21,
-        "lost": 8
-      },
-      "health": 47,
-      "play_date": "2020-09-16T15:46:45.545000",
-      "get_date": "1970-01-19T02:16:48.002000",
-      "clear_type": "Pure Memory",
-      "constant": 9.6,
-      "rating": 10.74436
-    },
-    {
-      "id": "carminescythe",
-      "title": "carmine:scythe",
-      "score": 9640099,
-      "count": {
-        "strict_pure": 924,
-        "pure": 1101,
-        "far": 42,
-        "lost": 21
-      },
-      "health": 48,
-      "play_date": "2020-09-06T06:23:45.018000",
-      "get_date": "1970-01-18T15:11:56.400000",
-      "clear_type": "Easy Clear",
-      "constant": 9.6,
-      "rating": 10.066996666666666
-    },
-    {
-      "id": "darakunosono",
-      "title": "堕楽の園",
-      "score": 9788781,
-      "count": {
-        "strict_pure": 846,
-        "pure": 1024,
-        "far": 29,
-        "lost": 8
-      },
-      "health": 100,
-      "play_date": "2020-08-31T15:58:34.564000",
-      "get_date": "1970-01-18T17:28:19.202000",
-      "clear_type": "Pure Memory",
-      "constant": 9.6,
-      "rating": 10.562603333333334
-    },
-    {
-      "id": "dreaminattraction",
-      "title": "Dreamin' Attraction!!",
-      "score": 9646609,
-      "count": {
-        "strict_pure": 905,
-        "pure": 1066,
-        "far": 46,
-        "lost": 17
-      },
-      "health": 100,
-      "play_date": "2020-08-02T16:26:39.791000",
-      "get_date": "1970-01-18T11:21:07.201000",
-      "clear_type": "Easy Clear",
-      "constant": 9.6,
-      "rating": 10.088696666666666
-    },
-    {
-      "id": "aiueoon",
-      "title": "AI[UE]OON",
-      "score": 9793510,
-      "count": {
-        "strict_pure": 791,
-        "pure": 950,
-        "far": 37,
-        "lost": 2
-      },
-      "health": 100,
-      "play_date": "2020-08-19T02:00:13.682000",
-      "get_date": "1970-01-19T03:07:12.001000",
-      "clear_type": "Pure Memory",
-      "constant": 9.5,
-      "rating": 10.478366666666666
-    },
-    {
-      "id": "partyvinyl",
-      "title": "Party Vinyl",
-      "score": 9338049,
-      "count": {
-        "strict_pure": 549,
-        "pure": 710,
-        "far": 74,
-        "lost": 16
-      },
-      "health": 98,
-      "play_date": "2020-10-12T17:17:41.313000",
-      "get_date": "1970-01-18T07:09:07.204000",
-      "clear_type": "Easy Clear",
-      "constant": 9.5,
-      "rating": 8.960163333333334
-    },
-    {
-      "id": "cyberneciacatharsis",
-      "title": "Cybernecia Catharsis",
-      "score": 9747068,
-      "count": {
-        "strict_pure": 768,
-        "pure": 906,
-        "far": 32,
-        "lost": 8
-      },
-      "health": 84,
-      "play_date": "2020-09-17T04:35:44.281000",
-      "get_date": "1970-01-18T16:23:31.200000",
-      "clear_type": "Pure Memory",
-      "constant": 9.5,
-      "rating": 10.32356
-    },
-    {
-      "id": "redandblue",
-      "title": "Red and Blue",
-      "score": 9491826,
-      "count": {
-        "strict_pure": 702,
-        "pure": 789,
-        "far": 26,
-        "lost": 30
-      },
-      "health": 82,
-      "play_date": "2020-08-10T11:04:24.213000",
-      "get_date": "1970-01-18T11:21:07.202000",
-      "clear_type": "Easy Clear",
-      "constant": 9.4,
-      "rating": 9.372753333333334
-    },
-    {
-      "id": "crossover",
-      "title": "CROSS†OVER",
-      "score": 9676441,
-      "count": {
-        "strict_pure": 939,
-        "pure": 1045,
-        "far": 27,
-        "lost": 22
-      },
-      "health": 100,
-      "play_date": "2020-10-11T16:23:07.227000",
-      "get_date": "1970-01-19T13:00:28.801000",
-      "clear_type": "Easy Clear",
-      "constant": 9.4,
-      "rating": 9.988136666666668
-    },
-    {
-      "id": "vector",
-      "title": "VECTOЯ",
-      "score": 9427553,
-      "count": {
-        "strict_pure": 1072,
-        "pure": 1202,
-        "far": 45,
-        "lost": 52
-      },
-      "health": 84,
-      "play_date": "2020-09-18T05:27:21.410000",
-      "get_date": "1970-01-19T00:25:55.200000",
-      "clear_type": "Easy Clear",
-      "constant": 9.4,
-      "rating": 9.15851
-    },
-    {
-      "id": "equilibrium",
-      "title": "Equilibrium",
-      "score": 9758923,
-      "count": {
-        "strict_pure": 774,
-        "pure": 911,
-        "far": 34,
-        "lost": 6
-      },
-      "health": 100,
-      "play_date": "2020-10-07T14:12:06.452000",
-      "get_date": "1970-01-19T09:48:57.600000",
-      "clear_type": "Pure Memory",
-      "constant": 9.4,
-      "rating": 10.263076666666667
-    },
-    {
-      "id": "teriqma",
-      "title": "Teriqma",
-      "score": 9731490,
-      "count": {
-        "strict_pure": 677,
-        "pure": 834,
-        "far": 31,
-        "lost": 8
-      },
-      "health": 100,
-      "play_date": "2020-09-07T15:08:04.134000",
-      "get_date": "1970-01-19T11:00:57.600000",
-      "clear_type": "Easy Clear",
-      "constant": 9.4,
-      "rating": 10.171633333333334
-    },
-    {
-      "id": "blaster",
-      "title": "Blaster",
-      "score": 9776316,
-      "count": {
-        "strict_pure": 867,
-        "pure": 966,
-        "far": 27,
-        "lost": 9
-      },
-      "health": 59,
-      "play_date": "2020-09-17T04:44:45.222000",
-      "get_date": "1970-01-18T14:22:33.600000",
-      "clear_type": "Pure Memory",
-      "constant": 9.3,
-      "rating": 10.221053333333334
-    },
-    {
-      "id": "ignotus",
-      "title": "Ignotus",
-      "score": 9911290,
-      "count": {
-        "strict_pure": 1086,
-        "pure": 1208,
-        "far": 12,
-        "lost": 5
-      },
-      "health": 80,
-      "play_date": "2020-09-16T15:38:42.910000",
-      "get_date": "1970-01-18T08:42:43.200000",
-      "clear_type": "Pure Memory",
-      "constant": 9.3,
-      "rating": 10.85645
-    },
-    {
-      "id": "goodtek",
-      "title": "GOODTEK (Arcaea Edit)",
-      "score": 9727035,
-      "count": {
-        "strict_pure": 796,
-        "pure": 924,
-        "far": 35,
-        "lost": 9
-      },
-      "health": 96,
-      "play_date": "2020-07-31T14:55:19.247000",
-      "get_date": "1970-01-18T05:19:40.809000",
-      "clear_type": "Pure Memory",
-      "constant": 9.3,
-      "rating": 10.056783333333334
-    },
-    {
-      "id": "syro",
-      "title": "Syro",
-      "score": 9666191,
-      "count": {
-        "strict_pure": 974,
-        "pure": 1094,
-        "far": 35,
-        "lost": 21
-      },
-      "health": 100,
-      "play_date": "2020-08-05T05:15:37.734000",
-      "get_date": "1970-01-18T12:30:14.401000",
-      "clear_type": "Easy Clear",
-      "constant": 9.3,
-      "rating": 9.85397
-    },
-    {
-      "id": "lostcivilization",
-      "title": "Lost Civilization",
-      "score": 9868976,
-      "count": {
-        "strict_pure": 822,
-        "pure": 965,
-        "far": 16,
-        "lost": 5
-      },
-      "health": 60,
-      "play_date": "2020-09-17T04:38:32.743000",
-      "get_date": "1970-01-18T05:19:40.808000",
-      "clear_type": "Pure Memory",
-      "constant": 9.2,
-      "rating": 10.54488
-    },
-    {
-      "id": "strongholds",
-      "title": "Strongholds",
-      "score": 9664539,
-      "count": {
-        "strict_pure": 765,
-        "pure": 878,
-        "far": 26,
-        "lost": 18
-      },
-      "health": 100,
-      "play_date": "2020-10-12T04:35:08.510000",
-      "get_date": "1970-01-18T14:42:43.202000",
-      "clear_type": "Easy Clear",
-      "constant": 9.2,
-      "rating": 9.748463333333333
-    },
-    {
-      "id": "anokumene",
-      "title": "Anökumene",
-      "score": 9830293,
-      "count": {
-        "strict_pure": 681,
-        "pure": 827,
-        "far": 19,
-        "lost": 5
-      },
-      "health": 100,
-      "play_date": "2020-09-07T09:09:13.562000",
-      "get_date": "1970-01-18T06:24:28.801000",
-      "clear_type": "Easy Clear",
-      "constant": 9.2,
-      "rating": 10.351465
-    },
-    {
-      "id": "phantasia",
-      "title": "Phantasia",
-      "score": 9501794,
-      "count": {
-        "strict_pure": 744,
-        "pure": 878,
-        "far": 53,
-        "lost": 21
-      },
-      "health": 100,
-      "play_date": "2020-08-11T10:53:30.033000",
-      "get_date": "1970-01-18T20:44:09.600000",
-      "clear_type": "Easy Clear",
-      "constant": 9.2,
-      "rating": 9.205979999999998
-    },
-    {
-      "id": "rugie",
-      "title": "Rugie",
-      "score": 9672655,
-      "count": {
-        "strict_pure": 861,
-        "pure": 933,
-        "far": 20,
-        "lost": 22
-      },
-      "health": 100,
-      "play_date": "2020-09-07T09:06:31.374000",
-      "get_date": "1970-01-18T20:13:55.200000",
-      "clear_type": "Easy Clear",
-      "constant": 9.2,
-      "rating": 9.775516666666666
-    },
-    {
-      "id": "iconoclast",
-      "title": "Iconoclast",
-      "score": 9837194,
-      "count": {
-        "strict_pure": 717,
-        "pure": 778,
-        "far": 8,
-        "lost": 9
-      },
-      "health": 100,
-      "play_date": "2020-09-12T07:21:14.418000",
-      "get_date": "1970-01-18T11:21:07.203000",
-      "clear_type": "Easy Clear",
-      "constant": 9.1,
-      "rating": 10.285969999999999
-    },
-    {
-      "id": "qualia",
-      "title": "qualia -ideaesthesia-",
-      "score": 9780742,
-      "count": {
-        "strict_pure": 899,
-        "pure": 983,
-        "far": 33,
-        "lost": 6
-      },
-      "health": 100,
-      "play_date": "2020-07-31T10:53:23.992000",
-      "get_date": "1970-01-18T05:19:40.810000",
-      "clear_type": "Easy Clear",
-      "constant": 9.1,
-      "rating": 10.035806666666666
-    },
-    {
-      "id": "chronostasis",
-      "title": "Chronostasis",
-      "score": 9907974,
-      "count": {
-        "strict_pure": 769,
-        "pure": 900,
-        "far": 15,
-        "lost": 1
-      },
-      "health": 100,
-      "play_date": "2020-09-17T04:41:46.006000",
-      "get_date": "1970-01-18T07:36:28.800000",
-      "clear_type": "Normal Clear",
-      "constant": 9.1,
-      "rating": 10.63987
-    },
-    {
-      "id": "essenceoftwilight",
-      "title": "Essence of Twilight",
-      "score": 9851567,
-      "count": {
-        "strict_pure": 1069,
-        "pure": 1176,
-        "far": 20,
-        "lost": 8
-      },
-      "health": 100,
-      "play_date": "2020-09-12T07:28:13.457000",
-      "get_date": "1970-01-18T05:19:40.816000",
-      "clear_type": "Easy Clear",
-      "constant": 9.1,
-      "rating": 10.357835
-    },
-    {
-      "id": "flyburg",
-      "title": "フライブルクとエンドロウル",
-      "score": 9737368,
-      "count": {
-        "strict_pure": 809,
-        "pure": 894,
-        "far": 23,
-        "lost": 13
-      },
-      "health": 100,
-      "play_date": "2020-10-12T17:15:26.923000",
-      "get_date": "1970-01-18T07:09:07.203000",
-      "clear_type": "Easy Clear",
-      "constant": 9,
-      "rating": 9.791226666666667
-    },
-    {
-      "id": "kanagawa",
-      "title": "神奈川電脳暗渠",
-      "score": 9847998,
-      "count": {
-        "strict_pure": 1014,
-        "pure": 1085,
-        "far": 18,
-        "lost": 8
-      },
-      "health": 91,
-      "play_date": "2020-07-16T04:55:03.073000",
-      "get_date": "1970-01-18T07:36:28.801000",
-      "clear_type": "Pure Memory",
-      "constant": 9,
-      "rating": 10.23999
-    },
-    {
-      "id": "mazenine",
-      "title": "九番目の迷路",
-      "score": 9807153,
-      "count": {
-        "strict_pure": 702,
-        "pure": 755,
-        "far": 10,
-        "lost": 10
-      },
-      "health": 95,
-      "play_date": "2020-09-12T07:17:44.521000",
-      "get_date": "1970-01-18T17:28:19.203000",
-      "clear_type": "Pure Memory",
-      "constant": 8.9,
-      "rating": 9.935765
-    },
-    {
-      "id": "memoryfactory",
-      "title": "memoryfactory.lzh",
-      "score": 9554072,
-      "count": {
-        "strict_pure": 501,
-        "pure": 619,
-        "far": 46,
-        "lost": 7
-      },
-      "health": 100,
-      "play_date": "2020-10-07T14:00:00.322000",
-      "get_date": "1970-01-18T05:19:40.813000",
-      "clear_type": "Pure Memory",
-      "constant": 8.9,
-      "rating": 9.08024
-    },
-    {
-      "id": "antithese",
-      "title": "Antithese",
-      "score": 9863963,
-      "count": {
-        "strict_pure": 794,
-        "pure": 861,
-        "far": 8,
-        "lost": 8
-      },
-      "health": 96,
-      "play_date": "2020-09-23T08:50:22.273000",
-      "get_date": "1970-01-18T23:25:26.402000",
-      "clear_type": "Easy Clear",
-      "constant": 8.8,
-      "rating": 10.119815000000001
-    },
-    {
-      "id": "flashback",
-      "title": "Flashback",
-      "score": 9673557,
-      "count": {
-        "strict_pure": 660,
-        "pure": 805,
-        "far": 46,
-        "lost": 5
-      },
-      "health": 100,
-      "play_date": "2020-10-12T17:12:29.448000",
-      "get_date": "1970-01-18T07:09:07.202000",
-      "clear_type": "Easy Clear",
-      "constant": 8.8,
-      "rating": 9.378523333333334
-    },
-    {
-      "id": "nexttoyou",
-      "title": "next to you",
-      "score": 9903600,
-      "count": {
-        "strict_pure": 688,
-        "pure": 810,
-        "far": 12,
-        "lost": 2
-      },
-      "health": 100,
-      "play_date": "2020-09-23T09:14:21.670000",
-      "get_date": "1970-01-18T14:42:43.200000",
-      "clear_type": "Pure Memory",
-      "constant": 8.8,
-      "rating": 10.318000000000001
-    },
-    {
-      "id": "particlearts",
-      "title": "Particle Arts",
-      "score": 9844059,
-      "count": {
-        "strict_pure": 816,
-        "pure": 902,
-        "far": 17,
-        "lost": 6
-      },
-      "health": 100,
-      "play_date": "2020-09-12T07:31:21.452000",
-      "get_date": "1970-01-19T02:16:48.001000",
-      "clear_type": "Easy Clear",
-      "constant": 8.8,
-      "rating": 10.020295
-    },
-    {
-      "id": "solitarydream",
-      "title": "虚空の夢",
-      "score": 9841373,
-      "count": {
-        "strict_pure": 839,
-        "pure": 947,
-        "far": 19,
-        "lost": 6
-      },
-      "health": 98,
-      "play_date": "2020-09-12T07:25:04.520000",
-      "get_date": "1970-01-18T23:08:09.600000",
-      "clear_type": "Easy Clear",
-      "constant": 8.8,
-      "rating": 10.006865000000001
-    },
-    {
-      "id": "senkyou",
-      "title": "Senkyou",
-      "score": 9648089,
-      "count": {
-        "strict_pure": 787,
-        "pure": 907,
-        "far": 46,
-        "lost": 11
-      },
-      "health": 96,
-      "play_date": "2020-08-06T15:05:37.650000",
-      "get_date": "1970-01-19T05:15:21.600000",
-      "clear_type": "Pure Memory",
-      "constant": 8.7,
-      "rating": 9.193629999999999
-    },
-    {
-      "id": "grimheart",
-      "title": "Grimheart",
-      "score": 9865258,
-      "count": {
-        "strict_pure": 816,
-        "pure": 936,
-        "far": 20,
-        "lost": 3
-      },
-      "health": 100,
-      "play_date": "2020-09-14T06:58:00.265000",
-      "get_date": "1970-01-18T23:25:26.400000",
-      "clear_type": "Easy Clear",
-      "constant": 8.6,
-      "rating": 9.92629
-    },
-    {
-      "id": "silentrush",
-      "title": "Silent Rush",
-      "score": 9841408,
-      "count": {
-        "strict_pure": 813,
-        "pure": 919,
-        "far": 14,
-        "lost": 8
-      },
-      "health": 100,
-      "play_date": "2020-09-23T09:17:20.766000",
-      "get_date": "1970-01-18T14:42:43.201000",
-      "clear_type": "Easy Clear",
-      "constant": 8.6,
-      "rating": 9.807039999999999
-    },
-    {
-      "id": "freefall",
-      "title": "FREEF4LL",
-      "score": 9746687,
-      "count": {
-        "strict_pure": 842,
-        "pure": 982,
-        "far": 30,
-        "lost": 11
-      },
-      "health": 100,
-      "play_date": "2020-10-09T08:45:02.762000",
-      "get_date": "1970-01-19T04:14:52.801000",
-      "clear_type": "Easy Clear",
-      "constant": 8.6,
-      "rating": 9.42229
-    },
-    {
-      "id": "reinvent",
-      "title": "Reinvent",
-      "score": 9654396,
-      "count": {
-        "strict_pure": 641,
-        "pure": 800,
-        "far": 45,
-        "lost": 7
-      },
-      "health": 95,
-      "play_date": "2020-08-27T19:34:33.530000",
-      "get_date": "1970-01-18T12:30:14.400000",
-      "clear_type": "Pure Memory",
-      "constant": 8.5,
-      "rating": 9.014653333333333
-    },
-    {
-      "id": "worldexecuteme",
-      "title": "world.execute(me);",
-      "score": 9930235,
-      "count": {
-        "strict_pure": 741,
-        "pure": 840,
-        "far": 10,
-        "lost": 1
-      },
-      "health": 100,
-      "play_date": "2020-08-22T06:37:52.926000",
-      "get_date": "1970-01-19T07:30:43.200000",
-      "clear_type": "Normal Clear",
-      "constant": 8.5,
-      "rating": 10.151175
-    },
-    {
-      "id": "babaroque",
-      "title": "Babaroque",
-      "score": 9647899,
-      "count": {
-        "strict_pure": 622,
-        "pure": 757,
-        "far": 45,
-        "lost": 6
-      },
-      "health": 100,
-      "play_date": "2020-07-06T12:26:50.825000",
-      "get_date": "1970-01-18T05:19:40.807000",
-      "clear_type": "Pure Memory",
-      "constant": 8.5,
-      "rating": 8.992996666666667
-    },
-    {
-      "id": "dandelion",
-      "title": "Dandelion",
-      "score": 9615295,
-      "count": {
-        "strict_pure": 746,
-        "pure": 871,
-        "far": 29,
-        "lost": 21
-      },
-      "health": 15,
-      "play_date": "2020-07-06T12:30:07.602000",
-      "get_date": "1970-01-18T05:52:48",
-      "clear_type": "Pure Memory",
-      "constant": 8.5,
-      "rating": 8.884316666666667
-    },
-    {
-      "id": "chelsea",
-      "title": "Chelsea",
-      "score": 9615872,
-      "count": {
-        "strict_pure": 488,
-        "pure": 611,
-        "far": 28,
-        "lost": 11
-      },
-      "health": 100,
-      "play_date": "2020-07-31T11:34:17.014000",
-      "get_date": "1970-01-19T03:07:12",
-      "clear_type": "Easy Clear",
-      "constant": 8.5,
-      "rating": 8.88624
-    },
-    {
-      "id": "harutopia",
-      "title": "ハルトピア ~Utopia of Spring~",
-      "score": 9708758,
-      "count": {
-        "strict_pure": 936,
-        "pure": 1017,
-        "far": 26,
-        "lost": 18
-      },
-      "health": 36,
-      "play_date": "2020-07-06T12:23:42.572000",
-      "get_date": "1970-01-18T09:18:43.200000",
-      "clear_type": "Pure Memory",
-      "constant": 8.5,
-      "rating": 9.19586
-    },
-    {
-      "id": "viyella",
-      "title": "cry of viyella",
-      "score": 9804694,
-      "count": {
-        "strict_pure": 649,
-        "pure": 765,
-        "far": 21,
-        "lost": 5
-      },
-      "health": 100,
-      "play_date": "2020-09-07T15:24:13.665000",
-      "get_date": "1970-01-18T05:19:40.811000",
-      "clear_type": "Pure Memory",
-      "constant": 8.5,
-      "rating": 9.52347
-    },
-    {
-      "id": "snowwhite",
-      "title": "Snow White",
-      "score": 9530468,
-      "count": {
-        "strict_pure": 816,
-        "pure": 914,
-        "far": 36,
-        "lost": 28
-      },
-      "health": 21,
-      "play_date": "2020-07-06T12:38:57.226000",
-      "get_date": "1970-01-18T05:19:40.805000",
-      "clear_type": "Pure Memory",
-      "constant": 8.4,
-      "rating": 8.50156
-    },
-    {
-      "id": "rabbitintheblackroom",
-      "title": "Rabbit In The Black Room",
-      "score": 9832229,
-      "count": {
-        "strict_pure": 623,
-        "pure": 748,
-        "far": 22,
-        "lost": 2
-      },
-      "health": 99,
-      "play_date": "2020-09-17T04:32:48.070000",
-      "get_date": "1970-01-18T10:12:00",
-      "clear_type": "Normal Clear",
-      "constant": 8.4,
-      "rating": 9.561145
-    },
-    {
-      "id": "purgatorium",
-      "title": "Purgatorium",
-      "score": 9919485,
-      "count": {
-        "strict_pure": 869,
-        "pure": 972,
-        "far": 6,
-        "lost": 5
-      },
-      "health": 100,
-      "play_date": "2020-10-10T10:15:34.021000",
-      "get_date": "1970-01-18T18:59:02.400000",
-      "clear_type": "Pure Memory",
-      "constant": 8.4,
-      "rating": 9.997425
-    },
-    {
-      "id": "lumia",
-      "title": "Lumia",
-      "score": 9766699,
-      "count": {
-        "strict_pure": 831,
-        "pure": 926,
-        "far": 25,
-        "lost": 10
-      },
-      "health": 100,
-      "play_date": "2020-06-27T04:57:24.913000",
-      "get_date": "1970-01-18T05:19:40.815000",
-      "clear_type": "Pure Memory",
-      "constant": 8.4,
-      "rating": 9.288996666666668
-    },
-    {
-      "id": "tiemedowngently",
-      "title": "Tie me down gently",
-      "score": 9869393,
-      "count": {
-        "strict_pure": 609,
-        "pure": 707,
-        "far": 15,
-        "lost": 2
-      },
-      "health": 100,
-      "play_date": "2020-08-28T06:24:09.724000",
-      "get_date": "1970-01-19T03:07:12.003000",
-      "clear_type": "Easy Clear",
-      "constant": 8.3,
-      "rating": 9.646965000000002
-    },
-    {
-      "id": "shadesoflight",
-      "title": "Shades of Light in a Transcendent Realm",
-      "score": 9597931,
-      "count": {
-        "strict_pure": 931,
-        "pure": 1010,
-        "far": 28,
-        "lost": 29
-      },
-      "health": 90,
-      "play_date": "2020-06-28T18:20:49.039000",
-      "get_date": "1970-01-18T05:19:40.806000",
-      "clear_type": "Easy Clear",
-      "constant": 8.3,
-      "rating": 8.626436666666667
-    },
-    {
-      "id": "oblivia",
-      "title": "Oblivia",
-      "score": 9775932,
-      "count": {
-        "strict_pure": 828,
-        "pure": 921,
-        "far": 27,
-        "lost": 8
-      },
-      "health": 100,
-      "play_date": "2020-08-21T05:33:01.457000",
-      "get_date": "1970-01-19T08:18:14.400000",
-      "clear_type": "Pure Memory",
-      "constant": 8.3,
-      "rating": 9.219773333333334
-    },
-    {
-      "id": "bookmaker",
-      "title": "Bookmaker (2D Version)",
-      "score": 9920956,
-      "count": {
-        "strict_pure": 1028,
-        "pure": 1110,
-        "far": 10,
-        "lost": 4
-      },
-      "health": 100,
-      "play_date": "2020-08-21T05:39:56.016000",
-      "get_date": "1970-01-18T17:28:19.201000",
-      "clear_type": "Easy Clear",
-      "constant": 8.3,
-      "rating": 9.90478
-    },
-    {
-      "id": "lucifer",
-      "title": "Lucifer",
-      "score": 9907840,
-      "count": {
-        "strict_pure": 756,
-        "pure": 845,
-        "far": 16,
-        "lost": 0
-      },
-      "health": 100,
-      "play_date": "2020-08-06T15:02:04.868000",
-      "get_date": "1970-01-18T05:19:40.804000",
-      "clear_type": "Normal Clear",
-      "constant": 8.2,
-      "rating": 9.739199999999999
-    },
-    {
-      "id": "onelastdrive",
-      "title": "One Last Drive",
-      "score": 9599618,
-      "count": {
-        "strict_pure": 748,
-        "pure": 827,
-        "far": 45,
-        "lost": 13
-      },
-      "health": 100,
-      "play_date": "2020-06-28T18:14:37.829000",
-      "get_date": "1970-01-18T11:21:07.200000",
-      "clear_type": "Easy Clear",
-      "constant": 8.2,
-      "rating": 8.53206
-    },
-    {
-      "id": "hearditsaid",
-      "title": "I've heard it said",
-      "score": 9827138,
-      "count": {
-        "strict_pure": 750,
-        "pure": 840,
-        "far": 18,
-        "lost": 6
-      },
-      "health": 100,
-      "play_date": "2020-10-12T04:17:25.960000",
-      "get_date": "1970-01-18T05:19:40.812000",
-      "clear_type": "Pure Memory",
-      "constant": 8.1,
-      "rating": 9.23569
-    },
-    {
-      "id": "diode",
-      "title": "Diode",
-      "score": 9887801,
-      "count": {
-        "strict_pure": 636,
-        "pure": 699,
-        "far": 4,
-        "lost": 6
-      },
-      "health": 100,
-      "play_date": "2020-09-23T16:15:20.234000",
-      "get_date": "1970-01-19T04:14:52.800000",
-      "clear_type": "Pure Memory",
-      "constant": 8.1,
-      "rating": 9.539005
-    },
-    {
-      "id": "relentless",
-      "title": "Relentless",
-      "score": 9843270,
-      "count": {
-        "strict_pure": 906,
-        "pure": 991,
-        "far": 16,
-        "lost": 8
-      },
-      "health": 100,
-      "play_date": "2020-10-12T04:23:58.681000",
-      "get_date": "1970-01-18T05:19:40.814000",
-      "clear_type": "Pure Memory",
-      "constant": 8,
-      "rating": 9.21635
-    },
-    {
-      "id": "paradise",
-      "title": "Paradise",
-      "score": 9911456,
-      "count": {
-        "strict_pure": 620,
-        "pure": 716,
-        "far": 13,
-        "lost": 0
-      },
-      "health": 100,
-      "play_date": "2020-10-12T17:09:57.020000",
-      "get_date": "1970-01-18T07:09:07.201000",
-      "clear_type": "Normal Clear",
-      "constant": 7.5,
-      "rating": 9.05728
-    },
-    {
-      "id": "suomi",
-      "title": "Suomi",
-      "score": 9847928,
-      "count": {
-        "strict_pure": 740,
-        "pure": 799,
-        "far": 13,
-        "lost": 6
-      },
-      "health": 97,
-      "play_date": "2020-08-31T15:00:50.044000",
-      "get_date": "1970-01-18T17:28:19.200000",
-      "clear_type": "Full Recall",
-      "constant": 7.5,
-      "rating": 8.73964
-    },
-    {
-      "id": "rise",
-      "title": "Rise",
-      "score": 9810334,
-      "count": {
-        "strict_pure": 690,
-        "pure": 760,
-        "far": 26,
-        "lost": 2
-      },
-      "health": 100,
-      "play_date": "2020-08-27T19:28:36.598000",
-      "get_date": "1970-01-18T05:19:40.803000",
-      "clear_type": "Easy Clear",
-      "constant": 7.5,
-      "rating": 8.55167
-    },
-    {
-      "id": "inkarusi",
-      "title": "inkar-usi",
-      "score": 9795172,
-      "count": {
-        "strict_pure": 356,
-        "pure": 447,
-        "far": 13,
-        "lost": 3
-      },
-      "health": 100,
-      "play_date": "2020-07-05T21:29:49.206000",
-      "get_date": "1970-01-18T16:52:19.200000",
-      "clear_type": "Normal Clear",
-      "constant": 7.5,
-      "rating": 8.483906666666666
-    },
-    {
-      "id": "infinityheaven",
-      "title": "Infinity Heaven",
-      "score": 9912823,
-      "count": {
-        "strict_pure": 748,
-        "pure": 838,
-        "far": 15,
-        "lost": 0
-      },
-      "health": 100,
-      "play_date": "2020-07-05T21:27:01.283000",
-      "get_date": "1970-01-18T06:24:28.800000",
-      "clear_type": "Normal Clear",
-      "constant": 7.5,
-      "rating": 9.064115
-    },
-    {
-      "id": "brandnewworld",
-      "title": "Brand new world",
-      "score": 9886306,
-      "count": {
-        "strict_pure": 665,
-        "pure": 773,
-        "far": 10,
-        "lost": 4
-      },
-      "health": 100,
-      "play_date": "2020-07-05T20:28:01.780000",
-      "get_date": "1970-01-18T07:09:07.200000",
-      "clear_type": "Easy Clear",
-      "constant": 7.5,
-      "rating": 8.93153
-    },
-    {
-      "id": "clotho",
-      "title": "クロートーと星の観測者",
-      "score": 9868692,
-      "count": {
-        "strict_pure": 916,
-        "pure": 998,
-        "far": 19,
-        "lost": 4
-      },
-      "health": 100,
-      "play_date": "2020-07-05T20:30:50.430000",
-      "get_date": "1970-01-18T08:09:36",
-      "clear_type": "Easy Clear",
-      "constant": 7.5,
-      "rating": 8.84346
-    },
-    {
-      "id": "dement",
-      "title": "Dement ~after legend~",
-      "score": 9949339,
-      "count": {
-        "strict_pure": 886,
-        "pure": 961,
-        "far": 8,
-        "lost": 1
-      },
-      "health": 100,
-      "play_date": "2020-08-04T11:19:14.850000",
-      "get_date": "1970-01-18T05:52:48",
-      "clear_type": "Pure Memory",
-      "constant": 7.5,
-      "rating": 9.246695
-    },
-    {
-      "id": "sayonarahatsukoi",
-      "title": "Sayonara Hatsukoi",
-      "score": 9903012,
-      "count": {
-        "strict_pure": 610,
-        "pure": 654,
-        "far": 11,
-        "lost": 1
-      },
-      "health": 100,
-      "play_date": "2020-08-20T08:39:49.546000",
-      "get_date": "1970-01-18T05:19:40.800000",
-      "clear_type": "Pure Memory",
-      "constant": 7,
-      "rating": 8.51506
-    },
-    {
-      "id": "vexaria",
-      "title": "Vexaria",
-      "score": 9891678,
-      "count": {
-        "strict_pure": 670,
-        "pure": 723,
-        "far": 6,
-        "lost": 5
-      },
-      "health": 100,
-      "play_date": "2020-06-17T08:30:12.755000",
-      "get_date": "1970-01-18T05:19:40.802000",
-      "clear_type": "Easy Clear",
-      "constant": 7,
-      "rating": 8.45839
-    },
-    {
-      "id": "fairytale",
-      "title": "Fairytale",
-      "score": 9943177,
-      "count": {
-        "strict_pure": 722,
-        "pure": 776,
-        "far": 3,
-        "lost": 3
-      },
-      "health": 100,
-      "play_date": "2020-06-17T08:07:32.304000",
-      "get_date": "1970-01-18T05:19:40.801000",
-      "clear_type": "Normal Clear",
-      "constant": 7,
-      "rating": 8.715885
-    }
-  ],
+  "songs": {
+    "c11": [],
+    "c10p": [
+      {
+        "id": "ifi",
+        "title": "#1f1e33",
+        "score": 8411531,
+        "count": {
+          "strict_pure": 999,
+          "pure": 1236,
+          "far": 179,
+          "lost": 161
+        },
+        "health": 0,
+        "play_date": "2020-10-12T04:28:29.786000",
+        "get_date": "1970-01-19T09:48:57.604000",
+        "clear_type": "Track Lost",
+        "constant": 10.9,
+        "rating": 7.27177
+      },
+      {
+        "id": "worldvanquisher",
+        "title": "World Vanquisher",
+        "score": 8654557,
+        "count": {
+          "strict_pure": 976,
+          "pure": 1176,
+          "far": 161,
+          "lost": 115
+        },
+        "health": 9,
+        "play_date": "2020-10-15T12:03:31.601000",
+        "get_date": "1970-01-19T00:56:13.202000",
+        "clear_type": "Track Lost",
+        "constant": 10.9,
+        "rating": 8.081856666666667
+      },
+      {
+        "id": "cyaegha",
+        "title": "Cyaegha",
+        "score": 9419921,
+        "count": {
+          "strict_pure": 1062,
+          "pure": 1259,
+          "far": 59,
+          "lost": 50
+        },
+        "health": 93,
+        "play_date": "2020-10-07T13:50:44.751000",
+        "get_date": "1970-01-18T23:25:26.406000",
+        "clear_type": "Easy Clear",
+        "constant": 10.8,
+        "rating": 10.53307
+      },
+      {
+        "id": "dantalion",
+        "title": "Dantalion",
+        "score": 8689965,
+        "count": {
+          "strict_pure": 941,
+          "pure": 1200,
+          "far": 165,
+          "lost": 111
+        },
+        "health": 16,
+        "play_date": "2020-10-07T14:09:20.725000",
+        "get_date": "1970-01-19T09:48:57.603000",
+        "clear_type": "Track Lost",
+        "constant": 10.8,
+        "rating": 8.099883333333334
+      },
+      {
+        "id": "ringedgenesis",
+        "title": "Ringed Genesis",
+        "score": 8718026,
+        "count": {
+          "strict_pure": 749,
+          "pure": 941,
+          "far": 116,
+          "lost": 89
+        },
+        "health": 5,
+        "play_date": "2020-09-19T16:15:08.892000",
+        "get_date": "1970-01-19T02:16:48.004000",
+        "clear_type": "Track Lost",
+        "constant": 10.8,
+        "rating": 8.19342
+      },
+      {
+        "id": "singularity",
+        "title": "Singularity",
+        "score": 9353699,
+        "count": {
+          "strict_pure": 758,
+          "pure": 988,
+          "far": 91,
+          "lost": 26
+        },
+        "health": 99,
+        "play_date": "2020-10-09T08:33:38.203000",
+        "get_date": "1970-01-18T14:42:43.204000",
+        "clear_type": "Easy Clear",
+        "constant": 10.7,
+        "rating": 10.21233
+      },
+      {
+        "id": "halcyon",
+        "title": "Halcyon",
+        "score": 9381535,
+        "count": {
+          "strict_pure": 932,
+          "pure": 1109,
+          "far": 84,
+          "lost": 34
+        },
+        "health": 100,
+        "play_date": "2020-10-12T04:31:56.543000",
+        "get_date": "1970-01-18T17:28:19.206000",
+        "clear_type": "Easy Clear",
+        "constant": 10.7,
+        "rating": 10.305116666666667
+      },
+      {
+        "id": "ikazuchi",
+        "title": "怒槌",
+        "score": 9288253,
+        "count": {
+          "strict_pure": 948,
+          "pure": 1198,
+          "far": 106,
+          "lost": 43
+        },
+        "health": 100,
+        "play_date": "2020-10-13T18:05:11.699000",
+        "get_date": "1970-01-19T00:56:13.201000",
+        "clear_type": "Easy Clear",
+        "constant": 10.5,
+        "rating": 9.794176666666667
+      }
+    ],
+    "c10": [
+      {
+        "id": "garakuta",
+        "title": "Garakuta Doll Play",
+        "score": 9227816,
+        "count": {
+          "strict_pure": 763,
+          "pure": 923,
+          "far": 64,
+          "lost": 48
+        },
+        "health": 68,
+        "play_date": "2020-09-12T07:10:40.161000",
+        "get_date": "1970-01-19T00:56:13.200000",
+        "clear_type": "Easy Clear",
+        "constant": 10.4,
+        "rating": 9.49272
+      },
+      {
+        "id": "nirvluce",
+        "title": "Nirv lucE",
+        "score": 9378271,
+        "count": {
+          "strict_pure": 720,
+          "pure": 879,
+          "far": 80,
+          "lost": 21
+        },
+        "health": 100,
+        "play_date": "2020-10-16T14:52:17.665000",
+        "get_date": "1970-01-18T07:09:07.205000",
+        "clear_type": "Easy Clear",
+        "constant": 10.3,
+        "rating": 9.894236666666668
+      },
+      {
+        "id": "etherstrike",
+        "title": "Ether Strike",
+        "score": 9107705,
+        "count": {
+          "strict_pure": 868,
+          "pure": 1023,
+          "far": 85,
+          "lost": 62
+        },
+        "health": 48,
+        "play_date": "2020-09-12T05:04:37.925000",
+        "get_date": "1970-01-18T17:28:19.207000",
+        "clear_type": "Track Lost",
+        "constant": 10.3,
+        "rating": 8.99235
+      },
+      {
+        "id": "metallicpunisher",
+        "title": "Metallic Punisher",
+        "score": 9176985,
+        "count": {
+          "strict_pure": 895,
+          "pure": 1092,
+          "far": 88,
+          "lost": 58
+        },
+        "health": 66,
+        "play_date": "2020-10-16T14:43:10.747000",
+        "get_date": "1970-01-18T13:48:00",
+        "clear_type": "Easy Clear",
+        "constant": 10.2,
+        "rating": 9.123283333333333
+      },
+      {
+        "id": "sheriruth",
+        "title": "Sheriruth",
+        "score": 9618591,
+        "count": {
+          "strict_pure": 868,
+          "pure": 1087,
+          "far": 40,
+          "lost": 24
+        },
+        "health": 17,
+        "play_date": "2020-09-06T03:16:20.390000",
+        "get_date": "1970-01-18T05:19:40.818000",
+        "clear_type": "Easy Clear",
+        "constant": 10.2,
+        "rating": 10.595303333333332
+      },
+      {
+        "id": "izana",
+        "title": "IZANA",
+        "score": 9211742,
+        "count": {
+          "strict_pure": 677,
+          "pure": 851,
+          "far": 96,
+          "lost": 29
+        },
+        "health": 96,
+        "play_date": "2020-10-07T14:27:39.906000",
+        "get_date": "1970-01-19T06:44:38.402000",
+        "clear_type": "Easy Clear",
+        "constant": 10.2,
+        "rating": 9.239139999999999
+      },
+      {
+        "id": "conflict",
+        "title": "conflict",
+        "score": 9522584,
+        "count": {
+          "strict_pure": 804,
+          "pure": 969,
+          "far": 73,
+          "lost": 14
+        },
+        "health": 100,
+        "play_date": "2020-10-12T15:05:42.104000",
+        "get_date": "1970-01-18T11:21:07.206000",
+        "clear_type": "Easy Clear",
+        "constant": 10.1,
+        "rating": 10.175279999999999
+      },
+      {
+        "id": "pragmatism",
+        "title": "PRAGMATISM",
+        "score": 9342515,
+        "count": {
+          "strict_pure": 690,
+          "pure": 845,
+          "far": 70,
+          "lost": 27
+        },
+        "health": 97,
+        "play_date": "2020-10-14T08:20:28.750000",
+        "get_date": "1970-01-18T05:19:40.817000",
+        "clear_type": "Easy Clear",
+        "constant": 10.1,
+        "rating": 9.57505
+      },
+      {
+        "id": "maliciousmischance",
+        "title": "Malicious Mischance",
+        "score": 9428034,
+        "count": {
+          "strict_pure": 859,
+          "pure": 1026,
+          "far": 71,
+          "lost": 29
+        },
+        "health": 100,
+        "play_date": "2020-10-16T14:49:39.691000",
+        "get_date": "1970-01-19T12:12:57.600000",
+        "clear_type": "Easy Clear",
+        "constant": 10.1,
+        "rating": 9.860113333333333
+      },
+      {
+        "id": "modelista",
+        "title": "Modelista",
+        "score": 9089780,
+        "count": {
+          "strict_pure": 672,
+          "pure": 869,
+          "far": 98,
+          "lost": 43
+        },
+        "health": 76,
+        "play_date": "2020-10-15T11:52:40.977000",
+        "get_date": "1970-01-18T10:12:00.001000",
+        "clear_type": "Easy Clear",
+        "constant": 10,
+        "rating": 8.6326
+      },
+      {
+        "id": "alexandrite",
+        "title": "Alexandrite",
+        "score": 9462306,
+        "count": {
+          "strict_pure": 768,
+          "pure": 944,
+          "far": 80,
+          "lost": 16
+        },
+        "health": 100,
+        "play_date": "2020-10-14T08:08:59.449000",
+        "get_date": "1970-01-18T18:59:02.401000",
+        "clear_type": "Easy Clear",
+        "constant": 10,
+        "rating": 9.874353333333334
+      },
+      {
+        "id": "trappola",
+        "title": "妖艶魔女 -trappola bewitching-",
+        "score": 9665616,
+        "count": {
+          "strict_pure": 866,
+          "pure": 991,
+          "far": 36,
+          "lost": 17
+        },
+        "health": 100,
+        "play_date": "2020-09-10T02:58:42.597000",
+        "get_date": "1970-01-18T11:21:07.205000",
+        "clear_type": "Easy Clear",
+        "constant": 10,
+        "rating": 10.552053333333333
+      },
+      {
+        "id": "viciousheroism",
+        "title": "Vicious Heroism",
+        "score": 9735682,
+        "count": {
+          "strict_pure": 900,
+          "pure": 1092,
+          "far": 55,
+          "lost": 3
+        },
+        "health": 100,
+        "play_date": "2020-09-08T16:01:07.018000",
+        "get_date": "1970-01-18T23:25:26.405000",
+        "clear_type": "Easy Clear",
+        "constant": 10,
+        "rating": 10.785606666666666
+      },
+      {
+        "id": "mirzam",
+        "title": "Mirzam",
+        "score": 9690210,
+        "count": {
+          "strict_pure": 1032,
+          "pure": 1236,
+          "far": 53,
+          "lost": 14
+        },
+        "health": 100,
+        "play_date": "2020-10-12T16:20:55.482000",
+        "get_date": "1970-01-19T03:37:26.400000",
+        "clear_type": "Easy Clear",
+        "constant": 10,
+        "rating": 10.634033333333333
+      }
+    ],
+    "c9p": [
+      {
+        "id": "nhelv",
+        "title": "Nhelv",
+        "score": 8683074,
+        "count": {
+          "strict_pure": 764,
+          "pure": 899,
+          "far": 126,
+          "lost": 83
+        },
+        "health": 60,
+        "play_date": "2020-08-31T15:52:11.826000",
+        "get_date": "1970-01-18T18:04:19.200000",
+        "clear_type": "Track Lost",
+        "constant": 9.9,
+        "rating": 7.176913333333333
+      },
+      {
+        "id": "corruption",
+        "title": "Corruption",
+        "score": 9687918,
+        "count": {
+          "strict_pure": 1144,
+          "pure": 1244,
+          "far": 17,
+          "lost": 32
+        },
+        "health": 98,
+        "play_date": "2020-09-10T02:52:53.165000",
+        "get_date": "1970-01-18T23:25:26.404000",
+        "clear_type": "Easy Clear",
+        "constant": 9.9,
+        "rating": 10.526393333333333
+      },
+      {
+        "id": "heavensdoor",
+        "title": "Heavensdoor",
+        "score": 9778370,
+        "count": {
+          "strict_pure": 895,
+          "pure": 1061,
+          "far": 31,
+          "lost": 9
+        },
+        "health": 100,
+        "play_date": "2020-10-07T14:17:56.245000",
+        "get_date": "1970-01-19T02:16:48.003000",
+        "clear_type": "Easy Clear",
+        "constant": 9.9,
+        "rating": 10.8279
+      },
+      {
+        "id": "soundwitch",
+        "title": "SOUNDWiTCH",
+        "score": 9522858,
+        "count": {
+          "strict_pure": 566,
+          "pure": 723,
+          "far": 49,
+          "lost": 13
+        },
+        "health": 100,
+        "play_date": "2020-09-07T11:16:50.650000",
+        "get_date": "1970-01-18T11:21:07.204000",
+        "clear_type": "Easy Clear",
+        "constant": 9.9,
+        "rating": 9.976193333333335
+      },
+      {
+        "id": "arcahv",
+        "title": "Arcahv",
+        "score": 9198023,
+        "count": {
+          "strict_pure": 840,
+          "pure": 948,
+          "far": 63,
+          "lost": 54
+        },
+        "health": 58,
+        "play_date": "2020-08-31T07:48:20.119000",
+        "get_date": "1970-01-19T09:48:57.606000",
+        "clear_type": "Track Lost",
+        "constant": 9.9,
+        "rating": 8.89341
+      },
+      {
+        "id": "lostdesire",
+        "title": "Lost Desire",
+        "score": 9294620,
+        "count": {
+          "strict_pure": 860,
+          "pure": 1020,
+          "far": 105,
+          "lost": 29
+        },
+        "health": 100,
+        "play_date": "2020-10-14T08:17:16.251000",
+        "get_date": "1970-01-19T09:48:57.602000",
+        "clear_type": "Easy Clear",
+        "constant": 9.8,
+        "rating": 9.115400000000001
+      },
+      {
+        "id": "memoryforest",
+        "title": "Memory Forest",
+        "score": 9678747,
+        "count": {
+          "strict_pure": 833,
+          "pure": 930,
+          "far": 33,
+          "lost": 15
+        },
+        "health": 100,
+        "play_date": "2020-09-14T06:43:17.650000",
+        "get_date": "1970-01-18T14:42:43.203000",
+        "clear_type": "Easy Clear",
+        "constant": 9.8,
+        "rating": 10.395823333333334
+      },
+      {
+        "id": "sulfur",
+        "title": "Sulfur",
+        "score": 9646754,
+        "count": {
+          "strict_pure": 821,
+          "pure": 980,
+          "far": 56,
+          "lost": 9
+        },
+        "health": 100,
+        "play_date": "2020-10-12T04:07:21.457000",
+        "get_date": "1970-01-18T17:28:19.205000",
+        "clear_type": "Easy Clear",
+        "constant": 9.7,
+        "rating": 10.189179999999999
+      },
+      {
+        "id": "themessage",
+        "title": "The Message",
+        "score": 9834533,
+        "count": {
+          "strict_pure": 864,
+          "pure": 968,
+          "far": 15,
+          "lost": 9
+        },
+        "health": 100,
+        "play_date": "2020-08-31T15:21:41.296000",
+        "get_date": "1970-01-18T17:28:19.204000",
+        "clear_type": "Easy Clear",
+        "constant": 9.7,
+        "rating": 10.872665
+      },
+      {
+        "id": "blrink",
+        "title": "BLRINK",
+        "score": 9724938,
+        "count": {
+          "strict_pure": 801,
+          "pure": 968,
+          "far": 38,
+          "lost": 9
+        },
+        "health": 96,
+        "play_date": "2020-08-19T02:12:43.879000",
+        "get_date": "1970-01-19T07:55:12",
+        "clear_type": "Pure Memory",
+        "constant": 9.7,
+        "rating": 10.449793333333332
+      },
+      {
+        "id": "melodyoflove",
+        "title": "迷える音色は恋の唄",
+        "score": 9699990,
+        "count": {
+          "strict_pure": 742,
+          "pure": 890,
+          "far": 26,
+          "lost": 15
+        },
+        "health": 100,
+        "play_date": "2020-10-11T16:17:08.147000",
+        "get_date": "1970-01-19T03:07:12.002000",
+        "clear_type": "Easy Clear",
+        "constant": 9.7,
+        "rating": 10.366633333333333
+      },
+      {
+        "id": "blacklotus",
+        "title": "Black Lotus",
+        "score": 9456702,
+        "count": {
+          "strict_pure": 744,
+          "pure": 887,
+          "far": 51,
+          "lost": 27
+        },
+        "health": 100,
+        "play_date": "2020-10-11T16:00:11.226000",
+        "get_date": "1970-01-19T09:48:57.611000",
+        "clear_type": "Easy Clear",
+        "constant": 9.7,
+        "rating": 9.555673333333333
+      },
+      {
+        "id": "blackterritory",
+        "title": "Black Territory",
+        "score": 9578396,
+        "count": {
+          "strict_pure": 991,
+          "pure": 1123,
+          "far": 43,
+          "lost": 29
+        },
+        "health": 20,
+        "play_date": "2020-08-31T07:30:45.320000",
+        "get_date": "1970-01-18T23:25:26.403000",
+        "clear_type": "Easy Clear",
+        "constant": 9.7,
+        "rating": 9.961319999999999
+      },
+      {
+        "id": "espebranch",
+        "title": "白道、多希望羊と信じありく。",
+        "score": 9490453,
+        "count": {
+          "strict_pure": 850,
+          "pure": 984,
+          "far": 40,
+          "lost": 34
+        },
+        "health": 100,
+        "play_date": "2020-08-30T04:22:24.252000",
+        "get_date": "1970-01-18T18:34:33.600000",
+        "clear_type": "Easy Clear",
+        "constant": 9.6,
+        "rating": 9.568176666666666
+      },
+      {
+        "id": "vindication",
+        "title": "Vindication",
+        "score": 9828872,
+        "count": {
+          "strict_pure": 966,
+          "pure": 1046,
+          "far": 21,
+          "lost": 8
+        },
+        "health": 47,
+        "play_date": "2020-09-16T15:46:45.545000",
+        "get_date": "1970-01-19T02:16:48.002000",
+        "clear_type": "Pure Memory",
+        "constant": 9.6,
+        "rating": 10.74436
+      },
+      {
+        "id": "carminescythe",
+        "title": "carmine:scythe",
+        "score": 9640099,
+        "count": {
+          "strict_pure": 924,
+          "pure": 1101,
+          "far": 42,
+          "lost": 21
+        },
+        "health": 48,
+        "play_date": "2020-09-06T06:23:45.018000",
+        "get_date": "1970-01-18T15:11:56.400000",
+        "clear_type": "Easy Clear",
+        "constant": 9.6,
+        "rating": 10.066996666666666
+      },
+      {
+        "id": "darakunosono",
+        "title": "堕楽の園",
+        "score": 9788781,
+        "count": {
+          "strict_pure": 846,
+          "pure": 1024,
+          "far": 29,
+          "lost": 8
+        },
+        "health": 100,
+        "play_date": "2020-08-31T15:58:34.564000",
+        "get_date": "1970-01-18T17:28:19.202000",
+        "clear_type": "Pure Memory",
+        "constant": 9.6,
+        "rating": 10.562603333333334
+      },
+      {
+        "id": "dreaminattraction",
+        "title": "Dreamin' Attraction!!",
+        "score": 9646609,
+        "count": {
+          "strict_pure": 905,
+          "pure": 1066,
+          "far": 46,
+          "lost": 17
+        },
+        "health": 100,
+        "play_date": "2020-08-02T16:26:39.791000",
+        "get_date": "1970-01-18T11:21:07.201000",
+        "clear_type": "Easy Clear",
+        "constant": 9.6,
+        "rating": 10.088696666666666
+      },
+      {
+        "id": "aiueoon",
+        "title": "AI[UE]OON",
+        "score": 9793510,
+        "count": {
+          "strict_pure": 791,
+          "pure": 950,
+          "far": 37,
+          "lost": 2
+        },
+        "health": 100,
+        "play_date": "2020-08-19T02:00:13.682000",
+        "get_date": "1970-01-19T03:07:12.001000",
+        "clear_type": "Pure Memory",
+        "constant": 9.5,
+        "rating": 10.478366666666666
+      },
+      {
+        "id": "partyvinyl",
+        "title": "Party Vinyl",
+        "score": 9544366,
+        "count": {
+          "strict_pure": 616,
+          "pure": 745,
+          "far": 37,
+          "lost": 18
+        },
+        "health": 96,
+        "play_date": "2020-10-16T14:54:49.341000",
+        "get_date": "1970-01-18T07:09:07.204000",
+        "clear_type": "Easy Clear",
+        "constant": 9.5,
+        "rating": 9.647886666666666
+      },
+      {
+        "id": "cyberneciacatharsis",
+        "title": "Cybernecia Catharsis",
+        "score": 9747068,
+        "count": {
+          "strict_pure": 768,
+          "pure": 906,
+          "far": 32,
+          "lost": 8
+        },
+        "health": 84,
+        "play_date": "2020-09-17T04:35:44.281000",
+        "get_date": "1970-01-18T16:23:31.200000",
+        "clear_type": "Pure Memory",
+        "constant": 9.5,
+        "rating": 10.32356
+      }
+    ],
+    "c9": [
+      {
+        "id": "crossover",
+        "title": "CROSS†OVER",
+        "score": 9676441,
+        "count": {
+          "strict_pure": 939,
+          "pure": 1045,
+          "far": 27,
+          "lost": 22
+        },
+        "health": 100,
+        "play_date": "2020-10-11T16:23:07.227000",
+        "get_date": "1970-01-19T13:00:28.801000",
+        "clear_type": "Easy Clear",
+        "constant": 9.4,
+        "rating": 9.988136666666668
+      },
+      {
+        "id": "vector",
+        "title": "VECTOЯ",
+        "score": 9427553,
+        "count": {
+          "strict_pure": 1072,
+          "pure": 1202,
+          "far": 45,
+          "lost": 52
+        },
+        "health": 84,
+        "play_date": "2020-09-18T05:27:21.410000",
+        "get_date": "1970-01-19T00:25:55.200000",
+        "clear_type": "Easy Clear",
+        "constant": 9.4,
+        "rating": 9.15851
+      },
+      {
+        "id": "equilibrium",
+        "title": "Equilibrium",
+        "score": 9758923,
+        "count": {
+          "strict_pure": 774,
+          "pure": 911,
+          "far": 34,
+          "lost": 6
+        },
+        "health": 100,
+        "play_date": "2020-10-07T14:12:06.452000",
+        "get_date": "1970-01-19T09:48:57.600000",
+        "clear_type": "Pure Memory",
+        "constant": 9.4,
+        "rating": 10.263076666666667
+      },
+      {
+        "id": "teriqma",
+        "title": "Teriqma",
+        "score": 9731490,
+        "count": {
+          "strict_pure": 677,
+          "pure": 834,
+          "far": 31,
+          "lost": 8
+        },
+        "health": 100,
+        "play_date": "2020-09-07T15:08:04.134000",
+        "get_date": "1970-01-19T11:00:57.600000",
+        "clear_type": "Easy Clear",
+        "constant": 9.4,
+        "rating": 10.171633333333334
+      },
+      {
+        "id": "blaster",
+        "title": "Blaster",
+        "score": 9776316,
+        "count": {
+          "strict_pure": 867,
+          "pure": 966,
+          "far": 27,
+          "lost": 9
+        },
+        "health": 59,
+        "play_date": "2020-09-17T04:44:45.222000",
+        "get_date": "1970-01-18T14:22:33.600000",
+        "clear_type": "Pure Memory",
+        "constant": 9.3,
+        "rating": 10.221053333333334
+      },
+      {
+        "id": "ignotus",
+        "title": "Ignotus",
+        "score": 9911290,
+        "count": {
+          "strict_pure": 1086,
+          "pure": 1208,
+          "far": 12,
+          "lost": 5
+        },
+        "health": 80,
+        "play_date": "2020-09-16T15:38:42.910000",
+        "get_date": "1970-01-18T08:42:43.200000",
+        "clear_type": "Pure Memory",
+        "constant": 9.3,
+        "rating": 10.85645
+      },
+      {
+        "id": "goodtek",
+        "title": "GOODTEK (Arcaea Edit)",
+        "score": 9727035,
+        "count": {
+          "strict_pure": 796,
+          "pure": 924,
+          "far": 35,
+          "lost": 9
+        },
+        "health": 96,
+        "play_date": "2020-07-31T14:55:19.247000",
+        "get_date": "1970-01-18T05:19:40.809000",
+        "clear_type": "Pure Memory",
+        "constant": 9.3,
+        "rating": 10.056783333333334
+      },
+      {
+        "id": "syro",
+        "title": "Syro",
+        "score": 9666191,
+        "count": {
+          "strict_pure": 974,
+          "pure": 1094,
+          "far": 35,
+          "lost": 21
+        },
+        "health": 100,
+        "play_date": "2020-08-05T05:15:37.734000",
+        "get_date": "1970-01-18T12:30:14.401000",
+        "clear_type": "Easy Clear",
+        "constant": 9.3,
+        "rating": 9.85397
+      },
+      {
+        "id": "lostcivilization",
+        "title": "Lost Civilization",
+        "score": 9868976,
+        "count": {
+          "strict_pure": 822,
+          "pure": 965,
+          "far": 16,
+          "lost": 5
+        },
+        "health": 60,
+        "play_date": "2020-09-17T04:38:32.743000",
+        "get_date": "1970-01-18T05:19:40.808000",
+        "clear_type": "Pure Memory",
+        "constant": 9.2,
+        "rating": 10.54488
+      },
+      {
+        "id": "strongholds",
+        "title": "Strongholds",
+        "score": 9664539,
+        "count": {
+          "strict_pure": 765,
+          "pure": 878,
+          "far": 26,
+          "lost": 18
+        },
+        "health": 100,
+        "play_date": "2020-10-12T04:35:08.510000",
+        "get_date": "1970-01-18T14:42:43.202000",
+        "clear_type": "Easy Clear",
+        "constant": 9.2,
+        "rating": 9.748463333333333
+      },
+      {
+        "id": "anokumene",
+        "title": "Anökumene",
+        "score": 9830293,
+        "count": {
+          "strict_pure": 681,
+          "pure": 827,
+          "far": 19,
+          "lost": 5
+        },
+        "health": 100,
+        "play_date": "2020-09-07T09:09:13.562000",
+        "get_date": "1970-01-18T06:24:28.801000",
+        "clear_type": "Easy Clear",
+        "constant": 9.2,
+        "rating": 10.351465
+      },
+      {
+        "id": "phantasia",
+        "title": "Phantasia",
+        "score": 9501794,
+        "count": {
+          "strict_pure": 744,
+          "pure": 878,
+          "far": 53,
+          "lost": 21
+        },
+        "health": 100,
+        "play_date": "2020-08-11T10:53:30.033000",
+        "get_date": "1970-01-18T20:44:09.600000",
+        "clear_type": "Easy Clear",
+        "constant": 9.2,
+        "rating": 9.205979999999998
+      },
+      {
+        "id": "rugie",
+        "title": "Rugie",
+        "score": 9672655,
+        "count": {
+          "strict_pure": 861,
+          "pure": 933,
+          "far": 20,
+          "lost": 22
+        },
+        "health": 100,
+        "play_date": "2020-09-07T09:06:31.374000",
+        "get_date": "1970-01-18T20:13:55.200000",
+        "clear_type": "Easy Clear",
+        "constant": 9.2,
+        "rating": 9.775516666666666
+      },
+      {
+        "id": "iconoclast",
+        "title": "Iconoclast",
+        "score": 9837194,
+        "count": {
+          "strict_pure": 717,
+          "pure": 778,
+          "far": 8,
+          "lost": 9
+        },
+        "health": 100,
+        "play_date": "2020-09-12T07:21:14.418000",
+        "get_date": "1970-01-18T11:21:07.203000",
+        "clear_type": "Easy Clear",
+        "constant": 9.1,
+        "rating": 10.285969999999999
+      },
+      {
+        "id": "qualia",
+        "title": "qualia -ideaesthesia-",
+        "score": 9780742,
+        "count": {
+          "strict_pure": 899,
+          "pure": 983,
+          "far": 33,
+          "lost": 6
+        },
+        "health": 100,
+        "play_date": "2020-07-31T10:53:23.992000",
+        "get_date": "1970-01-18T05:19:40.810000",
+        "clear_type": "Easy Clear",
+        "constant": 9.1,
+        "rating": 10.035806666666666
+      },
+      {
+        "id": "chronostasis",
+        "title": "Chronostasis",
+        "score": 9907974,
+        "count": {
+          "strict_pure": 769,
+          "pure": 900,
+          "far": 15,
+          "lost": 1
+        },
+        "health": 100,
+        "play_date": "2020-09-17T04:41:46.006000",
+        "get_date": "1970-01-18T07:36:28.800000",
+        "clear_type": "Normal Clear",
+        "constant": 9.1,
+        "rating": 10.63987
+      },
+      {
+        "id": "essenceoftwilight",
+        "title": "Essence of Twilight",
+        "score": 9851567,
+        "count": {
+          "strict_pure": 1069,
+          "pure": 1176,
+          "far": 20,
+          "lost": 8
+        },
+        "health": 100,
+        "play_date": "2020-09-12T07:28:13.457000",
+        "get_date": "1970-01-18T05:19:40.816000",
+        "clear_type": "Easy Clear",
+        "constant": 9.1,
+        "rating": 10.357835
+      },
+      {
+        "id": "flyburg",
+        "title": "フライブルクとエンドロウル",
+        "score": 9737368,
+        "count": {
+          "strict_pure": 809,
+          "pure": 894,
+          "far": 23,
+          "lost": 13
+        },
+        "health": 100,
+        "play_date": "2020-10-12T17:15:26.923000",
+        "get_date": "1970-01-18T07:09:07.203000",
+        "clear_type": "Easy Clear",
+        "constant": 9,
+        "rating": 9.791226666666667
+      },
+      {
+        "id": "kanagawa",
+        "title": "神奈川電脳暗渠",
+        "score": 9847998,
+        "count": {
+          "strict_pure": 1014,
+          "pure": 1085,
+          "far": 18,
+          "lost": 8
+        },
+        "health": 91,
+        "play_date": "2020-07-16T04:55:03.073000",
+        "get_date": "1970-01-18T07:36:28.801000",
+        "clear_type": "Pure Memory",
+        "constant": 9,
+        "rating": 10.23999
+      }
+    ],
+    "c8p": [
+      {
+        "id": "memoryfactory",
+        "title": "memoryfactory.lzh",
+        "score": 9554072,
+        "count": {
+          "strict_pure": 501,
+          "pure": 619,
+          "far": 46,
+          "lost": 7
+        },
+        "health": 100,
+        "play_date": "2020-10-07T14:00:00.322000",
+        "get_date": "1970-01-18T05:19:40.813000",
+        "clear_type": "Pure Memory",
+        "constant": 8.9,
+        "rating": 9.08024
+      },
+      {
+        "id": "antithese",
+        "title": "Antithese",
+        "score": 9863963,
+        "count": {
+          "strict_pure": 794,
+          "pure": 861,
+          "far": 8,
+          "lost": 8
+        },
+        "health": 96,
+        "play_date": "2020-09-23T08:50:22.273000",
+        "get_date": "1970-01-18T23:25:26.402000",
+        "clear_type": "Easy Clear",
+        "constant": 8.8,
+        "rating": 10.119815000000001
+      },
+      {
+        "id": "flashback",
+        "title": "Flashback",
+        "score": 9673557,
+        "count": {
+          "strict_pure": 660,
+          "pure": 805,
+          "far": 46,
+          "lost": 5
+        },
+        "health": 100,
+        "play_date": "2020-10-12T17:12:29.448000",
+        "get_date": "1970-01-18T07:09:07.202000",
+        "clear_type": "Easy Clear",
+        "constant": 8.8,
+        "rating": 9.378523333333334
+      },
+      {
+        "id": "nexttoyou",
+        "title": "next to you",
+        "score": 9903600,
+        "count": {
+          "strict_pure": 688,
+          "pure": 810,
+          "far": 12,
+          "lost": 2
+        },
+        "health": 100,
+        "play_date": "2020-09-23T09:14:21.670000",
+        "get_date": "1970-01-18T14:42:43.200000",
+        "clear_type": "Pure Memory",
+        "constant": 8.8,
+        "rating": 10.318000000000001
+      },
+      {
+        "id": "particlearts",
+        "title": "Particle Arts",
+        "score": 9844059,
+        "count": {
+          "strict_pure": 816,
+          "pure": 902,
+          "far": 17,
+          "lost": 6
+        },
+        "health": 100,
+        "play_date": "2020-09-12T07:31:21.452000",
+        "get_date": "1970-01-19T02:16:48.001000",
+        "clear_type": "Easy Clear",
+        "constant": 8.8,
+        "rating": 10.020295
+      },
+      {
+        "id": "solitarydream",
+        "title": "虚空の夢",
+        "score": 9841373,
+        "count": {
+          "strict_pure": 839,
+          "pure": 947,
+          "far": 19,
+          "lost": 6
+        },
+        "health": 98,
+        "play_date": "2020-09-12T07:25:04.520000",
+        "get_date": "1970-01-18T23:08:09.600000",
+        "clear_type": "Easy Clear",
+        "constant": 8.8,
+        "rating": 10.006865000000001
+      },
+      {
+        "id": "senkyou",
+        "title": "Senkyou",
+        "score": 9648089,
+        "count": {
+          "strict_pure": 787,
+          "pure": 907,
+          "far": 46,
+          "lost": 11
+        },
+        "health": 96,
+        "play_date": "2020-08-06T15:05:37.650000",
+        "get_date": "1970-01-19T05:15:21.600000",
+        "clear_type": "Pure Memory",
+        "constant": 8.7,
+        "rating": 9.193629999999999
+      },
+      {
+        "id": "grimheart",
+        "title": "Grimheart",
+        "score": 9865258,
+        "count": {
+          "strict_pure": 816,
+          "pure": 936,
+          "far": 20,
+          "lost": 3
+        },
+        "health": 100,
+        "play_date": "2020-09-14T06:58:00.265000",
+        "get_date": "1970-01-18T23:25:26.400000",
+        "clear_type": "Easy Clear",
+        "constant": 8.6,
+        "rating": 9.92629
+      },
+      {
+        "id": "silentrush",
+        "title": "Silent Rush",
+        "score": 9841408,
+        "count": {
+          "strict_pure": 813,
+          "pure": 919,
+          "far": 14,
+          "lost": 8
+        },
+        "health": 100,
+        "play_date": "2020-09-23T09:17:20.766000",
+        "get_date": "1970-01-18T14:42:43.201000",
+        "clear_type": "Easy Clear",
+        "constant": 8.6,
+        "rating": 9.807039999999999
+      },
+      {
+        "id": "freefall",
+        "title": "FREEF4LL",
+        "score": 9746687,
+        "count": {
+          "strict_pure": 842,
+          "pure": 982,
+          "far": 30,
+          "lost": 11
+        },
+        "health": 100,
+        "play_date": "2020-10-09T08:45:02.762000",
+        "get_date": "1970-01-19T04:14:52.801000",
+        "clear_type": "Easy Clear",
+        "constant": 8.6,
+        "rating": 9.42229
+      },
+      {
+        "id": "reinvent",
+        "title": "Reinvent",
+        "score": 9654396,
+        "count": {
+          "strict_pure": 641,
+          "pure": 800,
+          "far": 45,
+          "lost": 7
+        },
+        "health": 95,
+        "play_date": "2020-08-27T19:34:33.530000",
+        "get_date": "1970-01-18T12:30:14.400000",
+        "clear_type": "Pure Memory",
+        "constant": 8.5,
+        "rating": 9.014653333333333
+      },
+      {
+        "id": "worldexecuteme",
+        "title": "world.execute(me);",
+        "score": 9930235,
+        "count": {
+          "strict_pure": 741,
+          "pure": 840,
+          "far": 10,
+          "lost": 1
+        },
+        "health": 100,
+        "play_date": "2020-08-22T06:37:52.926000",
+        "get_date": "1970-01-19T07:30:43.200000",
+        "clear_type": "Normal Clear",
+        "constant": 8.5,
+        "rating": 10.151175
+      },
+      {
+        "id": "babaroque",
+        "title": "Babaroque",
+        "score": 9647899,
+        "count": {
+          "strict_pure": 622,
+          "pure": 757,
+          "far": 45,
+          "lost": 6
+        },
+        "health": 100,
+        "play_date": "2020-07-06T12:26:50.825000",
+        "get_date": "1970-01-18T05:19:40.807000",
+        "clear_type": "Pure Memory",
+        "constant": 8.5,
+        "rating": 8.992996666666667
+      },
+      {
+        "id": "dandelion",
+        "title": "Dandelion",
+        "score": 9615295,
+        "count": {
+          "strict_pure": 746,
+          "pure": 871,
+          "far": 29,
+          "lost": 21
+        },
+        "health": 15,
+        "play_date": "2020-07-06T12:30:07.602000",
+        "get_date": "1970-01-18T05:52:48",
+        "clear_type": "Pure Memory",
+        "constant": 8.5,
+        "rating": 8.884316666666667
+      },
+      {
+        "id": "chelsea",
+        "title": "Chelsea",
+        "score": 9615872,
+        "count": {
+          "strict_pure": 488,
+          "pure": 611,
+          "far": 28,
+          "lost": 11
+        },
+        "health": 100,
+        "play_date": "2020-07-31T11:34:17.014000",
+        "get_date": "1970-01-19T03:07:12",
+        "clear_type": "Easy Clear",
+        "constant": 8.5,
+        "rating": 8.88624
+      },
+      {
+        "id": "harutopia",
+        "title": "ハルトピア ~Utopia of Spring~",
+        "score": 9708758,
+        "count": {
+          "strict_pure": 936,
+          "pure": 1017,
+          "far": 26,
+          "lost": 18
+        },
+        "health": 36,
+        "play_date": "2020-07-06T12:23:42.572000",
+        "get_date": "1970-01-18T09:18:43.200000",
+        "clear_type": "Pure Memory",
+        "constant": 8.5,
+        "rating": 9.19586
+      },
+      {
+        "id": "viyella",
+        "title": "cry of viyella",
+        "score": 9804694,
+        "count": {
+          "strict_pure": 649,
+          "pure": 765,
+          "far": 21,
+          "lost": 5
+        },
+        "health": 100,
+        "play_date": "2020-09-07T15:24:13.665000",
+        "get_date": "1970-01-18T05:19:40.811000",
+        "clear_type": "Pure Memory",
+        "constant": 8.5,
+        "rating": 9.52347
+      }
+    ],
+    "c8": [
+      {
+        "id": "rabbitintheblackroom",
+        "title": "Rabbit In The Black Room",
+        "score": 9832229,
+        "count": {
+          "strict_pure": 623,
+          "pure": 748,
+          "far": 22,
+          "lost": 2
+        },
+        "health": 99,
+        "play_date": "2020-09-17T04:32:48.070000",
+        "get_date": "1970-01-18T10:12:00",
+        "clear_type": "Normal Clear",
+        "constant": 8.4,
+        "rating": 9.561145
+      },
+      {
+        "id": "purgatorium",
+        "title": "Purgatorium",
+        "score": 9919485,
+        "count": {
+          "strict_pure": 869,
+          "pure": 972,
+          "far": 6,
+          "lost": 5
+        },
+        "health": 100,
+        "play_date": "2020-10-10T10:15:34.021000",
+        "get_date": "1970-01-18T18:59:02.400000",
+        "clear_type": "Pure Memory",
+        "constant": 8.4,
+        "rating": 9.997425
+      },
+      {
+        "id": "lumia",
+        "title": "Lumia",
+        "score": 9766699,
+        "count": {
+          "strict_pure": 831,
+          "pure": 926,
+          "far": 25,
+          "lost": 10
+        },
+        "health": 100,
+        "play_date": "2020-06-27T04:57:24.913000",
+        "get_date": "1970-01-18T05:19:40.815000",
+        "clear_type": "Pure Memory",
+        "constant": 8.4,
+        "rating": 9.288996666666668
+      },
+      {
+        "id": "tiemedowngently",
+        "title": "Tie me down gently",
+        "score": 9869393,
+        "count": {
+          "strict_pure": 609,
+          "pure": 707,
+          "far": 15,
+          "lost": 2
+        },
+        "health": 100,
+        "play_date": "2020-08-28T06:24:09.724000",
+        "get_date": "1970-01-19T03:07:12.003000",
+        "clear_type": "Easy Clear",
+        "constant": 8.3,
+        "rating": 9.646965000000002
+      },
+      {
+        "id": "shadesoflight",
+        "title": "Shades of Light in a Transcendent Realm",
+        "score": 9597931,
+        "count": {
+          "strict_pure": 931,
+          "pure": 1010,
+          "far": 28,
+          "lost": 29
+        },
+        "health": 90,
+        "play_date": "2020-06-28T18:20:49.039000",
+        "get_date": "1970-01-18T05:19:40.806000",
+        "clear_type": "Easy Clear",
+        "constant": 8.3,
+        "rating": 8.626436666666667
+      },
+      {
+        "id": "oblivia",
+        "title": "Oblivia",
+        "score": 9775932,
+        "count": {
+          "strict_pure": 828,
+          "pure": 921,
+          "far": 27,
+          "lost": 8
+        },
+        "health": 100,
+        "play_date": "2020-08-21T05:33:01.457000",
+        "get_date": "1970-01-19T08:18:14.400000",
+        "clear_type": "Pure Memory",
+        "constant": 8.3,
+        "rating": 9.219773333333334
+      },
+      {
+        "id": "bookmaker",
+        "title": "Bookmaker (2D Version)",
+        "score": 9920956,
+        "count": {
+          "strict_pure": 1028,
+          "pure": 1110,
+          "far": 10,
+          "lost": 4
+        },
+        "health": 100,
+        "play_date": "2020-08-21T05:39:56.016000",
+        "get_date": "1970-01-18T17:28:19.201000",
+        "clear_type": "Easy Clear",
+        "constant": 8.3,
+        "rating": 9.90478
+      },
+      {
+        "id": "lucifer",
+        "title": "Lucifer",
+        "score": 9907840,
+        "count": {
+          "strict_pure": 756,
+          "pure": 845,
+          "far": 16,
+          "lost": 0
+        },
+        "health": 100,
+        "play_date": "2020-08-06T15:02:04.868000",
+        "get_date": "1970-01-18T05:19:40.804000",
+        "clear_type": "Normal Clear",
+        "constant": 8.2,
+        "rating": 9.739199999999999
+      },
+      {
+        "id": "onelastdrive",
+        "title": "One Last Drive",
+        "score": 9599618,
+        "count": {
+          "strict_pure": 748,
+          "pure": 827,
+          "far": 45,
+          "lost": 13
+        },
+        "health": 100,
+        "play_date": "2020-06-28T18:14:37.829000",
+        "get_date": "1970-01-18T11:21:07.200000",
+        "clear_type": "Easy Clear",
+        "constant": 8.2,
+        "rating": 8.53206
+      },
+      {
+        "id": "hearditsaid",
+        "title": "I've heard it said",
+        "score": 9827138,
+        "count": {
+          "strict_pure": 750,
+          "pure": 840,
+          "far": 18,
+          "lost": 6
+        },
+        "health": 100,
+        "play_date": "2020-10-12T04:17:25.960000",
+        "get_date": "1970-01-18T05:19:40.812000",
+        "clear_type": "Pure Memory",
+        "constant": 8.1,
+        "rating": 9.23569
+      },
+      {
+        "id": "diode",
+        "title": "Diode",
+        "score": 9887801,
+        "count": {
+          "strict_pure": 636,
+          "pure": 699,
+          "far": 4,
+          "lost": 6
+        },
+        "health": 100,
+        "play_date": "2020-09-23T16:15:20.234000",
+        "get_date": "1970-01-19T04:14:52.800000",
+        "clear_type": "Pure Memory",
+        "constant": 8.1,
+        "rating": 9.539005
+      },
+      {
+        "id": "relentless",
+        "title": "Relentless",
+        "score": 9843270,
+        "count": {
+          "strict_pure": 906,
+          "pure": 991,
+          "far": 16,
+          "lost": 8
+        },
+        "health": 100,
+        "play_date": "2020-10-12T04:23:58.681000",
+        "get_date": "1970-01-18T05:19:40.814000",
+        "clear_type": "Pure Memory",
+        "constant": 8,
+        "rating": 9.21635
+      }
+    ],
+    "c7p": [
+      {
+        "id": "suomi",
+        "title": "Suomi",
+        "score": 9847928,
+        "count": {
+          "strict_pure": 740,
+          "pure": 799,
+          "far": 13,
+          "lost": 6
+        },
+        "health": 97,
+        "play_date": "2020-08-31T15:00:50.044000",
+        "get_date": "1970-01-18T17:28:19.200000",
+        "clear_type": "Full Recall",
+        "constant": 7.5,
+        "rating": 8.73964
+      },
+      {
+        "id": "rise",
+        "title": "Rise",
+        "score": 9810334,
+        "count": {
+          "strict_pure": 690,
+          "pure": 760,
+          "far": 26,
+          "lost": 2
+        },
+        "health": 100,
+        "play_date": "2020-08-27T19:28:36.598000",
+        "get_date": "1970-01-18T05:19:40.803000",
+        "clear_type": "Easy Clear",
+        "constant": 7.5,
+        "rating": 8.55167
+      },
+      {
+        "id": "inkarusi",
+        "title": "inkar-usi",
+        "score": 9795172,
+        "count": {
+          "strict_pure": 356,
+          "pure": 447,
+          "far": 13,
+          "lost": 3
+        },
+        "health": 100,
+        "play_date": "2020-07-05T21:29:49.206000",
+        "get_date": "1970-01-18T16:52:19.200000",
+        "clear_type": "Normal Clear",
+        "constant": 7.5,
+        "rating": 8.483906666666666
+      },
+      {
+        "id": "infinityheaven",
+        "title": "Infinity Heaven",
+        "score": 9912823,
+        "count": {
+          "strict_pure": 748,
+          "pure": 838,
+          "far": 15,
+          "lost": 0
+        },
+        "health": 100,
+        "play_date": "2020-07-05T21:27:01.283000",
+        "get_date": "1970-01-18T06:24:28.800000",
+        "clear_type": "Normal Clear",
+        "constant": 7.5,
+        "rating": 9.064115
+      },
+      {
+        "id": "brandnewworld",
+        "title": "Brand new world",
+        "score": 9886306,
+        "count": {
+          "strict_pure": 665,
+          "pure": 773,
+          "far": 10,
+          "lost": 4
+        },
+        "health": 100,
+        "play_date": "2020-07-05T20:28:01.780000",
+        "get_date": "1970-01-18T07:09:07.200000",
+        "clear_type": "Easy Clear",
+        "constant": 7.5,
+        "rating": 8.93153
+      },
+      {
+        "id": "clotho",
+        "title": "クロートーと星の観測者",
+        "score": 9868692,
+        "count": {
+          "strict_pure": 916,
+          "pure": 998,
+          "far": 19,
+          "lost": 4
+        },
+        "health": 100,
+        "play_date": "2020-07-05T20:30:50.430000",
+        "get_date": "1970-01-18T08:09:36",
+        "clear_type": "Easy Clear",
+        "constant": 7.5,
+        "rating": 8.84346
+      },
+      {
+        "id": "dement",
+        "title": "Dement ~after legend~",
+        "score": 9949339,
+        "count": {
+          "strict_pure": 886,
+          "pure": 961,
+          "far": 8,
+          "lost": 1
+        },
+        "health": 100,
+        "play_date": "2020-08-04T11:19:14.850000",
+        "get_date": "1970-01-18T05:52:48",
+        "clear_type": "Pure Memory",
+        "constant": 7.5,
+        "rating": 9.246695
+      }
+    ],
+    "c7": [
+      {
+        "id": "vexaria",
+        "title": "Vexaria",
+        "score": 9891678,
+        "count": {
+          "strict_pure": 670,
+          "pure": 723,
+          "far": 6,
+          "lost": 5
+        },
+        "health": 100,
+        "play_date": "2020-06-17T08:30:12.755000",
+        "get_date": "1970-01-18T05:19:40.802000",
+        "clear_type": "Easy Clear",
+        "constant": 7,
+        "rating": 8.45839
+      },
+      {
+        "id": "fairytale",
+        "title": "Fairytale",
+        "score": 9943177,
+        "count": {
+          "strict_pure": 722,
+          "pure": 776,
+          "far": 3,
+          "lost": 3
+        },
+        "health": 100,
+        "play_date": "2020-06-17T08:07:32.304000",
+        "get_date": "1970-01-18T05:19:40.801000",
+        "clear_type": "Normal Clear",
+        "constant": 7,
+        "rating": 8.715885
+      }
+    ]
+  },
   "user_info": {
     "id": 3228230,
     "name": "myl7",
-    "recent_song_id": "worldvanquisher",
+    "recent_song_id": "syro",
     "join_date": "2020-03-29T05:25:50.751000",
-    "ptt": 1032,
+    "ptt": 1034,
     "code": "984569312"
   }
 }

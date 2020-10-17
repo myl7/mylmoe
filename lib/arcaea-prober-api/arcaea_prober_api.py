@@ -1,26 +1,25 @@
 import logging
 import json
 from datetime import datetime
+import asyncio
 
 import websockets
 import brotli
-from aiohttp import web
 
 ARCAEA_PROBER_URL = 'wss://arc.estertion.win:616'
 USER_ID = '984569312'
 
 
-async def handle(_req):
-    headers = {'Access-Control-Allow-Origin': '*'}
+async def main():
     try:
         data = await ws_arcaea_prober()
         data = await process_data(data)
         logging.info('success')
-        return web.json_response(data, headers=headers)
+        return data
     except Exception as e:
         reason = str(e)
         logging.error(reason)
-        raise web.HTTPServerError(reason=reason, headers=headers)
+        return
 
 
 async def ws_arcaea_prober():
@@ -38,7 +37,7 @@ async def ws_arcaea_prober():
         }
 
         async for msg in ws:
-            # End with `byte`.
+            # End with `bye`.
             if msg == 'bye':
                 break
 
@@ -75,11 +74,14 @@ async def process_data(data):
             else:
                 return titles['en']
 
-    song_infos = []
+    song_infos = {}
     for song in songs:
         # Filter non-FTR songs.
         if song['difficulty'] < 2:
             continue
+
+        c = song['constant']
+        level = 'c' + str(int(c)) + ('p' if c >= int(c) + 0.5 else '')
 
         song_info = {
             'id': song['song_id'],
@@ -100,9 +102,13 @@ async def process_data(data):
             'constant': song['constant'],
             'rating': song['rating']
         }
-        song_infos.append(song_info)
+        if level in song_infos.keys():
+            song_infos[level].append(song_info)
+        else:
+            song_infos[level] = []
 
-    song_infos.sort(key=lambda info: -info['constant'])
+    for k in song_infos.keys():
+        song_infos[k].sort(key=lambda info: -info['constant'])
 
     return {
         'songs': song_infos,
@@ -117,7 +123,7 @@ async def process_data(data):
     }
 
 
-def init(_argv):
-    app = web.Application()
-    app.add_routes([web.get('/arcaea-prober-api', handle)])
-    return app
+if __name__ == "__main__":
+    out = asyncio.run(main())
+    with open('out.json', 'w') as f:
+        f.write(json.dumps(out, ensure_ascii=False))
