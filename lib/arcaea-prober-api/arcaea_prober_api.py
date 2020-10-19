@@ -11,7 +11,8 @@ from pymongo import MongoClient
 
 ARCAEA_PROBER_URL = 'wss://arc.estertion.win:616'
 USER_ID = '984569312'
-DIST_PATH = os.getenv('DIST_PATH')
+EMIT_PATH = os.getenv('EMIT_PATH')
+SKIP_FIRST_FETCH = os.getenv('SKIP_FIRST_FETCH')
 
 collection = MongoClient('127.0.0.1', 27017)['mlblog']['arcaeaProberResults']
 
@@ -24,7 +25,7 @@ async def main():
     }
     collection.insert_one(record)
 
-    with open(DIST_PATH, 'w') as f:
+    with open(EMIT_PATH, 'w') as f:
         f.write(json.dumps(result, ensure_ascii=False))
 
 
@@ -145,7 +146,9 @@ async def process_data(data):
 
 
 if __name__ == '__main__':
-    pre_time = time.time()
+    first = True
     while True:
-        asyncio.run(main())
+        if not (first and SKIP_FIRST_FETCH):
+            asyncio.run(main())
+            first = False
         time.sleep(24 * 60 * 60)
