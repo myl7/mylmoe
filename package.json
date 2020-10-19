@@ -7,12 +7,13 @@
     "test": "jest",
     "prebuild": "bash ./scripts/prebuild.sh",
     "build": "npm run prebuild && webpack --config ./webpack/dev.cjs",
-    "watch": "npm run prebuild && webpack --config ./webpack/dev.cjs --watch",
     "start": "npm run prebuild && webpack-dev-server --config ./webpack/dev.cjs --open",
     "build-prod": "npm run prebuild && webpack --config ./webpack/prod.cjs"
   },
   "keywords": [
-    "blog"
+    "static-blog",
+    "react",
+    "material-ui"
   ],
   "author": "myl7",
   "license": "MIT",
@@ -29,11 +30,10 @@
     "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
-    "azure-functions-core-tools": "^2.7.2936",
     "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^6.2.1",
     "css-loader": "^4.3.0",
-    "file-loader": "^6.1.0",
     "glob": "^7.1.6",
     "html-webpack-plugin": "^4.5.0",
     "jest": "^26.5.2",

@@ -1,6 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   entry: './src/index.jsx',
@@ -19,41 +20,6 @@ module.exports = {
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
-      },
-      {
-        test: /\.md$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              outputPath: './raw/posts/',
-              name: '[name].[ext]'
-            }
-          }
-        ]
-      },
-      {
-        test: /\.(a?png|gif|jpe?g|svg|webp)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              outputPath: (url, imagePath, context) => './images/' + path.relative(context + '/assets/images/', imagePath),
-              name: '[name].[ext]'
-            }
-          }
-        ]
-      },
-      {
-        test: /\/rss.xml$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]'
-            }
-          }
-        ]
       }
     ]
   },
@@ -65,7 +31,14 @@ module.exports = {
       title: 'mlblog',
       template: 'assets/index.html'
     }),
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
+    new CopyWebpackPlugin({
+      patterns: [
+        {from: './posts/*.md', to: 'raw/[path][name].[ext]'},
+        {from: './images/**/*.png', to: 'raw/[path][name].[ext]'},
+        {from: './assets/rss.xml', to: '[name].[ext]'}
+      ]
+    })
   ],
   output: {
     filename: 'index.bundle.js',
