@@ -34,19 +34,19 @@
       <pubDate>Fri, 02 Oct 2020 12:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>红米 Note 8 Pro 联发科 G90T 版刷入类原生安卓系统 crDroid Android 10</title>
-      <link>https://myl.moe/posts/2020-09-30-install-crdroid-android10-on-redmi-note8pro-mtk-g90t</link>
-      <description />
-      <author>myl.ustc@gmail.com (myl7)</author>
-      <guid>https://myl.moe/posts/2020-09-30-install-crdroid-android10-on-redmi-note8pro-mtk-g90t</guid>
-      <pubDate>Wed, 30 Sep 2020 12:00:00 +0800</pubDate>
-    </item>
-    <item>
       <title>配置 MIUI 国内版为基本能用的系统</title>
       <link>https://myl.moe/posts/2020-09-30-miui-setup</link>
       <description />
       <author>myl.ustc@gmail.com (myl7)</author>
       <guid>https://myl.moe/posts/2020-09-30-miui-setup</guid>
+      <pubDate>Wed, 30 Sep 2020 12:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>红米 Note 8 Pro 联发科 G90T 版刷入类原生安卓系统 crDroid Android 10</title>
+      <link>https://myl.moe/posts/2020-09-30-install-crdroid-android10-on-redmi-note8pro-mtk-g90t</link>
+      <description />
+      <author>myl.ustc@gmail.com (myl7)</author>
+      <guid>https://myl.moe/posts/2020-09-30-install-crdroid-android10-on-redmi-note8pro-mtk-g90t</guid>
       <pubDate>Wed, 30 Sep 2020 12:00:00 +0800</pubDate>
     </item>
   </channel>
