@@ -1,6 +1,6 @@
 import data from './arcaeaProberApiData.mock.json'
 
-const arcaeaProberApiUrl = 'http://127.0.0.1:8081/arcaea-prober-api'
+const arcaeaProberApiUrl = 'https://myl.moe/api/arcaea-prober.js'
 
 let api = async () => {
   const resp = await fetch(arcaeaProberApiUrl)
