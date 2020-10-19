@@ -2,7 +2,9 @@ import fs from 'fs'
 import glob from 'glob'
 import YAML from 'js-yaml'
 
-const postPattern = './src/posts/*.md'
+const postPattern = './posts/*.md'
+
+const getPostUrl = (slug) => `https://myl.moe/raw/posts/${slug}.md`
 
 export default () => {
   const postPaths = glob.sync(postPattern)
@@ -25,7 +27,7 @@ export default () => {
     const date = slug.substring(0, 10)
     setIfNot(meta, 'date', date)
 
-    meta.url = 'url' + meta.id
+    meta.url = getPostUrl(slug)
 
     postMeta.push(meta)
 
@@ -33,6 +35,9 @@ export default () => {
     postImages.push(...[...imageMatch].map(m => m[1]))
   })
 
-  postMeta.sort((a, b) => -a.date.localeCompare(b.date))
+  postMeta.sort((a, b) => {
+    const dateCmp = -a.date.localeCompare(b.date)
+    return dateCmp === 0 ? -(a.id - b.id) : dateCmp
+  })
   return {meta: postMeta, images: postImages}
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import {Card, CardContent, Typography} from '@material-ui/core'
 import RouterLink from '../components/RouterLink'
-import posts from '../posts'
+import posts from '../posts.js'
 
 export default () => {
   return (<div>{

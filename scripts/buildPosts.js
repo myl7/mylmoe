@@ -3,18 +3,21 @@ import parsePosts from './parsePosts.js'
 
 const postMetaPath = './src/posts.js'
 
-const posts = parsePosts()
+const postMeta = parsePosts().meta
+const postMetaContent = 'let posts = ' + JSON.stringify(postMeta, null, 2)
 
-const postMeta = posts.meta
-let postExport = 'export default ' + JSON.stringify(postMeta, null, 2)
-postExport = postExport.replace(/"url(\d+)"/g, (_m, id) => `url${id}`)
-postExport = postExport.replace(/'/g, '"')
+let content = `\
+${postMetaContent}
 
-const postImport = postMeta.map(meta => `import url${meta.id} from './posts/${meta.slug}.md'\n`).join('')
+if (process.env.NODE_ENV === 'development') {
+  const getPostMockUrl = (slug) => \`http://127.0.0.1:8080/raw/posts/\${slug}.md\`
+  posts = posts.map(meta => {
+    meta.url = getPostMockUrl(meta.slug)
+    return meta
+  })
+}
 
-const postImageImport = posts.images.map(image => `import '../assets/images/${image}'\n`).join('')
-
-const jbNoinspection = '// noinspection SpellCheckingInspection\n'
-
-const content = `${postImport}${postImageImport}\n${jbNoinspection}${postExport}\n`
+export default posts
+`
+content = content.replace(/"/g, '\'')
 fs.writeFileSync(postMetaPath, content)

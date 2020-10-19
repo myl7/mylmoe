@@ -5,7 +5,7 @@ import bash from 'highlight.js/lib/languages/bash'
 import python from 'highlight.js/lib/languages/python'
 import vim from 'highlight.js/lib/languages/vim'
 import json from 'highlight.js/lib/languages/json'
-import posts from '../posts'
+import posts from '../posts.js'
 import md2html from '../utils/md2html'
 
 export default () => {

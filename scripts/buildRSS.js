@@ -2,7 +2,7 @@ import fs from 'fs'
 import dayjs from 'dayjs'
 import parsePosts from './parsePosts.js'
 
-const rssPath = './src/rss.xml'
+const rssPath = './assets/rss.xml'
 
 const itemTemplate = (meta) => {
   const date = dayjs(meta.date).hour(12).minute(0).second(0).format('ddd, DD MMM YYYY HH:mm:ss ZZ')
