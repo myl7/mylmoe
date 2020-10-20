@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import {Card, CardContent} from '@material-ui/core'
 import {useParams} from 'react-router-dom'
+import marked from 'marked'
+import hljs from 'highlight.js/lib/core'
 import bash from 'highlight.js/lib/languages/bash'
 import python from 'highlight.js/lib/languages/python'
 import vim from 'highlight.js/lib/languages/vim'
@@ -16,25 +18,15 @@ export default () => {
     fetch(posts.find((p, _i) => p.slug === slug).url).then((resp) => {
       resp.text().then((content) => {
         content = content.substring(content.indexOf('---') + 4)
+        setBody(md2html(marked)(content))
 
-        setBody(content.replace(/\n\n/g, '<br>'))
+        hljs.registerLanguage('bash', bash)
+        hljs.registerLanguage('python', python)
+        hljs.registerLanguage('vim', vim)
+        hljs.registerLanguage('json', json)
 
-        const markedPromise = import(/* webpackChunkName: "marked" */ 'marked')
-        const highlightJsPromise = import(/* webpackChunkName: "highlight.js" */ 'highlight.js/lib/core')
-
-        markedPromise.then(({default: marked}) => {
-          setBody(md2html(marked)(content))
-
-          highlightJsPromise.then(hljs => {
-            hljs.registerLanguage('bash', bash)
-            hljs.registerLanguage('python', python)
-            hljs.registerLanguage('vim', vim)
-            hljs.registerLanguage('json', json)
-
-            document.querySelectorAll('div#root pre > code').forEach(elem => {
-              hljs.highlightBlock(elem)
-            })
-          })
+        document.querySelectorAll('div#root pre > code').forEach(elem => {
+          hljs.highlightBlock(elem)
         })
       })
     })
