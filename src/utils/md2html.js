@@ -24,8 +24,8 @@ export default (marked) => {
   const imageRenderer = renderer.image
   renderer.image = (href, title, text) => {
     let html = imageRenderer.call(renderer, href, title, text)
-    if (href.startsWith('./images/')) {
-      html = html.replace(/src="\.\/images\//, 'src="/images/')
+    if (href.startsWith('../images/')) {
+      html = html.replace(/src="\.\.\/images\//, 'src="/raw/images/')
     }
     return html
   }
