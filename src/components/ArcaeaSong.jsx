@@ -12,7 +12,7 @@ export default (props) => {
 
   useEffect(() => {
     import(/* webpackChunkName: "echarts" */ 'echarts/lib/echarts').then(echarts => {
-      import(/* webpackChunkName: "echarts-chart-bar" */ 'echarts/lib/chart/bar').then(() => {
+      import(/* webpackChunkName: "echarts" */ 'echarts/lib/chart/bar').then(() => {
         const healthChart = echarts.init(healthChartRef.current)
         healthChart.setOption({
           xAxis: {
@@ -46,7 +46,7 @@ export default (props) => {
 
   useEffect(() => {
     import(/* webpackChunkName: "echarts" */ 'echarts').then(echarts => {
-      import(/* webpackChunkName: "echarts-chart-pie" */ 'echarts/lib/chart/pie').then(() => {
+      import(/* webpackChunkName: "echarts" */ 'echarts/lib/chart/pie').then(() => {
         const countChart = echarts.init(countChartRef.current)
         countChart.setOption({
           series: [{
