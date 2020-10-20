@@ -4,7 +4,7 @@
   "description": "",
   "main": "./src/index.jsx",
   "scripts": {
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "prebuild": "bash ./scripts/prebuild.sh",
     "build": "npm run prebuild && webpack --config ./webpack/dev.cjs",
     "start": "npm run prebuild && webpack-dev-server --config ./webpack/dev.cjs --open",
