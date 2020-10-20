@@ -4,7 +4,7 @@ import YAML from 'js-yaml'
 
 const postPattern = './posts/*.md'
 
-const getPostUrl = (slug) => `https://myl.moe/raw/posts/${slug}.md`
+const getPostUrl = (slug) => `/raw/posts/${slug}.md`
 
 export default () => {
   const postPaths = glob.sync(postPattern)
