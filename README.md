@@ -1,7 +1,7 @@
 # mlblog
 
 Static blog based on React and Material-UI from scratch.
-Located at <https://my.moe>.
+Located at <https://myl.moe>.
 
 ## Usage
 
