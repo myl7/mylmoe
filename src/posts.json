@@ -7,7 +7,8 @@
     "updDate": "2020-10-13",
     "abstract": "",
     "url": "/raw/posts/2020-10-13-arcaea-pay.md",
-    "bodyLen": 4453
+    "bodyLen": 4453,
+    "hash": "648c893d99b53fdbc2e2e6003fc89b4a"
   },
   {
     "title": "Minimized dotfiles sharing",
@@ -17,7 +18,8 @@
     "updDate": "2020-10-08",
     "abstract": "",
     "url": "/raw/posts/2020-10-08-min-dotfiles.md",
-    "bodyLen": 4701
+    "bodyLen": 4701,
+    "hash": "17a1cec5ddf147a80640a6813a6758ce"
   },
   {
     "title": "Python YAML + Beautiful Soup reports RecursionError",
@@ -27,7 +29,8 @@
     "updDate": "2020-10-02",
     "abstract": "",
     "url": "/raw/posts/2020-10-02-yaml-beautifulsoup-recusive-error.md",
-    "bodyLen": 3214
+    "bodyLen": 3214,
+    "hash": "e3bef37fbdc64794889b8c5107ac5bf2"
   },
   {
     "title": "配置 MIUI 国内版为基本能用的系统",
@@ -37,7 +40,8 @@
     "updDate": "2020-09-30",
     "abstract": "",
     "url": "/raw/posts/2020-09-30-miui-setup.md",
-    "bodyLen": 968
+    "bodyLen": 968,
+    "hash": "8d97bbee2e4c87653e776c9c7a728e2b"
   },
   {
     "title": "红米 Note 8 Pro 联发科 G90T 版刷入类原生安卓系统 crDroid Android 10",
@@ -47,6 +51,7 @@
     "updDate": "2020-09-30",
     "abstract": "",
     "url": "/raw/posts/2020-09-30-install-crdroid-android10-on-redmi-note8pro-mtk-g90t.md",
-    "bodyLen": 2070
+    "bodyLen": 2070,
+    "hash": "5dcd5a8d3d0e130d9284502ad2475ae0"
   }
 ]

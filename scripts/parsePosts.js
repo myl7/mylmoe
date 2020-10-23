@@ -25,12 +25,12 @@ export default () => {
     setIfNot(meta, 'slug', slug)
     const pubDate = slug.substring(0, 10)
     setIfNot(meta, 'pubDate', pubDate)
-    const updDate = pubDate
-    setIfNot(meta, 'updDate', updDate)
+    setIfNot(meta, 'updDate', pubDate)
     setIfNot(meta, 'abstract', '')
 
     meta.url = getPostUrl(slug)
     meta.bodyLen = body.length
+    meta.body = body
 
     postMeta.push(meta)
   })
