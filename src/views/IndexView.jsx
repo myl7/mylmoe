@@ -15,7 +15,9 @@ export default () => {
               </RouterLink>
             </Grid>
             <Grid item>
-              <Box fontWeight={'fontWeightLight'} fontSize={14}>{post.date}</Box>
+              <Box fontWeight={'fontWeightLight'} fontSize={14}>
+                published at {post.pubDate}, updated at {post.updDate}
+              </Box>
             </Grid>
           </Grid>
         </CardContent>

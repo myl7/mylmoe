@@ -14,14 +14,16 @@ export default () => {
   const {slug} = useParams()
 
   const [title, setTitle] = useState(slug.substring(11))
-  const [date, setDate] = useState(slug.substring(0, 10))
+  const [pubDate, setPubDate] = useState(slug.substring(0, 10))
+  const [updDate, setUpdDate] = useState(slug.substring(0, 10))
   const [body, setBody] = useState('')
 
   useEffect(() => {
     const post = posts.find(p => p.slug === slug)
 
     setTitle(post.title)
-    setDate(post.date)
+    setPubDate(post.pubDate)
+    setUpdDate(post.updDate)
 
     fetch(post.url).then((resp) => {
       resp.text().then((content) => {
@@ -45,7 +47,11 @@ export default () => {
       <CardContent>
         <Grid container alignItems={'center'} spacing={1}>
           <Grid item><Box fontSize={'h5.fontSize'}>{title}</Box></Grid>
-          <Grid item><Box fontWeight={'fontWeightLight'}>{date}</Box></Grid>
+          <Grid item>
+            <Box fontWeight={'fontWeightLight'}>
+              published at {pubDate}, updated at {updDate}
+            </Box>
+          </Grid>
         </Grid>
         <Divider style={{marginTop: '1em', marginBottom: '1em'}} />
         <Box dangerouslySetInnerHTML={{__html: body}} />
