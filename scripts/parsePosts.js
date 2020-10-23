@@ -32,8 +32,8 @@ export default () => {
     const prePost = prePosts.find(p => p.slug === slug)
     const hash = md5(body)
 
-    let updDate = prePost.updDate
-    if (hash !== prePost.hash) {
+    let updDate = prePost ? prePost.updDate : pubDate
+    if (prePost && hash !== prePost.hash) {
       updDate = dayjs().format('YYYY-MM-DD')
     }
 

@@ -7,9 +7,17 @@
     <copyright>Copyright (c) 2020 myl7</copyright>
     <managingEditor>myl.ustc@gmail.com (myl7)</managingEditor>
     <webMaster>myl.ustc@gmail.com (myl7)</webMaster>
-    <pubDate>Tue, 13 Oct 2020 12:00:00 +0800</pubDate>
+    <pubDate>Fri, 23 Oct 2020 12:00:00 +0800</pubDate>
     <atom:link href="https://myl.moe/rss.xml" rel="self" type="application/rss+xml" />
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+    <item>
+      <title>Use SSH script to deploy in GitHub Action</title>
+      <link>https://myl.moe/posts/2020-10-23-github-action-ssh-deploy</link>
+      <description />
+      <author>myl.ustc@gmail.com (myl7)</author>
+      <guid>https://myl.moe/posts/2020-10-23-github-action-ssh-deploy</guid>
+      <pubDate>Fri, 23 Oct 2020 12:00:00 +0800</pubDate>
+    </item>
     <item>
       <title>Arcaea 付费建议</title>
       <link>https://myl.moe/posts/2020-10-13-arcaea-pay</link>

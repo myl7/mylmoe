@@ -1,5 +1,16 @@
 [
   {
+    "title": "Use SSH script to deploy in GitHub Action",
+    "id": 6,
+    "slug": "2020-10-23-github-action-ssh-deploy",
+    "pubDate": "2020-10-23",
+    "updDate": "2020-10-23",
+    "hash": "2efc46d2ec420cf3070fa8ceb675f85d",
+    "abstract": "",
+    "url": "/raw/posts/2020-10-23-github-action-ssh-deploy.md",
+    "bodyLen": 3445
+  },
+  {
     "title": "Arcaea 付费建议",
     "id": 5,
     "slug": "2020-10-13-arcaea-pay",
