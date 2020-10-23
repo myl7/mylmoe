@@ -14,7 +14,7 @@ export default () => {
         <Switch>
           <Route exact path={'/'} children={<IndexView />} />
           <Route path={'/posts/:slug'} children={<PostView />} />
-          <Route path={'/music-games/arcaea'} children={<ArcaeaView />} />
+          <Route path={'/pages/arcaea'} children={<ArcaeaView />} />
         </Switch>
         <Footer />
       </Router>
