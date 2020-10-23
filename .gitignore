@@ -117,4 +117,4 @@ dist
 
 # Dev
 .idea/
-/scripts/deploy.sh
+/scripts/devDeploy.sh
