@@ -49,8 +49,9 @@ The output is ord but clear: Bad port '-t'.
 It is that the GitHub secrets did not became envs in the deploy script.
 After STFW, I found:
 [Accessing your secrets - Encrypted secrets - GitHub Docs](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets#accessing-your-secrets)
-[jobs.<job_id>.env - Workflow syntax for GitHub Actions - GitHub Docs](https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsenv)
-.
+[jobs.<job_id>.env - Workflow syntax for GitHub Actions - GitHub Docs](https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsenv).
+
+<del>
 
 ### Do not put env in another env
 
@@ -63,26 +64,63 @@ There may be some doc has talked about this, but I should admit that keeping the
 And as this is a commercial service, I can not get the implementation details.
 So I did not think too much about it.
 
+</del>
+
+## SSH perms
+
+After one more careful check, I realized that things have not been done.
+Then I found some other information:
+[Self-connecting via SSH on GitHub Actions - Stack Overflow](https://stackoverflow.com/questions/60066477/self-connecting-via-ssh-on-github-actions).
+`chmod go-rw ~` and `-o 'StrictHostKeyChecking no'` are key points.
+
+Again, it failed, with `lost connection`.
+At this point, I have completely lose patient on SSH script deploy.
+Webhook now became the new target.
+
 ## Review
 
 Now looking at my commit log, it becomes:
 
 ```
-Move env to file to CD.
+Fix ssh perm with option.
 @myl7
-myl7 committed 1 hour ago
+myl7 committed 10 minutes ago X
  
-More print for CD debug.
+Fix ssh perm in CD.
+@myl7
+myl7 committed 14 minutes ago X
+ 
+Put deploy script to CD steps.
+@myl7
+myl7 committed 21 minutes ago X
+ 
+Add new post. Fix parsePosts script.
+@myl7
+myl7 committed 1 hour ago V
+ 
+Add drafts to ignore.
 @myl7
 myl7 committed 2 hours ago
  
+CI fixed. Now pipe deploy script output to null.
+@myl7
+myl7 committed 2 hours ago
+
+Move env to file to CD.
+@myl7
+myl7 committed 1 hour ago V
+ 
+More print for CD debug.
+@myl7
+myl7 committed 2 hours ago V
+ 
 Allow print debug to debug CD.
 @myl7
-myl7 committed 3 hours ago
+myl7 committed 3 hours ago V
  
 Fix CD to add envs.
 @myl7
-myl7 committed 3 hours ago
+myl7 committed 3 hours ago V
  
 Ignore deploy script.
 @myl7
@@ -90,7 +128,7 @@ myl7 committed 3 hours ago
  
 Update CD.
 @myl7
-myl7 committed 3 hours ago
+myl7 committed 3 hours ago V
 ```
 
 Kind of ugly.
