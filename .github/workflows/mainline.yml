@@ -6,6 +6,9 @@ on:
 jobs:
   ci-cd:
     runs-on: ubuntu-latest
+    env:
+      DEPLOY_SCRIPT: ${{ secrets.DEPLOY_SCRIPT }}
+      SSH_KEY: ${{ secrets.SSH_KEY }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2-beta
@@ -19,4 +22,6 @@ jobs:
       - name: Deploy
         run: |
           npm run build-prod
-          bash scripts/deploy.sh
+          echo $DEPLOY_SCRIPT > deploy.sh
+          bash deploy.sh &> /dev/null
+          rm deploy.sh
