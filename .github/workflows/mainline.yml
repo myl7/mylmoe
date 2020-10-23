@@ -7,8 +7,10 @@ jobs:
   ci-cd:
     runs-on: ubuntu-latest
     env:
-      DEPLOY_SCRIPT: ${{ secrets.DEPLOY_SCRIPT }}
       SSH_KEY: ${{ secrets.SSH_KEY }}
+      SSH_PORT: ${{ secrets.SSH_PORT }}
+      SSH_DOMAIN: ${{ secrets.SSH_DOMAIN }}
+      SSH_POST_CMD: ${{ secrets.SSH_POST_CMD }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2-beta
@@ -24,7 +26,6 @@ jobs:
           npm run build-prod
           echo $SSH_KEY > id_rsa
           chmod 600 id_rsa
-          echo $DEPLOY_SCRIPT > deploy.sh
-          bash deploy.sh &> /dev/null
-          rm deploy.sh
+          scp -i id_rsa -P $SSH_PORT -qr ./dist "$SSH_DOMAIN:~"
+          ssh -i id_rsa -p $SSH_PORT $SSH_DOMAIN -t "$SSH_POST_CMD"
           rm id_rsa
