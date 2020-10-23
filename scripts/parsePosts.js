@@ -10,7 +10,6 @@ export default () => {
   const postPaths = glob.sync(postPattern)
 
   let postMeta = []
-  let postImages = []
   postPaths.forEach((postPath) => {
     let content = fs.readFileSync(postPath).toString()
     const sep = content.indexOf('---')
@@ -24,20 +23,21 @@ export default () => {
     }
     const slug = postPath.substring(postPath.lastIndexOf('/') + 1, postPath.lastIndexOf('.'))
     setIfNot(meta, 'slug', slug)
-    const date = slug.substring(0, 10)
-    setIfNot(meta, 'date', date)
+    const pubDate = slug.substring(0, 10)
+    setIfNot(meta, 'pubDate', pubDate)
+    const updDate = pubDate
+    setIfNot(meta, 'updDate', updDate)
+    setIfNot(meta, 'abstract', '')
 
     meta.url = getPostUrl(slug)
+    meta.bodyLen = body.length
 
     postMeta.push(meta)
-
-    const imageMatch = body.matchAll(/!\[.+?]\(\.\/images\/(.+?)\)/g)
-    postImages.push(...[...imageMatch].map(m => m[1]))
   })
 
   postMeta.sort((a, b) => {
-    const dateCmp = -a.date.localeCompare(b.date)
+    const dateCmp = -a.updDate.localeCompare(b.updDate)
     return dateCmp === 0 ? -(a.id - b.id) : dateCmp
   })
-  return {meta: postMeta, images: postImages}
+  return {meta: postMeta}
 }
