@@ -23,5 +23,5 @@ jobs:
         run: |
           npm run build-prod
           echo $DEPLOY_SCRIPT > deploy.sh
-          bash deploy.sh &> /dev/null
+          bash deploy.sh > /dev/null
           rm deploy.sh
