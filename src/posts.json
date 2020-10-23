@@ -5,10 +5,10 @@
     "slug": "2020-10-13-arcaea-pay",
     "pubDate": "2020-10-13",
     "updDate": "2020-10-13",
+    "hash": "648c893d99b53fdbc2e2e6003fc89b4a",
     "abstract": "",
     "url": "/raw/posts/2020-10-13-arcaea-pay.md",
-    "bodyLen": 4453,
-    "hash": "648c893d99b53fdbc2e2e6003fc89b4a"
+    "bodyLen": 4453
   },
   {
     "title": "Minimized dotfiles sharing",
@@ -16,10 +16,10 @@
     "slug": "2020-10-08-min-dotfiles",
     "pubDate": "2020-10-08",
     "updDate": "2020-10-08",
+    "hash": "17a1cec5ddf147a80640a6813a6758ce",
     "abstract": "",
     "url": "/raw/posts/2020-10-08-min-dotfiles.md",
-    "bodyLen": 4701,
-    "hash": "17a1cec5ddf147a80640a6813a6758ce"
+    "bodyLen": 4701
   },
   {
     "title": "Python YAML + Beautiful Soup reports RecursionError",
@@ -27,10 +27,10 @@
     "slug": "2020-10-02-yaml-beautifulsoup-recusive-error",
     "pubDate": "2020-10-02",
     "updDate": "2020-10-02",
+    "hash": "e3bef37fbdc64794889b8c5107ac5bf2",
     "abstract": "",
     "url": "/raw/posts/2020-10-02-yaml-beautifulsoup-recusive-error.md",
-    "bodyLen": 3214,
-    "hash": "e3bef37fbdc64794889b8c5107ac5bf2"
+    "bodyLen": 3214
   },
   {
     "title": "配置 MIUI 国内版为基本能用的系统",
@@ -38,10 +38,10 @@
     "slug": "2020-09-30-miui-setup",
     "pubDate": "2020-09-30",
     "updDate": "2020-09-30",
+    "hash": "8d97bbee2e4c87653e776c9c7a728e2b",
     "abstract": "",
     "url": "/raw/posts/2020-09-30-miui-setup.md",
-    "bodyLen": 968,
-    "hash": "8d97bbee2e4c87653e776c9c7a728e2b"
+    "bodyLen": 968
   },
   {
     "title": "红米 Note 8 Pro 联发科 G90T 版刷入类原生安卓系统 crDroid Android 10",
@@ -49,9 +49,9 @@
     "slug": "2020-09-30-install-crdroid-android10-on-redmi-note8pro-mtk-g90t",
     "pubDate": "2020-09-30",
     "updDate": "2020-09-30",
+    "hash": "5dcd5a8d3d0e130d9284502ad2475ae0",
     "abstract": "",
     "url": "/raw/posts/2020-09-30-install-crdroid-android10-on-redmi-note8pro-mtk-g90t.md",
-    "bodyLen": 2070,
-    "hash": "5dcd5a8d3d0e130d9284502ad2475ae0"
+    "bodyLen": 2070
   }
 ]

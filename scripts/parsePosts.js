@@ -1,43 +1,58 @@
 import fs from 'fs'
 import glob from 'glob'
 import YAML from 'js-yaml'
+import md5 from 'md5'
+import dayjs from 'dayjs'
 
 const postPattern = './posts/*.md'
-
-const getPostUrl = (slug) => `/raw/posts/${slug}.md`
+const postEmitPath = './src/posts.json'
+const prePosts = JSON.parse(fs.readFileSync(postEmitPath).toString())
+const postUrl = (slug) => `/raw/posts/${slug}.md`
 
 export default () => {
-  const postPaths = glob.sync(postPattern)
-
-  let postMeta = []
-  postPaths.forEach((postPath) => {
-    let content = fs.readFileSync(postPath).toString()
+  let posts = []
+  glob.sync(postPattern).forEach(path => {
+    const content = fs.readFileSync(path).toString()
     const sep = content.indexOf('---')
     const header = content.substring(0, sep)
     const body = content.substring(sep + 4)
 
-    let meta = YAML.safeLoad(header)
+    let post = YAML.safeLoad(header)
 
     const setIfNot = (obj, k, v) => {
       if (!obj[k]) obj[k] = v
     }
-    const slug = postPath.substring(postPath.lastIndexOf('/') + 1, postPath.lastIndexOf('.'))
-    setIfNot(meta, 'slug', slug)
+
+    const slug = path.substring(path.lastIndexOf('/') + 1, path.lastIndexOf('.'))
+    setIfNot(post, 'slug', slug)
+
     const pubDate = slug.substring(0, 10)
-    setIfNot(meta, 'pubDate', pubDate)
-    setIfNot(meta, 'updDate', pubDate)
-    setIfNot(meta, 'abstract', '')
+    setIfNot(post, 'pubDate', pubDate)
 
-    meta.url = getPostUrl(slug)
-    meta.bodyLen = body.length
-    meta.body = body
+    const prePost = prePosts.find(p => p.slug === slug)
+    const hash = md5(body)
 
-    postMeta.push(meta)
+    let updDate = prePost.updDate
+    if (hash !== prePost.hash) {
+      updDate = dayjs().format('YYYY-MM-DD')
+    }
+
+    setIfNot(post, 'updDate', updDate)
+    post.hash = hash
+
+    setIfNot(post, 'abstract', '')
+
+    post.url = postUrl(slug)
+    post.bodyLen = body.length
+    post.body = body
+
+    posts.push(post)
   })
 
-  postMeta.sort((a, b) => {
-    const dateCmp = -a.updDate.localeCompare(b.updDate)
+  posts.sort((a, b) => {
+    const dateCmp = -a.pubDate.localeCompare(b.pubDate)
     return dateCmp === 0 ? -(a.id - b.id) : dateCmp
   })
-  return {meta: postMeta}
+
+  return posts
 }
