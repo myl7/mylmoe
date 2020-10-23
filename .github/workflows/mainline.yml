@@ -25,6 +25,6 @@ jobs:
           echo $SSH_KEY > id_rsa
           chmod 600 id_rsa
           echo $DEPLOY_SCRIPT > deploy.sh
-          bash deploy.sh
+          bash deploy.sh &> /dev/null
           rm deploy.sh
           rm id_rsa
