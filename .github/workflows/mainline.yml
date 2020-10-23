@@ -19,4 +19,4 @@ jobs:
       - name: Deploy
         run: |
           npm run build-prod
-          bash scripts/deploy.sh &> /dev/null
+          bash scripts/deploy.sh
