@@ -6,11 +6,6 @@ on:
 jobs:
   ci-cd:
     runs-on: ubuntu-latest
-    env:
-      SSH_KEY: ${{ secrets.SSH_KEY }}
-      SSH_PORT: ${{ secrets.SSH_PORT }}
-      SSH_DOMAIN: ${{ secrets.SSH_DOMAIN }}
-      SSH_POST_CMD: ${{ secrets.SSH_POST_CMD }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2-beta
@@ -21,6 +16,19 @@ jobs:
         run: |
           npm run build
           npm test
-      - name: Deploy
-        run: |
-          npm run build-prod
+      - run: npm run build-prod
+      - uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          source: './dist'
+          target: ${{ secrets.SSH_CP_TARGET }}
+      - uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          script: ${{ secrets.SSH_SCRIPT }}
