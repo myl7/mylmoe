@@ -23,6 +23,6 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
-          source: 'dist'
+          source: 'dist/*'
           target: ${{ secrets.SSH_CP_TARGET }}
           overwrite: true
