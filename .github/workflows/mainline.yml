@@ -26,3 +26,4 @@ jobs:
           source: 'dist/*'
           target: ${{ secrets.SSH_CP_TARGET }}
           overwrite: true
+          strip_components: 1
