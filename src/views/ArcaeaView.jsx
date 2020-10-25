@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import {Card, CardContent, Divider, AppBar, Tab, Typography} from '@material-ui/core'
 import {TabList, TabPanel, TabContext} from '@material-ui/lab'
-import arcaeaProberApi from '../apis/arcaeaProberApi'
+import getArcaeaProber from '../apis/getArcaeaProber'
 import ArcaeaSongs from '../components/ArcaeaSongs'
 import ArcaeaUserInfo from '../components/ArcaeaUserInfo'
 
@@ -19,7 +19,7 @@ export default () => {
   }
 
   useEffect(() => {
-    arcaeaProberApi().then(data => {
+    getArcaeaProber().then(data => {
       setArcaeaProberData(data)
     })
   }, [])

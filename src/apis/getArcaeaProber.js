@@ -1,4 +1,4 @@
-import data from './arcaeaProberApiData.mock.json'
+import data from './getArcaeaProber.mock.json'
 
 const arcaeaProberApiUrl = 'https://myl.moe/apis/arcaea-prober.js'
 
