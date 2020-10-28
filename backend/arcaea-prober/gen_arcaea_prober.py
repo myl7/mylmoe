@@ -18,10 +18,10 @@ conn = sqlite3.connect(DB_PATH)
 
 
 async def main():
-    result = json.dumps(await update())
+    result = await update()
     date = datetime.utcnow().isoformat()
 
-    conn.execute('''INSERT INTO results(result, date) VALUES(?, ?)''', (result, date))
+    conn.execute('''INSERT INTO results(result, date) VALUES(?, ?)''', (json.dumps(result), date))
 
     with open(EMIT_PATH, 'w') as f:
         f.write(json.dumps(result, ensure_ascii=False))
@@ -144,5 +144,5 @@ async def process_data(data):
 
 
 if __name__ == '__main__':
-    conn.execute('''CREATE TABLE results(id INTEGER PRIMARY KEY, result TEXT, date TEXT UNIQUE)''')
+    conn.execute('''CREATE TABLE IF NOT EXISTS results(id INTEGER PRIMARY KEY, result TEXT, date TEXT UNIQUE)''')
     asyncio.run(main())
