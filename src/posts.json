@@ -1,14 +1,14 @@
 [
   {
-    "title": "Use SSH script to deploy in GitHub Action",
+    "title": "Use SSH to deploy in GitHub Action",
     "id": 6,
+    "abstract": "Do not reinvent the wheel. Use appleboy/ssh-action or appleboy/scp-action.",
     "slug": "2020-10-23-github-action-ssh-deploy",
     "pubDate": "2020-10-23",
-    "updDate": "2020-10-23",
-    "hash": "6d8161907cb6a296efcbff37f9d1aa33",
-    "abstract": "",
+    "updDate": "2020-10-29",
+    "hash": "6bb7d108ea4e4f3c824e2d5be325ca9b",
     "url": "/raw/posts/2020-10-23-github-action-ssh-deploy.md",
-    "bodyLen": 4368
+    "bodyLen": 3642
   },
   {
     "title": "Arcaea 付费建议",
