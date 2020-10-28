@@ -12,8 +12,9 @@ import brotli
 ARCAEA_PROBER_URL = 'wss://arc.estertion.win:616'
 ARCAEA_USER_ID = '984569312'
 EMIT_PATH = os.getenv('EMIT_PATH')
+DB_PATH = os.getenv('DB_PATH')
 
-conn = sqlite3.connect('results.db')
+conn = sqlite3.connect(DB_PATH)
 
 
 async def main():
