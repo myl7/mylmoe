@@ -4,25 +4,23 @@ from datetime import datetime
 import asyncio
 import os
 import time
+import sqlite3
 
 import websockets
 import brotli
-from pymongo import MongoClient
 
 ARCAEA_PROBER_URL = 'wss://arc.estertion.win:616'
-USER_ID = '984569312'
+ARCAEA_USER_ID = '984569312'
 EMIT_PATH = os.getenv('EMIT_PATH')
 
-collection = MongoClient('127.0.0.1', 27017)['mlblog']['arcaea_prober']
+conn = sqlite3.connect('results.db')
 
 
 async def main():
-    result = await update()
-    record = {
-        'result': result,
-        'date': datetime.utcnow()
-    }
-    collection.insert_one(record)
+    result = json.dumps(await update())
+    date = datetime.utcnow().isoformat()
+
+    conn.execute('''INSERT INTO results(result, date) VALUES(?, ?)''', (result, date))
 
     with open(EMIT_PATH, 'w') as f:
         f.write(json.dumps(result, ensure_ascii=False))
@@ -43,7 +41,7 @@ async def update():
 async def req_api():
     async with websockets.connect(ARCAEA_PROBER_URL) as ws:
         # Send query cmd.
-        await ws.send(f'{USER_ID} 7 12')
+        await ws.send(f'{ARCAEA_USER_ID} 7 12')
 
         # Reply query success.
         reply_cmd = await ws.recv()
@@ -94,8 +92,8 @@ async def process_data(data):
 
     song_infos = {}
     for song in songs:
-        # Filter non-FTR songs.
-        if song['difficulty'] < 2:
+        # Filter non-FTR songs, except PRT 9.
+        if song['difficulty'] < 2 and song['constant'] < 9:
             continue
 
         c = song['constant']
@@ -145,4 +143,5 @@ async def process_data(data):
 
 
 if __name__ == '__main__':
+    conn.execute('''CREATE TABLE results(id INTEGER PRIMARY KEY, result TEXT, date TEXT UNIQUE)''')
     asyncio.run(main())
