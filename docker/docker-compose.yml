@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  static:
+    image: mlblog-static
+    restart: always
+  arcaea-prober-static-api:
+    image: mlblog-static-api
+    restart: always
+    volumes:
+      - mlblog-arcaea-prober-static:/var/www/mlblog-apis
+      - mlblog-arcaea-prober-results:/var/db/arcaea-prober
+    depends_on:
+      - arcaea-prober-cron
+  arcaea-prober-cron:
+    image: mlblog-arcaea-prober-cron
+    restart: always
+    volumes:
+      - mlblog-arcaea-prober-static:/var/www/mlblog-apis
+  gateway:
+    image: mlblog-gateway
+    restart: always
+    ports:
+      - 127.0.01:8001:80
+    depends_on:
+      - static
+      - arcaea-prober-static-api

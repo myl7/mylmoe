@@ -4,7 +4,7 @@ RUN apk add gcc g++ libc-dev -t build \
  && pip install websockets brotli \
  && apk del build
 
-ENV EMIT_PATH=/var/www/mlblog-apis/apis/arcaea-prober.json.js
+ENV EMIT_PATH=/var/www/mlblog-apis/arcaea-prober/result.json.js
 ENV DB_PATH=/var/db/arcaea-prober/results.sqlite
 
 RUN mkdir -p /var/www/mlblog-apis/apis /var/db/arcaea-prober/
