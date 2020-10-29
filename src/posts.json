@@ -27,10 +27,10 @@
     "slug": "2020-10-08-min-dotfiles",
     "pubDate": "2020-10-08",
     "updDate": "2020-10-29",
-    "hash": "7e93d14c1fc04f5f4110595ce3e91490",
+    "hash": "eb19e47e8ce10926bab7ba06ffba875f",
     "abstract": "",
     "url": "/raw/posts/2020-10-08-min-dotfiles.md",
-    "bodyLen": 4924
+    "bodyLen": 5144
   },
   {
     "title": "Python YAML + Beautiful Soup reports RecursionError",

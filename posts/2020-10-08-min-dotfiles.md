@@ -100,9 +100,14 @@ Use `:%s/"\\t"/\t/g` in Vim to make substitution.
 
 Choose Neovim for better default config.
 
-Follow readme to config [vim-plug](https://github.com/junegunn/vim-plug)
+Follow [vim-plug](https://github.com/junegunn/vim-plug) guide to install:
 
-Use `:PlugInstall` in Neovim to install plugins.
+```bash
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+```
+
+Then edit the init.vim file:
 
 ```vim
 set tabstop=2 expandtab
@@ -122,6 +127,8 @@ call plug#end()
 " gruvbox
 colorscheme gruvbox
 ```
+
+Then use `:PlugInstall` in Neovim to install plugins.
 
 ## Editor: Visual Studio Code
 
