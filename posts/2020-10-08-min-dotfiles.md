@@ -16,54 +16,56 @@ Just remove them to keep your config clean.
 
 ## Shell: Zsh - `~/.zshrc` 
 
-Use `zsh-newuser-install` which is started when get into zsh firstly.
-Only get into config 4 to add `unsetopt beep`. 
+Use `zsh-newuser-install` which is started when getting into zsh firstly.
+Only go to config 4 and add `unsetopt beep` to disable bell. 
 
-Then follow readme to config [antigen](https://github.com/zsh-users/antigen).
-Put at `~/.local/share/antigen.zsh`.
+Then follow [zinit](https://github.com/zdharma/zinit) guide to install it:
 
-Get into zsh again to make antigen to install plugins.
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
+```
+
+Then edit the zshrc file:
 
 ```bash
 # Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
-unsetopt beep
-bindkey -e
+# ...
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/[user]/.zshrc'
-
-autoload -Uz compinit
-compinit
+# ...
 # End of lines added by compinstall
-
-# antigen
-source $HOME/.local/share/antigen.zsh
-antigen use oh-my-zsh
-antigen bundle git
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-autosuggestions
-antigen theme fino
-antigen apply
 
 # env
 export EDITOR=/usr/bin/nvim
-export PATH="$HOME/.local/bin:$HOME/.gem/ruby/2.7.0/bin:$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # alias
 alias sudo='sudo '
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -I'
-alias p='proxychains -q '
-alias m='dolphin . &|'
-alias bright='xrandr --output HDMI-0 --brightness'
 
-# conda
-source /opt/miniconda3/etc/profile.d/conda.sh
+### Added by Zinit's installer
+# ...
+### End of Zinit's installer chunk
+
+# zinit
+zinit light zsh-users/zsh-syntax-highlighting                                                                       
+zinit light zsh-users/zsh-autosuggestions                                                                           
+zinit snippet OMZL::git.zsh                                                                                         
+zinit snippet OMZL::prompt_info_functions.zsh                                                                       
+zinit snippet OMZL::spectrum.zsh                                                                                    
+zinit snippet OMZP::git                                                                                             
+setopt promptsubst
+zinit snippet OMZT::fino
 ```
+
+Used zsh plugins:
+
+- zsh-users/zsh-syntax-highlighting
+- zsh-users/zsh-autosuggestions
+- oh-my-zsh plugin: git
+- oh-my-zsh theme: fino
 
 ## Shell: tmux - `~/.tmux.conf`
 
