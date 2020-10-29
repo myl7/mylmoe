@@ -86,22 +86,10 @@ Use `:%s/"\\t"/\t/g` in Vim to make substitution.
 [alias]
 "\t"s = status
 "\t"a = add
-"\t"aa = add -A
+"\t"A = add -A
 "\t"c = commit
-"\t"ca = commit --amend
-"\t"caa = commit -a
-"\t"co = checkout
-"\t"r = reset
-"\t"ts = stash save
-"\t"tp = stash pop
-"\t"ta = stash apply
 "\t"l = log
 "\t"ll = log --oneline --graph
-"\t"p = push
-"\t"pm = push origin master
-"\t"rb = rebase
-"\t"cl = clone
-"\t"cla = clone --depth=1
 [pull]
 "\t"rebase = true
 [credential]
