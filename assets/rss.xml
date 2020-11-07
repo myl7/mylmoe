@@ -7,9 +7,17 @@
     <copyright>Copyright (c) 2020 myl7</copyright>
     <managingEditor>myl.ustc@gmail.com (myl7)</managingEditor>
     <webMaster>myl.ustc@gmail.com (myl7)</webMaster>
-    <pubDate>Thu, 29 Oct 2020 12:00:00 +0800</pubDate>
+    <pubDate>Fri, 06 Nov 2020 12:00:00 +0800</pubDate>
     <atom:link href="https://myl.moe/rss.xml" rel="self" type="application/rss+xml" />
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+    <item>
+      <title>First impression to Javascript</title>
+      <link>https://myl.moe/posts/2020-11-06-first-impression-to-js</link>
+      <description />
+      <author>myl.ustc@gmail.com (myl7)</author>
+      <guid>https://myl.moe/posts/2020-11-06-first-impression-to-js</guid>
+      <pubDate>Fri, 06 Nov 2020 12:00:00 +0800</pubDate>
+    </item>
     <item>
       <title>Use SSH to deploy in GitHub Action</title>
       <link>https://myl.moe/posts/2020-10-23-github-action-ssh-deploy</link>

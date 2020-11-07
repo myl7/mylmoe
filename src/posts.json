@@ -1,5 +1,16 @@
 [
   {
+    "title": "First impression to Javascript",
+    "id": 7,
+    "slug": "2020-11-06-first-impression-to-js",
+    "pubDate": "2020-11-06",
+    "updDate": "2020-11-06",
+    "hash": "788a9587cce2bc7a8014ee0338fc4380",
+    "abstract": "",
+    "url": "/raw/posts/2020-11-06-first-impression-to-js.md",
+    "bodyLen": 5340
+  },
+  {
     "title": "Use SSH to deploy in GitHub Action",
     "id": 6,
     "abstract": "Do not reinvent the wheel. Use appleboy/ssh-action or appleboy/scp-action.",
