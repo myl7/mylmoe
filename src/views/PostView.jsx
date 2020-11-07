@@ -7,6 +7,7 @@ import bash from 'highlight.js/lib/languages/bash'
 import python from 'highlight.js/lib/languages/python'
 import vim from 'highlight.js/lib/languages/vim'
 import json from 'highlight.js/lib/languages/json'
+import js from 'highlight.js/lib/languages/javascript'
 import posts from '../posts.json'
 import md2html from '../utils/md2html'
 
@@ -34,6 +35,8 @@ export default () => {
         hljs.registerLanguage('python', python)
         hljs.registerLanguage('vim', vim)
         hljs.registerLanguage('json', json)
+        hljs.registerLanguage('js', js)
+        hljs.registerLanguage('jsx', js)
 
         document.querySelectorAll('div#root pre > code').forEach(elem => {
           hljs.highlightBlock(elem)
