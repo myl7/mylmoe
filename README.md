@@ -1,10 +1,6 @@
 # mlfend
 
-[mlend](https://myl.moe) frontend.
-
-## Usage
-
-See `scripts` section in `package.json`.
+<myl.moe> frontend.
 
 ## License
 

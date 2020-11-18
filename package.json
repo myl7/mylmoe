@@ -1,16 +1,15 @@
 {
   "name": "mlfend",
   "version": "2.0.0",
-  "description": "mlend (myl.moe) frontend",
+  "description": "myl.moe frontend",
   "main": "./src/index.jsx",
   "scripts": {
-    "test": "echo 'Error: no test specified' && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "bash ./build.sh"
   },
   "keywords": [
     "frontend",
-    "react",
-    "material-ui"
+    "react"
   ],
   "author": "myl7",
   "license": "MIT",
@@ -24,18 +23,18 @@
   "homepage": "https://github.com/myl7/mlfend#readme",
   "type": "module",
   "devDependencies": {
-    "esbuild": "^0.8.10"
+    "esbuild": "^0.8.11"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.56",
-    "dayjs": "^1.9.1",
+    "dayjs": "^1.9.6",
     "echarts": "^4.9.0",
-    "highlight.js": "^10.2.1",
-    "marked": "^1.2.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "highlight.js": "^10.4.0",
+    "marked": "^1.2.4",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
     "react-router-dom": "^5.2.0"
   }
 }
