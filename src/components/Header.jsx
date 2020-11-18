@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
 import {AppBar, IconButton, Toolbar, Button, Menu, MenuItem, Typography} from '@material-ui/core'
 import {GitHub as GitHubIcon, Home as HomeIcon, Mail as MailIcon, RssFeed as RssFeedIcon} from '@material-ui/icons'
-import ExternalLink from './ExternalLink'
-import RouterLink from './RouterLink'
+import ExternalLink from './links/ExternalLink'
+import RouterLink from './links/RouterLink'
 
 export default () => {
   const [pageMenuElem, setPageMenuElem] = useState(null)
@@ -20,7 +20,7 @@ export default () => {
         <IconButton component={RouterLink} to={'/'}>
           <HomeIcon color={'action'} />
         </IconButton>
-        <Typography variant={'h6'}>mlblog</Typography>
+        <Typography variant={'h6'}>myl.moe</Typography>
 
         <Button aria-controls={'header-page-menu'} aria-haspopup={'true'} onClick={handlePageMenuClick}
                 variant={'outlined'} style={{marginLeft: '2em'}}>

@@ -1,6 +1,6 @@
-import {Card, CardContent, Box, makeStyles} from '@material-ui/core'
 import React from 'react'
-import ExternalLink from './ExternalLink'
+import {Card, CardContent, Box, makeStyles} from '@material-ui/core'
+import ExternalLink from './links/ExternalLink'
 
 const useStyles = makeStyles({
   ccIcon: {
@@ -21,9 +21,9 @@ export default () => {
     <Card style={{marginTop: '1em'}} variant={'outlined'}>
       <CardContent>
         <Box component={'p'} className={styles.footerText}>
-          If no additional statement, the post text on{' '}
-          <ExternalLink href="https://myl.moe">mlblog</ExternalLink>
-          {' '}by myl7 is licensed under{' '}
+          All{' '}
+          <ExternalLink href={'https://github.com/myl7/mlpost'}>posts</ExternalLink>
+          {' '}on the website by myl7 are licensed under{' '}
           <ExternalLink rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0">
             CC BY-NC-SA 4.0
             <Box component={'img'} className={styles.ccIcon}
@@ -37,13 +37,11 @@ export default () => {
           </ExternalLink>
         </Box>
         <Box component={'p'} className={styles.footerText} style={{marginTop: '0.5em'}}>
-          The source code of{' '}
-          <ExternalLink href="https://myl.moe">mlblog</ExternalLink>
-          {' '}is located at{' '}
-          <ExternalLink href={'https://github.com/myl7/mlblog'}>myl7/mlblog</ExternalLink>
-          {' '}licensed under{' '}
-          <ExternalLink rel="license" href={'https://github.com/myl7/mlblog/blob/master/LICENSE'}>MIT</ExternalLink>
-          .
+          Source code of{' '}
+          <ExternalLink href={'https://github.com/myl7/mlfend'}>frontend</ExternalLink>
+          {' '}and{' '}
+          <ExternalLink href={'https://github.com/myl7/mlbend'}>backend</ExternalLink>
+          {' '} of the website is licensed under MIT.
         </Box>
       </CardContent>
     </Card>

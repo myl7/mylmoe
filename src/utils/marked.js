@@ -1,7 +1,6 @@
-/**
- * @param {import('marked').default} marked
- */
-export default (marked) => {
+import marked from 'marked'
+
+export default (src) => {
   const renderer = new marked.Renderer()
 
   const linkRenderer = renderer.link
@@ -21,14 +20,5 @@ export default (marked) => {
   }
   marked.setOptions({renderer})
 
-  const imageRenderer = renderer.image
-  renderer.image = (href, title, text) => {
-    let html = imageRenderer.call(renderer, href, title, text)
-    if (href.startsWith('../images/')) {
-      html = html.replace(/src="\.\.\/images\//, 'src="/raw/images/')
-    }
-    return html
-  }
-
-  return marked
+  return marked(src)
 }
