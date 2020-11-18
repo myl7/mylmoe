@@ -15,15 +15,14 @@ jobs:
       - name: Test
         run: |
           npm run build
-          npm test
-      - run: npm run build-prod
-      - uses: appleboy/scp-action@master
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          port: ${{ secrets.SSH_PORT }}
-          key: ${{ secrets.SSH_KEY }}
-          source: 'dist'
-          target: ${{ secrets.SCP_TARGET }}
-          strip_components: 1
-          rm: true
+#          npm test
+#      - uses: appleboy/scp-action@master
+#        with:
+#          host: ${{ secrets.SSH_HOST }}
+#          username: ${{ secrets.SSH_USERNAME }}
+#          port: ${{ secrets.SSH_PORT }}
+#          key: ${{ secrets.SSH_KEY }}
+#          source: 'dist'
+#          target: ${{ secrets.SCP_TARGET }}
+#          strip_components: 1
+#          rm: true

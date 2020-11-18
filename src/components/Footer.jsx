@@ -20,13 +20,10 @@ export default () => {
   return (
     <Card style={{marginTop: '1em'}} variant={'outlined'}>
       <CardContent>
-        <Box component={'p'} className={styles.footerText} xmlns:dct="http://purl.org/dc/terms/"
-             xmlns:cc="http://creativecommons.org/ns#">
+        <Box component={'p'} className={styles.footerText}>
           If no additional statement, the post text on{' '}
-          <ExternalLink rel="cc:attributionURL" property="dct:title" href="https://myl.moe">mlblog</ExternalLink>
-          {' '}by{' '}
-          <span property="cc:attributionName">myl7</span>
-          {' '}is licensed under{' '}
+          <ExternalLink href="https://myl.moe">mlblog</ExternalLink>
+          {' '}by myl7 is licensed under{' '}
           <ExternalLink rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0">
             CC BY-NC-SA 4.0
             <Box component={'img'} className={styles.ccIcon}
@@ -39,10 +36,9 @@ export default () => {
                  src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" alt="SA" />
           </ExternalLink>
         </Box>
-        <Box component={'p'} className={styles.footerText} xmlns:dct="http://purl.org/dc/terms/"
-             style={{marginTop: '0.5em'}}>
+        <Box component={'p'} className={styles.footerText} style={{marginTop: '0.5em'}}>
           The source code of{' '}
-          <ExternalLink property="dct:title" href="https://myl.moe">mlblog</ExternalLink>
+          <ExternalLink href="https://myl.moe">mlblog</ExternalLink>
           {' '}is located at{' '}
           <ExternalLink href={'https://github.com/myl7/mlblog'}>myl7/mlblog</ExternalLink>
           {' '}licensed under{' '}

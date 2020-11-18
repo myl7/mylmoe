@@ -11,56 +11,52 @@ export default (props) => {
   const countChartRef = useRef(null)
 
   useEffect(() => {
-    import(/* webpackChunkName: "echarts" */ 'echarts/lib/echarts').then(echarts => {
-      import(/* webpackChunkName: "echarts" */ 'echarts/lib/chart/bar').then(() => {
-        const healthChart = echarts.init(healthChartRef.current)
-        healthChart.setOption({
-          xAxis: {
-            axisLine: {
-              show: false
-            },
-            axisTick: {
-              show: false
-            },
-            data: ['Memory']
+    import(/* webpackChunkName: "echarts" */ '../echarts').then(echarts => {
+      const healthChart = echarts.init(healthChartRef.current)
+      healthChart.setOption({
+        xAxis: {
+          axisLine: {
+            show: false
           },
-          yAxis: {
-            show: false,
-            min: 0,
-            max: 100,
+          axisTick: {
+            show: false
           },
-          series: [{
-            type: 'bar',
-            data: [song.health],
-            showBackground: true,
-            barWidth: '25%',
-          }],
-          grid: {
-            top: '20%',
-            bottom: '20%'
-          }
-        })
+          data: ['Memory']
+        },
+        yAxis: {
+          show: false,
+          min: 0,
+          max: 100,
+        },
+        series: [{
+          type: 'bar',
+          data: [song.health],
+          showBackground: true,
+          barWidth: '25%',
+        }],
+        grid: {
+          top: '20%',
+          bottom: '20%'
+        }
       })
     })
   }, [healthChartRef, song])
 
   useEffect(() => {
-    import(/* webpackChunkName: "echarts" */ 'echarts').then(echarts => {
-      import(/* webpackChunkName: "echarts" */ 'echarts/lib/chart/pie').then(() => {
-        const countChart = echarts.init(countChartRef.current)
-        countChart.setOption({
-          series: [{
-            type: 'pie',
-            radius: '50%',
-            data: [
-              {name: 'pure*', value: song.count.strict_pure},
-              {name: 'pure', value: song.count.pure},
-              {name: 'far', value: song.count.far},
-              {name: 'lost', value: song.count.lost}
-            ],
-            label: {formatter: '{b} {c} {d}%'}
-          }]
-        })
+    import(/* webpackChunkName: "echarts" */ '../echarts').then(echarts => {
+      const countChart = echarts.init(countChartRef.current)
+      countChart.setOption({
+        series: [{
+          type: 'pie',
+          radius: '50%',
+          data: [
+            {name: 'pure*', value: song.count.strict_pure},
+            {name: 'pure', value: song.count.pure},
+            {name: 'far', value: song.count.far},
+            {name: 'lost', value: song.count.lost}
+          ],
+          label: {formatter: '{b} {c} {d}%'}
+        }]
       })
     })
   }, [countChartRef, song])
