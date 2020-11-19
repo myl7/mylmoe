@@ -5,7 +5,9 @@
   "main": "./src/index.jsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "bash ./build.sh"
+    "build": "npm run build:dev",
+    "build:dev": "bash ./build.sh dev",
+    "build:prod": "bash ./build.sh prod"
   },
   "keywords": [
     "frontend",
