@@ -32,9 +32,12 @@
     "dayjs": "^1.9.6",
     "echarts": "^4.9.0",
     "highlight.js": "^10.4.0",
+    "immer": "^8.0.0",
     "marked": "^1.2.4",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
-    "react-router-dom": "^5.2.0"
+    "react-redux": "^7.2.2",
+    "react-router-dom": "^5.2.0",
+    "redux": "^4.0.5"
   }
 }
