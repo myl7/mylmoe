@@ -1,4 +1,6 @@
 title: Use SSH to deploy in GitHub Action
+publishDate: 2020-10-23
+updateDate: 2020-10-29
 abstract: Do not reinvent the wheel. Use appleboy/ssh-action or appleboy/scp-action.
 ---
 ## Where it starts from

@@ -1,4 +1,6 @@
 title: Python YAML + Beautiful Soup reports RecursionError
+publishDate: 2020-10-02
+updateDate: 2020-10-02
 ---
 ## Problem
 
