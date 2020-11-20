@@ -32,4 +32,8 @@ const reducer = (s, a) => {
   }
 }
 
-export const store = createStore(reducer, initState)
+const enhancer = process.env.NODE_ENV === 'development' ?
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() :
+  undefined
+
+export const store = createStore(reducer, initState, enhancer)

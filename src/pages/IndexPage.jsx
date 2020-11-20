@@ -1,9 +1,10 @@
 import React, {useEffect} from 'react'
 import {Card, CardContent, Typography, Box, Grid} from '@material-ui/core'
-import RouterLink from '../components/links/RouterLink'
 import {useDispatch, useSelector} from 'react-redux'
-import PostApi from '../apis/PostApi'
 import BodyPage from './BodyPage'
+import RouterLink from '../components/links/RouterLink'
+import PostApi from '../apis/PostApi'
+import {formatDate} from '../utils/dayjs'
 
 export default () => {
   const dispatch = useDispatch()
@@ -29,7 +30,7 @@ export default () => {
 
   return (
     <BodyPage>{
-      posts.sort(cmp).map(post => (
+      [...posts].filter(p => p !== undefined).sort(cmp).map(post => (
         <Card key={post.id}>
           <CardContent>
             <Grid container spacing={1} alignItems={'center'}>
@@ -40,7 +41,7 @@ export default () => {
               </Grid>
               <Grid item>
                 <Box fontWeight={'fontWeightLight'} fontSize={14}>
-                  published at {post.publishDate}, updated at {post.updateDate}
+                  published at {formatDate(post.publishDate)}, updated at {formatDate(post.updateDate)}
                 </Box>
               </Grid>
             </Grid>

@@ -5,6 +5,8 @@ import {useDispatch, useSelector} from 'react-redux'
 import hljs from '../utils/hljs'
 import marked from '../utils/marked'
 import PostApi from '../apis/PostApi'
+import {formatDate} from '../utils/dayjs'
+import BodyPage from './BodyPage'
 
 export default () => {
   const {slug} = useParams()
@@ -13,7 +15,7 @@ export default () => {
 
   const post = useSelector(s => {
     const id = parseInt(slug, 10)
-    return isNaN(id) ? s.posts.find(p => p.slug === slug) : s.posts[id]
+    return isNaN(id) ? s.posts.find(p => p !== undefined && p.slug === slug) : s.posts[id]
   })
 
   useEffect(() => {
@@ -32,19 +34,21 @@ export default () => {
   }, [dispatch])
 
   return (
-    <Card>
-      <CardContent>
-        <Grid container alignItems={'center'} spacing={1}>
-          <Grid item><Box fontSize={'h5.fontSize'}>{post.title}</Box></Grid>
-          <Grid item>
-            <Box fontWeight={'fontWeightLight'}>
-              published at {post.publishDate}, updated at {post.updateDate}
-            </Box>
+    <BodyPage>
+      <Card>
+        {post ? <CardContent>
+          <Grid container alignItems={'center'} spacing={1}>
+            <Grid item><Box fontSize={'h5.fontSize'}>{post.title}</Box></Grid>
+            <Grid item>
+              <Box fontWeight={'fontWeightLight'}>
+                published at {formatDate(post.publishDate)}, updated at {formatDate(post.updateDate)}
+              </Box>
+            </Grid>
           </Grid>
-        </Grid>
-        <Divider style={{marginTop: '1em', marginBottom: '1em'}} />
-        <Box dangerouslySetInnerHTML={{__html: marked(post.body)}} />
-      </CardContent>
-    </Card>
+          <Divider style={{marginTop: '1em', marginBottom: '1em'}} />
+          <Box dangerouslySetInnerHTML={{__html: marked(post.body)}} />
+        </CardContent> : ''}
+      </Card>
+    </BodyPage>
   )
 }
