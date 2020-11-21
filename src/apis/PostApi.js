@@ -7,10 +7,7 @@ export default class PostApi {
     }
 
     const res = await fetch('/api/posts')
-    if (res.status !== 200) {
-      return undefined
-    }
-    return await res.json()
+    return res.status === 200 ? await res.json() : undefined
   }
 
   async post(slug) {
@@ -19,9 +16,6 @@ export default class PostApi {
     }
 
     const res = await fetch(`/api/posts/${slug}`)
-    if (res.status !== 200) {
-      return undefined
-    }
-    return await res.json()
+    return res.status === 200 ? await res.json() : undefined
   }
 }
