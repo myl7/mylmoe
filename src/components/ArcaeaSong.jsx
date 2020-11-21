@@ -1,8 +1,6 @@
 import React, {useEffect, useRef} from 'react'
 import {Box, Card, CardContent, Grid, Typography} from '@material-ui/core'
-import dayjs from 'dayjs'
-
-const dayToStr = d => dayjs.utc(d).local().format('YYYY-MM-DD HH:mm:ss')
+import {formatDatetime} from '../utils/dayjs'
 
 export default (props) => {
   const {song} = props
@@ -11,7 +9,8 @@ export default (props) => {
   const countChartRef = useRef(null)
 
   useEffect(() => {
-    import(/* webpackChunkName: "echarts" */ '../echarts').then(echarts => {
+    import('../echarts').then(m => {
+      const echarts = m.default
       const healthChart = echarts.init(healthChartRef.current)
       healthChart.setOption({
         xAxis: {
@@ -43,7 +42,8 @@ export default (props) => {
   }, [healthChartRef, song])
 
   useEffect(() => {
-    import(/* webpackChunkName: "echarts" */ '../echarts').then(echarts => {
+    import('../echarts').then(m => {
+      const echarts = m.default
       const countChart = echarts.init(countChartRef.current)
       countChart.setOption({
         series: [{
@@ -62,7 +62,7 @@ export default (props) => {
   }, [countChartRef, song])
 
   return (
-    <Grid item xs={4}>
+    <Grid item>
       <Card variant={'outlined'}>
         <CardContent>
           <Typography variant={'subtitle1'}>
@@ -80,8 +80,8 @@ export default (props) => {
                 {song.clear_type}
                 {' | '}Rating: {song.rating.toFixed(5)}
               </div>
-              <div>Latest Play at {dayToStr(song.play_date)}</div>
-              <div>Get the song at {dayToStr(song.get_date)}</div>
+              <div>Latest Play at {formatDatetime(song.play_date)}</div>
+              <div>Get the song at {formatDatetime(song.get_date)}</div>
             </Grid>
             <Grid item>
               <Grid container>

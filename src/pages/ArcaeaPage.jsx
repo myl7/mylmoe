@@ -1,31 +1,32 @@
 import React, {useEffect, useState} from 'react'
-import {Card, CardContent, Divider, AppBar, Tab, Typography} from '@material-ui/core'
+import {Card, CardContent, Divider, AppBar, Tab, Typography, Box, Grid} from '@material-ui/core'
 import {TabList, TabPanel, TabContext} from '@material-ui/lab'
-import getArcaeaProber from '../apis/getArcaeaProber'
-import ArcaeaSongs from '../components/ArcaeaSongs'
-import ArcaeaUserInfo from '../components/ArcaeaUserInfo'
+import ArcaeaApi from '../apis/ArcaeaApi'
+import {formatDatetime} from '../utils/dayjs'
+import ArcaeaSong from '../components/ArcaeaSong'
 
-const initArcaeaSongs = {'11': [], '10+': [], '10': [], '9+': [], '9': [], '8': [], '7': []}
-const initArcaeaUserInfo = {name: null, code: null, ptt: null, join_date: null}
+const levels = ['lv11', 'lv10p', 'lv10', 'lv9p', 'lv9', 'lv8', 'lv7']
 
 export default () => {
-  const [arcaeaProberData, setArcaeaProberData] = useState({
-    songs: initArcaeaSongs, userInfo: initArcaeaUserInfo
+  const [data, setData] = useState({
+    songs: Object.fromEntries(levels.map(l => [l, []])),
+    userInfo: {name: null, code: null, ptt: null, join_date: null}
   })
 
-  const [tabNum, setTabNum] = useState('10')
-  const handleTabSwitch = (_e, newTabNum) => {
+  const [tabNum, setTabNum] = useState('lv10')
+  const handleTabSwitch = (_, newTabNum) => {
     setTabNum(newTabNum)
   }
 
   useEffect(() => {
-    getArcaeaProber().then(data => {
-      setArcaeaProberData(data)
+    new ArcaeaApi().data().then(data => {
+      if (data !== undefined) {
+        setData(data)
+      }
     })
-  }, [])
+  }, [setData])
 
-  const {songs, userInfo} = arcaeaProberData
-  const {'11': s11, '10+': s10p, '10': s10, '9+': s9p, '9': s9, '8': s8, '7': s7} = songs
+  const {songs, userInfo} = data
   return (
     <Card>
       <CardContent>
@@ -34,27 +35,31 @@ export default () => {
         </Typography>
         <Divider style={{marginTop: '0.5em', marginBottom: '0.5em'}} />
 
-        <ArcaeaUserInfo userInfo={userInfo} />
+        <Typography variant={'body1'}>
+          <Typography component={'span'} variant={'h5'}>
+            {userInfo.name}
+          </Typography>
+          {' '}
+          <Box component={'span'} fontWeight={'fontWeightLight'}>
+            {userInfo.code}
+          </Box>
+          {' '}| PTT {userInfo.ptt / 100} | Join at{' '}
+          {formatDatetime(userInfo.join_date)}
+        </Typography>
 
         <TabContext value={tabNum} style={{marginTop: '0.5em'}}>
           <AppBar position={'sticky'}>
-            <TabList onChange={handleTabSwitch} aria-label={'select Arcaea song levels'} centered>
-              <Tab label="11" value="11" />
-              <Tab label="10+" value="10+" />
-              <Tab label="10" value="10" />
-              <Tab label="9+" value="9+" />
-              <Tab label="9" value="9" />
-              <Tab label="8" value="8" />
-              <Tab label="7" value="7" />
+            <TabList onChange={handleTabSwitch} centered>
+              {levels.map(l => <Tab label={l} value={l} key={l} />)}
             </TabList>
           </AppBar>
-          <TabPanel value="11"><ArcaeaSongs songs={s11} /></TabPanel>
-          <TabPanel value="10+"><ArcaeaSongs songs={s10p} /></TabPanel>
-          <TabPanel value="10"><ArcaeaSongs songs={s10} /></TabPanel>
-          <TabPanel value="9+"><ArcaeaSongs songs={s9p} /></TabPanel>
-          <TabPanel value="9"><ArcaeaSongs songs={s9} /></TabPanel>
-          <TabPanel value="8"><ArcaeaSongs songs={s8} /></TabPanel>
-          <TabPanel value="7"><ArcaeaSongs songs={s7} /></TabPanel>
+          {levels.map(l => (
+            <TabPanel value={l} key={l}>
+              <Grid container spacing={2} justify={'center'}>
+                {songs[l].map(song => <ArcaeaSong key={song.id} song={song} />)}
+              </Grid>
+            </TabPanel>
+          ))}
         </TabContext>
       </CardContent>
     </Card>

@@ -1,6 +1,6 @@
 {
   "songs": {
-    "11": [
+    "lv11": [
       {
         "id": "grievouslady",
         "title": "Grievous Lady",
@@ -19,7 +19,7 @@
         "rating": 8.21144
       }
     ],
-    "10+": [
+    "lv10p": [
       {
         "id": "axiumcrisis",
         "title": "Axium Crisis",
@@ -174,7 +174,7 @@
         "rating": 9.794176666666667
       }
     ],
-    "10": [
+    "lv10": [
       {
         "id": "valhallazero",
         "title": "Valhalla:0",
@@ -431,7 +431,7 @@
         "rating": 10.634033333333333
       }
     ],
-    "9+": [
+    "lv9p": [
       {
         "id": "antagonism",
         "title": "Antagonism",
@@ -807,7 +807,7 @@
         "rating": 10.32356
       }
     ],
-    "9": [
+    "lv9": [
       {
         "id": "redandblue",
         "title": "Red and Blue",
@@ -1149,7 +1149,7 @@
         "rating": 10.23999
       }
     ],
-    "8": [
+    "lv8": [
       {
         "id": "mazenine",
         "title": "九番目の迷路",
@@ -1678,7 +1678,7 @@
         "rating": 9.21635
       }
     ],
-    "7": [
+    "lv7": [
       {
         "id": "paradise",
         "title": "Paradise",
