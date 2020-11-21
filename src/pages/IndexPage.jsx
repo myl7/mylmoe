@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 import {Card, CardContent, Typography, Box, Grid} from '@material-ui/core'
 import {useDispatch, useSelector} from 'react-redux'
 import BodyPage from './BodyPage'
-import RouterLink from '../components/links/RouterLink'
+import RouterLink from '../components/link/RouterLink'
 import PostApi from '../apis/PostApi'
 import {formatDate} from '../utils/dayjs'
 

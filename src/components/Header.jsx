@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
 import {AppBar, IconButton, Toolbar, Button, Menu, MenuItem, Typography} from '@material-ui/core'
 import {GitHub as GitHubIcon, Home as HomeIcon, Mail as MailIcon, RssFeed as RssFeedIcon} from '@material-ui/icons'
-import ExternalLink from './links/ExternalLink'
-import RouterLink from './links/RouterLink'
+import ExternalLink from './link/ExternalLink'
+import RouterLink from './link/RouterLink'
 
 export default () => {
   const [pageMenuElem, setPageMenuElem] = useState(null)
