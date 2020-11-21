@@ -6,7 +6,7 @@ export default class ArcaeaApi {
       return data
     }
 
-    const res = await fetch('/apis/arcaea')
+    const res = await fetch('/api/arcaea')
     return res.status === 200 ? await res.json() : undefined
   }
 }
