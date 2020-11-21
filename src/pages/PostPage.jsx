@@ -14,8 +14,12 @@ export default () => {
   const dispatch = useDispatch()
 
   const post = useSelector(s => {
-    const id = parseInt(slug, 10)
-    return isNaN(id) ? s.posts.find(p => p !== undefined && p.slug === slug) : s.posts[id]
+    if (/^\d+$/.test(slug)) {
+      const id = parseInt(slug)
+      return s.posts[id]
+    } else {
+      return s.posts.find(p => p !== undefined && p.slug === slug)
+    }
   })
 
   useEffect(() => {
@@ -31,7 +35,7 @@ export default () => {
     document.querySelectorAll('div#root pre > code').forEach(elem => {
       hljs.highlightBlock(elem)
     })
-  }, [dispatch])
+  }, [dispatch, post])
 
   return (
     <BodyPage>

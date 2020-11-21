@@ -12,7 +12,7 @@ export const postsData = [
   postData,
   {
     id: 2,
-    slug: 'hello world',
+    slug: '2000-hello-world',
     title: 'hello',
     abstract: 'hw',
     body: 'world!\n',
