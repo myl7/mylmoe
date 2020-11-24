@@ -21,7 +21,7 @@ export default () => {
   }, [dispatch])
 
   const cmp = (a, b) => {
-    const i = -a.publishDate.localeCompare(b.publishDate)
+    const i = -a.pub_date.localeCompare(b.pub_date)
     if (i === 0) {
       return -(a.id - b.id)
     }
@@ -41,7 +41,7 @@ export default () => {
               </Grid>
               <Grid item>
                 <Box fontWeight={'fontWeightLight'} fontSize={14}>
-                  published at {formatDate(post.publishDate)}, updated at {formatDate(post.updateDate)}
+                  published at {formatDate(post.pub_date)}, updated at {formatDate(post.upd_date)}
                 </Box>
               </Grid>
             </Grid>

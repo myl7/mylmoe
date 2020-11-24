@@ -4,8 +4,8 @@ export const postData = {
   title: 'test title',
   abstract: 'test abstract',
   body: 'test body',
-  publishDate: '2000-07-07',
-  updateDate: '2000-08-08'
+  pub_date: '2000-07-07',
+  upd_date: '2000-08-08'
 }
 
 export const postsData = [
@@ -16,7 +16,7 @@ export const postsData = [
     title: 'hello',
     abstract: 'hw',
     body: 'world!\n',
-    publishDate: '1999-05-06',
-    updateDate: '2000-01-01'
+    pub_date: '1999-05-06',
+    upd_date: '2000-01-01'
   }
 ]
