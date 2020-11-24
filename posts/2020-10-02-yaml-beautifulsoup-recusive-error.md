@@ -1,6 +1,6 @@
 title: Python YAML + Beautiful Soup reports RecursionError
-publishDate: 2020-10-02
-updateDate: 2020-10-02
+pub_date: 2020-10-02
+upd_date: 2020-11-24
 abstract: Use YAML safe functions and explicitly convert Beautiful Soup string to str.
 ---
 

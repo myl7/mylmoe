@@ -1,6 +1,6 @@
 title: 红米 Note 8 Pro 联发科 G90T 版刷入类原生安卓系统 crDroid Android 10
-publishDate: 2020-09-30
-updateDate: 2020-09-30
+pub_date: 2020-09-30
+upd_date: 2020-09-30
 ---
 ## 解锁 Bootloader
 

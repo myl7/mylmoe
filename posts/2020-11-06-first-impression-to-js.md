@@ -1,6 +1,7 @@
 title: First impression to Javascript
-publishDate: 2020-11-06
-updateDate: 2020-11-07
+pub_date: 2020-11-06
+upd_date: 2020-11-07
+wip: true
 ---
 ## Introduction
 
