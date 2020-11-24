@@ -1,10 +1,12 @@
 title: Python YAML + Beautiful Soup reports RecursionError
 publishDate: 2020-10-02
 updateDate: 2020-10-02
+abstract: Use YAML safe functions and explicitly convert Beautiful Soup string to str.
 ---
+
 ## Problem
 
-Today I am writting a Telegram bot.
+Today I am writing a Telegram bot.
 I choose YAML to display the results for users.
 The results are requested by `requests`, parsed by `Beautiful Soup`, and finally dumped by `PyYAML`, which is a common plan.
 However, when testing, a strange error comes out:
@@ -16,14 +18,14 @@ RecursionError: maximum recursion depth exceeded in __instancecheck__
 
 But the dumped Python dict is just simple, and you can easily copy it and dump it in a Python shell.
 
-After a long time web searching, I finally realize what I have done.
+After a long time of web searching, I finally realize what I have done.
 
 ## Beautiful Soup: `NavigableString`
 
-Let us start from Beautiful Soup.
-I find out that I have used `tag.string` to get the text node in HTML, and pass it to PyYAML to dump it to readable text.
+Let us start with Beautiful Soup.
+I find out that I have used `tag.string` to get the text node in HTML and pass it to PyYAML to dump it to readable text.
 Here is a point: **Beautiful Soup `tag.string` returns `NavigableString`, not Python builti-in `str`.**
-The `NavigableString` carries a reference to the entire Beautiful Soup parse tree, and provides some extra methods that working on it.
+The `NavigableString` carries a reference to the entire Beautiful Soup parse tree and provides some extra methods that working on it.
 The original documentation text from [here](https://www.crummy.com/software/BeautifulSoup/bs4/doc/#navigablestring) is:
 
 > If you want to use a `NavigableString` outside of Beautiful Soup, you should call `unicode()` on it to turn it into a normal Python Unicode string.
@@ -35,22 +37,22 @@ So we should call `str()` to convert `NavigableString` to `str`.
 ## PyYAML: `safe_dump`
 
 As for PyYAML, [the documentation](https://pyyaml.org/wiki/PyYAMLDocumentation) is not good.
-As we (may) know YAML can work on complicated Python objects, and the libraries usually provides an additional set of safe functions, which avoids this.
+As we (may) know YAML can work on complicated Python objects, and the libraries usually provide an additional set of safe functions, which avoids this.
 PyYAML safe dump function can be found [here](https://pyyaml.org/wiki/PyYAMLDocumentation#reference) and [here](https://pyyaml.org/wiki/PyYAMLDocumentation#dumper), which are at the nearly bottom, and not shown in the quick start.
 Here is a useful text:
 
 > `SafeDumper(stream)` produces only standard YAML tags and thus cannot represent class instances and probably more compatible with other YAML processors.
 > The functions `safe_dump` and `safe_dump_all` use `SafeDumper` to produce a YAML document.
 
-(Additionally, use `CDumper` to get a lot better preformance.)
+(Additionally, use `CDumper` to get a lot better performance.)
 I found I have used `yaml.dump()`, so the PyYAML try to dump the `NavigableString`, and as it contains a reference to the entire Beautiful Soup parse tree, and I have used `tag.string` many times, the PyYAML is trying to dump the entire tree many times!
-Easy to guess it reaches the recusive depth limit, which is 1000 without editing.
+Easy to guess it reaches the recursive depth limit, which is 1000 without editing.
 
 After fixing the above mistakes, Everything works fine.
 
 ## Additionally
 
-To get current recusive depth and the limit of it, and mute the very very long recusive error traceback info, I have searched the web, finding them on Stack Overflow.
+To get the current recursive depth and the limit of it, and mute the very very long recursive error traceback info, I have searched the web, finding them on Stack Overflow.
 Here are them:
 
 ```python
