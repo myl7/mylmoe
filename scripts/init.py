@@ -29,7 +29,7 @@ posts = []
 for post_file in post_files:
     with open(post_file, 'r') as f:
         posts.append(parse_post_file(f.read(), Path(post_file).name))
-posts.sort(key=lambda p: p['publishDate'])
+posts.sort(key=lambda p: p['pub_date'])
 
 POST_CREATE_URL = 'https://myl.moe' + input('Post create path: ')
 ADMIN_USERNAME = input('Admin username: ')
