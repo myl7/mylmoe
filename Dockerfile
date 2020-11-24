@@ -1,6 +1,6 @@
 FROM nginx:mainline-alpine
 
-LABEL version=2.0.0 maintainer="myl7 <myl.ustc@gmail.com>"
+LABEL maintainer="myl7 <myl.ustc@gmail.com>"
 
 WORKDIR /www
 
