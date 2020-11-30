@@ -6,7 +6,9 @@ export default class PostApi {
       return postApiMock.postsData
     }
 
-    const res = await fetch('/api/posts')
+    const res = await fetch('' +
+      'https://mlapis.azure-api.net/mlpost-public/GetPost?subscription-key=504fd063894b4e1aaa11d6f38a66820c'
+    )
     return res.status === 200 ? await res.json() : undefined
   }
 

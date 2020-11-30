@@ -12,7 +12,6 @@ bundle() {
       --format=esm \
       --target=es6 \
       --define:process.env.NODE_ENV='"production"'
-    for f in dist/*.js; do gzip $f; done
     ;;
   dev)
     esbuild ./src/index.jsx \
