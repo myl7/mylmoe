@@ -10,8 +10,8 @@ import postFilter from './postFilter'
  * @property {string} title
  * @property {string} abstract
  * @property {string} body
- * @property {string} pub_date
- * @property {string} upd_date
+ * @property {string} pubDate
+ * @property {string} updDate
  *
  * @type {State}
  */

@@ -45,7 +45,7 @@ export default () => {
             <Grid item><Box fontSize={'h5.fontSize'}>{post.title}</Box></Grid>
             <Grid item>
               <Box fontWeight={'fontWeightLight'}>
-                published at {formatDate(post.pub_date)}, updated at {formatDate(post.upd_date)}
+                published at {formatDate(post.pubDate)}, updated at {formatDate(post.updDate)}
               </Box>
             </Grid>
           </Grid>
