@@ -1,6 +1,6 @@
 title: Arcaea 付费建议
-pub_date: 2020-10-13
-upd_date: 2020-10-13
+pubDate: 2020-10-13
+updDate: 2020-10-13
 ---
 ## 立场预设
 

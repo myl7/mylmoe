@@ -1,6 +1,6 @@
 title: Minimized dotfiles sharing
-pub_date: 2020-10-08
-upd_date: 2020-10-29
+pubDate: 2020-10-08
+updDate: 2020-10-29
 ---
 ## Principles
 

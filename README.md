@@ -1,6 +1,6 @@
 # mlpost
 
-myl.moe posts.
+[myl.moe](https://myl.moe) posts.
 
 ## License
 

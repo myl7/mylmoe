@@ -1,7 +1,7 @@
 title: Quoted string in debug printing
-pub_date: 2020-11-24
-upd_date: 2020-11-24
-abstract: Quoted spring in debug printing may indicate that the spring variable just contains two redundant quotes.
+pubDate: 2020-11-24
+updDate: 2020-11-24
+excerpt: Quoted spring in debug printing may indicate that the spring variable just contains two redundant quotes.
 ---
 ## Background
 
