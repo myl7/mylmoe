@@ -4,6 +4,10 @@ import os
 import yaml
 import requests
 from requests.auth import HTTPBasicAuth
+from dotenv import load_dotenv
+import pyodbc
+
+load_dotenv()
 
 post_files = list(Path().glob('./posts/*.md'))
 if not post_files:
@@ -31,8 +35,14 @@ for post_file in post_files:
         posts.append(parse_post_file(f.read(), Path(post_file).name))
 posts.sort(key=lambda p: p['pubDate'])
 
+odbc_url = os.getenv('MSSQL_ODBC_URL')
+conn = pyodbc.connect(odbc_url)
+cursor = conn.cursor()
+post_sql = 'INSERT INTO post (slug, title, excerpt) VALUES ()'
+post_body_sql = 'INSERT INTO postBody (body) VALUES ()'
+
 for post in posts:
-    print(post)
+    print(post['title'])
     # if res.status_code == 201:
     #     print(f"Create {post['slug']} ok.")
     # else:
