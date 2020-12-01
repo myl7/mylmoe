@@ -23,7 +23,7 @@ export default () => {
   })
 
   useEffect(() => {
-    if (post === undefined) {
+    if (post === undefined || post.body === undefined) {
       new PostApi().post(slug).then(post => {
         dispatch({
           type: 'post.single',
@@ -35,7 +35,7 @@ export default () => {
     document.querySelectorAll('div#root pre > code').forEach(elem => {
       hljs.highlightBlock(elem)
     })
-  }, [dispatch, post])
+  }, [dispatch, post, slug])
 
   return (
     <BodyPage>
@@ -50,7 +50,7 @@ export default () => {
             </Grid>
           </Grid>
           <Divider style={{marginTop: '1em', marginBottom: '1em'}} />
-          <Box dangerouslySetInnerHTML={{__html: marked(post.body)}} />
+          <Box dangerouslySetInnerHTML={{__html: marked(post.body ? post.body : '')}} />
         </CardContent> : ''}
       </Card>
     </BodyPage>

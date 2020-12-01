@@ -8,7 +8,7 @@ import postFilter from './postFilter'
  * @typedef {Object} Post
  * @property {string} slug
  * @property {string} title
- * @property {string} abstract
+ * @property {string} excerpt
  * @property {string} body
  * @property {string} pubDate
  * @property {string} updDate

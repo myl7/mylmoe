@@ -45,6 +45,7 @@ export default () => {
                 </Box>
               </Grid>
             </Grid>
+            {post.excerpt}
           </CardContent>
         </Card>
       ))
