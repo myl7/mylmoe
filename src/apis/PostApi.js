@@ -34,7 +34,7 @@ export default class PostApi {
     }
 
     const res = await fetch(
-      `'https://mlapis.azure-api.net/mlpost-public/GetPost?slug=${slug}&subscription-key=504fd063894b4e1aaa11d6f38a66820c'`
+      `https://mlapis.azure-api.net/mlpost-public/GetPost?slug=${slug}&subscription-key=504fd063894b4e1aaa11d6f38a66820c`
     )
     if (res.status !== 200) {
       return undefined
