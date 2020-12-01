@@ -1,6 +1,9 @@
 import * as postApiMock from './postApi.mock'
 
-const normalDate = dateObj => `${dateObj.year}-${dateObj.month.padStart(2, '0')}-${dateObj.day.padStart(2, '0')}`
+const normalDate = dateObj => `\
+${dateObj.year}-\
+${dateObj.month.toString().padStart(2, '0')}-\
+${dateObj.day.toString().padStart(2, '0')}`
 
 export default class PostApi {
   async posts() {
@@ -15,10 +18,14 @@ export default class PostApi {
       return undefined
     }
 
-    let body = await res.json()
-    body.pubDate = normalDate(body.pubDate)
-    body.updDate = normalDate(body.updDate)
-    return body
+    let posts = await res.json()
+    for (let post of posts) {
+      if (post !== undefined) {
+        post.pubDate = normalDate(post.pubDate)
+        post.updDate = normalDate(post.updDate)
+      }
+    }
+    return posts
   }
 
   async post(slug) {
@@ -33,9 +40,9 @@ export default class PostApi {
       return undefined
     }
 
-    let body = await res.json()
-    body.pubDate = normalDate(body.pubDate)
-    body.updDate = normalDate(body.updDate)
-    return body
+    let post = await res.json()
+    post.pubDate = normalDate(post.pubDate)
+    post.updDate = normalDate(post.updDate)
+    return post
   }
 }
