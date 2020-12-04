@@ -33,7 +33,7 @@
     "@material-ui/lab": "^4.0.0-alpha.56",
     "dayjs": "^1.9.6",
     "echarts": "^4.9.0",
-    "highlight.js": "^10.4.0",
+    "highlight.js": "^10.4.1",
     "immer": "^8.0.0",
     "marked": "^1.2.4",
     "react": "^16.14.0",
