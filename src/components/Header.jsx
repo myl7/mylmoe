@@ -34,7 +34,7 @@ export default () => {
         </Menu>
 
         <div style={{flexGrow: 1}} />
-        <IconButton component={ExternalLink} href={'https://myl.moe/rss.xml'}>
+        <IconButton component={ExternalLink} href={'https://mlapis.azure-api.net/mlpost-public/Rss?subscription-key=504fd063894b4e1aaa11d6f38a66820c'}>
           <RssFeedIcon color={'action'} />
         </IconButton>
         <IconButton component={ExternalLink} href={'mailto:myl.ustc@gmail.com'}>
