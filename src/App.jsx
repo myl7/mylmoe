@@ -7,12 +7,10 @@ import {store} from './redux'
 
 export default () => {
   return (
-    <div>
-      <MuiThemeProvider theme={theme}>
-        <Provider store={store}>
-          <Router />
-        </Provider>
-      </MuiThemeProvider>
-    </div>
+    <MuiThemeProvider theme={theme}>
+      <Provider store={store}>
+        <Router />
+      </Provider>
+    </MuiThemeProvider>
   )
 }
