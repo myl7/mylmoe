@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react'
 import {Card, CardContent, Typography, Box, Grid} from '@material-ui/core'
 import {useDispatch, useSelector} from 'react-redux'
+import {animateScroll} from 'react-scroll'
 import RouterLink from '../components/RouterLink'
 import PostApi from '../apis/PostApi'
 import {formatDate} from '../utils/dayjs'
@@ -29,14 +30,18 @@ export default () => {
     return i
   }
 
+  const handleRevueClick = () => {
+    animateScroll.scrollMore(window.innerHeight)
+  }
+
   return (
     <div>
       <Header />
-      <div style={{display: 'grid', height: '100%'}}>
+      <div style={{display: 'grid', height: '100%'}} onClick={handleRevueClick}>
         <img alt={'revue'} src={'https://cdn.jsdelivr.net/gh/myl7/mlpics@goshujin-sama/revue.jpg'}
              style={{maxWidth: '100%', maxHeight: 'calc(100vh - 64px)', margin: 'auto'}} />
       </div>
-      <div>{
+      <div style={{height: 'calc(100vh - 106px)'}}>{
         [...posts].filter(p => p !== undefined).sort(cmp).map(post => (
           <Card key={post.id} style={{backgroundColor: '#606060'}}>
             <CardContent>
