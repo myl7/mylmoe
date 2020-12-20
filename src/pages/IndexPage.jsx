@@ -32,13 +32,13 @@ export default () => {
   return (
     <div>
       <Header />
-      <div style={{display: 'grid', height: '100%', backgroundColor: '#282828'}}>
+      <div style={{display: 'grid', height: '100%'}}>
         <img alt={'revue'} src={'https://cdn.jsdelivr.net/gh/myl7/mlpics@goshujin-sama/revue.jpg'}
              style={{maxWidth: '100%', maxHeight: 'calc(100vh - 64px)', margin: 'auto'}} />
       </div>
       <div>{
         [...posts].filter(p => p !== undefined).sort(cmp).map(post => (
-          <Card key={post.id}>
+          <Card key={post.id} style={{backgroundColor: '#606060'}}>
             <CardContent>
               <Grid container spacing={1} alignItems={'center'}>
                 <Grid item>

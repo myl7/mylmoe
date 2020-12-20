@@ -18,7 +18,7 @@ export default () => {
   const styles = useStyles()
 
   return (
-    <Card style={{marginTop: '1em'}} variant={'outlined'}>
+    <Card style={{marginTop: '1em', backgroundColor: '#606060'}} variant={'outlined'}>
       <CardContent>
         <Box component={'p'} className={styles.footerText}>
           All{' '}
