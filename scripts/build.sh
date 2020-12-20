@@ -19,7 +19,7 @@ function bundle() {
 }
 
 # Gen output
-rm -r dist
+rm -rf dist
 bundle "${1-prod}"
 cp public/* dist/
 
