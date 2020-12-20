@@ -33,7 +33,7 @@ export default () => {
     <div>
       <Header />
       <div style={{display: 'grid', height: '100%', backgroundColor: '#282828'}}>
-        <img alt={'revue'} src={'/revue.jpg'}
+        <img alt={'revue'} src={'https://cdn.jsdelivr.net/gh/myl7/mlpics@goshujin-sama/revue.jpg'}
              style={{maxWidth: '100%', maxHeight: 'calc(100vh - 64px)', margin: 'auto'}} />
       </div>
       <div>{
