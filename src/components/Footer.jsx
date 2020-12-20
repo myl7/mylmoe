@@ -1,6 +1,6 @@
 import React from 'react'
 import {Card, CardContent, Box, makeStyles} from '@material-ui/core'
-import ExternalLink from './link/ExternalLink'
+import ExternalLink from './ExternalLink'
 
 const useStyles = makeStyles({
   ccIcon: {
