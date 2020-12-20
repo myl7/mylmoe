@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run build:prod",
-    "build:dev": "bash ./build.sh dev",
-    "build:prod": "bash ./build.sh prod"
+    "build:dev": "bash scripts/build.sh dev",
+    "build:prod": "bash scripts/build.sh prod"
   },
   "keywords": [
     "frontend",
