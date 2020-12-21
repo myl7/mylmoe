@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-import {Card, CardContent, Typography, Box, Grid} from '@material-ui/core'
+import {Card, CardContent, Typography, Box, Grid, makeStyles} from '@material-ui/core'
 import {useDispatch, useSelector} from 'react-redux'
 import {animateScroll} from 'react-scroll'
 import RouterLink from '../components/RouterLink'
@@ -8,7 +8,18 @@ import {formatDate} from '../utils/dayjs'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
+const useStyles = makeStyles({
+  titleLink: {
+    '&:hover': {
+      textDecoration: 'underline',
+      textDecorationColor: 'black',
+    }
+  }
+})
+
 export default () => {
+  const classes = useStyles()
+
   const dispatch = useDispatch()
 
   const posts = useSelector(s => s.posts)
@@ -48,7 +59,11 @@ export default () => {
               <Grid container spacing={1} alignItems={'center'}>
                 <Grid item>
                   <RouterLink to={`/posts/${post.slug}`}>
-                    <Typography variant={'subtitle1'}>{post.title}</Typography>
+                    <Typography variant={'subtitle1'}>
+                      <Box className={classes.titleLink} fontWeight={'fontWeightBold'} color={'black'}>
+                        {post.title}
+                      </Box>
+                    </Typography>
                   </RouterLink>
                 </Grid>
                 <Grid item>
