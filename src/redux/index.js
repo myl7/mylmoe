@@ -16,7 +16,7 @@ import postFilter from './postFilter'
  * @type {State}
  */
 export const initState = {
-  posts: []
+  posts: {}
 }
 
 const reducer = (s, a) => {

@@ -36,7 +36,7 @@ export default () => {
   const cmp = (a, b) => {
     const i = -a.pubDate.localeCompare(b.pubDate)
     if (i === 0) {
-      return -(a.id - b.id)
+      return -(a.slug - b.slug)
     }
     return i
   }
@@ -53,8 +53,8 @@ export default () => {
              style={{maxWidth: '100%', maxHeight: 'calc(100vh - 64px)', margin: 'auto'}} />
       </div>
       <div style={{height: 'calc(100vh - 106px)'}}>{
-        [...posts].filter(p => p !== undefined).sort(cmp).map(post => (
-          <Card key={post.id} style={{backgroundColor: '#606060'}}>
+        Object.values(posts).sort(cmp).map(post => (
+          <Card key={post.slug} style={{backgroundColor: '#606060'}}>
             <CardContent>
               <Grid container spacing={1} alignItems={'center'}>
                 <Grid item>

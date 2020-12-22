@@ -13,14 +13,7 @@ export default () => {
 
   const dispatch = useDispatch()
 
-  const post = useSelector(s => {
-    if (/^\d+$/.test(slug)) {
-      const id = parseInt(slug)
-      return s.posts[id]
-    } else {
-      return s.posts.find(p => p !== undefined && p.slug === slug)
-    }
-  })
+  const post = useSelector(s => s.posts[slug])
 
   useEffect(() => {
     if (post === undefined || post.body === undefined) {

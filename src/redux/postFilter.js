@@ -5,12 +5,12 @@ export default (s, a) => {
     case 'all':
       return a.payload !== undefined ? produce(s, s => {
         for (const post of a.payload) {
-          s.posts[post.id] = post
+          s.posts[post.slug] = post
         }
       }) : s
     case 'single':
       return a.payload !== undefined ? produce(s, s => {
-        s.posts[a.payload.id] = a.payload
+        s.posts[a.payload.slug] = a.payload
       }) : s
     default:
       return s
