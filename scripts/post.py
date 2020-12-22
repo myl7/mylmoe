@@ -2,7 +2,6 @@ import sys
 import subprocess
 import os
 import json
-import gzip
 
 import yaml
 
