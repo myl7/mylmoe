@@ -6,9 +6,13 @@ export default class PostApi {
       return postApiMock.postsData
     }
 
-    const res = await fetch('' +
-      'https://mlapis.azure-api.net/mlpost-public/GetPost?subscription-key=504fd063894b4e1aaa11d6f38a66820c'
-    )
+    const res = await fetch('https://mylmoe-post.myl.workers.dev', {
+      method: 'POST',
+      body: JSON.stringify({}),
+      headers: new Headers({
+        'Content-Type': 'application/json'
+      })
+    })
     return res.status === 200 ? await res.json() : undefined
   }
 
@@ -17,9 +21,13 @@ export default class PostApi {
       return postApiMock.postData
     }
 
-    const res = await fetch(
-      `https://mlapis.azure-api.net/mlpost-public/GetPost?slug=${slug}&subscription-key=504fd063894b4e1aaa11d6f38a66820c`
-    )
+    const res = await fetch('https://mylmoe-post.myl.workers.dev', {
+      method: 'POST',
+      body: JSON.stringify({slug: slug}),
+      headers: new Headers({
+        'Content-Type': 'application/json'
+      })
+    })
     return res.status === 200 ? await res.json() : undefined
   }
 }

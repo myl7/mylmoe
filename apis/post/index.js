@@ -14,6 +14,8 @@ const handleReq = async (req) => {
       return new Response(post, {headers: {'content-type': 'application/json'}})
     }
   } else {
-    return new Response('[]', {headers: {'content-type': 'application/json'}})
+    const list = await MylmoePostNS.get('list')
+
+    return new Response(list, {headers: {'content-type': 'application/json'}})
   }
 }
