@@ -20,7 +20,7 @@ export default () => {
         <IconButton component={RouterLink} to={'/'}>
           <HomeIcon color={'action'} />
         </IconButton>
-        <Typography variant={'h6'}>myl.moe</Typography>
+        <Typography variant={'h6'}>mylmoe</Typography>
 
         <Button aria-controls={'header-page-menu'} aria-haspopup={'true'} onClick={handlePageMenuClick}
                 variant={'outlined'} style={{marginLeft: '2em'}}>
