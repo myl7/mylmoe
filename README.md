@@ -1,6 +1,8 @@
 # mlfend
 
-[myl.moe](https://myl.moe) serverless frontend.
+Static & serverless blog system with some other utilities.
+
+Used by myself on [mylmoe](https://myl.moe).
 
 ## Usage
 

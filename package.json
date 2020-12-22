@@ -1,28 +1,30 @@
 {
-  "name": "mlfend",
-  "version": "2.1.0",
-  "description": "myl.moe frontend",
-  "main": "./src/index.jsx",
+  "name": "mylmoe",
+  "version": "3.0.0",
+  "description": "Static & serverless blog system with some other utilities",
+  "main": "src/index.jsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run build:prod",
+    "build": "bash scripts/build.sh",
     "build:dev": "bash scripts/build.sh dev",
     "build:prod": "bash scripts/build.sh prod"
   },
   "keywords": [
-    "frontend",
+    "serverless",
+    "static",
+    "blog",
     "react"
   ],
-  "author": "myl7",
+  "author": "myl7 <myl.ustc@gmail.com> (https://myl.moe)",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/myl7/mlfend.git"
+    "url": "git+ssh://git@github.com/myl7/mylmoe.git"
   },
   "bugs": {
-    "url": "https://github.com/myl7/mlfend/issues"
+    "url": "https://github.com/myl7/mylmoe/issues"
   },
-  "homepage": "https://github.com/myl7/mlfend#readme",
+  "homepage": "https://github.com/myl7/mylmoe#readme",
   "type": "module",
   "devDependencies": {
     "esbuild": "^0.8.11"
