@@ -1,6 +1,7 @@
 name = "mylmoe-post"
 type = "javascript"
 workers_dev = true
+rouet = "myl.moe/apis/post"
 kv_namespaces = [
     { binding = "MylmoePostNS", id = "820255000bdd4d568d8cf7bb3327a586", preview_id = "820255000bdd4d568d8cf7bb3327a586" }
 ]
