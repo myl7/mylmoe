@@ -19,11 +19,11 @@ const handleReq = async (req) => {
     if (post === null) {
       return new Response('Post not found', {status: 404, headers: corsHeaders})
     } else {
-      return new Response(post, {headers: {'content-type': 'application/json', ...corsHeaders}})
+      return new Response(post, {headers: {'content-type': 'application/json;charset=utf-8', ...corsHeaders}})
     }
   } else {
     const list = await MylmoePostNS.get('list')
 
-    return new Response(list, {headers: {'content-type': 'application/json', ...corsHeaders}})
+    return new Response(list, {headers: {'content-type': 'application/json;charset=utf-8', ...corsHeaders}})
   }
 }

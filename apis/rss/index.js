@@ -41,12 +41,12 @@ const handleReq = async () => {
     <managingEditor>myl.ustc@gmail.com (myl7)</managingEditor>
     <webMaster>myl.ustc@gmail.com (myl7)</webMaster>
     <pubDate>${formatDate(updDate)}</pubDate>
-    <atom:link href="https://myl.moe/rss.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://myl.moe/rss.xml" rel="self" type="application/rss+xml;charset=utf-8" />
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
 ${list.map(genItem).join('')}\
   </channel>
 </rss>
 `
 
-  return new Response(c, {headers: {'content-type': 'application/rss+xml', ...corsHeaders}})
+  return new Response(c, {headers: {'content-type': 'application/rss+xml;charset=utf-8', ...corsHeaders}})
 }
