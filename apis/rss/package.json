@@ -1,0 +1,15 @@
+{
+  "name": "mylmoe-rss",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "esbuild index.js --outdir=dist --bundle --target=es6"
+  },
+  "author": "myl7",
+  "license": "MIT",
+  "dependencies": {
+    "dayjs": "^1.9.7"
+  }
+}
