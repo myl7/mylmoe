@@ -2,7 +2,7 @@ addEventListener('fetch', e => {
   e.respondWith(handleReq(e.request))
 })
 
-const headers = {
+const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': '*'
 }
@@ -17,13 +17,13 @@ const handleReq = async (req) => {
     const post = await MylmoePostNS.get(sel)
 
     if (post === null) {
-      return new Response('Post not found', {status: 404, headers: headers})
+      return new Response('Post not found', {status: 404, headers: corsHeaders})
     } else {
-      return new Response(post, {headers: {'content-type': 'application/json', ...headers}})
+      return new Response(post, {headers: {'content-type': 'application/json', ...corsHeaders}})
     }
   } else {
     const list = await MylmoePostNS.get('list')
 
-    return new Response(list, {headers: {'content-type': 'application/json', ...headers}})
+    return new Response(list, {headers: {'content-type': 'application/json', ...corsHeaders}})
   }
 }
