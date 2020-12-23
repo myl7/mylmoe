@@ -41,7 +41,7 @@ const handleReq = async () => {
     <managingEditor>myl.ustc@gmail.com (myl7)</managingEditor>
     <webMaster>myl.ustc@gmail.com (myl7)</webMaster>
     <pubDate>${formatDate(updDate)}</pubDate>
-    <atom:link href="https://myl.moe/rss.xml" rel="self" type="application/rss+xml;charset=utf-8" />
+    <atom:link href="https://mylmoe-rss.myl.workers.dev" rel="self" type="application/rss+xml;charset=utf-8" />
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
 ${list.map(genItem).join('')}\
   </channel>
