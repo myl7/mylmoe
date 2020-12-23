@@ -4,11 +4,6 @@ addEventListener('fetch', e => {
   e.respondWith(handleReq(e.request))
 })
 
-const corsHeaders = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': '*'
-}
-
 const formatDate = (date) =>
   dayjs(date).hour(0).minute(0).second(0).format('ddd, DD MMM YYYY HH:mm:ss ZZ')
 
@@ -41,12 +36,12 @@ const handleReq = async () => {
     <managingEditor>myl.ustc@gmail.com (myl7)</managingEditor>
     <webMaster>myl.ustc@gmail.com (myl7)</webMaster>
     <pubDate>${formatDate(updDate)}</pubDate>
-    <atom:link href="https://mylmoe-rss.myl.workers.dev" rel="self" type="application/rss+xml" />
+    <atom:link href="https://myl.moe/rss" rel="self" type="application/rss+xml" />
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
 ${list.map(genItem).join('')}\
   </channel>
 </rss>
 `
 
-  return new Response(c, {headers: {'content-type': 'application/rss+xml;charset=utf-8', ...corsHeaders}})
+  return new Response(c, {headers: {'content-type': 'application/rss+xml;charset=utf-8'}})
 }

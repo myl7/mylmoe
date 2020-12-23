@@ -21,7 +21,7 @@ export default () => {
         </MenuButton>
 
         <div style={{flexGrow: 1}} />
-        <IconButton component={ExternalLink} href={'https://mylmoe-rss.myl.workers.dev'}>
+        <IconButton component={ExternalLink} href={'https://myl.moe/rss'}>
           <RssFeedIcon color={'action'} />
         </IconButton>
         <IconButton component={ExternalLink} href={'mailto:myl.ustc@gmail.com'}>

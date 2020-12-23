@@ -6,7 +6,7 @@ export default class PostApi {
       return postApiMock.postsData
     }
 
-    const res = await fetch('https://mylmoe-post.myl.workers.dev', {
+    const res = await fetch('/apis/post', {
       method: 'POST',
       body: JSON.stringify({}),
       headers: new Headers({
@@ -21,7 +21,7 @@ export default class PostApi {
       return postApiMock.postData
     }
 
-    const res = await fetch('https://mylmoe-post.myl.workers.dev', {
+    const res = await fetch('/apis/post', {
       method: 'POST',
       body: JSON.stringify({slug: slug}),
       headers: new Headers({
