@@ -52,12 +52,12 @@ export default () => {
         <img alt={'revue'} src={'https://cdn.jsdelivr.net/gh/myl7/mylmoe-images@goshujin-sama/revue.jpg'}
              style={{maxWidth: '100%', maxHeight: 'calc(100vh - 64px)', margin: 'auto'}} />
       </div>
-      <div style={{height: 'calc(100vh - 106px)'}}>
-        <Divider style={{backgroundColor: '#eeeeee'}} />
+      <div style={{minHeight: 'calc(100vh - 106px)'}}>
+        <Divider variant={'middle'} style={{backgroundColor: '#eeeeee'}} />
         {
           Object.values(posts).sort(cmp).map(post => (
             <>
-              <Card key={post.slug} style={{backgroundColor: '#202020', borderRadius: 0}}>
+              <Card key={post.slug} style={{backgroundColor: '#111111', borderRadius: 0}}>
                 <CardContent>
                   <Grid container spacing={1} alignItems={'center'}>
                     <Grid item>
@@ -82,7 +82,7 @@ export default () => {
                   </Typography>
                 </CardContent>
               </Card>
-              <Divider style={{backgroundColor: '#eeeeee'}} />
+              <Divider variant={'middle'} style={{backgroundColor: '#eeeeee'}} />
             </>
           ))
         }
