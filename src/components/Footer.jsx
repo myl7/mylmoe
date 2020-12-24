@@ -27,13 +27,13 @@ export default () => {
           <ExternalLink rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0">
             CC BY-NC-SA 4.0
             <Box component={'img'} className={styles.ccIcon}
-                 src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt="CC" />
+                 src="https://cdn.jsdelivr.net/gh/myl7/mylmoe-images@goshujin-sama/cc/cc.svg" alt="CC" />
             <Box component={'img'} className={styles.ccIcon}
-                 src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt="BY" />
+                 src="https://cdn.jsdelivr.net/gh/myl7/mylmoe-images@goshujin-sama/cc/by.svg" alt="BY" />
             <Box component={'img'} className={styles.ccIcon}
-                 src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt="NC" />
+                 src="https://cdn.jsdelivr.net/gh/myl7/mylmoe-images@goshujin-sama/cc/nc.svg" alt="NC" />
             <Box component={'img'} className={styles.ccIcon}
-                 src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" alt="SA" />
+                 src="https://cdn.jsdelivr.net/gh/myl7/mylmoe-images@goshujin-sama/cc/sa.svg" alt="SA" />
           </ExternalLink>
         </Box>
         <Box component={'p'} className={styles.footerText} style={{marginTop: '0.5em'}}>
