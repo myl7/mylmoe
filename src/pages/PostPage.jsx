@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-import {Box, Card, CardContent, Divider, Grid} from '@material-ui/core'
+import {Card, CardContent, Divider, Grid, Typography} from '@material-ui/core'
 import {useParams} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
 import Markdown from 'markdown-to-jsx'
@@ -38,14 +38,14 @@ export default () => {
         {post ? <CardContent>
           <Grid container alignItems={'center'} spacing={1}>
             <Grid item>
-              <Box fontSize={'h5.fontSize'}>
+              <Typography variant={'h5'}>
                 {post.title}
-              </Box>
+              </Typography>
             </Grid>
             <Grid item>
-              <Box fontWeight={'fontWeightLight'}>
+              <Typography variant={'caption'}>
                 published at {formatDate(post.pubDate)}, updated at {formatDate(post.updDate)}
-              </Box>
+              </Typography>
             </Grid>
           </Grid>
           <Divider style={{marginTop: '1em', marginBottom: '1em'}} />

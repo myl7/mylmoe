@@ -1,5 +1,5 @@
 import React, {useEffect, Fragment} from 'react'
-import {Card, CardContent, Typography, Box, Grid, makeStyles, Divider} from '@material-ui/core'
+import {Card, CardContent, Typography, Grid, makeStyles, Divider} from '@material-ui/core'
 import {useDispatch, useSelector} from 'react-redux'
 import {animateScroll} from 'react-scroll'
 import RouterLink from '../components/RouterLink'
@@ -62,20 +62,20 @@ export default () => {
                   <Grid container spacing={1} alignItems={'center'}>
                     <Grid item>
                       <RouterLink to={`/posts/${post.slug}`}>
-                        <Box className={classes.titleLink}>
-                          <Typography variant={'subtitle1'}>
-                            {post.title}
-                          </Typography>
-                        </Box>
+                        <Typography variant={'h6'} className={classes.titleLink}>
+                          {post.title}
+                        </Typography>
                       </RouterLink>
                     </Grid>
                     <Grid item>
-                      <Box fontWeight={'fontWeightLight'} fontSize={14}>
+                      <Typography variant={'caption'}>
                         published at {formatDate(post.pubDate)}, updated at {formatDate(post.updDate)}
-                      </Box>
+                      </Typography>
                     </Grid>
                   </Grid>
-                  {post.excerpt}
+                  <Typography variant={'subtitle1'}>
+                    {post.excerpt}
+                  </Typography>
                 </CardContent>
               </Card>
               <Divider variant={'middle'} style={{backgroundColor: '#eeeeee'}} />
