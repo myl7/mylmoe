@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, Fragment} from 'react'
 import {Card, CardContent, Typography, Box, Grid, makeStyles, Divider} from '@material-ui/core'
 import {useDispatch, useSelector} from 'react-redux'
 import {animateScroll} from 'react-scroll'
@@ -56,25 +56,25 @@ export default () => {
         <Divider variant={'middle'} style={{backgroundColor: '#eeeeee'}} />
         {
           Object.values(posts).sort(cmp).map(post => (
-            <>
-              <Card key={post.slug} style={{backgroundColor: '#111111', borderRadius: 0}}>
+            <Fragment key={post.slug}>
+              <Card style={{backgroundColor: '#111111', borderRadius: 0}}>
                 <CardContent>
                   <Grid container spacing={1} alignItems={'center'}>
                     <Grid item>
                       <RouterLink to={`/posts/${post.slug}`}>
-                        <Typography variant={'subtitle1'} color={'primary'}>
-                          <Box className={classes.titleLink}>
+                        <Box className={classes.titleLink}>
+                          <Typography variant={'subtitle1'} color={'primary'}>
                             {post.title}
-                          </Box>
-                        </Typography>
+                          </Typography>
+                        </Box>
                       </RouterLink>
                     </Grid>
                     <Grid item>
-                      <Typography color={'primary'}>
-                        <Box fontWeight={'fontWeightLight'} fontSize={14}>
+                      <Box fontWeight={'fontWeightLight'} fontSize={14}>
+                        <Typography color={'primary'}>
                           published at {formatDate(post.pubDate)}, updated at {formatDate(post.updDate)}
-                        </Box>
-                      </Typography>
+                        </Typography>
+                      </Box>
                     </Grid>
                   </Grid>
                   <Typography color={'primary'}>
@@ -83,7 +83,7 @@ export default () => {
                 </CardContent>
               </Card>
               <Divider variant={'middle'} style={{backgroundColor: '#eeeeee'}} />
-            </>
+            </Fragment>
           ))
         }
       </div>
