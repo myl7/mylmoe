@@ -34,10 +34,14 @@ export default () => {
   return (
     <div>
       <Header />
-      <Card>
+      <Card style={{backgroundColor: '#111111', borderRadius: 0}}>
         {post ? <CardContent>
           <Grid container alignItems={'center'} spacing={1}>
-            <Grid item><Box fontSize={'h5.fontSize'}>{post.title}</Box></Grid>
+            <Grid item>
+              <Box fontSize={'h5.fontSize'}>
+                {post.title}
+              </Box>
+            </Grid>
             <Grid item>
               <Box fontWeight={'fontWeightLight'}>
                 published at {formatDate(post.pubDate)}, updated at {formatDate(post.updDate)}

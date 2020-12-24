@@ -63,7 +63,7 @@ export default () => {
                     <Grid item>
                       <RouterLink to={`/posts/${post.slug}`}>
                         <Box className={classes.titleLink}>
-                          <Typography variant={'subtitle1'} color={'primary'}>
+                          <Typography variant={'subtitle1'}>
                             {post.title}
                           </Typography>
                         </Box>
@@ -71,15 +71,11 @@ export default () => {
                     </Grid>
                     <Grid item>
                       <Box fontWeight={'fontWeightLight'} fontSize={14}>
-                        <Typography color={'primary'}>
-                          published at {formatDate(post.pubDate)}, updated at {formatDate(post.updDate)}
-                        </Typography>
+                        published at {formatDate(post.pubDate)}, updated at {formatDate(post.updDate)}
                       </Box>
                     </Grid>
                   </Grid>
-                  <Typography color={'primary'}>
-                    {post.excerpt}
-                  </Typography>
+                  {post.excerpt}
                 </CardContent>
               </Card>
               <Divider variant={'middle'} style={{backgroundColor: '#eeeeee'}} />

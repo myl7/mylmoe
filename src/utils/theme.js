@@ -12,6 +12,9 @@ export default createMuiTheme({
     },
     secondary: {
       main: '#202020'
+    },
+    text: {
+      primary: '#eeeeee'
     }
   }
 })
