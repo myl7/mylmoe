@@ -10,7 +10,8 @@ const useStyles = makeStyles({
   },
   footerText: {
     marginTop: 0,
-    marginBottom: 0
+    marginBottom: 0,
+    color: '#eeeeee'
   }
 })
 
@@ -18,7 +19,7 @@ export default () => {
   const styles = useStyles()
 
   return (
-    <Card style={{marginTop: '1em', backgroundColor: '#606060'}} variant={'outlined'}>
+    <Card component={'footer'} style={{marginTop: '1em', backgroundColor: '#202020', borderRadius: 0}}>
       <CardContent>
         <Box component={'p'} className={styles.footerText}>
           All{' '}

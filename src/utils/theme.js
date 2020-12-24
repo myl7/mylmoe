@@ -5,5 +5,13 @@ export default createMuiTheme({
     button: {
       textTransform: 'none'
     }
+  },
+  palette: {
+    primary: {
+      main: '#eeeeee'
+    },
+    secondary: {
+      main: '#202020'
+    }
   }
 })

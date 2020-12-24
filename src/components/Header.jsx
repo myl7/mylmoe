@@ -7,10 +7,10 @@ import MenuButton from './MenuButton'
 
 export default () => {
   return (
-    <AppBar position={'static'} style={{backgroundColor: '#606060'}}>
+    <AppBar position={'static'} color={'secondary'}>
       <Toolbar style={{paddingLeft: 12, paddingRight: 12}}>
         <IconButton component={RouterLink} to={'/'}>
-          <HomeIcon color={'action'} />
+          <HomeIcon color={'primary'} />
         </IconButton>
         <Typography variant={'h6'}>mylmoe</Typography>
 
@@ -22,13 +22,13 @@ export default () => {
 
         <div style={{flexGrow: 1}} />
         <IconButton component={ExternalLink} href={'https://myl.moe/rss'}>
-          <RssFeedIcon color={'action'} />
+          <RssFeedIcon color={'primary'} />
         </IconButton>
         <IconButton component={ExternalLink} href={'mailto:myl.ustc@gmail.com'}>
-          <MailIcon color={'action'} />
+          <MailIcon color={'primary'} />
         </IconButton>
         <IconButton component={ExternalLink} href={'https://github.com/myl7'}>
-          <GitHubIcon color={'action'} />
+          <GitHubIcon color={'primary'} />
         </IconButton>
       </Toolbar>
     </AppBar>
