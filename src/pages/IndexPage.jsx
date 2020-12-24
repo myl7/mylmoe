@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-import {Card, CardContent, Typography, Box, Grid, makeStyles} from '@material-ui/core'
+import {Card, CardContent, Typography, Box, Grid, makeStyles, Divider} from '@material-ui/core'
 import {useDispatch, useSelector} from 'react-redux'
 import {animateScroll} from 'react-scroll'
 import RouterLink from '../components/RouterLink'
@@ -12,7 +12,7 @@ const useStyles = makeStyles({
   titleLink: {
     '&:hover': {
       textDecoration: 'underline',
-      textDecorationColor: 'black',
+      textDecorationColor: '#eeeeee',
     }
   }
 })
@@ -52,31 +52,41 @@ export default () => {
         <img alt={'revue'} src={'https://cdn.jsdelivr.net/gh/myl7/mlpics@goshujin-sama/revue.jpg'}
              style={{maxWidth: '100%', maxHeight: 'calc(100vh - 64px)', margin: 'auto'}} />
       </div>
-      <div style={{height: 'calc(100vh - 106px)'}}>{
-        Object.values(posts).sort(cmp).map(post => (
-          <Card key={post.slug} style={{backgroundColor: '#606060'}}>
-            <CardContent>
-              <Grid container spacing={1} alignItems={'center'}>
-                <Grid item>
-                  <RouterLink to={`/posts/${post.slug}`}>
-                    <Typography variant={'subtitle1'}>
-                      <Box className={classes.titleLink} fontWeight={'fontWeightBold'} color={'black'}>
-                        {post.title}
-                      </Box>
-                    </Typography>
-                  </RouterLink>
-                </Grid>
-                <Grid item>
-                  <Box fontWeight={'fontWeightLight'} fontSize={14}>
-                    published at {formatDate(post.pubDate)}, updated at {formatDate(post.updDate)}
-                  </Box>
-                </Grid>
-              </Grid>
-              {post.excerpt}
-            </CardContent>
-          </Card>
-        ))
-      }</div>
+      <div style={{height: 'calc(100vh - 106px)'}}>
+        <Divider style={{backgroundColor: '#eeeeee'}} />
+        {
+          Object.values(posts).sort(cmp).map(post => (
+            <>
+              <Card key={post.slug} style={{backgroundColor: '#202020', borderRadius: 0}}>
+                <CardContent>
+                  <Grid container spacing={1} alignItems={'center'}>
+                    <Grid item>
+                      <RouterLink to={`/posts/${post.slug}`}>
+                        <Typography variant={'subtitle1'} color={'primary'}>
+                          <Box className={classes.titleLink}>
+                            {post.title}
+                          </Box>
+                        </Typography>
+                      </RouterLink>
+                    </Grid>
+                    <Grid item>
+                      <Typography color={'primary'}>
+                        <Box fontWeight={'fontWeightLight'} fontSize={14}>
+                          published at {formatDate(post.pubDate)}, updated at {formatDate(post.updDate)}
+                        </Box>
+                      </Typography>
+                    </Grid>
+                  </Grid>
+                  <Typography color={'primary'}>
+                    {post.excerpt}
+                  </Typography>
+                </CardContent>
+              </Card>
+              <Divider style={{backgroundColor: '#eeeeee'}} />
+            </>
+          ))
+        }
+      </div>
       <Footer />
     </div>
   )
