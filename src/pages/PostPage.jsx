@@ -6,7 +6,8 @@ import hljs from '../utils/hljs'
 import marked from '../utils/marked'
 import PostApi from '../apis/PostApi'
 import {formatDate} from '../utils/dayjs'
-import BodyPage from './BodyPage'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 export default () => {
   const {slug} = useParams()
@@ -31,7 +32,8 @@ export default () => {
   }, [dispatch, post, slug])
 
   return (
-    <BodyPage>
+    <div>
+      <Header />
       <Card>
         {post ? <CardContent>
           <Grid container alignItems={'center'} spacing={1}>
@@ -46,6 +48,7 @@ export default () => {
           <Box dangerouslySetInnerHTML={{__html: marked(post.body ? post.body : '')}} />
         </CardContent> : ''}
       </Card>
-    </BodyPage>
+      <Footer />
+    </div>
   )
 }
