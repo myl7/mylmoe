@@ -22,9 +22,8 @@ export default () => {
     <Card component={'footer'} style={{marginTop: '1em', backgroundColor: '#202020', borderRadius: 0}}>
       <CardContent>
         <Box component={'p'} className={styles.footerText}>
-          All{' '}
-          <ExternalLink href={'https://github.com/myl7/mlpost'}>posts</ExternalLink>
-          {' '}on the website by myl7 are licensed under{' '}
+          <ExternalLink href={'https://github.com/myl7/mylmoe/tree/goshujin-sama/posts'}>Posts</ExternalLink>
+          {' '}are licensed under{' '}
           <ExternalLink rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0">
             CC BY-NC-SA 4.0
             <Box component={'img'} className={styles.ccIcon}
@@ -38,11 +37,9 @@ export default () => {
           </ExternalLink>
         </Box>
         <Box component={'p'} className={styles.footerText} style={{marginTop: '0.5em'}}>
-          Source code of{' '}
-          <ExternalLink href={'https://github.com/myl7/mlfend'}>frontend</ExternalLink>
-          {' '}and{' '}
-          <ExternalLink href={'https://github.com/myl7/mlbend'}>backend</ExternalLink>
-          {' '} of the website is licensed under MIT.
+          Website source{' '}
+          <ExternalLink href={'https://github.com/myl7/mylmoe'}>myl7/mylmoe</ExternalLink>
+          {' '}is licensed under MIT.
         </Box>
       </CardContent>
     </Card>
