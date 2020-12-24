@@ -8,6 +8,7 @@ import PostApi from '../apis/PostApi'
 import {formatDate} from '../utils/dayjs'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import {md2jsxOptions} from '../utils/md2jsx'
 
 export default () => {
   const {slug} = useParams()
@@ -49,7 +50,7 @@ export default () => {
             </Grid>
           </Grid>
           <Divider style={{marginTop: '1em', marginBottom: '1em'}} />
-          <Markdown>{post.body ? post.body : ''}</Markdown>
+          <Markdown options={md2jsxOptions}>{post.body ? post.body : ''}</Markdown>
         </CardContent> : ''}
       </Card>
       <Footer />
