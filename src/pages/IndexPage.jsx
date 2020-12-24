@@ -49,7 +49,7 @@ export default () => {
     <div>
       <Header />
       <div style={{display: 'grid', height: '100%'}} onClick={handleRevueClick}>
-        <img alt={'revue'} src={'https://cdn.jsdelivr.net/gh/myl7/mlpics@goshujin-sama/revue.jpg'}
+        <img alt={'revue'} src={'https://cdn.jsdelivr.net/gh/myl7/mylmoe-images@goshujin-sama/revue.jpg'}
              style={{maxWidth: '100%', maxHeight: 'calc(100vh - 64px)', margin: 'auto'}} />
       </div>
       <div style={{height: 'calc(100vh - 106px)'}}>
