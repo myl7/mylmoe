@@ -2,8 +2,8 @@ import React, {useEffect} from 'react'
 import {Box, Card, CardContent, Divider, Grid} from '@material-ui/core'
 import {useParams} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
+import Markdown from 'markdown-to-jsx'
 import hljs from '../utils/hljs'
-import marked from '../utils/marked'
 import PostApi from '../apis/PostApi'
 import {formatDate} from '../utils/dayjs'
 import Header from '../components/Header'
@@ -45,7 +45,7 @@ export default () => {
             </Grid>
           </Grid>
           <Divider style={{marginTop: '1em', marginBottom: '1em'}} />
-          <Box dangerouslySetInnerHTML={{__html: marked(post.body ? post.body : '')}} />
+          <Markdown>{post.body ? post.body : ''}</Markdown>
         </CardContent> : ''}
       </Card>
       <Footer />
