@@ -349,7 +349,9 @@
       "constant": 10.9,
       "rating": 9.907366666666666,
       "song_date": 1558573202,
-      "title": null
+      "title": {
+        "en": "World Vanquisher"
+      }
     },
     {
       "user_id": 3228230,
