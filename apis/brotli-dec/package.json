@@ -8,5 +8,8 @@
     "build": "esbuild worker/src/index.js --outfile=worker/worker.js --bundle --target=es6"
   },
   "author": "myl7",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "pako": "^2.0.2"
+  }
 }
