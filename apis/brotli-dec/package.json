@@ -1,0 +1,12 @@
+{
+  "name": "mylmoe-brotli-dec",
+  "version": "1.0.0",
+  "description": "",
+  "main": "worker/src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "esbuild worker/src/index.js --outfile=worker/worker.js --bundle --target=es6"
+  },
+  "author": "myl7",
+  "license": "MIT"
+}

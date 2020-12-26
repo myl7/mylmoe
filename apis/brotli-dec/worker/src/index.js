@@ -6,10 +6,8 @@ async function handleReq(req) {
   const {brotli_dec} = wasm_bindgen
   await wasm_bindgen(wasm)
 
-  const raw = await req.arrayBuffer()
-  console.log(raw)
-  const view = new Uint8Array(raw)
+  const view = new Uint8Array(await req.arrayBuffer())
   const res = brotli_dec(view)
 
-  return new Response(res)
+  return new Response(res, {headers: {'Content-Type': 'application/octet-stream'}})
 }
