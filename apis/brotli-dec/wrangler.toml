@@ -1,4 +1,0 @@
-name = "mylmoe-brotli-dec"
-type = "rust"
-workers_dev = true
-rouet = "myl.moe/apis/brotli-dec"
