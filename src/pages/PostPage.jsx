@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-import {Card, CardContent, Divider, Grid, Typography} from '@material-ui/core'
+import {CardContent, Divider, Grid, Typography, makeStyles} from '@material-ui/core'
 import {useParams} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
 import Markdown from 'markdown-to-jsx'
@@ -9,9 +9,19 @@ import {formatDate} from '../utils/dayjs'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import {md2jsxOptions} from '../utils/md2jsx'
+import ContentCard from '../components/ContentCard'
+
+const useStyles = makeStyles({
+  titleBodyDivider: {
+    marginTop: '1em',
+    marginBottom: '1em'
+  }
+})
 
 export default () => {
   const {slug} = useParams()
+
+  const classes = useStyles()
 
   const dispatch = useDispatch()
 
@@ -35,24 +45,26 @@ export default () => {
   return (
     <div>
       <Header />
-      <Card style={{backgroundColor: '#111111', borderRadius: 0}}>
-        {post ? <CardContent>
-          <Grid container alignItems={'center'} spacing={1}>
-            <Grid item>
-              <Typography variant={'h5'}>
-                {post.title}
-              </Typography>
+      <ContentCard>
+        {post ? (
+          <CardContent>
+            <Grid container alignItems={'center'} spacing={1}>
+              <Grid item>
+                <Typography variant={'h5'}>
+                  {post.title}
+                </Typography>
+              </Grid>
+              <Grid item>
+                <Typography variant={'caption'}>
+                  | pubDate: {formatDate(post.pubDate)} | updDate: {formatDate(post.updDate)} |
+                </Typography>
+              </Grid>
             </Grid>
-            <Grid item>
-              <Typography variant={'caption'}>
-                published at {formatDate(post.pubDate)}, updated at {formatDate(post.updDate)}
-              </Typography>
-            </Grid>
-          </Grid>
-          <Divider style={{marginTop: '1em', marginBottom: '1em'}} />
-          <Markdown options={md2jsxOptions}>{post.body ? post.body : ''}</Markdown>
-        </CardContent> : ''}
-      </Card>
+            <Divider className={classes.titleBodyDivider} />
+            <Markdown options={md2jsxOptions}>{post.body ? post.body : ''}</Markdown>
+          </CardContent>
+        ) : ''}
+      </ContentCard>
       <Footer />
     </div>
   )

@@ -1,5 +1,5 @@
 import React, {useEffect, Fragment} from 'react'
-import {Card, CardContent, Typography, Grid, makeStyles, Divider} from '@material-ui/core'
+import {CardContent, Typography, Grid, makeStyles, Divider} from '@material-ui/core'
 import {useDispatch, useSelector} from 'react-redux'
 import {animateScroll} from 'react-scroll'
 import RouterLink from '../components/RouterLink'
@@ -7,15 +7,25 @@ import PostApi from '../apis/PostApi'
 import {formatDate} from '../utils/dayjs'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import ContentCard from '../components/ContentCard'
 
-const useStyles = makeStyles({
-  titleLink: {
-    '&:hover': {
-      textDecoration: 'underline',
-      textDecorationColor: '#eeeeee',
-    }
+const useStyles = makeStyles(theme => ({
+  indexContainer: {
+    display: 'grid',
+    height: '100%'
+  },
+  indexImage: {
+    maxWidth: '100%',
+    maxHeight: 'calc(100vh - 64px)',
+    margin: 'auto'
+  },
+  nextContainer: {
+    minHeight: 'calc(100vh - 106px)'
+  },
+  postItemDivider: {
+    backgroundColor: theme.palette.primary.main
   }
-})
+}))
 
 export default () => {
   const classes = useStyles()
@@ -48,28 +58,28 @@ export default () => {
   return (
     <div>
       <Header />
-      <div style={{display: 'grid', height: '100%'}} onClick={handleRevueClick}>
-        <img alt={'revue'} src={'https://cdn.jsdelivr.net/gh/myl7/mylmoe-images@goshujin-sama/revue.jpg'}
-             style={{maxWidth: '100%', maxHeight: 'calc(100vh - 64px)', margin: 'auto'}} />
+      <div className={classes.indexContainer} onClick={handleRevueClick}>
+        <img className={classes.indexImage} alt={'revue'}
+             src={'https://cdn.jsdelivr.net/gh/myl7/mylmoe-images@goshujin-sama/revue.jpg'} />
       </div>
-      <div style={{minHeight: 'calc(100vh - 106px)'}}>
-        <Divider variant={'middle'} style={{backgroundColor: '#eeeeee'}} />
+      <div className={classes.nextContainer}>
+        <Divider variant={'middle'} className={classes.postItemDivider} />
         {
           Object.values(posts).sort(cmp).map(post => (
             <Fragment key={post.slug}>
-              <Card style={{backgroundColor: '#111111', borderRadius: 0}}>
+              <ContentCard>
                 <CardContent>
                   <Grid container spacing={1} alignItems={'center'}>
                     <Grid item>
                       <RouterLink to={`/posts/${post.slug}`}>
-                        <Typography variant={'h6'} className={classes.titleLink}>
+                        <Typography variant={'h6'}>
                           {post.title}
                         </Typography>
                       </RouterLink>
                     </Grid>
                     <Grid item>
                       <Typography variant={'caption'}>
-                        published at {formatDate(post.pubDate)}, updated at {formatDate(post.updDate)}
+                        | pubDate: {formatDate(post.pubDate)} | updDate: {formatDate(post.updDate)} |
                       </Typography>
                     </Grid>
                   </Grid>
@@ -77,8 +87,8 @@ export default () => {
                     {post.excerpt}
                   </Typography>
                 </CardContent>
-              </Card>
-              <Divider variant={'middle'} style={{backgroundColor: '#eeeeee'}} />
+              </ContentCard>
+              <Divider variant={'middle'} className={classes.postItemDivider} />
             </Fragment>
           ))
         }
