@@ -1,4 +1,4 @@
-# mlfend
+# mylmoe
 
 Static & serverless blog system with some other utilities.
 
