@@ -3,7 +3,7 @@ import ExternalLink from '../components/ExternalLink'
 import RouterLink from '../components/RouterLink'
 
 const AutoA = (props) => {
-  const {href, ...others} = props
+  const {href, className, ...others} = props
 
   if (href.startsWith('/')) {
     return <RouterLink to={href} {...others} />
