@@ -43,5 +43,5 @@ ${list.map(genItem).join('')}\
 </rss>
 `
 
-  return new Response(c, {headers: {'content-type': 'application/rss+xml;charset=utf-8'}})
+  return new Response(c, {headers: {'Content-Type': 'application/rss+xml;charset=utf-8'}})
 }

@@ -14,11 +14,11 @@ const handleReq = async (req) => {
     if (post === null) {
       return new Response('Post not found', {status: 404})
     } else {
-      return new Response(post, {headers: {'content-type': 'application/json;charset=utf-8'}})
+      return new Response(post, {headers: {'Content-Type': 'application/json;charset=utf-8'}})
     }
   } else {
     const list = await MylmoePostNS.get('list')
 
-    return new Response(list, {headers: {'content-type': 'application/json;charset=utf-8'}})
+    return new Response(list, {headers: {'Content-Type': 'application/json;charset=utf-8'}})
   }
 }
