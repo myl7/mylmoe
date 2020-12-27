@@ -45,6 +45,7 @@ export default () => {
   return (
     <div>
       <Header />
+      <Divider />
       <ContentCard>
         {post ? (
           <CardContent>
