@@ -43,6 +43,11 @@ export default () => {
         ]}>
           <Typography variant={'subtitle1'}>Pages</Typography>
         </MenuButton>
+        <MenuButton id={'header-util-menu'} className={classes.headerButton} items={[
+          {component: RouterLink, to: '/utils/brotli', children: 'Brotli'}
+        ]}>
+          <Typography variant={'subtitle1'}>Utils</Typography>
+        </MenuButton>
         <Button className={classes.headerButton} variant={'outlined'} color={'primary'} component={RouterLink}
                 to={'/pages/friends'}>
           <Typography variant={'subtitle1'}>Friends</Typography>
