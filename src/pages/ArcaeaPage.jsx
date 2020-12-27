@@ -1,11 +1,9 @@
 import React, {useEffect, useState} from 'react'
 import {Card, CardContent, Divider, AppBar, Tab, Typography, Box, Grid} from '@material-ui/core'
 import {TabList, TabPanel, TabContext} from '@material-ui/lab'
-import ArcaeaApi from '../apis/ArcaeaApi'
+import ArcaeaApi, {levels} from '../apis/ArcaeaApi'
 import {formatDatetime} from '../utils/dayjs'
 import ArcaeaSong from '../components/ArcaeaSong'
-
-const levels = ['lv11', 'lv10p', 'lv10', 'lv9p', 'lv9', 'lv8', 'lv7']
 
 export default () => {
   const [data, setData] = useState({
@@ -43,7 +41,7 @@ export default () => {
           <Box component={'span'} fontWeight={'fontWeightLight'}>
             {userInfo.code}
           </Box>
-          {' '}| PTT {userInfo.ptt / 100} | Join at{' '}
+          {' '}| PTT {userInfo.ptt} | Join at{' '}
           {formatDatetime(userInfo.join_date)}
         </Typography>
 
