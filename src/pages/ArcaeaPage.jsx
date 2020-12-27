@@ -6,6 +6,7 @@ import {formatDatetime} from '../utils/dayjs'
 import ArcaeaSong from '../components/ArcaeaSong'
 import Header from '../components/Header'
 import ContentCard from '../components/ContentCard'
+import WideDivider from '../components/WideDivider'
 
 export default () => {
   const [data, setData] = useState({
@@ -36,7 +37,7 @@ export default () => {
           <Typography variant={'h4'}>
             Arcaea
           </Typography>
-          <Divider style={{marginTop: '0.5em', marginBottom: '0.5em'}} />
+          <WideDivider />
           <Typography variant={'body1'}>
             <Typography component={'span'} variant={'h5'}>
               {userInfo.name}
