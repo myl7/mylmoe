@@ -50,10 +50,10 @@ export default (props) => {
           type: 'pie',
           radius: '50%',
           data: [
-            {name: 'pure*', value: song.count.strict_pure},
-            {name: 'pure', value: song.count.pure},
-            {name: 'far', value: song.count.far},
-            {name: 'lost', value: song.count.lost}
+            {name: 'pure*', value: song.shiny_perfect_count},
+            {name: 'pure', value: song.perfect_count},
+            {name: 'far', value: song.near_count},
+            {name: 'lost', value: song.miss_count}
           ],
           label: {formatter: '{b} {c} {d}%'}
         }]
@@ -77,23 +77,22 @@ export default (props) => {
                 <Box component={'span'} fontWeight={'fontWeightBold'} fontSize={'h6.fontSize'}>
                   {song.score}{' '}
                 </Box>
-                {song.clear_type}
-                {' | '}Rating: {song.rating.toFixed(5)}
+                {song.score_rank}
+                {' | '}rating: {song.rating.toFixed(5)}
               </div>
-              <div>Latest Play at {formatDatetime(song.play_date)}</div>
-              <div>Get the song at {formatDatetime(song.get_date)}</div>
+              <div>playTime: {formatDatetime(song.time_played)}</div>
+              <div>getTime: {formatDatetime(song.song_date)}</div>
             </Grid>
             <Grid item>
               <Grid container>
                 <Grid item>
                   <div ref={healthChartRef} style={{width: 50, height: 160}}>
-                    Memory {song.health}%
+                    recall {song.health}%
                   </div>
                 </Grid>
                 <Grid item>
                   <div ref={countChartRef} style={{width: 350, height: 160}}>
-                    Pure {song.count.pure}({song.count.strict_pure}){' '}
-                    Far {song.count.far} Miss {song.count.lost}
+                    pure {song.strict_perfect_count}({song.perfect_count}) far {song.near_count} lost {song.miss_count}
                   </div>
                 </Grid>
               </Grid>

@@ -33,16 +33,48 @@ export default class ArcaeaApi {
   async preproc(data) {
     const res = {
       songs: Object.fromEntries(levels.map(l => [l, []])),
-      userInfo: {name: null, code: null, ptt: null, join_date: null}
+      userInfo: {name: null, user_code: null, ptt: null, join_date: null}
     }
 
-    const userInfo = data.userInfo
-    const songs = data.songs
+    res.userInfo = data.userInfo
+    res.userInfo.rating = res.userInfo.rating / 100
 
-    res.userInfo.name = userInfo.name
-    res.userInfo.code = userInfo.user_code
-    res.userInfo.ptt = userInfo.rating / 100
-    res.userInfo.join_date = userInfo.join_date
+    for (const song of data.songs) {
+      song.title = song.title.jp ? song.title.jp : song.title.en
+      if (song.score > 9900000) {
+        song.score_rank = 'EX+'
+      } else if (song.score > 9800000) {
+        song.score_rank = 'EX'
+      } else if (song.score > 9500000) {
+        song.score_rank = 'AA'
+      } else if (song.score > 9200000) {
+        song.score_rank = 'A'
+      } else if (song.score > 8900000) {
+        song.score_rank = 'B'
+      } else if (song.score > 8600000) {
+        song.score_rank = 'C'
+      } else {
+        song.score_rank = 'D'
+      }
+
+      if (song.constant >= 11) {
+        res.songs.lv11.push(song)
+      } else if (song.constant >= 10.5) {
+        res.songs.lv10p.push(song)
+      } else if (song.constant >= 10) {
+        res.songs.lv10.push(song)
+      } else if (song.constant >= 9.5) {
+        res.songs.lv9p.push(song)
+      } else if (song.constant >= 9) {
+        res.songs.lv9.push(song)
+      } else if (song.constant >= 8) {
+        res.songs.lv8.push(song)
+      } else if (song.constant >= 7) {
+        res.songs.lv7.push(song)
+      } else {
+        console.log(song)
+      }
+    }
 
     return res
   }

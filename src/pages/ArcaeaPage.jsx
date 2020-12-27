@@ -1,14 +1,16 @@
 import React, {useEffect, useState} from 'react'
-import {Card, CardContent, Divider, AppBar, Tab, Typography, Box, Grid} from '@material-ui/core'
+import {CardContent, Divider, AppBar, Tab, Typography, Box, Grid} from '@material-ui/core'
 import {TabList, TabPanel, TabContext} from '@material-ui/lab'
 import ArcaeaApi, {levels} from '../apis/ArcaeaApi'
 import {formatDatetime} from '../utils/dayjs'
 import ArcaeaSong from '../components/ArcaeaSong'
+import Header from '../components/Header'
+import ContentCard from '../components/ContentCard'
 
 export default () => {
   const [data, setData] = useState({
     songs: Object.fromEntries(levels.map(l => [l, []])),
-    userInfo: {name: null, code: null, ptt: null, join_date: null}
+    userInfo: {name: null, user_code: null, rating: null, join_date: null}
   })
 
   const [tabNum, setTabNum] = useState('lv10')
@@ -26,40 +28,41 @@ export default () => {
 
   const {songs, userInfo} = data
   return (
-    <Card>
-      <CardContent>
-        <Typography variant={'h4'}>
-          Arcaea
-        </Typography>
-        <Divider style={{marginTop: '0.5em', marginBottom: '0.5em'}} />
-
-        <Typography variant={'body1'}>
-          <Typography component={'span'} variant={'h5'}>
-            {userInfo.name}
+    <div>
+      <Header />
+      <Divider />
+      <ContentCard>
+        <CardContent>
+          <Typography variant={'h4'}>
+            Arcaea
           </Typography>
-          {' '}
-          <Box component={'span'} fontWeight={'fontWeightLight'}>
-            {userInfo.code}
-          </Box>
-          {' '}| PTT {userInfo.ptt} | Join at{' '}
-          {formatDatetime(userInfo.join_date)}
-        </Typography>
-
-        <TabContext value={tabNum} style={{marginTop: '0.5em'}}>
-          <AppBar position={'sticky'}>
-            <TabList onChange={handleTabSwitch} centered>
-              {levels.map(l => <Tab label={l} value={l} key={l} />)}
-            </TabList>
-          </AppBar>
-          {levels.map(l => (
-            <TabPanel value={l} key={l}>
-              <Grid container spacing={2} justify={'center'}>
-                {songs[l].map(song => <ArcaeaSong key={song.id} song={song} />)}
-              </Grid>
-            </TabPanel>
-          ))}
-        </TabContext>
-      </CardContent>
-    </Card>
+          <Divider style={{marginTop: '0.5em', marginBottom: '0.5em'}} />
+          <Typography variant={'body1'}>
+            <Typography component={'span'} variant={'h5'}>
+              {userInfo.name}
+            </Typography>
+            {' '}
+            <Box component={'span'} fontWeight={'fontWeightLight'}>
+              code: {userInfo.user_code}
+            </Box>
+            {' '}| PTT: {userInfo.rating} | joinTime: {formatDatetime(userInfo.join_date)} |
+          </Typography>
+          <TabContext value={tabNum} style={{marginTop: '0.5em'}}>
+            <AppBar position={'sticky'}>
+              <TabList onChange={handleTabSwitch} centered>
+                {levels.map(l => <Tab label={l} value={l} key={l} />)}
+              </TabList>
+            </AppBar>
+            {levels.map(l => (
+              <TabPanel value={l} key={l}>
+                <Grid container spacing={2} justify={'center'}>
+                  {songs[l].map(song => <ArcaeaSong key={song.song_id} song={song} />)}
+                </Grid>
+              </TabPanel>
+            ))}
+          </TabContext>
+        </CardContent>
+      </ContentCard>
+    </div>
   )
 }
