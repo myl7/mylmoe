@@ -72,7 +72,7 @@ export default (props) => {
       <Card variant={'outlined'}>
         <CardContent>
           <Typography variant={'subtitle1'}>
-            {song.title}{' '}
+            {song.title} {song.difficulty}{' '}
             <Box component={'span'} fontWeight={'fontWeightLight'}>
               {song.constant.toFixed(1)}
             </Box>

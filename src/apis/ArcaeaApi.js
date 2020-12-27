@@ -57,6 +57,7 @@ export default class ArcaeaApi {
         song.score_rank = 'D'
       }
       song.song_date = song.song_date * 1000
+      song.difficulty = ['PST', 'PRT', 'FTR', 'BYD'][song.difficulty]
 
       if (song.constant >= 11) {
         res.songs.lv11.push(song)
