@@ -20,7 +20,12 @@ export default (props) => {
           axisTick: {
             show: false
           },
-          data: ['recall']
+          data: [{
+            value: 'recall',
+            textStyle: {
+              color: '#eeeeee'
+            }
+          }]
         },
         yAxis: {
           show: false,
@@ -46,6 +51,7 @@ export default (props) => {
       const echarts = m.default
       const countChart = echarts.init(countChartRef.current)
       countChart.setOption({
+        color: ['#c23531', '#61a0a8', '#d48265', '#91c7ae'],
         series: [{
           type: 'pie',
           radius: '50%',
