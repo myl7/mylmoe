@@ -1,6 +1,6 @@
 import React, {useEffect, useRef} from 'react'
 import {Box, Card, CardContent, Grid, Typography} from '@material-ui/core'
-import {formatDatetime} from '../utils/dayjs'
+import {formatDate, formatDatetime} from '../utils/dayjs'
 
 export default (props) => {
   const {song} = props
@@ -20,7 +20,7 @@ export default (props) => {
           axisTick: {
             show: false
           },
-          data: ['Memory']
+          data: ['recall']
         },
         yAxis: {
           show: false,
@@ -81,7 +81,7 @@ export default (props) => {
                 {' | '}rating: {song.rating.toFixed(5)}
               </div>
               <div>playTime: {formatDatetime(song.time_played)}</div>
-              <div>getTime: {formatDatetime(song.song_date)}</div>
+              <div>pubDate: {formatDate(song.song_date)}</div>
             </Grid>
             <Grid item>
               <Grid container>

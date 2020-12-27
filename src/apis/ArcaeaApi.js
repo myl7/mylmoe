@@ -56,6 +56,7 @@ export default class ArcaeaApi {
       } else {
         song.score_rank = 'D'
       }
+      song.song_date = song.song_date * 1000
 
       if (song.constant >= 11) {
         res.songs.lv11.push(song)
