@@ -50,7 +50,10 @@ export default () => {
           <TabContext value={tabNum} style={{marginTop: '0.5em'}}>
             <AppBar position={'sticky'}>
               <TabList onChange={handleTabSwitch} centered>
-                {levels.map(l => <Tab label={l} value={l} key={l} />)}
+                {levels.map(l => {
+                  const label = /\d+/.exec(l)[0] + (l[l.length - 1] === 'p' ? '+' : '')
+                  return (<Tab label={label} value={l} key={l} />)
+                })}
               </TabList>
             </AppBar>
             {levels.map(l => (
