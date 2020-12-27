@@ -40,7 +40,7 @@ export default class ArcaeaApi {
     res.userInfo.rating = res.userInfo.rating / 100
 
     for (const song of data.songs) {
-      song.title = song.title.jp ? song.title.jp : song.title.en
+      song.title = song.title.ja ? song.title.ja : song.title.en
       if (song.score > 9900000) {
         song.score_rank = 'EX+'
       } else if (song.score > 9800000) {
