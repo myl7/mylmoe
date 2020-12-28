@@ -1,7 +1,11 @@
 export const outputBytes = arr => {
   let res = ''
   for (const i of arr) {
-    if (0x20 <= i && i <= 0x7e) {
+    if (i === 0x5c) {
+      res += '\\\\'
+    } else if (i === 0x27) {
+      res += '\\\''
+    } else if (0x20 <= i && i <= 0x7e) {
       res += String.fromCharCode(i)
     } else {
       res += '\\x' + i.toString(16).padStart(2, '0')
@@ -12,12 +16,17 @@ export const outputBytes = arr => {
 }
 
 export const inputBytes = s => {
-  const arr = []
   let m
+
+  if ((m = /^b'(.*)'/.exec(s))) {
+    s = m[1]
+  }
+
+  const arr = []
   while (s) {
-    if ((m = /\\x([0-9a-fA-F]{2})/.exec(s))) {
+    if ((m = /^\\x([0-9a-fA-F]{2})/.exec(s))) {
       s = s.substring(4)
-      arr.push(parseInt(m[1]))
+      arr.push(parseInt(m[1], 16))
     } else {
       arr.push(s[0].charCodeAt(0))
       s = s.substring(1)
