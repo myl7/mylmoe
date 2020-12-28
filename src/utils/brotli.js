@@ -1,6 +1,6 @@
-import init, {brotli_dec} from 'brotli-dec-wasm'
+import {brotli_dec} from 'brotli-dec-wasm'
 
-export const brotliDec = async arr => {
-  await init('/wasm/brotli-dec-wasm_bg.wasm')
+export const brotliDec = async (init, arr) => {
+  await init
   return brotli_dec(arr)
 }

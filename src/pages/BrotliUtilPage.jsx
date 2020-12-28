@@ -1,5 +1,6 @@
-import React, {useRef, useState} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import {CardContent, makeStyles, Divider, Typography, Grid, TextField, Button, debounce} from '@material-ui/core'
+import init from 'brotli-dec-wasm'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import ContentCard from '../components/ContentCard'
@@ -15,6 +16,12 @@ const useStyles = makeStyles({
 
 export default () => {
   const classes = useStyles()
+
+  const [decInit, setDecInit] = useState(null)
+
+  useEffect(() => {
+    setDecInit(init('/wasm/brotli-dec-wasm_bg.wasm'))
+  }, [setDecInit])
 
   const [text2enc, setText2enc] = useState('')
   const [file2enc, setFile2enc] = useState(null)
@@ -42,12 +49,12 @@ export default () => {
     const f = input2decRef.current.files[0]
     if (f) {
       f.arrayBuffer().then(buf => {
-        brotliDec(new Uint8Array(buf)).then(res => {
+        brotliDec(decInit, new Uint8Array(buf)).then(res => {
           setText2enc(outputBytes(res))
         })
       })
     } else if (text2dec) {
-      brotliDec(inputBytes(text2dec)).then(res => {
+      brotliDec(decInit, inputBytes(text2dec)).then(res => {
         setText2enc(outputBytes(res))
       })
     }
