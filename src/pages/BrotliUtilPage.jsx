@@ -5,7 +5,7 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import ContentCard from '../components/ContentCard'
 import WideDivider from '../components/WideDivider'
-import {brotliDec} from '../utils/brotli'
+import {brotliDec, brotliEnc} from '../utils/brotli'
 import {inputBytes, outputBytes} from '../utils/byteView'
 
 const useStyles = makeStyles({
@@ -28,7 +28,6 @@ export default () => {
   const input2encRef = useRef(null)
   const handleEnc = () => {
     const f = input2encRef.current.files[0]
-    const brotliEnc = async arr => arr // Mock
     if (f) {
       f.arrayBuffer().then(buf => {
         brotliEnc(new Uint8Array(buf)).then(res => {
@@ -49,12 +48,12 @@ export default () => {
     const f = input2decRef.current.files[0]
     if (f) {
       f.arrayBuffer().then(buf => {
-        brotliDec(decInit, new Uint8Array(buf)).then(res => {
+        brotliDec(new Uint8Array(buf), decInit).then(res => {
           setText2enc(outputBytes(res))
         })
       })
     } else if (text2dec) {
-      brotliDec(decInit, inputBytes(text2dec)).then(res => {
+      brotliDec(inputBytes(text2dec), decInit).then(res => {
         setText2enc(outputBytes(res))
       })
     }
