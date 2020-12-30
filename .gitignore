@@ -118,3 +118,6 @@ dist
 # IDE
 .idea/
 .vscode/
+
+# Temp
+/posts/drafts/
