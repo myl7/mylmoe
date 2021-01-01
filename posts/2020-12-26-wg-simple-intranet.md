@@ -1,4 +1,4 @@
-title: Use WireGuard to setup an simple intranet
+title: Use WireGuard to setup a simple intranet
 pubDate: 2020-12-26
 updDate: 2020-12-26
 excerpt: See wg0.conf below if you are in a hurry.
