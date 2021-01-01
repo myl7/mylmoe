@@ -37,11 +37,19 @@ const friends = [
   },
   {
     title: 'Elsa Granger',
-    url: 'https://elsagranger.com',
+    url: 'https://blog.elsagranger.com',
     author: 'Elsa Granger',
     about: 'https://elsagranger.com',
     rss: 'https://blog.elsagranger.com/rss.xml',
     github: 'zeyugao'
+  },
+  {
+    title: 'taoky\'s blog',
+    url: 'https://blog.taoky.moe',
+    author: 'taoky',
+    about: 'https://blog.taoky.moe/about',
+    rss: 'https://blog.taoky.moe/feed.xml',
+    github: 'taoky'
   }
 ]
 
