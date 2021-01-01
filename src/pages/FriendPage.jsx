@@ -34,6 +34,14 @@ const friends = [
     about: 'https://loliw.moe/about',
     rss: 'https://loliw.moe/feed.xml',
     github: 'RubyOcelot'
+  },
+  {
+    title: 'Elsa Granger',
+    url: 'https://elsagranger.com',
+    author: 'Elsa Granger',
+    about: 'https://elsagranger.com',
+    rss: null,
+    github: 'zeyugao'
   }
 ]
 
@@ -97,9 +105,13 @@ export default () => {
                       </Typography>
                     </TableCell>
                     <TableCell>
-                      <Typography variant={'subtitle1'} component={ExternalLink} href={rss}>
-                        {relativePath(url, rss)}
-                      </Typography>
+                      {
+                        rss ? (
+                          <Typography variant={'subtitle1'} component={ExternalLink} href={rss}>
+                            {relativePath(url, rss)}
+                          </Typography>
+                        ) : ''
+                      }
                     </TableCell>
                     <TableCell>
                       <Typography variant={'subtitle1'} component={ExternalLink} href={'https://github.com/' + github}>
