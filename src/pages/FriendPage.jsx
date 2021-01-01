@@ -22,7 +22,18 @@ const friends = [
   {
     title: 'Totoro’s Blog',
     url: 'https://yyw.moe',
-    rssUrl: 'https://yyw.moe/atom.xml'
+    author: 'Totoroyyw',
+    about: 'https://yyw.moe/about',
+    rss: 'https://yyw.moe/atom.xml',
+    github: 'yuanyiwei'
+  },
+  {
+    title: 'RubyOcelot’s Homepage',
+    url: 'https://loliw.moe',
+    author: 'RubyOcelot',
+    about: 'https://loliw.moe/about',
+    rss: 'https://loliw.moe/feed.xml',
+    github: 'RubyOcelot'
   }
 ]
 
@@ -62,11 +73,13 @@ export default () => {
                 <TableRow>
                   <TableCell>Title</TableCell>
                   <TableCell>URL</TableCell>
-                  <TableCell>RSS URL</TableCell>
+                  <TableCell>Author</TableCell>
+                  <TableCell>RSS</TableCell>
+                  <TableCell>GitHub</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
-                {friends.map(({title, url, rssUrl}) => (
+                {friends.map(({title, url, author, about, rss, github}) => (
                   <TableRow key={url}>
                     <TableCell component={'th'} scope={'row'}>
                       <Typography variant={'subtitle1'} component={ExternalLink} href={url}>
@@ -78,9 +91,19 @@ export default () => {
                         {url}
                       </Typography>
                     </TableCell>
+                    <TableCell component={'th'} scope={'row'}>
+                      <Typography variant={'subtitle1'} component={ExternalLink} href={about}>
+                        {author}
+                      </Typography>
+                    </TableCell>
                     <TableCell>
-                      <Typography variant={'subtitle1'} component={ExternalLink} href={rssUrl}>
-                        {relativePath(url, rssUrl)}
+                      <Typography variant={'subtitle1'} component={ExternalLink} href={rss}>
+                        {relativePath(url, rss)}
+                      </Typography>
+                    </TableCell>
+                    <TableCell>
+                      <Typography variant={'subtitle1'} component={ExternalLink} href={'https://github.com/' + github}>
+                        {github}
                       </Typography>
                     </TableCell>
                   </TableRow>
