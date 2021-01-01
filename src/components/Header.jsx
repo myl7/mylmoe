@@ -49,6 +49,10 @@ export default () => {
           <Typography variant={'subtitle1'}>Utils</Typography>
         </MenuButton>
         <Button className={classes.headerButton} variant={'outlined'} color={'primary'} component={RouterLink}
+                to={'/pages/nonsence'}>
+          <Typography variant={'subtitle1'}>Nonsence</Typography>
+        </Button>
+        <Button className={classes.headerButton} variant={'outlined'} color={'primary'} component={RouterLink}
                 to={'/pages/friends'}>
           <Typography variant={'subtitle1'}>Friends</Typography>
         </Button>

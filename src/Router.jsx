@@ -5,6 +5,7 @@ import PostPage from './pages/PostPage'
 import ArcaeaPage from './pages/ArcaeaPage'
 import FriendPage from './pages/FriendPage'
 import BrotliUtilPage from './pages/BrotliUtilPage'
+import NonsencePage from './pages/NonsencePage'
 
 export default () => {
   return (
@@ -13,6 +14,7 @@ export default () => {
         <Route exact path={'/'} children={<IndexPage />} />
         <Route path={'/posts/:slug'} children={<PostPage />} />
         <Route path={'/pages/arcaea'} children={<ArcaeaPage />} />
+        <Route path={'/pages/nonsence'} children={<NonsencePage />} />
         <Route path={'/pages/friends'} children={<FriendPage />} />
         <Route path={'/utils/brotli'} children={<BrotliUtilPage />} />
       </Switch>
