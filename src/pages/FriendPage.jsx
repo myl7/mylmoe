@@ -40,7 +40,7 @@ const friends = [
     url: 'https://elsagranger.com',
     author: 'Elsa Granger',
     about: 'https://elsagranger.com',
-    rss: null,
+    rss: 'https://blog.elsagranger.com/rss.xml',
     github: 'zeyugao'
   }
 ]
@@ -49,7 +49,7 @@ const relativePath = (root, url) => {
   if (url.substring(0, root.length) === root) {
     return url.substring(root.length)
   } else {
-    return url
+    return url.substring(url.indexOf('://') + 3)
   }
 }
 
