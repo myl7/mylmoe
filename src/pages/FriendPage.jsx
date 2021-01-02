@@ -50,6 +50,14 @@ const friends = [
     about: 'https://blog.taoky.moe/about',
     rss: 'https://blog.taoky.moe/feed.xml',
     github: 'taoky'
+  },
+  {
+    title: 'Sirius’ blog',
+    url: 'https://sirius1242.github.io',
+    author: 'Sirius',
+    about: 'https://sirius1242.github.io',
+    rss: 'https://sirius1242.github.io/feed.xml',
+    github: 'sirius1242'
   }
 ]
 
