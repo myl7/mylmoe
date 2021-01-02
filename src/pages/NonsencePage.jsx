@@ -4,6 +4,7 @@ import {formatDatetime} from '../utils/dayjs'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import ContentCard from '../components/ContentCard'
+import IdeaApi from '../apis/IdeaApi'
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -17,24 +18,21 @@ const useStyles = makeStyles(theme => ({
 export default () => {
   const classes = useStyles()
 
-  const [ideas, setIdeas] = useState([
-    {
-      title: 'Test title',
-      pubDate: '2000-01-01',
-      body: 'Test body'
-    }
-  ])
+  const [ideas, setIdeas] = useState([])
+  const pushIdeas = (...ideas) => {
+    const newIdeas = ideas
+    newIdeas.push(...ideas)
+    setIdeas(newIdeas)
+  }
+
+  const [cursor, setCursor] = useState(undefined)
 
   useEffect(() => {
-  }, [setIdeas])
-
-  const cmp = (a, b) => {
-    const i = -a.pubDate.localeCompare(b.pubDate)
-    if (i === 0) {
-      return -(a.slug - b.slug)
-    }
-    return i
-  }
+    new IdeaApi().ideas().then(res => {
+      pushIdeas(...res.ideas)
+      setCursor(res.cursor ? res.cursor : null)
+    })
+  }, [pushIdeas, setCursor])
 
   return (
     <div>
@@ -42,7 +40,7 @@ export default () => {
       <div className={classes.container}>
         <Divider variant={'middle'} className={classes.ideaItemDivider} />
         {
-          Object.values(ideas).sort(cmp).map(idea => (
+          Object.values(ideas).map(idea => (
             <Fragment key={idea.title}>
               <ContentCard>
                 <CardContent>
