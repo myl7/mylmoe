@@ -1,6 +1,6 @@
 import React, {useEffect, Fragment, useState} from 'react'
 import {CardContent, Typography, Grid, makeStyles, Divider} from '@material-ui/core'
-import {formatDate} from '../utils/dayjs'
+import {formatDatetime} from '../utils/dayjs'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import ContentCard from '../components/ContentCard'
@@ -54,7 +54,7 @@ export default () => {
                     </Grid>
                     <Grid item>
                       <Typography variant={'caption'}>
-                        {formatDate(idea.pubDate)}
+                        {formatDatetime(idea.pubTime)}
                       </Typography>
                     </Grid>
                   </Grid>
