@@ -19,20 +19,14 @@ export default () => {
   const classes = useStyles()
 
   const [ideas, setIdeas] = useState([])
-  const pushIdeas = (...ideas) => {
-    const newIdeas = ideas
-    newIdeas.push(...ideas)
-    setIdeas(newIdeas)
-  }
-
   const [cursor, setCursor] = useState(undefined)
 
   useEffect(() => {
     new IdeaApi().ideas().then(res => {
-      pushIdeas(...res.ideas)
+      setIdeas(ideas => [...ideas, ...res.ideas])
       setCursor(res.cursor ? res.cursor : null)
     })
-  }, [pushIdeas, setCursor])
+  }, [setIdeas, setCursor])
 
   return (
     <div>
