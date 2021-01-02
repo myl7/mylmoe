@@ -10,7 +10,7 @@ import {md2jsxOptions} from '../utils/md2jsx'
 
 const useStyles = makeStyles(theme => ({
   container: {
-    minHeight: 'calc(100vh - 106px)'
+    minHeight: 'calc(100vh - 170px)'
   },
   ideaItemDivider: {
     backgroundColor: theme.palette.primary.main
