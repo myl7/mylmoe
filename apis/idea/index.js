@@ -3,39 +3,22 @@ addEventListener('fetch', e => {
 })
 
 const handleReq = async (req) => {
-  let page = null
+  let cursor = null
   if (req.method === 'POST') {
-    page = (await req.json()).page
+    cursor = (await req.json()).cursor
   }
 
-  if (page) {
-    let res = await MylmoeIdeaNS.get(page)
+  const res = await MylmoeIdeaNS.list({limit: 20, cursor: cursor ? cursor : undefined})
+  const ret = {ideas: []}
 
-    if (res === null) {
-      return new Response('Idea page not found', {status: 404})
-    } else {
-      res = JSON.parse(res)
-      await enhanceRes(res)
-
-      return new Response(res, {headers: {'Content-Type': 'application/json;charset=utf-8'}})
-    }
-  } else {
-    const latest = JSON.parse(await MylmoeIdeaNS.get('latest'))
-    const start = latest.page
-
-    const res = JSON.parse(await MylmoeIdeaNS.get(start.toString()))
-    await enhanceRes(res)
-
-    return new Response(res, {headers: {'Content-Type': 'application/json;charset=utf-8'}})
+  for (const key of res.keys) {
+    const idea = JSON.parse(await MylmoeIdeaNS.get(key.name))
+    ret.ideas.push(idea)
   }
-}
 
-const enhanceRes = async (res) => {
-  const prePage = res.prev
-  if (res.ideas.length < 10 && prePage) {
-    const preRes = JSON.parse(await MylmoeIdeaNS.get(prePage))
-
-    res.ideas = [...preRes.ideas, ...res.ideas]
-    res.prev = preRes.prev
+  if (!res.list_complete) {
+    ret.cursor = res.cursor
   }
+
+  return new Response(JSON.stringify(ret), {headers: {'Content-Type': 'application/json;charset=utf-8'}})
 }
