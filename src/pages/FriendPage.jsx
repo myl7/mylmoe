@@ -58,6 +58,14 @@ const friends = [
     about: 'https://sirius1242.github.io',
     rss: 'https://sirius1242.github.io/feed.xml',
     github: 'sirius1242'
+  },
+  {
+    title: 'iBug',
+    url: 'https://ibug.io',
+    author: 'iBug',
+    about: 'https://ibug.io/about',
+    rss: 'https://ibug.io/feed.xml',
+    github: 'iBug'
   }
 ]
 
