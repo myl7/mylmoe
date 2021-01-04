@@ -78,7 +78,7 @@ export default () => {
           </Typography>
           <WideDivider className={classes.titleDivider} />
           <Grid container spacing={2} justify={'center'}>
-            <Grid item xs={6} xl={12}>
+            <Grid item sm={6} xs={12}>
               <Grid container direction={'column'} alignItems={'stretch'} spacing={2}>
                 <Grid item>
                   <TextField label={'To be encoded:'} multiline rowsMax={10} variant={'outlined'} fullWidth
@@ -108,7 +108,7 @@ export default () => {
                 </Grid>
               </Grid>
             </Grid>
-            <Grid item xs={6} xl={12}>
+            <Grid item sm={6} xs={12}>
               <Grid container direction={'column'} alignItems={'stretch'} spacing={2}>
                 <Grid item>
                   <TextField label={'To be decoded:'} multiline rowsMax={10} variant={'outlined'} fullWidth
