@@ -44,7 +44,7 @@ updDate: 2021-01-04
 
 ![toritani-makoto-2](https://cdn.jsdelivr.net/gh/myl7/mylmoe-images@goshujin-sama/sakuranouta/toritani-makoto-2.png)
 
-## 冰川里奈&川内野优美线
+## 冰川里奈&川内野优美线 stage 1
 
 讲述方式有点有趣，先是里奈视角，后又是优美视角，然后用一种一幕一幕形式的表现方式讲述了里奈和优美相识的故事，百合芬芳中带有些许飘飘然的感觉，
 然后、然后、然后游戏就崩了！艹！
@@ -58,9 +58,21 @@ wine-5.22
 
 这里我留下了紧邻崩溃前的存档：[`Sakuranouta013.sud` on Azure Files](https://mylmoefileshare.file.core.windows.net/sakuranouta/Sakuranouta013.sud?sp=rl&st=2021-01-03T22:18:16Z&se=2100-01-03T22:18:00Z&sv=2019-12-12&sig=MDu1qonQAi6xbnu1OU038%2BC7V7bKZ%2BNbhUrjUbOEevQ%3D&sr=f)
 
-!!WIP!!
+试着用 Windows 10 20h2 新装的虚拟机打开，发现游戏主程序直接打不开了！
+感觉像是资源不足（虚拟机开在一台性能接近轻薄本的全能本上），又像是有虚拟机检测。
+借了一位姓陈的朋友的物理 Windows，倒是成功打开游戏了，也能从上方的存档处正常开始玩，但存档后放到这边 wine 里就会报同样的错误。
+那只能先搁置这条线了，等有时间用另一台自己的 Windows 来玩。
+幸好这条线不影响主线进程。
 
 ## 冰川里奈线
+
+!!WIP!!
+
+## 冰川里奈&川内野优美线 stage 1
+
+!!WIP!!
+
+## 夏目雫线
 
 !!WIP!!
 
