@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
-import {Button, CardContent, debounce, Grid, makeStyles, TextField, Typography} from '@material-ui/core'
+import {Box, Button, CardContent, debounce, Grid, makeStyles, Snackbar, TextField, Typography} from '@material-ui/core'
+import {Alert} from '@material-ui/lab'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import WideDivider from '../../components/WideDivider'
@@ -23,16 +24,25 @@ export default () => {
     debounce(setter, 0.4)(e.target.value)
   }
 
+  const [snackBarOpen, setSnackBarOpen] = useState(false)
+  const [pubStatus, setPubStatus] = useState(100)
+
   const handlePublish = () => {
     new IdeaAddApi().add({
       title: title,
       body: body,
       pubTime: dayjs.utc().format('YYYY-MM-DDTHH:mm:ss')
-    }).then(ok => {
-      if (!ok) {
-        console.log('Add idea failed')
-      }
+    }).then(status => {
+      setPubStatus(status)
+      setSnackBarOpen(true)
     })
+  }
+
+  const handleSnackBarClose = (e, reason) => {
+    if (reason === 'clickaway') {
+      return
+    }
+    setSnackBarOpen(false)
   }
 
   return (
@@ -63,6 +73,20 @@ export default () => {
                           Publish
                         </Typography>
                       </Button>
+                      <Snackbar anchorOrigin={{vertical: 'bottom', horizontal: 'left'}} open={snackBarOpen}
+                                autoHideDuration={5000} onClose={handleSnackBarClose}>
+                        <Alert onClose={handleSnackBarClose} severity={pubStatus === 201 ? 'success' : 'error'}>
+                          {pubStatus === 201 ? (
+                            <>
+                              Publish{' '}
+                              <Box component={'span'} fontStyle={'oblique'}>
+                                {title}
+                              </Box>
+                              {' '}OK
+                            </>
+                          ) : 'Error: status = ' + pubStatus.toString()}
+                        </Alert>
+                      </Snackbar>
                     </Grid>
                   </Grid>
                 </Grid>

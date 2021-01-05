@@ -8,6 +8,6 @@ export default class IdeaAddApi {
       body: JSON.stringify(idea),
       headers: {'Content-Type': 'application/json'}
     })
-    return res.status === 201
+    return res.status
   }
 }
