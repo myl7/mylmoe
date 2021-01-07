@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-import {Box, Button, CardContent, debounce, Grid, makeStyles, Snackbar, TextField, Typography} from '@material-ui/core'
+import React, {useRef, useState} from 'react'
+import {Box, Button, CardContent, Grid, makeStyles, Snackbar, TextField, Typography} from '@material-ui/core'
 import {Alert} from '@material-ui/lab'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
@@ -17,20 +17,16 @@ const useStyles = makeStyles({
 export default () => {
   const classes = useStyles()
 
-  const [title, setTitle] = useState('')
-  const [body, setBody] = useState('')
-
-  const handleEdit = setter => e => {
-    debounce(setter, 0.4)(e.target.value)
-  }
+  const titleRef = useRef()
+  const bodyRef = useRef()
 
   const [snackBarOpen, setSnackBarOpen] = useState(false)
   const [pubStatus, setPubStatus] = useState(100)
 
   const handlePublish = () => {
     new IdeaAddApi().add({
-      title: title,
-      body: body,
+      title: titleRef.current.value,
+      body: bodyRef.current.value,
       pubTime: dayjs.utc().format('YYYY-MM-DDTHH:mm:ss')
     }).then(status => {
       setPubStatus(status)
@@ -58,12 +54,10 @@ export default () => {
             <Grid item sm={6} xs={12}>
               <Grid container direction={'column'} alignItems={'stretch'} spacing={2}>
                 <Grid item>
-                  <TextField label={'Title'} variant={'outlined'} fullWidth value={title}
-                             onChange={handleEdit(setTitle)} />
+                  <TextField label={'Title'} variant={'outlined'} fullWidth inputRef={titleRef} />
                 </Grid>
                 <Grid item>
-                  <TextField label={'Body'} multiline rows={10} variant={'outlined'} fullWidth value={body}
-                             onChange={handleEdit(setBody)} />
+                  <TextField label={'Body'} multiline rows={10} variant={'outlined'} fullWidth inputRef={bodyRef} />
                 </Grid>
                 <Grid item>
                   <Grid container justify={'center'}>
@@ -80,7 +74,7 @@ export default () => {
                             <>
                               Publish{' '}
                               <Box component={'span'} fontStyle={'oblique'}>
-                                {title}
+                                {titleRef.current.value}
                               </Box>
                               {' '}OK
                             </>
