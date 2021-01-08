@@ -28,6 +28,16 @@ export default () => {
   const post = useSelector(s => s.posts[slug])
 
   useEffect(() => {
+    document.title = 'Post | mylmoe'
+  })
+
+  useEffect(() => {
+    if (post) {
+      document.title = post.title + ' | mylmoe'
+    }
+  }, [post])
+
+  useEffect(() => {
     if (post === undefined || post.body === undefined) {
       new PostApi().post(slug).then(post => {
         dispatch({

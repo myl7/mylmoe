@@ -9,6 +9,10 @@ import ContentCard from '../components/ContentCard'
 import WideDivider from '../components/WideDivider'
 
 export default () => {
+  useEffect(() => {
+    document.title = 'Arcaea | mylmoe'
+  })
+
   const [data, setData] = useState({
     songs: Object.fromEntries(levels.map(l => [l, []])),
     userInfo: {name: null, user_code: null, rating: null, join_date: null}

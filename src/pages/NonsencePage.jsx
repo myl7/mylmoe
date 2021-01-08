@@ -20,7 +20,12 @@ const useStyles = makeStyles(theme => ({
 export default () => {
   const classes = useStyles()
 
+  useEffect(() => {
+    document.title = 'Nonsence | mylmoe'
+  })
+
   const [ideas, setIdeas] = useState([])
+  // noinspection JSUnusedLocalSymbols
   const [cursor, setCursor] = useState(undefined)
 
   useEffect(() => {

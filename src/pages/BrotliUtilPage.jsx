@@ -20,6 +20,10 @@ export default () => {
   const [decInit, setDecInit] = useState(null)
 
   useEffect(() => {
+    document.title = 'Brotli | mylmoe'
+  })
+
+  useEffect(() => {
     setDecInit(init('/wasm/brotli-dec-wasm_bg.wasm'))
   }, [setDecInit])
 

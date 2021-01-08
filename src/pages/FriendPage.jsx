@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {
   CardContent,
   Divider,
@@ -88,6 +88,10 @@ const useStyles = makeStyles(theme => ({
 
 export default () => {
   const classes = useStyles()
+
+  useEffect(() => {
+    document.title = 'Friends | mylmoe'
+  })
 
   return (
     <div>
