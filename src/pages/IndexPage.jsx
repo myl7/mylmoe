@@ -35,6 +35,10 @@ export default () => {
   const posts = useSelector(s => s.posts)
 
   useEffect(() => {
+    document.title = 'mylmoe'
+  })
+
+  useEffect(() => {
     new PostApi().posts().then(posts => {
       dispatch({
         type: 'post.all',
