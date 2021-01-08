@@ -1,0 +1,7 @@
+name = "mylmoe-sitemap"
+type = "javascript"
+workers_dev = true
+route = "myl.moe/sitemap"
+kv_namespaces = [
+    { binding = "MylmoePostNS", id = "820255000bdd4d568d8cf7bb3327a586", preview_id = "820255000bdd4d568d8cf7bb3327a586" }
+]
