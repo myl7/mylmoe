@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import {Box, Button, CardContent, Grid, makeStyles, Snackbar, TextField, Typography} from '@material-ui/core'
 import {Alert} from '@material-ui/lab'
 import Header from '../../components/Header'
@@ -16,6 +16,10 @@ const useStyles = makeStyles({
 
 export default () => {
   const classes = useStyles()
+
+  useEffect(() => {
+    document.title = 'Add ideas | mylmoe admin'
+  })
 
   const titleRef = useRef()
   const bodyRef = useRef()
