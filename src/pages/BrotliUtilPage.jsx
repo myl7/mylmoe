@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react'
-import {CardContent, makeStyles, Divider, Typography, Grid, TextField, Button, debounce} from '@material-ui/core'
+import {CardContent, makeStyles, Divider, Typography, Grid, TextField, Button} from '@material-ui/core'
 import init from 'brotli-dec-wasm'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
@@ -27,48 +27,45 @@ export default () => {
     setDecInit(init('/wasm/brotli-dec-wasm_bg.wasm'))
   }, [setDecInit])
 
-  const [text2enc, setText2enc] = useState('')
+  const encTextRef = useRef()
+  const decTextRef = useRef()
+
   const [file2enc, setFile2enc] = useState(null)
-  const input2encRef = useRef(null)
+  const encFileRef = useRef(null)
   const handleEnc = () => {
-    const f = input2encRef.current.files[0]
+    const f = encFileRef.current.files[0]
     if (f) {
       f.arrayBuffer().then(buf => {
         brotliEnc(new Uint8Array(buf)).then(res => {
-          setText2dec(outputBytes(res))
+          decTextRef.current.value = outputBytes(res)
         })
       })
-    } else if (text2enc) {
-      brotliEnc(inputBytes(text2enc)).then(res => {
-        setText2dec(outputBytes(res))
+    } else if (encTextRef.current.value) {
+      brotliEnc(inputBytes(encTextRef.current.value)).then(res => {
+        decTextRef.current.value = outputBytes(res)
       })
     }
   }
 
-  const [text2dec, setText2dec] = useState('')
   const [file2dec, setFile2dec] = useState(null)
-  const input2decRef = useRef(null)
+  const decFileRef = useRef(null)
   const handleDec = () => {
-    const f = input2decRef.current.files[0]
+    const f = decFileRef.current.files[0]
     if (f) {
       f.arrayBuffer().then(buf => {
         brotliDec(new Uint8Array(buf), decInit).then(res => {
-          setText2enc(outputBytes(res))
+          encTextRef.current.value = outputBytes(res)
         })
       })
-    } else if (text2dec) {
-      brotliDec(inputBytes(text2dec), decInit).then(res => {
-        setText2enc(outputBytes(res))
+    } else if (decTextRef.current.value) {
+      brotliDec(inputBytes(decTextRef.current.value), decInit).then(res => {
+        encTextRef.current.value = outputBytes(res)
       })
     }
   }
 
   const handleUploadFile = setter => e => {
     setter(e.target.files[0].name)
-  }
-
-  const handleTextEdit = setter => e => {
-    debounce(setter, 0.4)(e.target.value)
   }
 
   return (
@@ -86,13 +83,13 @@ export default () => {
               <Grid container direction={'column'} alignItems={'stretch'} spacing={2}>
                 <Grid item>
                   <TextField label={'To be encoded:'} multiline rowsMax={10} variant={'outlined'} fullWidth
-                             value={text2enc} onChange={handleTextEdit(setText2enc)} />
+                             inputRef={encTextRef} InputLabelProps={{shrink: true}} />
                 </Grid>
                 <Grid item>
                   <Grid container justify={'space-around'}>
                     <Grid item>
                       <input id={'encFile'} type={'file'} hidden onChange={handleUploadFile(setFile2enc)}
-                             ref={input2encRef} />
+                             ref={encFileRef} />
                       <label htmlFor={'encFile'}>
                         <Button variant={'outlined'} color={'primary'} component={'span'}>
                           <Typography variant={'subtitle1'}>
@@ -116,7 +113,7 @@ export default () => {
               <Grid container direction={'column'} alignItems={'stretch'} spacing={2}>
                 <Grid item>
                   <TextField label={'To be decoded:'} multiline rowsMax={10} variant={'outlined'} fullWidth
-                             value={text2dec} onChange={handleTextEdit(setText2dec)} />
+                             inputRef={decTextRef} InputLabelProps={{shrink: true}} />
                 </Grid>
                 <Grid item>
                   <Grid container justify={'space-around'}>
@@ -129,7 +126,7 @@ export default () => {
                     </Grid>
                     <Grid item>
                       <input id={'decFile'} type={'file'} hidden onChange={handleUploadFile(setFile2dec)}
-                             ref={input2decRef} />
+                             ref={decFileRef} />
                       <label htmlFor={'decFile'}>
                         <Button variant={'outlined'} color={'primary'} component={'span'}>
                           <Typography variant={'subtitle1'}>
