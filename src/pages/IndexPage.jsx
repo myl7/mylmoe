@@ -56,7 +56,7 @@ export default () => {
   }
 
   const handleRevueClick = () => {
-    animateScroll.scrollMore(window.innerHeight)
+    animateScroll.scrollTo(window.innerHeight)
   }
 
   return (
