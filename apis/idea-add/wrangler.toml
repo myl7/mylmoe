@@ -1,7 +1,0 @@
-name = "mylmoe-idea-add"
-type = "javascript"
-workers_dev = true
-route = "myl.moe/admin/apis/idea-add"
-kv_namespaces = [
-    { binding = "MylmoeIdeaNS", id = "353812d4a89a4f36bdc95c9c88c21746", preview_id = "353812d4a89a4f36bdc95c9c88c21746" }
-]
