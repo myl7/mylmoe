@@ -18,7 +18,7 @@ export default class PostApi {
 
   async post(slug) {
     if (process.env.NODE_ENV === 'development') {
-      return postApiMock.postData
+      return postApiMock.postData[slug]
     }
 
     const res = await fetch('/apis/post', {

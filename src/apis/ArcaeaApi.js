@@ -1,4 +1,4 @@
-import arcaeaMockData from './ArcaeaApiData.mock.json'
+import arcaeaApiMock from './arcaeaApi.mock.json'
 
 const subKey = '7e1826c345a941f8a6e928b95626cf5c'
 
@@ -8,7 +8,7 @@ export default class ArcaeaApi {
   async data(raw = false) {
     let data = null
     if (process.env.NODE_ENV === 'development') {
-      data = arcaeaMockData
+      data = arcaeaApiMock
     } else {
       const url = new URL('https://mlapis.azure-api.net/mylmoe-arcaea/Get')
       url.search = new URLSearchParams({'subscription-key': subKey}).toString()

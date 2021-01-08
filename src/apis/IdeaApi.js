@@ -1,6 +1,13 @@
+import * as ideaApiMock from './ideaApi.mock'
+
 export default class IdeaApi {
   async ideas(cursor) {
     if (process.env.NODE_ENV === 'development') {
+      if (!cursor) {
+        return ideaApiMock.ideas1
+      } else {
+        return undefined
+      }
     }
 
     const res = await fetch('/apis/idea', {
