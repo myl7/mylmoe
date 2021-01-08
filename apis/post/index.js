@@ -3,13 +3,13 @@ addEventListener('fetch', e => {
 })
 
 const handleReq = async (req) => {
-  let sel = ''
+  let slug = null
   if (req.method === 'POST') {
-    sel = (await req.json()).slug
+    slug = (await req.json()).slug
   }
 
-  if (sel) {
-    const post = await MylmoePostNS.get(sel)
+  if (slug) {
+    const post = await MylmoePostNS.get(slug)
 
     if (post === null) {
       return new Response('Post not found', {status: 404})
