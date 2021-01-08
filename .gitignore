@@ -119,5 +119,5 @@ dist
 .idea/
 .vscode/
 
-# Temp
-/posts/drafts/
+# Drafts
+/works/drafts/
