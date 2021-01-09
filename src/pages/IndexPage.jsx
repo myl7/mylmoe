@@ -64,7 +64,7 @@ export default () => {
       <Header />
       <div className={classes.indexContainer} onClick={handleRevueClick}>
         <img className={classes.indexImage} alt={'revue'}
-             src={'https://cdn.jsdelivr.net/gh/myl7/mylmoe-images@goshujin-sama/revue.jpg'} />
+             src={'/images/revue.jpg'} />
       </div>
       <div className={classes.nextContainer}>
         <Divider variant={'middle'} className={classes.postItemDivider} />

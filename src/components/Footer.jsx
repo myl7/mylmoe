@@ -26,13 +26,13 @@ export default () => {
           {' '}are licensed under{' '}
           <ExternalLink rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0">
             CC BY-NC-SA 4.0
-            <img className={styles.ccIcon} src="https://cdn.jsdelivr.net/gh/myl7/mylmoe-images@goshujin-sama/cc/cc.svg"
+            <img className={styles.ccIcon} src="/images/cc/cc.svg"
                  alt="CC" />
-            <img className={styles.ccIcon} src="https://cdn.jsdelivr.net/gh/myl7/mylmoe-images@goshujin-sama/cc/by.svg"
+            <img className={styles.ccIcon} src="/images/cc/by.svg"
                  alt="BY" />
-            <img className={styles.ccIcon} src="https://cdn.jsdelivr.net/gh/myl7/mylmoe-images@goshujin-sama/cc/nc.svg"
+            <img className={styles.ccIcon} src="/images/cc/nc.svg"
                  alt="NC" />
-            <img className={styles.ccIcon} src="https://cdn.jsdelivr.net/gh/myl7/mylmoe-images@goshujin-sama/cc/sa.svg"
+            <img className={styles.ccIcon} src="/images/cc/sa.svg"
                  alt="SA" />
           </ExternalLink>
         </Typography>

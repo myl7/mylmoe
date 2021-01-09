@@ -1,0 +1,3 @@
+[submodule "images"]
+	path = images
+	url = git@github.com:myl7/mylmoe-images.git
