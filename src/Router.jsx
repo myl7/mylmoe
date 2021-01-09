@@ -6,7 +6,6 @@ import ArcaeaPage from './pages/ArcaeaPage'
 import FriendPage from './pages/FriendPage'
 import BrotliUtilPage from './pages/BrotliUtilPage'
 import NonsencePage from './pages/NonsencePage'
-import IdeaAddPage from './pages/admin/IdeaAddPage'
 
 export default () => {
   return (
@@ -18,7 +17,6 @@ export default () => {
         <Route path={'/pages/nonsence'} children={<NonsencePage />} />
         <Route path={'/pages/friends'} children={<FriendPage />} />
         <Route path={'/utils/brotli'} children={<BrotliUtilPage />} />
-        <Route path={'/admin/ideas/add'} children={<IdeaAddPage />} />
       </Switch>
     </Router>
   )
