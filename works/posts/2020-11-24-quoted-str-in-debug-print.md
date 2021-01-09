@@ -2,7 +2,9 @@ title: Quoted string in debug printing
 pubDate: 2020-11-24
 updDate: 2020-11-24
 excerpt: Quoted spring in debug printing may indicate that the spring variable just contains two redundant quotes.
+
 ---
+
 ## Background
 
 At that time I was writing a Kotlin Spring backend application.

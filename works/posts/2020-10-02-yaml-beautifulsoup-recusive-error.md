@@ -2,7 +2,9 @@ title: Python YAML + Beautiful Soup reports RecursionError
 pubDate: 2020-10-02
 updDate: 2020-11-24
 excerpt: Use YAML safe functions and explicitly convert Beautiful Soup string to str.
+
 ---
+
 ## Problem
 
 Today I am writing a Telegram bot.

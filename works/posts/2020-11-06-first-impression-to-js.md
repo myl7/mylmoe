@@ -2,7 +2,9 @@ title: First impression to Javascript
 pubDate: 2020-11-06
 updDate: 2020-11-07
 wip: true
+
 ---
+
 ## Introduction
 
 The post is not going to explain the details of Javascript.

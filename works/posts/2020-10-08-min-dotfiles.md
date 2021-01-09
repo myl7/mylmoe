@@ -1,7 +1,9 @@
 title: Minimized dotfiles sharing
 pubDate: 2020-10-08
 updDate: 2020-10-29
+
 ---
+
 ## Principles
 
 Prefer to default keymap.

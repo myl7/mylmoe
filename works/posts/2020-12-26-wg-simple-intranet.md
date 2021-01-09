@@ -2,7 +2,9 @@ title: Use WireGuard to setup a simple intranet
 pubDate: 2020-12-26
 updDate: 2020-12-26
 excerpt: See wg0.conf below if you are in a hurry.
+
 ---
+
 ## Ideas
 
 To merge 3 of my servers while also to learn some VPN knowledge,

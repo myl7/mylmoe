@@ -17,7 +17,7 @@ def main():
 def parse_post(path):
     with open(path) as f:
         c = f.read()
-    sep = c.find('\n---\n')
+    sep = c.find('\n\n---\n\n')
     fm: dict = yaml.safe_load(c[:sep])
     assert fm.get('title', None)
     assert fm.get('pubDate', None)
