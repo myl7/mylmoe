@@ -1,8 +1,6 @@
-export const ideas1 = {
-  ideas: [
-    {
-      title: 'B 站和 QQ 音乐的 2020 年度报告',
-      body: `\
+export const ideas1 = [
+  {
+    body: `\
 虽然是挺屑的两个 app，不过我还是在这两个 app 上消磨的时间比较多。
 这样算是展示一下兴趣？
 
@@ -37,20 +35,22 @@ QQ 音乐：
 <img src="https://cdn.jsdelivr.net/gh/myl7/mylmoe-images@goshujin-sama/annual-reports/2020/qq-music/10.jpg" alt="qq-music-10" width="300px" />
 <img src="https://cdn.jsdelivr.net/gh/myl7/mylmoe-images@goshujin-sama/annual-reports/2020/qq-music/11.jpg" alt="qq-music-11" width="300px" />
 `,
-      pubTime: '2021-01-05T19:04:33'
-    },
-    {
-      title: 'nonsence 基础设施',
-      body: `\
+    pubTime: '2021-01-05T19:04:33'
+  },
+  {
+    body: `\
   把 nonsence 添加 idea 的面板加上了，现在发 nonsence 应该比较方便了。
   还有一些小问题，比如输入框打不了中文，会自动 enter 把字上屏……之后慢慢修吧。
 `,
-      pubTime: '2021-01-05T08:45:28'
-    },
-    {
-      title: 'Hello world',
-      body: 'Hello world! `nonsence` just works fine!',
-      pubTime: '2021-01-02T07:32:39'
-    }
-  ]
+    pubTime: '2021-01-05T08:45:28'
+  },
+  {
+    body: 'Hello world! `nonsence` just works fine!',
+    pubTime: '2021-01-02T07:32:39'
+  }
+]
+
+export const ideas = {
+  slugs: ['2021-01'],
+  ideas: ideas1
 }

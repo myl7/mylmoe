@@ -24,16 +24,16 @@ export default () => {
     document.title = 'Nonsence | mylmoe'
   })
 
-  const [ideas, setIdeas] = useState([])
   // noinspection JSUnusedLocalSymbols
-  const [cursor, setCursor] = useState(undefined)
+  const [slugs, setSlugs] = useState([])
+  const [ideas, setIdeas] = useState([])
 
   useEffect(() => {
     new IdeaApi().ideas().then(res => {
       setIdeas(ideas => [...ideas, ...res.ideas])
-      setCursor(res.cursor ? res.cursor : null)
+      setSlugs(res.slugs)
     })
-  }, [setIdeas, setCursor])
+  }, [setIdeas, setSlugs])
 
   return (
     <div>
@@ -42,17 +42,12 @@ export default () => {
         <Divider variant={'middle'} className={classes.ideaItemDivider} />
         {
           Object.values(ideas).map(idea => (
-            <Fragment key={idea.title}>
+            <Fragment key={formatDatetime(idea.pubTime)}>
               <ContentCard>
                 <CardContent>
                   <Grid container spacing={1} alignItems={'center'}>
                     <Grid item>
                       <Typography variant={'h6'}>
-                        {idea.title}
-                      </Typography>
-                    </Grid>
-                    <Grid item>
-                      <Typography variant={'caption'}>
                         {formatDatetime(idea.pubTime)}
                       </Typography>
                     </Grid>
