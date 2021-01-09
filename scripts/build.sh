@@ -18,6 +18,9 @@ function bundle() {
   esac
 }
 
+# Git submodule
+git submodule update --init > /dev/null
+
 # Gen output
 rm -rf dist
 bundle "${1-prod}"
