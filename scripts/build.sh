@@ -22,8 +22,8 @@ function bundle() {
 rm -rf dist
 bundle "${1-prod}"
 cp public/* dist/
-mkdir -p dist/images
-cp -r images/* dist/images/
+#mkdir -p dist/images
+#cp -r images/* dist/images/
 mkdir -p dist/wasm
 cp node_modules/brotli-dec-wasm/pkg/brotli-dec-wasm_bg.wasm dist/wasm/
 
