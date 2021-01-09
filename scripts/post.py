@@ -27,7 +27,7 @@ def parse_post(path):
     if not fm.get('excerpt', None):
         fm['excerpt'] = ''
     fm['slug'] = os.path.splitext(os.path.basename(path))[0]
-    body = c[sep + 5:]
+    body = c[sep + 7:]
     return {**fm, 'body': body}
 
 
