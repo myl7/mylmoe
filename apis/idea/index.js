@@ -3,15 +3,21 @@ addEventListener('fetch', e => {
 })
 
 const handleReq = async req => {
-  let page
+  let slug = null
   if (req.method === 'POST') {
-    page = (await req.json()).page
-  } else {
-    page = parseInt(await MylmoeIdeaNS.get('latest'))
+    slug = (await req.json()).slug
   }
 
-  const ideaText = await MylmoeIdeaNS.get(page.toString())
-  const ideas = ideaText.split('\n---\n\n')
-
-  return new Response(JSON.stringify(ideas), {headers: {'Content-Type': 'application/json;charset=utf-8'}})
+  if (slug) {
+    const ideas = await MylmoeIdeaNS.get(slug)
+    return new Response(ideas, {headers: {'Content-Type': 'application/json;charset=utf-8'}})
+  } else {
+    const slugs = JSON.parse(await MylmoeIdeaNS.get('list'))
+    slug = slugs[slugs.length - 1]
+    const ideas = JSON.parse(await MylmoeIdeaNS.get(slug))
+    return new Response(
+      JSON.stringify({slugs: slugs, ideas: ideas}),
+      {headers: {'Content-Type': 'application/json;charset=utf-8'}}
+    )
+  }
 }
