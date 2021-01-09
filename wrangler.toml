@@ -1,5 +1,6 @@
 name = "mylmoe"
 type = "javascript"
 kv_namespaces = [
-    { binding = "MylmoePostNS", id = "820255000bdd4d568d8cf7bb3327a586", preview_id = "820255000bdd4d568d8cf7bb3327a586" }
+    { binding = "MylmoePostNS", id = "820255000bdd4d568d8cf7bb3327a586", preview_id = "820255000bdd4d568d8cf7bb3327a586" },
+    { binding = "MylmoeIdeaNS", id = "353812d4a89a4f36bdc95c9c88c21746", preview_id = "353812d4a89a4f36bdc95c9c88c21746" }
 ]
