@@ -22,13 +22,8 @@
 import {debounce} from '@material-ui/core'
 import anime from 'animejs/lib/anime.es'
 
-const filter = e => {
-  return (
-    e.target.id !== 'sidebar' &&
-    e.target.id !== 'toggle-sidebar' &&
-    e.target.nodeName !== 'A' &&
-    e.target.nodeName !== 'IMG'
-  )
+const filter = _e => {
+  return true
 }
 
 const canvasEl = document.querySelector('.fireworks')
