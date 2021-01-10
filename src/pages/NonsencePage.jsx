@@ -8,6 +8,7 @@ import Footer from '../components/Footer'
 import ContentCard from '../components/ContentCard'
 import IdeaApi from '../apis/IdeaApi'
 import {md2jsxOptions} from '../utils/md2jsx'
+import hljs from '../utils/hljs'
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -29,6 +30,10 @@ export default () => {
     new IdeaApi().ideas().then(res => {
       setIdeas(ideas => [...ideas, ...res.ideas])
       setSlugs(res.slugs)
+    })
+
+    document.querySelectorAll('div#root pre > code').forEach(elem => {
+      hljs.highlightBlock(elem)
     })
   }, [setIdeas, setSlugs])
 

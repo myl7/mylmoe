@@ -12,4 +12,6 @@ hljs.registerLanguage('json', json)
 hljs.registerLanguage('js', js)
 hljs.registerLanguage('jsx', js)
 
+hljs.configure({languages: []})
+
 export default hljs
