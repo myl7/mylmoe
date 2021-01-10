@@ -5,13 +5,7 @@ import ExternalLink from './ExternalLink'
 const useStyles = makeStyles({
   ccIcon: {
     height: '22px !important',
-    marginLeft: '3px',
     verticalAlign: 'text-bottom'
-  },
-  footerText: {
-    marginTop: 0,
-    marginBottom: 0,
-    color: '#eeeeee'
   }
 })
 
@@ -21,27 +15,30 @@ export default () => {
   return (
     <Card component={'footer'} style={{marginTop: '1em', backgroundColor: '#202020', borderRadius: 0}}>
       <CardContent>
-        <Typography variant={'body1'} className={classes.footerText}>
-          <ExternalLink href={'https://github.com/myl7/mylmoe/tree/goshujin-sama/posts'}>Posts</ExternalLink>
-          {' '}are licensed under{' '}
-          <ExternalLink rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0">
-            CC BY-NC-SA 4.0
-            <img className={classes.ccIcon} src="/images/cc/cc.svg"
-                 alt="CC" />
-            <img className={classes.ccIcon} src="/images/cc/by.svg"
-                 alt="BY" />
-            <img className={classes.ccIcon} src="/images/cc/nc.svg"
-                 alt="NC" />
-            <img className={classes.ccIcon} src="/images/cc/sa.svg"
-                 alt="SA" />
+        <Typography variant={'body1'}>
+          Copyright (c) 2020-2021 myl7,{' '}
+          <ExternalLink href={'https://github.com/myl7/mylmoe/tree/goshujin-sama/works/posts'}>
+            Posts
           </ExternalLink>
+          {' '}and{' '}
+          <ExternalLink href={'https://github.com/myl7/mylmoe/tree/goshujin-sama/works/ideas'}>
+            ideas
+          </ExternalLink>
+          {' '}use{' '}
+          <ExternalLink rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0">
+            CC BY-NC-SA 4.0 license
+            <img className={classes.ccIcon} src="/images/cc/cc.svg" alt="CC" />
+            <img className={classes.ccIcon} src="/images/cc/by.svg" alt="BY" />
+            <img className={classes.ccIcon} src="/images/cc/nc.svg" alt="NC" />
+            <img className={classes.ccIcon} src="/images/cc/sa.svg" alt="SA" />
+          </ExternalLink>
+          , Source code{' '}
+          <ExternalLink href={'https://github.com/myl7/mylmoe'}>
+            myl7/mylmoe
+          </ExternalLink>
+          {' '}uses MIT license, unless otherwise stated.
         </Typography>
-        <Typography variant={'body1'} className={classes.footerText} style={{marginTop: '0.5em'}}>
-          Website source{' '}
-          <ExternalLink href={'https://github.com/myl7/mylmoe'}>myl7/mylmoe</ExternalLink>
-          {' '}is licensed under MIT.
-        </Typography>
-        <Typography variant={'body1'} className={classes.footerText} style={{marginTop: '0.5em'}}>
+        <Typography variant={'body1'}>
           <ExternalLink href="https://icp.gov.moe">萌ICP备</ExternalLink>
           {' '}
           <ExternalLink href="https://icp.gov.moe/?keyword=20210016">20210016号</ExternalLink>

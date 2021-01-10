@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
     margin: 'auto'
   },
   nextContainer: {
-    minHeight: 'calc(100vh - 145px)'
+    minHeight: '100vh'
   },
   postItemDivider: {
     backgroundColor: theme.palette.primary.main
