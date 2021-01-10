@@ -28,6 +28,10 @@ mkdir -p dist/wasm
 cp node_modules/brotli-dec-wasm/pkg/brotli-dec-wasm_bg.wasm dist/wasm/
 
 # Set hash
-hash=$(md5sum dist/index.js | cut -c 1-5)
-mv dist/index.js dist/index.$hash.js
-sed -i s/{{hash}}/$hash/g dist/index.html
+html_hash=$(md5sum dist/index.js | cut -c 1-5)
+mv dist/index.js dist/index.$html_hash.js
+css_hash=$(md5sum dist/index.css | cut -c 1-5)
+mv dist/index.css dist/index.$css_hash.css
+
+sed -i s/{{html_hash}}/$html_hash/g dist/index.html
+sed -i s/{{css_hash}}/$css_hash/g dist/index.html
