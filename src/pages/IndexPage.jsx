@@ -2,6 +2,7 @@ import React, {useEffect, Fragment} from 'react'
 import {CardContent, Typography, Grid, makeStyles, Divider} from '@material-ui/core'
 import {useDispatch, useSelector} from 'react-redux'
 import {animateScroll} from 'react-scroll'
+import {Helmet} from 'react-helmet'
 import RouterLink from '../components/RouterLink'
 import PostApi from '../apis/PostApi'
 import {formatDate} from '../utils/dayjs'
@@ -35,10 +36,6 @@ export default () => {
   const posts = useSelector(s => s.posts)
 
   useEffect(() => {
-    document.title = 'mylmoe'
-  })
-
-  useEffect(() => {
     new PostApi().posts().then(posts => {
       dispatch({
         type: 'post.all',
@@ -61,6 +58,10 @@ export default () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Index | mylmoe</title>
+        <meta name={'description'} content={'mylmoe index page containing posts'} />
+      </Helmet>
       <Header />
       <div className={classes.indexContainer} onClick={handleRevueClick}>
         <img className={classes.indexImage} alt={'revue'}

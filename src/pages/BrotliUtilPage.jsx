@@ -1,5 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react'
 import {CardContent, makeStyles, Divider, Typography, Grid, TextField, Button} from '@material-ui/core'
+import {Helmet} from 'react-helmet'
 import init from 'brotli-dec-wasm'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
@@ -18,10 +19,6 @@ export default () => {
   const classes = useStyles()
 
   const [decInit, setDecInit] = useState(null)
-
-  useEffect(() => {
-    document.title = 'Brotli | mylmoe'
-  })
 
   useEffect(() => {
     setDecInit(init('/wasm/brotli-dec-wasm_bg.wasm'))
@@ -70,6 +67,11 @@ export default () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Brotli | mylmoe</title>
+        <meta name={'description'}
+              content={'mylmoe util page containing brotli decode/encode or decompress/compress tool'} />
+      </Helmet>
       <Header />
       <Divider />
       <ContentCard>

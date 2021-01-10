@@ -3,6 +3,7 @@ import {CardContent, Divider, Grid, Typography, makeStyles} from '@material-ui/c
 import {useParams} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
 import Markdown from 'markdown-to-jsx'
+import {Helmet} from 'react-helmet'
 import hljs from '../utils/hljs'
 import PostApi from '../apis/PostApi'
 import {formatDate} from '../utils/dayjs'
@@ -28,16 +29,6 @@ export default () => {
   const post = useSelector(s => s.posts[slug])
 
   useEffect(() => {
-    document.title = 'Post | mylmoe'
-  })
-
-  useEffect(() => {
-    if (post) {
-      document.title = post.title + ' | mylmoe'
-    }
-  }, [post])
-
-  useEffect(() => {
     if (post === undefined || post.body === undefined) {
       new PostApi().post(slug).then(post => {
         dispatch({
@@ -54,6 +45,10 @@ export default () => {
 
   return (
     <div>
+      <Helmet>
+        <title>{post ? post.title : 'Post'} | mylmoe</title>
+        <meta name={'description'} content={post && post.excerpt ? post.excerpt : 'mylmoe post detail page'} />
+      </Helmet>
       <Header />
       <Divider />
       <ContentCard>

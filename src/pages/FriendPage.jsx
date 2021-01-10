@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import {
   CardContent,
   Divider,
@@ -12,6 +12,7 @@ import {
   Card,
   makeStyles
 } from '@material-ui/core'
+import {Helmet} from 'react-helmet'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import ContentCard from '../components/ContentCard'
@@ -89,12 +90,12 @@ const useStyles = makeStyles(theme => ({
 export default () => {
   const classes = useStyles()
 
-  useEffect(() => {
-    document.title = 'Friends | mylmoe'
-  })
-
   return (
     <div>
+      <Helmet>
+        <title>Friends | mylmoe</title>
+        <meta name={'description'} content={'mylmoe friend page containing friend websites'} />
+      </Helmet>
       <Header />
       <Divider />
       <ContentCard className={classes.content}>

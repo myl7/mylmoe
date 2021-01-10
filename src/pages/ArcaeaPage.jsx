@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import {CardContent, Divider, AppBar, Tab, Typography, Box, Grid} from '@material-ui/core'
 import {TabList, TabPanel, TabContext} from '@material-ui/lab'
+import {Helmet} from 'react-helmet'
 import ArcaeaApi, {levels} from '../apis/ArcaeaApi'
 import {formatDatetime} from '../utils/dayjs'
 import ArcaeaSong from '../components/ArcaeaSong'
@@ -9,10 +10,6 @@ import ContentCard from '../components/ContentCard'
 import WideDivider from '../components/WideDivider'
 
 export default () => {
-  useEffect(() => {
-    document.title = 'Arcaea | mylmoe'
-  })
-
   const [data, setData] = useState({
     songs: Object.fromEntries(levels.map(l => [l, []])),
     userInfo: {name: null, user_code: null, rating: null, join_date: null}
@@ -34,6 +31,10 @@ export default () => {
   const {songs, userInfo} = data
   return (
     <div>
+      <Helmet>
+        <title>Arcaea | mylmoe</title>
+        <meta name={'description'} content={'mylmoe arcaea page containing myl7 arcaea song scores'} />
+      </Helmet>
       <Header />
       <Divider />
       <ContentCard>

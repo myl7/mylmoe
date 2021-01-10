@@ -1,6 +1,7 @@
 import React, {useEffect, Fragment, useState} from 'react'
 import {CardContent, Typography, Grid, makeStyles, Divider} from '@material-ui/core'
 import Markdown from 'markdown-to-jsx'
+import {Helmet} from 'react-helmet'
 import {formatDatetime} from '../utils/dayjs'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
@@ -20,10 +21,6 @@ const useStyles = makeStyles(theme => ({
 export default () => {
   const classes = useStyles()
 
-  useEffect(() => {
-    document.title = 'Nonsence | mylmoe'
-  })
-
   // noinspection JSUnusedLocalSymbols
   const [slugs, setSlugs] = useState([])
   const [ideas, setIdeas] = useState([])
@@ -37,6 +34,10 @@ export default () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Nonsence | mylmoe</title>
+        <meta name={'description'} content={'mylmoe nonsence page containing time-series ideas'} />
+      </Helmet>
       <Header />
       <div className={classes.container}>
         <Divider variant={'middle'} className={classes.ideaItemDivider} />
