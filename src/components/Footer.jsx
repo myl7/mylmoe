@@ -18,7 +18,7 @@ export default () => {
         <Typography variant={'body1'}>
           Copyright (c) 2020-2021 myl7,{' '}
           <ExternalLink href={'https://github.com/myl7/mylmoe/tree/goshujin-sama/works/posts'}>
-            Posts
+            posts
           </ExternalLink>
           {' '}and{' '}
           <ExternalLink href={'https://github.com/myl7/mylmoe/tree/goshujin-sama/works/ideas'}>
@@ -32,7 +32,7 @@ export default () => {
             <img className={classes.ccIcon} src="/images/cc/nc.svg" alt="NC" />
             <img className={classes.ccIcon} src="/images/cc/sa.svg" alt="SA" />
           </ExternalLink>
-          , Source code{' '}
+          , source code{' '}
           <ExternalLink href={'https://github.com/myl7/mylmoe'}>
             myl7/mylmoe
           </ExternalLink>
