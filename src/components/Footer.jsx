@@ -16,30 +16,35 @@ const useStyles = makeStyles({
 })
 
 export default () => {
-  const styles = useStyles()
+  const classes = useStyles()
 
   return (
     <Card component={'footer'} style={{marginTop: '1em', backgroundColor: '#202020', borderRadius: 0}}>
       <CardContent>
-        <Typography variant={'body1'} className={styles.footerText}>
+        <Typography variant={'body1'} className={classes.footerText}>
           <ExternalLink href={'https://github.com/myl7/mylmoe/tree/goshujin-sama/posts'}>Posts</ExternalLink>
           {' '}are licensed under{' '}
           <ExternalLink rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0">
             CC BY-NC-SA 4.0
-            <img className={styles.ccIcon} src="/images/cc/cc.svg"
+            <img className={classes.ccIcon} src="/images/cc/cc.svg"
                  alt="CC" />
-            <img className={styles.ccIcon} src="/images/cc/by.svg"
+            <img className={classes.ccIcon} src="/images/cc/by.svg"
                  alt="BY" />
-            <img className={styles.ccIcon} src="/images/cc/nc.svg"
+            <img className={classes.ccIcon} src="/images/cc/nc.svg"
                  alt="NC" />
-            <img className={styles.ccIcon} src="/images/cc/sa.svg"
+            <img className={classes.ccIcon} src="/images/cc/sa.svg"
                  alt="SA" />
           </ExternalLink>
         </Typography>
-        <Typography variant={'body1'} className={styles.footerText} style={{marginTop: '0.5em'}}>
+        <Typography variant={'body1'} className={classes.footerText} style={{marginTop: '0.5em'}}>
           Website source{' '}
           <ExternalLink href={'https://github.com/myl7/mylmoe'}>myl7/mylmoe</ExternalLink>
           {' '}is licensed under MIT.
+        </Typography>
+        <Typography variant={'body1'} className={classes.footerText} style={{marginTop: '0.5em'}}>
+          <ExternalLink href="https://icp.gov.moe">萌ICP备</ExternalLink>
+          {' '}
+          <ExternalLink href="https://icp.gov.moe/?keyword=20210016">20210001号</ExternalLink>
         </Typography>
       </CardContent>
     </Card>
