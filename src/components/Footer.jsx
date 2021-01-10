@@ -44,7 +44,7 @@ export default () => {
         <Typography variant={'body1'} className={classes.footerText} style={{marginTop: '0.5em'}}>
           <ExternalLink href="https://icp.gov.moe">萌ICP备</ExternalLink>
           {' '}
-          <ExternalLink href="https://icp.gov.moe/?keyword=20210016">20210001号</ExternalLink>
+          <ExternalLink href="https://icp.gov.moe/?keyword=20210016">20210016号</ExternalLink>
         </Typography>
       </CardContent>
     </Card>
