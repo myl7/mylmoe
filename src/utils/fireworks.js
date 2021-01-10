@@ -155,7 +155,6 @@ function animateParticules(x, y) {
       },
       duration: anime.random(1200, 1800),
       easing: 'easeOutExpo',
-      update: renderParticule,
-      offset: 0
-    })
+      update: renderParticule
+    }, 0)
 }
