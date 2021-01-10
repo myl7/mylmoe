@@ -35,7 +35,7 @@ export default () => {
   return (
     <div>
       <Helmet>
-        <title>Nonsence | mylmoe</title>
+        <title>Nonsence channel | mylmoe</title>
         <meta name={'description'} content={'mylmoe nonsence page containing time-series ideas'} />
       </Helmet>
       <Header />

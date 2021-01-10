@@ -59,7 +59,7 @@ export default () => {
   return (
     <div>
       <Helmet>
-        <title>Index | mylmoe</title>
+        <title>mylmoe | myl7's blog with some other utilities</title>
         <meta name={'description'} content={'mylmoe index page containing posts'} />
       </Helmet>
       <Header />

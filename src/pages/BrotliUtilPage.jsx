@@ -68,7 +68,7 @@ export default () => {
   return (
     <div>
       <Helmet>
-        <title>Brotli | mylmoe</title>
+        <title>Brotli online encode/decode tool | mylmoe</title>
         <meta name={'description'}
               content={'mylmoe util page containing brotli decode/encode or decompress/compress tool'} />
       </Helmet>

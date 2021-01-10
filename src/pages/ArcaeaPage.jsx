@@ -32,7 +32,7 @@ export default () => {
   return (
     <div>
       <Helmet>
-        <title>Arcaea | mylmoe</title>
+        <title>Arcaea scores | mylmoe</title>
         <meta name={'description'} content={'mylmoe arcaea page containing myl7 arcaea song scores'} />
       </Helmet>
       <Header />
