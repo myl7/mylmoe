@@ -61,7 +61,7 @@ export default () => {
           <CardContent>
             <Grid container alignItems={'center'} spacing={1}>
               <Grid item>
-                <Typography variant={'h5'}>
+                <Typography variant={'h5'} component={'h1'}>
                   {post.title}
                 </Typography>
               </Grid>
