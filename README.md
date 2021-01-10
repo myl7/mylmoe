@@ -8,12 +8,12 @@ Used by myself on [mylmoe](https://myl.moe).
 
 See the `scripts` section in `package.json` file.
 
+scripts in `scripts` help to create or update posts and ideas.
+
+Apps in `apis` require Cloudflare Worker and Azure Functions to deploy.
+
 ## License
 
-If without specified description, files are licensed under MIT license.
-
-If there is a `LICENSE` file in a subdirectory, or additional license specification in a file,
-the files in the subdirectory or including the specification are licensed under it.
-
-git submodule folder is not recognized as a subdirectory.
-For its license, refer to the respective remote repo.
+Source code uses MIT license,
+posts in `works/posts` and ideas in `works/ideas` use CC BY-NC-SA 4.0 license,
+unless otherwise stated.
