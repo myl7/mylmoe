@@ -4,7 +4,7 @@ set -euo pipefail
 # Use esbuild to bundle
 # $1 -> Mode, prod or dev, no default
 function bundle() {
-  cmd='esbuild src/index.jsx --log-level=error --outdir=dist --bundle --format=esm --target=es6'
+  cmd='esbuild src/index.jsx --log-level=error --outdir=dist --bundle --format=esm --target=es6 --loader:.md=text'
   case "$1" in
   prod)
     $cmd --minify --splitting --define:process.env.NODE_ENV='"production"'
@@ -29,9 +29,14 @@ cp node_modules/brotli-dec-wasm/pkg/brotli-dec-wasm_bg.wasm dist/wasm/
 
 # Set hash
 html_hash=$(md5sum dist/index.js | cut -c 1-5)
-mv dist/index.js dist/index.$html_hash.js
+mv dist/index.js "dist/index.$html_hash.js"
 css_hash=$(md5sum dist/index.css | cut -c 1-5)
-mv dist/index.css dist/index.$css_hash.css
+mv dist/index.css "dist/index.$css_hash.css"
 
-sed -i s/{{html_hash}}/$html_hash/g dist/index.html
-sed -i s/{{css_hash}}/$css_hash/g dist/index.html
+sed -i "s/{{html_hash}}/$html_hash/g" dist/index.html
+sed -i "s/{{css_hash}}/$css_hash/g" dist/index.html
+
+# Remove google analytics in dev
+if [ "${1-prod}" != prod ]; then
+  sed -i 4,10d dist/index.html
+fi
