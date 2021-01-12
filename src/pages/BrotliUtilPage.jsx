@@ -71,6 +71,7 @@ export default () => {
         <title>Brotli online encode/decode tool | mylmoe</title>
         <meta name={'description'}
               content={'mylmoe util page containing brotli decode/encode or decompress/compress tool'} />
+        <link rel="canonical" href="https://myl.moe/utils/brotli" />
       </Helmet>
       <Header />
       <Divider />

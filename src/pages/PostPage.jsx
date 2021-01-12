@@ -47,7 +47,10 @@ export default () => {
     <div>
       <Helmet>
         <title>{post ? post.title : 'Post'} | mylmoe</title>
-        <meta name={'description'} content={post && post.excerpt ? post.excerpt : 'mylmoe post detail page'} />
+        {post ? [
+          <meta name={'description'} content={post.excerpt ? post.excerpt : 'mylmoe post detail page'} />,
+          <link rel="canonical" href={'https://myl.moe/posts/' + slug} />
+        ] : ''}
       </Helmet>
       <Header />
       <Divider />

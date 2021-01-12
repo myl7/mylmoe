@@ -42,6 +42,7 @@ export default () => {
       <Helmet>
         <title>Nonsence channel | mylmoe</title>
         <meta name={'description'} content={'mylmoe nonsence page containing time-series ideas'} />
+        <link rel="canonical" href="https://myl.moe/pages/nonsence" />
       </Helmet>
       <Header />
       <div className={classes.container}>

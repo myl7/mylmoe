@@ -34,6 +34,7 @@ export default () => {
       <Helmet>
         <title>Arcaea scores | mylmoe</title>
         <meta name={'description'} content={'mylmoe arcaea page containing myl7 arcaea song scores'} />
+        <link rel="canonical" href="https://myl.moe/pages/arcaea" />
       </Helmet>
       <Header />
       <Divider />

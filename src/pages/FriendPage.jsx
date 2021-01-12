@@ -95,6 +95,7 @@ export default () => {
       <Helmet>
         <title>Friends | mylmoe</title>
         <meta name={'description'} content={'mylmoe friend page containing friend websites'} />
+        <link rel="canonical" href="https://myl.moe/pages/friends" />
       </Helmet>
       <Header />
       <Divider />

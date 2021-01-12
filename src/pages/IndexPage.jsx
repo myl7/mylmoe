@@ -61,6 +61,7 @@ export default () => {
       <Helmet>
         <title>mylmoe | myl7's blog with some other utilities</title>
         <meta name={'description'} content={'mylmoe index page containing posts'} />
+        <link rel="canonical" href="https://myl.moe" />
       </Helmet>
       <Header />
       <div className={classes.indexContainer} onClick={handleRevueClick}>
