@@ -40,8 +40,8 @@ export default () => {
       <Divider />
       <ContentCard>
         <CardContent>
-          <Typography variant={'h4'}>
-            Arcaea
+          <Typography variant={'h4'} component={'h1'}>
+            Arcaea scores
           </Typography>
           <WideDivider />
           <Typography variant={'body1'}>

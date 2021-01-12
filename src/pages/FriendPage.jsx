@@ -101,7 +101,7 @@ export default () => {
       <Divider />
       <ContentCard className={classes.content}>
         <CardContent>
-          <Typography variant={'h4'}>
+          <Typography variant={'h4'} component={'h1'}>
             Friends
           </Typography>
           <WideDivider />

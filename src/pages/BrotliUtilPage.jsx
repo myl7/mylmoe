@@ -77,8 +77,8 @@ export default () => {
       <Divider />
       <ContentCard>
         <CardContent>
-          <Typography variant={'h4'}>
-            Brotli
+          <Typography variant={'h4'} component={'h1'}>
+            Brotli online encode/decode tool
           </Typography>
           <WideDivider className={classes.titleDivider} />
           <Grid container spacing={2} justify={'center'}>
