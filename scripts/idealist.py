@@ -8,6 +8,7 @@ import yaml
 
 def main():
     paths = glob.glob('works/ideas/*.md')
+    paths.sort(reverse=True)
     slugs = [os.path.splitext(os.path.basename(path))[0] for path in paths]
     c = json.dumps(slugs, ensure_ascii=False)
     put_cf_kv('MylmoeIdeaNS', 'list', c)

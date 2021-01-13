@@ -9,6 +9,7 @@ import yaml
 
 def main():
     paths = glob.glob('works/posts/*.md')
+    paths.sort(reverse=True)
     info = [parse_post(p) for p in paths]
     c = json.dumps(info, ensure_ascii=False)
     put_cf_kv('MylmoePostNS', 'list', c)
