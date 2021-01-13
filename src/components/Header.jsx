@@ -97,6 +97,11 @@ export default () => {
                       <Typography variant={'subtitle1'}>Arcaea</Typography>
                     </ListItemText>
                   </ListItem>
+                  <ListItem button component={RouterLink} to={'/pages/privacy-policy'} className={classes.listIndent1}>
+                    <ListItemText>
+                      <Typography variant={'subtitle1'}>Privacy policy</Typography>
+                    </ListItemText>
+                  </ListItem>
                 </List>
               </Collapse>
               <ListItem button onClick={handleListClick(setListUtilOpen)}>
@@ -148,7 +153,8 @@ export default () => {
           <Typography variant={'h6'}>mylmoe</Typography>
 
           <MenuButton id={'header-page-menu'} className={classes.headerButtonFirst} items={[
-            {component: RouterLink, to: '/pages/arcaea', children: 'Arcaea'}
+            {component: RouterLink, to: '/pages/arcaea', children: 'Arcaea'},
+            {component: RouterLink, to: '/pages/privacy-policy', children: 'Privacy policy'}
           ]}>
             <Typography variant={'subtitle1'}>Pages</Typography>
           </MenuButton>

@@ -1,6 +1,7 @@
 import React from 'react'
 import {Card, CardContent, makeStyles, Typography} from '@material-ui/core'
 import ExternalLink from './ExternalLink'
+import RouterLink from './RouterLink'
 
 const useStyles = makeStyles({
   ccIcon: {
@@ -42,6 +43,8 @@ export default () => {
           <ExternalLink href="https://icp.gov.moe">萌ICP备</ExternalLink>
           {' '}
           <ExternalLink href="https://icp.gov.moe/?keyword=20210016">20210016号</ExternalLink>
+          {' '}
+          <RouterLink to={'/pages/privacy-policy'}>privacy policy</RouterLink>
         </Typography>
       </CardContent>
     </Card>
