@@ -1,25 +1,10 @@
 import React, {useState} from 'react'
 import {
-  AppBar,
-  Button,
-  IconButton,
-  Toolbar,
-  Typography,
-  makeStyles,
-  ListItemIcon,
-  ListItemText,
-  Collapse,
-  List,
-  ListItem
+  AppBar, Button, IconButton, Toolbar, Typography, makeStyles, ListItemIcon, ListItemText, Collapse, List, ListItem
 } from '@material-ui/core'
 import {
-  ExpandLess as ExpandLessIcon,
-  ExpandMore as ExpandMoreIcon,
-  GitHub as GitHubIcon,
-  Home as HomeIcon,
-  Mail as MailIcon,
-  Menu as MenuIcon,
-  RssFeed as RssFeedIcon
+  ExpandLess as ExpandLessIcon, ExpandMore as ExpandMoreIcon, GitHub as GitHubIcon, Home as HomeIcon, Mail as MailIcon,
+  Menu as MenuIcon, RssFeed as RssFeedIcon
 } from '@material-ui/icons'
 import ExternalLink from './ExternalLink'
 import RouterLink from './RouterLink'
@@ -64,6 +49,39 @@ export default () => {
     setter(open => !open)
   }
 
+  const buttons = {
+    pages: {
+      title: 'Pages',
+      items: [
+        {
+          title: 'Arcaea',
+          to: '/pages/arcaea'
+        },
+        {
+          title: 'Privacy Policy',
+          to: '/pages/privacy-policy'
+        }
+      ]
+    },
+    utils: {
+      title: 'Utils',
+      items: [
+        {
+          title: 'Brotli',
+          to: '/utils/brotli'
+        }
+      ]
+    },
+    nonsence: {
+      title: 'Nonsence',
+      to: '/pages/nonsence'
+    },
+    friends: {
+      title: 'Friends',
+      to: '/pages/friends'
+    }
+  }
+
   return (
     <AppBar position={'static'} color={'default'}>
       {isXs ? (
@@ -72,8 +90,12 @@ export default () => {
             <IconButton onClick={handleListClick(setListOpen)}>
               <MenuIcon />
             </IconButton>
-            <Typography variant={'h6'}>mylmoe</Typography>
+
+            <Typography variant={'h6'} color={'textPrimary'} component={RouterLink} to={'/'}>
+              mylmoe
+            </Typography>
           </Toolbar>
+
           <Collapse in={listOpen}>
             <List>
               <ListItem button component={RouterLink} to={'/'}>
@@ -81,54 +103,72 @@ export default () => {
                   <HomeIcon />
                 </ListItemIcon>
                 <ListItemText>
-                  <Typography variant={'subtitle1'}>Home</Typography>
+                  <Typography variant={'subtitle1'} color={'textPrimary'}>
+                    Home
+                  </Typography>
                 </ListItemText>
               </ListItem>
+
               <ListItem button onClick={handleListClick(setListPageOpen)}>
                 <ListItemText>
-                  <Typography variant={'subtitle1'}>Pages</Typography>
+                  <Typography variant={'subtitle1'} color={'textPrimary'}>
+                    {buttons.pages.title}
+                  </Typography>
                 </ListItemText>
                 {listPageOpen ? <ExpandLessIcon /> : <ExpandMoreIcon />}
               </ListItem>
               <Collapse in={listPageOpen}>
                 <List disablePadding>
-                  <ListItem button component={RouterLink} to={'/pages/arcaea'} className={classes.listIndent1}>
-                    <ListItemText>
-                      <Typography variant={'subtitle1'}>Arcaea</Typography>
-                    </ListItemText>
-                  </ListItem>
-                  <ListItem button component={RouterLink} to={'/pages/privacy-policy'} className={classes.listIndent1}>
-                    <ListItemText>
-                      <Typography variant={'subtitle1'}>Privacy policy</Typography>
-                    </ListItemText>
-                  </ListItem>
+                  {buttons.pages.items.map(item => (
+                    <ListItem button component={RouterLink} to={item.to} className={classes.listIndent1}>
+                      <ListItemText>
+                        <Typography variant={'subtitle1'} color={'textPrimary'}>
+                          {item.title}
+                        </Typography>
+                      </ListItemText>
+                    </ListItem>
+                  ))}
                 </List>
               </Collapse>
+
               <ListItem button onClick={handleListClick(setListUtilOpen)}>
                 <ListItemText>
-                  <Typography variant={'subtitle1'}>Utils</Typography>
+                  <Typography variant={'subtitle1'} color={'textPrimary'}>
+                    {buttons.utils.title}
+                  </Typography>
                 </ListItemText>
                 {listUtilOpen ? <ExpandLessIcon /> : <ExpandMoreIcon />}
               </ListItem>
               <Collapse in={listUtilOpen}>
                 <List disablePadding>
-                  <ListItem button component={RouterLink} to={'/utils/brotli'} className={classes.listIndent1}>
-                    <ListItemText>
-                      <Typography variant={'subtitle1'}>Brotli</Typography>
-                    </ListItemText>
-                  </ListItem>
+                  {buttons.utils.items.map(item => (
+                    <ListItem button component={RouterLink} to={item.to} className={classes.listIndent1}>
+                      <ListItemText>
+                        <Typography variant={'subtitle1'} color={'textPrimary'}>
+                          {item.title}
+                        </Typography>
+                      </ListItemText>
+                    </ListItem>
+                  ))}
                 </List>
               </Collapse>
-              <ListItem button component={RouterLink} to={'/pages/nonsence'}>
+
+              <ListItem button component={RouterLink} to={buttons.nonsence.to}>
                 <ListItemText>
-                  <Typography variant={'subtitle1'}>Nonsence</Typography>
+                  <Typography variant={'subtitle1'} color={'textPrimary'}>
+                    {buttons.nonsence.title}
+                  </Typography>
                 </ListItemText>
               </ListItem>
-              <ListItem button component={RouterLink} to={'/pages/friends'}>
+
+              <ListItem button component={RouterLink} to={buttons.friends.to}>
                 <ListItemText>
-                  <Typography variant={'subtitle1'}>Friends</Typography>
+                  <Typography variant={'subtitle1'} color={'textPrimary'}>
+                    {buttons.friends.title}
+                  </Typography>
                 </ListItemText>
               </ListItem>
+
               <ListItem>
                 <ListItemText>
                   <IconButton component={ExternalLink} href={'https://myl.moe/rss'}>
@@ -155,47 +195,43 @@ export default () => {
             mylmoe
           </Typography>
 
-          <MenuButton id={'header-page-menu'} className={classes.headerButtonFirst} items={[
-            {
-              component: RouterLink, to: '/pages/arcaea', children: (
+          <MenuButton id={'header-page-menu'} className={classes.headerButtonFirst} items={buttons.pages.items.map(
+            item => ({
+              component: RouterLink, to: item.to, children: (
                 <Typography variant={'subtitle1'} color={'textPrimary'}>
-                  Arcaea
+                  {item.title}
                 </Typography>
               )
-            },
-            {
-              component: RouterLink, to: '/pages/privacy-policy', children: (
-                <Typography variant={'subtitle1'} color={'textPrimary'}>
-                  Privacy Policy
-                </Typography>
-              )
-            }
-          ]}>
+            })
+          )}>
             <Typography variant={'subtitle1'}>
-              Pages
+              {buttons.pages.title}
             </Typography>
           </MenuButton>
-          <MenuButton id={'header-util-menu'} className={classes.headerButton} items={[
-            {
-              component: RouterLink, to: '/utils/brotli', children: (
+
+          <MenuButton id={'header-util-menu'} className={classes.headerButton} items={buttons.utils.items.map(
+            item => ({
+              component: RouterLink, to: item.to, children: (
                 <Typography variant={'subtitle1'} color={'textPrimary'}>
-                  Brotli
+                  {item.title}
                 </Typography>
               )
-            }
-          ]}>
+            })
+          )}>
             <Typography variant={'subtitle1'}>
-              Utils
+              {buttons.utils.title}
             </Typography>
           </MenuButton>
-          <Button className={classes.headerButton} variant={'outlined'} component={RouterLink} to={'/pages/nonsence'}>
+
+          <Button className={classes.headerButton} variant={'outlined'} component={RouterLink} to={buttons.nonsence.to}>
             <Typography variant={'subtitle1'}>
-              Nonsence
+              {buttons.nonsence.title}
             </Typography>
           </Button>
-          <Button className={classes.headerButton} variant={'outlined'} component={RouterLink} to={'/pages/friends'}>
+
+          <Button className={classes.headerButton} variant={'outlined'} component={RouterLink} to={buttons.friends.to}>
             <Typography variant={'subtitle1'}>
-              Friends
+              {buttons.friends.title}
             </Typography>
           </Button>
 
