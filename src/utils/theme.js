@@ -7,18 +7,6 @@ export default createMuiTheme({
     }
   },
   palette: {
-    type: 'dark',
-    primary: {
-      main: '#eeeeee'
-    },
-    secondary: {
-      main: '#202020'
-    },
-    background: {
-      main: '#111111'
-    },
-    text: {
-      primary: '#eeeeee'
-    }
+    type: 'dark'
   }
 })
