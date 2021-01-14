@@ -45,18 +45,20 @@ export default () => {
           </ExternalLink>
           {' '}uses MIT license, unless otherwise stated.
         </Typography>
-        <Typography variant={'body1'}>
-          <Grid container spacing={2}>
-            <Grid item>
+        <Grid container spacing={2}>
+          <Grid item>
+            <Typography variant={'body1'}>
               <ExternalLink href="https://icp.gov.moe">萌ICP备</ExternalLink>
               {' '}
               <ExternalLink href="https://icp.gov.moe/?keyword=20210016">20210016号</ExternalLink>
-            </Grid>
-            <Grid item>
-              <RouterLink to={'/pages/privacy-policy'}>Privacy Policy</RouterLink>
-            </Grid>
+            </Typography>
           </Grid>
-        </Typography>
+          <Grid item>
+            <Typography variant={'body1'}>
+              <RouterLink to={'/pages/privacy-policy'}>Privacy Policy</RouterLink>
+            </Typography>
+          </Grid>
+        </Grid>
       </CardContent>
     </Card>
   )
