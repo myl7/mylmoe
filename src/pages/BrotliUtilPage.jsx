@@ -1,23 +1,11 @@
 import React, {useEffect, useRef, useState} from 'react'
-import {CardContent, makeStyles, Divider, Typography, Grid, TextField, Button} from '@material-ui/core'
-import {Helmet} from 'react-helmet'
+import {Typography, Grid, TextField, Button} from '@material-ui/core'
 import init from 'brotli-dec-wasm'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import ContentCard from '../components/ContentCard'
-import WideDivider from '../components/WideDivider'
 import {brotliDec, brotliEnc} from '../utils/brotli'
 import {inputBytes, outputBytes} from '../utils/byteView'
-
-const useStyles = makeStyles({
-  titleDivider: {
-    marginBottom: '1em'
-  }
-})
+import BodyPage from './templates/BodyPage'
 
 export default () => {
-  const classes = useStyles()
-
   const [decInit, setDecInit] = useState(null)
 
   useEffect(() => {
@@ -66,86 +54,71 @@ export default () => {
   }
 
   return (
-    <div>
-      <Helmet>
-        <title>Brotli online encode/decode tool | mylmoe</title>
-        <meta name={'description'}
-              content={'mylmoe util page containing brotli decode/encode or decompress/compress tool'} />
-        <link rel="canonical" href="https://myl.moe/utils/brotli" />
-      </Helmet>
-      <Header />
-      <Divider />
-      <ContentCard>
-        <CardContent>
-          <Typography variant={'h4'} component={'h1'}>
-            Brotli online encode/decode tool
-          </Typography>
-          <WideDivider className={classes.titleDivider} />
-          <Grid container spacing={2} justify={'center'}>
-            <Grid item sm={6} xs={12}>
-              <Grid container direction={'column'} alignItems={'stretch'} spacing={2}>
-                <Grid item>
-                  <TextField label={'To be encoded:'} multiline rowsMax={10} variant={'outlined'} fullWidth
-                             inputRef={encTextRef} InputLabelProps={{shrink: true}} />
-                </Grid>
-                <Grid item>
-                  <Grid container justify={'space-around'}>
-                    <Grid item>
-                      <input id={'encFile'} type={'file'} hidden onChange={handleUploadFile(setFile2enc)}
-                             ref={encFileRef} />
-                      <label htmlFor={'encFile'}>
-                        <Button variant={'outlined'} color={'primary'} component={'span'}>
-                          <Typography variant={'subtitle1'}>
-                            {file2enc === null ? 'Upload to encode' : file2enc}
-                          </Typography>
-                        </Button>
-                      </label>
-                    </Grid>
-                    <Grid item>
-                      <Button color={'primary'} variant={'outlined'} onClick={handleEnc}>
-                        <Typography variant={'subtitle1'}>
-                          Encode
-                        </Typography>
-                      </Button>
-                    </Grid>
-                  </Grid>
-                </Grid>
-              </Grid>
+    <BodyPage title={'Brotli online encode/decode tool'} subheader={'Use the 2 input boxes to encode/decode.'}
+              description={'Maybe the only one on the Internet. Decode uses WASM, and encode uses self-hosting API.'}
+              path={'/utils/brotli'}>
+      <Grid container spacing={2} justify={'center'}>
+        <Grid item sm={6} xs={12}>
+          <Grid container direction={'column'} alignItems={'stretch'} spacing={2}>
+            <Grid item>
+              <TextField label={'To be encoded:'} multiline rowsMax={10} variant={'outlined'} fullWidth
+                         inputRef={encTextRef} InputLabelProps={{shrink: true}} />
             </Grid>
-            <Grid item sm={6} xs={12}>
-              <Grid container direction={'column'} alignItems={'stretch'} spacing={2}>
+            <Grid item>
+              <Grid container justify={'space-around'}>
                 <Grid item>
-                  <TextField label={'To be decoded:'} multiline rowsMax={10} variant={'outlined'} fullWidth
-                             inputRef={decTextRef} InputLabelProps={{shrink: true}} />
+                  <input id={'encFile'} type={'file'} hidden onChange={handleUploadFile(setFile2enc)}
+                         ref={encFileRef} />
+                  <label htmlFor={'encFile'}>
+                    <Button variant={'outlined'} component={'span'}>
+                      <Typography variant={'subtitle1'}>
+                        {file2enc === null ? 'Upload to encode' : file2enc}
+                      </Typography>
+                    </Button>
+                  </label>
                 </Grid>
                 <Grid item>
-                  <Grid container justify={'space-around'}>
-                    <Grid item>
-                      <Button color={'primary'} variant={'outlined'} onClick={handleDec}>
-                        <Typography variant={'subtitle1'}>
-                          Decode
-                        </Typography>
-                      </Button>
-                    </Grid>
-                    <Grid item>
-                      <input id={'decFile'} type={'file'} hidden onChange={handleUploadFile(setFile2dec)}
-                             ref={decFileRef} />
-                      <label htmlFor={'decFile'}>
-                        <Button variant={'outlined'} color={'primary'} component={'span'}>
-                          <Typography variant={'subtitle1'}>
-                            {file2dec === null ? 'Upload to decode' : file2dec}
-                          </Typography>
-                        </Button>
-                      </label>
-                    </Grid>
-                  </Grid>
+                  <Button variant={'outlined'} onClick={handleEnc}>
+                    <Typography variant={'subtitle1'}>
+                      Encode
+                    </Typography>
+                  </Button>
                 </Grid>
               </Grid>
             </Grid>
           </Grid>
-        </CardContent>
-      </ContentCard>
-      <Footer />
-    </div>
+        </Grid>
+        <Grid item sm={6} xs={12}>
+          <Grid container direction={'column'} alignItems={'stretch'} spacing={2}>
+            <Grid item>
+              <TextField label={'To be decoded:'} multiline rowsMax={10} variant={'outlined'} fullWidth
+                         inputRef={decTextRef} InputLabelProps={{shrink: true}} />
+            </Grid>
+            <Grid item>
+              <Grid container justify={'space-around'}>
+                <Grid item>
+                  <Button variant={'outlined'} onClick={handleDec}>
+                    <Typography variant={'subtitle1'}>
+                      Decode
+                    </Typography>
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <input id={'decFile'} type={'file'} hidden onChange={handleUploadFile(setFile2dec)}
+                         ref={decFileRef} />
+                  <label htmlFor={'decFile'}>
+                    <Button variant={'outlined'} component={'span'}>
+                      <Typography variant={'subtitle1'}>
+                        {file2dec === null ? 'Upload to decode' : file2dec}
+                      </Typography>
+                    </Button>
+                  </label>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
+      </Grid>
+    </BodyPage>
   )
 }
