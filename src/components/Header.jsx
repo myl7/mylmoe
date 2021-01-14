@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {
-  AppBar, Button, IconButton, Toolbar, Typography, makeStyles, ListItemIcon, ListItemText, Collapse, List, ListItem
+  AppBar, Button, IconButton, Toolbar, Typography, makeStyles, ListItemIcon, ListItemText, Collapse, List, ListItem,
+  Avatar
 } from '@material-ui/core'
 import {
   ExpandLess as ExpandLessIcon, ExpandMore as ExpandMoreIcon, GitHub as GitHubIcon, Home as HomeIcon, Mail as MailIcon,
@@ -24,6 +25,12 @@ const useStyles = makeStyles({
   },
   headerButton: {
     marginLeft: '1em',
+    '&:hover': {
+      textDecoration: 'none'
+    }
+  },
+  headerButtonLast: {
+    marginRight: '2em',
     '&:hover': {
       textDecoration: 'none'
     }
@@ -82,6 +89,8 @@ export default () => {
     }
   }
 
+  const gravatarHash = '41e17fe63d0c1f91234b320b1feb3bef'
+
   return (
     <AppBar position={'static'} color={'default'}>
       {isXs ? (
@@ -94,6 +103,11 @@ export default () => {
             <Typography variant={'h6'} color={'textPrimary'} component={RouterLink} to={'/'}>
               mylmoe
             </Typography>
+
+            <div className={classes.flexDivider} />
+
+            <Avatar alt={'myl7'} src={`https://www.gravatar.com/avatar/${gravatarHash}&d=retro`} component={RouterLink}
+                    to={'/pages/about'} />
           </Toolbar>
 
           <Collapse in={listOpen}>
@@ -236,15 +250,29 @@ export default () => {
           </Button>
 
           <div className={classes.flexDivider} />
-          <IconButton component={ExternalLink} href={'https://myl.moe/rss'}>
-            <RssFeedIcon />
-          </IconButton>
-          <IconButton component={ExternalLink} href={'mailto:myl.ustc@gmail.com'}>
-            <MailIcon />
-          </IconButton>
-          <IconButton component={ExternalLink} href={'https://github.com/myl7'}>
-            <GitHubIcon />
-          </IconButton>
+
+          <MenuButton className={classes.headerButtonLast} id={'header-social-menu'} items={[{
+            children: (
+              <>
+                <IconButton component={ExternalLink} href={'https://myl.moe/rss'}>
+                  <RssFeedIcon />
+                </IconButton>
+                <IconButton component={ExternalLink} href={'mailto:myl.ustc@gmail.com'}>
+                  <MailIcon />
+                </IconButton>
+                <IconButton component={ExternalLink} href={'https://github.com/myl7'}>
+                  <GitHubIcon />
+                </IconButton>
+              </>
+            )
+          }]}>
+            <Typography variant={'subtitle1'}>
+              SNSs
+            </Typography>
+          </MenuButton>
+
+          <Avatar alt={'myl7'} src={`https://www.gravatar.com/avatar/${gravatarHash}&d=retro`} component={RouterLink}
+                  to={'/pages/about'} />
         </Toolbar>
       )}
     </AppBar>
