@@ -22,7 +22,13 @@
 import {debounce} from '@material-ui/core'
 import anime from 'animejs/lib/anime.es'
 
-const filter = _e => {
+const filter = e => {
+  for (const elem of e.path) {
+    const role = elem.attributes ? elem.attributes.getNamedItem('role') : null
+    if (['A', 'BUTTON', 'HEADER'].indexOf(elem.nodeName) >= 0 || (role && role.value === 'presentation')) {
+      return false
+    }
+  }
   return true
 }
 
