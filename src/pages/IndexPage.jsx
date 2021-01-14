@@ -6,6 +6,7 @@ import PostApi from '../apis/PostApi'
 import {formatDate} from '../utils/dayjs'
 import BodyPage from './templates/BodyPage'
 import BodyCard from '../components/BodyCard'
+import RouterLink from '../components/RouterLink'
 
 const useStyles = makeStyles({
   indexContainer: {
@@ -66,17 +67,22 @@ export default () => {
           {
             Object.values(posts).sort(cmp).map(post => (
               <BodyCard key={post.slug} component={'article'} titleComponent={'h2'} title={
-                <Typography variant={'h6'}>
-                  {post.title}
-                </Typography>
+                <div>
+                  <Typography variant={'h6'} color={'textPrimary'} component={RouterLink} to={'/posts/' + post.slug}>
+                    {post.title}
+                  </Typography>
+                </div>
               } subheader={
                 <Typography variant={'caption'}>
                   {`Updated at ${formatDate(post.updDate)}, Published at ${formatDate(post.pubDate)}.`}
                 </Typography>
               }>
-                <Typography variant={'subtitle1'}>
-                  {post.excerpt}
-                </Typography>
+                <div>
+                  <Typography variant={'subtitle1'} color={'textPrimary'} component={RouterLink}
+                              to={'/posts/' + post.slug}>
+                    {post.excerpt}
+                  </Typography>
+                </div>
               </BodyCard>
             ))
           }
