@@ -6,7 +6,6 @@ import {
   Toolbar,
   Typography,
   makeStyles,
-  useMediaQuery,
   ListItemIcon,
   ListItemText,
   Collapse,
@@ -25,6 +24,7 @@ import {
 import ExternalLink from './ExternalLink'
 import RouterLink from './RouterLink'
 import MenuButton from './MenuButton'
+import useXs from './useXs'
 
 const useStyles = makeStyles({
   toolbar: {
@@ -54,7 +54,7 @@ const useStyles = makeStyles({
 export default () => {
   const classes = useStyles()
 
-  const isXs = useMediaQuery(theme => theme.breakpoints.down('xs'))
+  const isXs = useXs()
 
   const [listOpen, setListOpen] = useState(false)
   const [listPageOpen, setListPageOpen] = useState(true)
