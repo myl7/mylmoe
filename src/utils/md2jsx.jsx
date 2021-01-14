@@ -18,8 +18,6 @@ const AutoA = props => {
 const Fold = props => {
   const {summary, detail, summaryProps, ...others} = props
 
-  console.log(detail)
-
   return (
     <Accordion {...others}>
       <AccordionSummary expandIcon={<ExpandMoreIcon />} {...summaryProps}>
