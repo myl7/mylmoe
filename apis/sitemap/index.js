@@ -34,7 +34,7 @@ const handleReq = async () => {
   </url>
   <url>
     <loc>https://myl.moe/pages/nonsence</loc>
-    <changefreq>hourly</changefreq>
+    <changefreq>daily</changefreq>
   </url>
   <url>
     <loc>https://myl.moe/pages/friends</loc>
