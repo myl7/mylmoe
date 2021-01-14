@@ -65,7 +65,7 @@ export default () => {
   }
 
   return (
-    <AppBar position={'static'} color={'secondary'}>
+    <AppBar position={'static'} color={'default'}>
       {isXs ? (
         <>
           <Toolbar className={classes.toolbar}>
@@ -150,26 +150,53 @@ export default () => {
           <IconButton component={RouterLink} to={'/'}>
             <HomeIcon />
           </IconButton>
-          <Typography variant={'h6'}>mylmoe</Typography>
+
+          <Typography variant={'h6'} color={'textPrimary'} component={RouterLink} to={'/'}>
+            mylmoe
+          </Typography>
 
           <MenuButton id={'header-page-menu'} className={classes.headerButtonFirst} items={[
-            {component: RouterLink, to: '/pages/arcaea', children: 'Arcaea'},
-            {component: RouterLink, to: '/pages/privacy-policy', children: 'Privacy policy'}
+            {
+              component: RouterLink, to: '/pages/arcaea', children: (
+                <Typography variant={'subtitle1'} color={'textPrimary'}>
+                  Arcaea
+                </Typography>
+              )
+            },
+            {
+              component: RouterLink, to: '/pages/privacy-policy', children: (
+                <Typography variant={'subtitle1'} color={'textPrimary'}>
+                  Privacy Policy
+                </Typography>
+              )
+            }
           ]}>
-            <Typography variant={'subtitle1'}>Pages</Typography>
+            <Typography variant={'subtitle1'}>
+              Pages
+            </Typography>
           </MenuButton>
           <MenuButton id={'header-util-menu'} className={classes.headerButton} items={[
-            {component: RouterLink, to: '/utils/brotli', children: 'Brotli'}
+            {
+              component: RouterLink, to: '/utils/brotli', children: (
+                <Typography variant={'subtitle1'} color={'textPrimary'}>
+                  Brotli
+                </Typography>
+              )
+            }
           ]}>
-            <Typography variant={'subtitle1'}>Utils</Typography>
+            <Typography variant={'subtitle1'}>
+              Utils
+            </Typography>
           </MenuButton>
-          <Button className={classes.headerButton} variant={'outlined'} component={RouterLink}
-                  to={'/pages/nonsence'}>
-            <Typography variant={'subtitle1'}>Nonsence</Typography>
+          <Button className={classes.headerButton} variant={'outlined'} component={RouterLink} to={'/pages/nonsence'}>
+            <Typography variant={'subtitle1'}>
+              Nonsence
+            </Typography>
           </Button>
-          <Button className={classes.headerButton} variant={'outlined'} component={RouterLink}
-                  to={'/pages/friends'}>
-            <Typography variant={'subtitle1'}>Friends</Typography>
+          <Button className={classes.headerButton} variant={'outlined'} component={RouterLink} to={'/pages/friends'}>
+            <Typography variant={'subtitle1'}>
+              Friends
+            </Typography>
           </Button>
 
           <div className={classes.flexDivider} />
