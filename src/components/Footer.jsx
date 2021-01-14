@@ -1,9 +1,12 @@
 import React from 'react'
-import {Card, CardContent, makeStyles, Typography} from '@material-ui/core'
+import {Card, CardContent, Grid, makeStyles, Typography} from '@material-ui/core'
 import ExternalLink from './ExternalLink'
 import RouterLink from './RouterLink'
 
 const useStyles = makeStyles({
+  card: {
+    margin: '1em'
+  },
   ccIcon: {
     height: '22px !important',
     verticalAlign: 'text-bottom'
@@ -14,7 +17,7 @@ export default () => {
   const classes = useStyles()
 
   return (
-    <Card component={'footer'} style={{marginTop: '1em', backgroundColor: '#202020', borderRadius: 0}}>
+    <Card component={'footer'} className={classes.card}>
       <CardContent>
         <Typography variant={'body1'}>
           Copyright (c) 2020-2021 myl7,{' '}
@@ -28,6 +31,9 @@ export default () => {
           {' '}use{' '}
           <ExternalLink rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0">
             CC BY-NC-SA 4.0 license
+          </ExternalLink>
+          {' '}
+          <ExternalLink rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0">
             <img className={classes.ccIcon} src="/images/cc/cc.svg" alt="CC" />
             <img className={classes.ccIcon} src="/images/cc/by.svg" alt="BY" />
             <img className={classes.ccIcon} src="/images/cc/nc.svg" alt="NC" />
@@ -40,11 +46,16 @@ export default () => {
           {' '}uses MIT license, unless otherwise stated.
         </Typography>
         <Typography variant={'body1'}>
-          <ExternalLink href="https://icp.gov.moe">萌ICP备</ExternalLink>
-          {' '}
-          <ExternalLink href="https://icp.gov.moe/?keyword=20210016">20210016号</ExternalLink>
-          {' '}
-          <RouterLink to={'/pages/privacy-policy'}>privacy policy</RouterLink>
+          <Grid container spacing={2}>
+            <Grid item>
+              <ExternalLink href="https://icp.gov.moe">萌ICP备</ExternalLink>
+              {' '}
+              <ExternalLink href="https://icp.gov.moe/?keyword=20210016">20210016号</ExternalLink>
+            </Grid>
+            <Grid item>
+              <RouterLink to={'/pages/privacy-policy'}>Privacy Policy</RouterLink>
+            </Grid>
+          </Grid>
         </Typography>
       </CardContent>
     </Card>
