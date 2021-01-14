@@ -28,8 +28,8 @@ import useXs from './useXs'
 
 const useStyles = makeStyles({
   toolbar: {
-    paddingLeft: 12,
-    paddingRight: 12
+    paddingLeft: '1em',
+    paddingRight: '1em'
   },
   headerButtonFirst: {
     marginLeft: '2em',
