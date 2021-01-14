@@ -7,6 +7,7 @@ import FriendPage from './pages/FriendPage'
 import BrotliUtilPage from './pages/BrotliUtilPage'
 import NonsencePage from './pages/NonsencePage'
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
+import AboutPage from './pages/AboutPage'
 
 export default () => {
   return (
@@ -18,6 +19,7 @@ export default () => {
         <Route path={'/pages/nonsence'} children={<NonsencePage />} />
         <Route path={'/pages/friends'} children={<FriendPage />} />
         <Route path={'/pages/privacy-policy'} children={<PrivacyPolicyPage />} />
+        <Route path={'/pages/about'} children={<AboutPage />} />
         <Route path={'/utils/brotli'} children={<BrotliUtilPage />} />
       </Switch>
     </Router>

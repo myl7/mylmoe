@@ -65,6 +65,10 @@ export default () => {
           to: '/pages/arcaea'
         },
         {
+          title: 'About',
+          to: '/pages/about'
+        },
+        {
           title: 'Privacy Policy',
           to: '/pages/privacy-policy'
         }
