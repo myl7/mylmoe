@@ -39,6 +39,12 @@ const handleReq = async () => {
   <url>
     <loc>https://myl.moe/pages/friends</loc>
   </url>
+  <url>
+    <loc>https://myl.moe/pages/privacy-policy</loc>
+  </url>
+  <url>
+    <loc>https://myl.moe/pages/about</loc>
+  </url>
   ${list.map(genPostItem).join('')}\
 </urlset>
 `
