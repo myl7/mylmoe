@@ -1,23 +1,22 @@
-import React, {useEffect, Fragment, useState} from 'react'
-import {CardContent, Typography, Grid, makeStyles, Divider} from '@material-ui/core'
+import React, {useEffect, useState} from 'react'
+import {Typography, makeStyles} from '@material-ui/core'
 import Markdown from 'markdown-to-jsx'
-import {Helmet} from 'react-helmet'
 import {formatDatetime} from '../utils/dayjs'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import ContentCard from '../components/ContentCard'
 import IdeaApi from '../apis/IdeaApi'
 import {md2jsxOptions} from '../utils/md2jsx'
 import hljs from '../utils/hljs'
+import BodyPage from './templates/BodyPage'
+import BodyCard from '../components/BodyCard'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   container: {
     minHeight: 'calc(100vh - 177px)'
   },
-  ideaItemDivider: {
-    backgroundColor: theme.palette.primary.main
+  card: {
+    backgroundColor: '#2c2c2c',
+    margin: '1em'
   }
-}))
+})
 
 export default () => {
   const classes = useStyles()
@@ -38,38 +37,27 @@ export default () => {
   }, [setIdeas, setSlugs])
 
   return (
-    <div>
-      <Helmet>
-        <title>Nonsence channel | mylmoe</title>
-        <meta name={'description'} content={'mylmoe nonsence page containing time-series ideas'} />
-        <link rel="canonical" href="https://myl.moe/pages/nonsence" />
-      </Helmet>
-      <Header />
-      <div className={classes.container}>
-        <Divider variant={'middle'} className={classes.ideaItemDivider} />
-        {
-          Object.values(ideas).map(idea => (
-            <Fragment key={formatDatetime(idea.pubTime)}>
-              <ContentCard>
-                <CardContent>
-                  <Grid container spacing={1} alignItems={'center'}>
-                    <Grid item>
-                      <Typography variant={'h6'}>
-                        {formatDatetime(idea.pubTime)}
-                      </Typography>
-                    </Grid>
-                  </Grid>
-                  <Markdown options={md2jsxOptions}>
-                    {idea.body}
-                  </Markdown>
-                </CardContent>
-              </ContentCard>
-              <Divider variant={'middle'} className={classes.ideaItemDivider} />
-            </Fragment>
-          ))
-        }
-      </div>
-      <Footer />
-    </div>
+    <BodyPage title={'myl7\'s nonsence'}
+              description={'Some tips, some summaries, some grumbles, some options, some feelings...'}
+              path={'/pages/nonsence'} card={false}>
+      <BodyCard className={classes.card} variant={'outlined'} title={'myl7\'s nonsence'}
+                subheader={'Some tips, some summaries, some grumbles, some options, some feelings...'}>
+        <div className={classes.container}>
+          {
+            Object.values(ideas).map(idea => (
+              <BodyCard key={formatDatetime(idea.pubTime)} title={
+                <Typography variant={'h6'}>
+                  {formatDatetime(idea.pubTime)}
+                </Typography>
+              } component={'article'} variant={'outlined'} titleComponent={'h2'}>
+                <Markdown options={md2jsxOptions}>
+                  {idea.body}
+                </Markdown>
+              </BodyCard>
+            ))
+          }
+        </div>
+      </BodyCard>
+    </BodyPage>
   )
 }
