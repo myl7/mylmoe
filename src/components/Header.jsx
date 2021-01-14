@@ -70,7 +70,7 @@ export default () => {
         <>
           <Toolbar className={classes.toolbar}>
             <IconButton onClick={handleListClick(setListOpen)}>
-              <MenuIcon color={'primary'} />
+              <MenuIcon />
             </IconButton>
             <Typography variant={'h6'}>mylmoe</Typography>
           </Toolbar>
@@ -78,7 +78,7 @@ export default () => {
             <List>
               <ListItem button component={RouterLink} to={'/'}>
                 <ListItemIcon>
-                  <HomeIcon color={'primary'} />
+                  <HomeIcon />
                 </ListItemIcon>
                 <ListItemText>
                   <Typography variant={'subtitle1'}>Home</Typography>
@@ -88,7 +88,7 @@ export default () => {
                 <ListItemText>
                   <Typography variant={'subtitle1'}>Pages</Typography>
                 </ListItemText>
-                {listPageOpen ? <ExpandLessIcon color={'primary'} /> : <ExpandMoreIcon color={'primary'} />}
+                {listPageOpen ? <ExpandLessIcon /> : <ExpandMoreIcon />}
               </ListItem>
               <Collapse in={listPageOpen}>
                 <List disablePadding>
@@ -108,7 +108,7 @@ export default () => {
                 <ListItemText>
                   <Typography variant={'subtitle1'}>Utils</Typography>
                 </ListItemText>
-                {listUtilOpen ? <ExpandLessIcon color={'primary'} /> : <ExpandMoreIcon color={'primary'} />}
+                {listUtilOpen ? <ExpandLessIcon /> : <ExpandMoreIcon />}
               </ListItem>
               <Collapse in={listUtilOpen}>
                 <List disablePadding>
@@ -132,13 +132,13 @@ export default () => {
               <ListItem>
                 <ListItemText>
                   <IconButton component={ExternalLink} href={'https://myl.moe/rss'}>
-                    <RssFeedIcon color={'primary'} />
+                    <RssFeedIcon />
                   </IconButton>
                   <IconButton component={ExternalLink} href={'mailto:myl.ustc@gmail.com'}>
-                    <MailIcon color={'primary'} />
+                    <MailIcon />
                   </IconButton>
                   <IconButton component={ExternalLink} href={'https://github.com/myl7'}>
-                    <GitHubIcon color={'primary'} />
+                    <GitHubIcon />
                   </IconButton>
                 </ListItemText>
               </ListItem>
@@ -148,7 +148,7 @@ export default () => {
       ) : (
         <Toolbar className={classes.toolbar}>
           <IconButton component={RouterLink} to={'/'}>
-            <HomeIcon color={'primary'} />
+            <HomeIcon />
           </IconButton>
           <Typography variant={'h6'}>mylmoe</Typography>
 
@@ -163,24 +163,24 @@ export default () => {
           ]}>
             <Typography variant={'subtitle1'}>Utils</Typography>
           </MenuButton>
-          <Button className={classes.headerButton} variant={'outlined'} color={'primary'} component={RouterLink}
+          <Button className={classes.headerButton} variant={'outlined'} component={RouterLink}
                   to={'/pages/nonsence'}>
             <Typography variant={'subtitle1'}>Nonsence</Typography>
           </Button>
-          <Button className={classes.headerButton} variant={'outlined'} color={'primary'} component={RouterLink}
+          <Button className={classes.headerButton} variant={'outlined'} component={RouterLink}
                   to={'/pages/friends'}>
             <Typography variant={'subtitle1'}>Friends</Typography>
           </Button>
 
           <div className={classes.flexDivider} />
           <IconButton component={ExternalLink} href={'https://myl.moe/rss'}>
-            <RssFeedIcon color={'primary'} />
+            <RssFeedIcon />
           </IconButton>
           <IconButton component={ExternalLink} href={'mailto:myl.ustc@gmail.com'}>
-            <MailIcon color={'primary'} />
+            <MailIcon />
           </IconButton>
           <IconButton component={ExternalLink} href={'https://github.com/myl7'}>
-            <GitHubIcon color={'primary'} />
+            <GitHubIcon />
           </IconButton>
         </Toolbar>
       )}
