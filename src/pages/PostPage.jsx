@@ -1,28 +1,16 @@
 import React, {useEffect} from 'react'
-import {CardContent, Divider, Grid, Typography, makeStyles} from '@material-ui/core'
 import {useParams} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
 import Markdown from 'markdown-to-jsx'
-import {Helmet} from 'react-helmet'
 import hljs from '../utils/hljs'
 import PostApi from '../apis/PostApi'
 import {formatDate} from '../utils/dayjs'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
 import {md2jsxOptions} from '../utils/md2jsx'
-import ContentCard from '../components/ContentCard'
-
-const useStyles = makeStyles({
-  titleBodyDivider: {
-    marginTop: '1em',
-    marginBottom: '1em'
-  }
-})
+import BodyPage from './templates/BodyPage'
+import {Box} from '@material-ui/core'
 
 export default () => {
   const {slug} = useParams()
-
-  const classes = useStyles()
 
   const dispatch = useDispatch()
 
@@ -44,37 +32,21 @@ export default () => {
   }, [dispatch, post, slug])
 
   return (
-    <div>
-      <Helmet>
-        <title>{post ? post.title : 'Post'} | mylmoe</title>
-        {post ? [
-          <meta name={'description'} content={post.excerpt ? post.excerpt : 'mylmoe post detail page'} />,
-          <link rel="canonical" href={'https://myl.moe/posts/' + slug} />
-        ] : ''}
-      </Helmet>
-      <Header />
-      <Divider />
-      <ContentCard>
-        {post ? (
-          <CardContent>
-            <Grid container alignItems={'center'} spacing={1}>
-              <Grid item>
-                <Typography variant={'h5'} component={'h1'}>
-                  {post.title}
-                </Typography>
-              </Grid>
-              <Grid item>
-                <Typography variant={'caption'}>
-                  | pubDate: {formatDate(post.pubDate)} | updDate: {formatDate(post.updDate)} |
-                </Typography>
-              </Grid>
-            </Grid>
-            <Divider className={classes.titleBodyDivider} />
-            <Markdown options={md2jsxOptions}>{post.body ? post.body : ''}</Markdown>
-          </CardContent>
-        ) : ''}
-      </ContentCard>
-      <Footer />
-    </div>
+    <BodyPage
+      title={post && post.title ? post.title : 'Loading...'}
+      description={post && post.excerpt ? post.excerpt : 'Loading...'}
+      subheader={
+        post && post.pubDate && post.updDate
+          ? [
+            post.excerpt ? post.excerpt + ' ' : '',
+            'Updated at ',
+            <Box component={'span'} fontWeight={'fontWeightBold'}>{formatDate(post.pubDate)}</Box>,
+            ', Published at ',
+            <Box component={'span'} fontWeight={'fontWeightBold'}>{formatDate(post.pubDate)}</Box>,
+            '.'
+          ] : 'Loading...'
+      } path={'/posts/' + slug}>
+      {post ? <Markdown options={md2jsxOptions}>{post.body ? post.body : ''}</Markdown> : 'Loading...'}
+    </BodyPage>
   )
 }
