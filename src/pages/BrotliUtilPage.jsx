@@ -3,7 +3,7 @@ import {Typography, Grid, TextField, Button} from '@material-ui/core'
 import init from 'brotli-dec-wasm'
 import {brotliDec, brotliEnc} from '../utils/brotli'
 import {inputBytes, outputBytes} from '../utils/byteView'
-import BodyPage from './templates/BodyPage'
+import BodyPage from './BodyPage'
 
 export default () => {
   const [decInit, setDecInit] = useState(null)

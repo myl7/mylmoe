@@ -3,7 +3,7 @@ import {
   Typography, TableContainer, TableHead, TableRow, TableCell, TableBody, Table, Card
 } from '@material-ui/core'
 import ExternalLink from '../components/ExternalLink'
-import BodyPage from './templates/BodyPage'
+import BodyPage from './BodyPage'
 
 const friends = [
   {

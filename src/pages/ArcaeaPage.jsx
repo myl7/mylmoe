@@ -4,7 +4,7 @@ import {TabList, TabPanel, TabContext} from '@material-ui/lab'
 import ArcaeaApi, {levels} from '../apis/ArcaeaApi'
 import {formatDatetime} from '../utils/dayjs'
 import ArcaeaSong from '../components/ArcaeaSong'
-import BodyPage from './templates/BodyPage'
+import BodyPage from './BodyPage'
 
 export default () => {
   const [data, setData] = useState({

@@ -1,5 +1,5 @@
 import React from 'react'
-import BodyPage from './templates/BodyPage'
+import BodyPage from './BodyPage'
 import Markdown from 'markdown-to-jsx'
 import {md2jsxOptions} from '../utils/md2jsx'
 import privacyPolicyText from '../assets/privacyPolicyText.md'

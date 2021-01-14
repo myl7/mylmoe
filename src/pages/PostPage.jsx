@@ -6,7 +6,7 @@ import hljs from '../utils/hljs'
 import PostApi from '../apis/PostApi'
 import {formatDate} from '../utils/dayjs'
 import {md2jsxOptions} from '../utils/md2jsx'
-import BodyPage from './templates/BodyPage'
+import BodyPage from './BodyPage'
 import {Box} from '@material-ui/core'
 
 export default () => {

@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import {animateScroll} from 'react-scroll'
 import PostApi from '../apis/PostApi'
 import {formatDate} from '../utils/dayjs'
-import BodyPage from './templates/BodyPage'
+import BodyPage from './BodyPage'
 import BodyCard from '../components/BodyCard'
 import RouterLink from '../components/RouterLink'
 

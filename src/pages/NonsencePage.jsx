@@ -5,7 +5,7 @@ import {formatDatetime} from '../utils/dayjs'
 import IdeaApi from '../apis/IdeaApi'
 import {md2jsxOptions} from '../utils/md2jsx'
 import hljs from '../utils/hljs'
-import BodyPage from './templates/BodyPage'
+import BodyPage from './BodyPage'
 import BodyCard from '../components/BodyCard'
 
 const useStyles = makeStyles({
