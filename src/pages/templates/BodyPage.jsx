@@ -5,15 +5,17 @@ import HtmlHead from '../../components/HtmlHead'
 import BodyCard from '../../components/BodyCard'
 
 export default props => {
-  const {title, description, subheader, path, children} = props
+  const {title, description, subheader, path, children, card = true} = props
 
   return (
     <div>
       <HtmlHead title={title} desciption={description} path={path} />
       <Header />
-      <BodyCard title={title} subheader={subheader}>
-        {children}
-      </BodyCard>
+      {card ? (
+        <BodyCard title={title} subheader={subheader}>
+          {children}
+        </BodyCard>
+      ) : children}
       <Footer />
     </div>
   )

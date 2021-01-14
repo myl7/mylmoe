@@ -1,16 +1,13 @@
-import React, {useEffect, Fragment} from 'react'
-import {CardContent, Typography, Grid, makeStyles, Divider} from '@material-ui/core'
+import React, {useEffect} from 'react'
+import {Typography, makeStyles} from '@material-ui/core'
 import {useDispatch, useSelector} from 'react-redux'
 import {animateScroll} from 'react-scroll'
-import {Helmet} from 'react-helmet'
-import RouterLink from '../components/RouterLink'
 import PostApi from '../apis/PostApi'
 import {formatDate} from '../utils/dayjs'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import ContentCard from '../components/ContentCard'
+import BodyPage from './templates/BodyPage'
+import BodyCard from '../components/BodyCard'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   indexContainer: {
     display: 'grid',
     height: '100%'
@@ -23,10 +20,11 @@ const useStyles = makeStyles(theme => ({
   nextContainer: {
     minHeight: '100vh'
   },
-  postItemDivider: {
-    backgroundColor: theme.palette.primary.main
+  card: {
+    backgroundColor: '#2c2c2c',
+    margin: '1em'
   }
-}))
+})
 
 export default () => {
   const classes = useStyles()
@@ -57,49 +55,33 @@ export default () => {
   }
 
   return (
-    <div>
-      <Helmet>
-        <title>mylmoe | myl7's blog with some other utilities</title>
-        <meta name={'description'} content={'mylmoe index page containing posts'} />
-        <link rel="canonical" href="https://myl.moe" />
-      </Helmet>
-      <Header />
+    <BodyPage card={false} path={'/'} title={'myl7\'s blog with some other utilities'}
+              description={'Welcome to mylmoe!'}>
       <div className={classes.indexContainer} onClick={handleRevueClick}>
-        <img className={classes.indexImage} alt={'revue'}
-             src={'/images/revue.jpg'} />
+        <img className={classes.indexImage} alt={'revue'} src={'/images/revue.jpg'} />
       </div>
       <div className={classes.nextContainer}>
-        <Divider variant={'middle'} className={classes.postItemDivider} />
-        {
-          Object.values(posts).sort(cmp).map(post => (
-            <Fragment key={post.slug}>
-              <ContentCard>
-                <CardContent>
-                  <Grid container spacing={1} alignItems={'center'}>
-                    <Grid item>
-                      <RouterLink to={`/posts/${post.slug}`}>
-                        <Typography variant={'h6'}>
-                          {post.title}
-                        </Typography>
-                      </RouterLink>
-                    </Grid>
-                    <Grid item>
-                      <Typography variant={'caption'}>
-                        | pubDate: {formatDate(post.pubDate)} | updDate: {formatDate(post.updDate)} |
-                      </Typography>
-                    </Grid>
-                  </Grid>
-                  <Typography variant={'subtitle1'}>
-                    {post.excerpt}
-                  </Typography>
-                </CardContent>
-              </ContentCard>
-              <Divider variant={'middle'} className={classes.postItemDivider} />
-            </Fragment>
-          ))
-        }
+        <BodyCard className={classes.card} variant={'outlined'}
+                  title={'mylmoe | myl7\'s blog with some other utilities'}>
+          {
+            Object.values(posts).sort(cmp).map(post => (
+              <BodyCard key={post.slug} component={'article'} titleComponent={'h2'} title={
+                <Typography variant={'h6'}>
+                  {post.title}
+                </Typography>
+              } subheader={
+                <Typography variant={'caption'}>
+                  {`Updated at ${formatDate(post.updDate)}, Published at ${formatDate(post.pubDate)}.`}
+                </Typography>
+              }>
+                <Typography variant={'subtitle1'}>
+                  {post.excerpt}
+                </Typography>
+              </BodyCard>
+            ))
+          }
+        </BodyCard>
       </div>
-      <Footer />
-    </div>
+    </BodyPage>
   )
 }

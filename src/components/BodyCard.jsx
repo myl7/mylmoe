@@ -8,13 +8,14 @@ const useStyles = makeStyles({
 })
 
 export default props => {
-  const {title, subheader, children, ...others} = props
+  const {title, subheader = '', children, titleComponent, ...others} = props
 
   const classes = useStyles()
 
   return (
     <Card className={classes.card} {...others}>
-      <CardHeader title={title} titleTypographyProps={{component: 'h1'}} subheader={subheader} />
+      <CardHeader title={title} subheader={subheader}
+                  {...(titleComponent ? {titleTypographyProps: {component: titleComponent}} : {})} />
       <CardContent component={'main'}>
         {children}
       </CardContent>
