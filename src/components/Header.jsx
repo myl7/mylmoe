@@ -10,7 +10,7 @@ import {
 import ExternalLink from './ExternalLink'
 import RouterLink from './RouterLink'
 import MenuButton from './MenuButton'
-import useXs from './useXs'
+import {useXs} from './screenSizeHooks'
 
 const useStyles = makeStyles({
   toolbar: {
