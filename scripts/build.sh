@@ -42,7 +42,7 @@ sed -i "s/{{css_hash}}/$css_hash/g" dist/index.html
 if [ "$mode" == prod ]; then
   for f in dist/*.js; do
     if [ "${f:5:5}" == chunk ]; then
-      sed -i "17a <link rel=\"preload\" href=\"${f:4}\" as=\"script\">" dist/index.html
+      sed -i "17a <link rel=\"preload\" as=\"script\" href=\"${f:4}\" crossorigin=\"anonymous\">" dist/index.html
     fi
   done
 fi
