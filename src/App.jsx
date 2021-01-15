@@ -1,16 +1,12 @@
 import React from 'react'
-import {MuiThemeProvider} from '@material-ui/core'
-import theme from './utils/theme'
-import Router from './Router'
 import {Provider} from 'react-redux'
 import {store} from './redux'
+import ThemedApp from './ThemedApp'
 
 export default () => {
   return (
-    <MuiThemeProvider theme={theme}>
-      <Provider store={store}>
-        <Router />
-      </Provider>
-    </MuiThemeProvider>
+    <Provider store={store}>
+      <ThemedApp />
+    </Provider>
   )
 }

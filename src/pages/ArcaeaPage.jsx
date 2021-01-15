@@ -45,7 +45,9 @@ export default () => {
       </Typography>
       <TabContext value={tabNum} style={{marginTop: '0.5em'}}>
         <AppBar position={'sticky'}>
-          <TabList onChange={handleTabSwitch} centered variant={isLg ? 'fullWidth' : 'scrollable'} scrollButtons={'on'}>
+          <TabList onChange={handleTabSwitch} {...(
+            isLg ? {variant: 'fullWidth', centered: true} : {variant: 'scrollable'}
+          )} scrollButtons={'on'}>
             {levels.map(l => {
               const label = /\d+/.exec(l)[0] + (l[l.length - 1] === 'p' ? '+' : '')
               return <Tab label={label} value={l} key={l} />

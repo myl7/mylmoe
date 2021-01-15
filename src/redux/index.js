@@ -1,22 +1,12 @@
 import {createStore} from 'redux'
 import postFilter from './postFilter'
+import themeFilter from './themeFilter'
 
-/**
- * @typedef {Object} State
- * @property {Post[]} posts
- *
- * @typedef {Object} Post
- * @property {string} slug
- * @property {string} title
- * @property {string} excerpt
- * @property {string} body
- * @property {string} pubDate
- * @property {string} updDate
- *
- * @type {State}
- */
 export const initState = {
-  posts: {}
+  posts: {},
+  theme: {
+    dark: null
+  }
 }
 
 const reducer = (s, a) => {
@@ -27,6 +17,8 @@ const reducer = (s, a) => {
   switch (app) {
     case 'post':
       return postFilter(s, a)
+    case 'theme':
+      return themeFilter(s, a)
     default:
       return s
   }

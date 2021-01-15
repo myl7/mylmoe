@@ -11,6 +11,7 @@ import ExternalLink from './ExternalLink'
 import RouterLink from './RouterLink'
 import MenuButton from './MenuButton'
 import {useXs} from './screenSizeHooks'
+import ThemeSwitch from './ThemeSwitch'
 
 const useStyles = makeStyles({
   toolbar: {
@@ -254,6 +255,9 @@ export default () => {
           </Button>
 
           <div className={classes.flexDivider} />
+
+          <ThemeSwitch />
+          <Typography variant={'subtitle1'} style={{marginRight: '1em'}}>Dark</Typography>
 
           <MenuButton className={classes.headerButtonLast} id={'header-social-menu'} items={[{
             children: (
