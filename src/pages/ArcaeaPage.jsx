@@ -5,6 +5,7 @@ import ArcaeaApi, {levels} from '../apis/ArcaeaApi'
 import {formatDatetime} from '../utils/dayjs'
 import ArcaeaSong from '../components/ArcaeaSong'
 import BodyPage from './BodyPage'
+import {useLg} from '../components/screenSizeHooks'
 
 export default () => {
   const [data, setData] = useState({
@@ -25,6 +26,8 @@ export default () => {
     })
   }, [setData])
 
+  const isLg = useLg()
+
   const {songs, userInfo} = data
   return (
     <BodyPage title={'Arcaea scores'}
@@ -42,10 +45,10 @@ export default () => {
       </Typography>
       <TabContext value={tabNum} style={{marginTop: '0.5em'}}>
         <AppBar position={'sticky'}>
-          <TabList onChange={handleTabSwitch} centered>
+          <TabList onChange={handleTabSwitch} centered variant={isLg ? 'fullWidth' : 'scrollable'} scrollButtons={'on'}>
             {levels.map(l => {
               const label = /\d+/.exec(l)[0] + (l[l.length - 1] === 'p' ? '+' : '')
-              return (<Tab label={label} value={l} key={l} />)
+              return <Tab label={label} value={l} key={l} />
             })}
           </TabList>
         </AppBar>
