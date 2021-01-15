@@ -31,7 +31,7 @@ const useStyles = makeStyles({
     }
   },
   headerButtonLast: {
-    marginRight: '2em',
+    marginRight: '1em',
     '&:hover': {
       textDecoration: 'none'
     }
@@ -110,6 +110,9 @@ export default () => {
             </Typography>
 
             <div className={classes.flexDivider} />
+
+            <ThemeSwitch />
+            <Typography variant={'subtitle1'} style={{marginRight: '1em'}}>Dark</Typography>
 
             <Avatar alt={'myl7'} src={`https://www.gravatar.com/avatar/${gravatarHash}&d=retro`} component={RouterLink}
                     to={'/pages/about'} />
