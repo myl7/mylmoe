@@ -53,6 +53,8 @@ if [ "$mode" != prod ]; then
   sed -i 4,10d dist/tmp/index.html
 fi
 
+node scripts/inline-css.js
+
 html-minifier --collapse-whitespace --remove-comments --minify-css true --minify-js true \
   --input-dir dist/tmp --output-dir dist -o dist/index.html
 
