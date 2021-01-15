@@ -139,7 +139,7 @@ export default () => {
               <Collapse in={listPageOpen}>
                 <List disablePadding>
                   {buttons.pages.items.map(item => (
-                    <ListItem button component={RouterLink} to={item.to} className={classes.listIndent1}>
+                    <ListItem button component={RouterLink} to={item.to} className={classes.listIndent1} key={item.to}>
                       <ListItemText>
                         <Typography variant={'subtitle1'} color={'textPrimary'}>
                           {item.title}
@@ -161,7 +161,7 @@ export default () => {
               <Collapse in={listUtilOpen}>
                 <List disablePadding>
                   {buttons.utils.items.map(item => (
-                    <ListItem button component={RouterLink} to={item.to} className={classes.listIndent1}>
+                    <ListItem button component={RouterLink} to={item.to} className={classes.listIndent1} key={item.to}>
                       <ListItemText>
                         <Typography variant={'subtitle1'} color={'textPrimary'}>
                           {item.title}
