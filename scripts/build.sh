@@ -3,9 +3,9 @@ set -euo pipefail
 
 mode="${1-prod}"
 
-# Use esbuild to bundle
+# Use esbuild to bundle js
 # $1 -> Mode, prod or dev, no default
-function bundle() {
+function bundle-js() {
   cmd='esbuild src/index.jsx --log-level=error --outdir=dist --bundle --format=esm --target=es6 --loader:.md=text'
   case "$1" in
   prod)
@@ -20,34 +20,40 @@ function bundle() {
   esac
 }
 
-# Gen output
 rm -rf dist
-bundle "$mode"
-cp public/* dist/
+
+bundle-js "$mode"
+
 mkdir -p dist/images
 cp -r images/* dist/images/
+
 mkdir -p dist/wasm
 cp node_modules/brotli-dec-wasm/pkg/brotli-dec-wasm_bg.wasm dist/wasm/
 
-# Set hash
-html_hash=$(md5sum dist/index.js | cut -c 1-5)
-mv dist/index.js "dist/index.$html_hash.js"
-css_hash=$(md5sum dist/index.css | cut -c 1-5)
-mv dist/index.css "dist/index.$css_hash.css"
+# Tmp public build dir
+mkdir -p dist/tmp
+cp -r public/* dist/tmp/
 
-sed -i "s/{{html_hash}}/$html_hash/g" dist/index.html
-sed -i "s/{{css_hash}}/$css_hash/g" dist/index.html
+# Set hash
+hash=$(md5sum dist/index.js | cut -c 1-5)
+mv dist/index.js "dist/index.$hash.js"
+sed -i "s/{{html_hash}}/$hash/g" dist/tmp/index.html
 
 # Preload chunks
 if [ "$mode" == prod ]; then
   for f in dist/*.js; do
     if [ "${f:5:5}" == chunk ]; then
-      sed -i "17a <link rel=\"preload\" as=\"script\" href=\"${f:4}\" crossorigin=\"anonymous\">" dist/index.html
+      sed -i "16a <link rel=\"preload\" as=\"script\" href=\"${f:4}\" crossorigin=\"anonymous\">" dist/tmp/index.html
     fi
   done
 fi
 
 # Remove google analytics in dev
 if [ "$mode" != prod ]; then
-  sed -i 4,10d dist/index.html
+  sed -i 4,10d dist/tmp/index.html
 fi
+
+html-minifier --collapse-whitespace --remove-comments --minify-css true --minify-js true \
+  --input-dir dist/tmp --output-dir dist -o dist/index.html
+
+rm -rf dist/tmp

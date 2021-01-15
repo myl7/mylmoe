@@ -27,7 +27,8 @@
   "homepage": "https://github.com/myl7/mylmoe#readme",
   "type": "module",
   "devDependencies": {
-    "esbuild": "^0.8.11"
+    "esbuild": "^0.8.11",
+    "html-minifier": "^4.0.0"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
