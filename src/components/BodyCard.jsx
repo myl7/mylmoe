@@ -13,7 +13,7 @@ export default props => {
   const classes = useStyles()
 
   return (
-    <Card className={classes.card} {...others}>
+    <Card className={classes.card} elevation={3} {...others}>
       <CardHeader title={title} subheader={subheader}
                   {...(titleComponent ? {titleTypographyProps: {component: titleComponent}} : {})} />
       <CardContent component={'main'}>

@@ -17,7 +17,7 @@ export default () => {
   const classes = useStyles()
 
   return (
-    <Card component={'footer'} className={classes.card}>
+    <Card component={'footer'} className={classes.card} elevation={3}>
       <CardContent>
         <Typography variant={'body1'}>
           Copyright (c) 2020-2021 myl7,{' '}

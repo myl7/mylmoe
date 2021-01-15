@@ -19,6 +19,10 @@ export default () => {
       dark = darkStorage === 'true'
     }
 
+    document.getElementsByTagName('body')[0].style.setProperty(
+      'background-color', dark ? '#303030' : '#fafafa'
+    )
+
     dispatch({
       type: 'theme.dark',
       payload: dark

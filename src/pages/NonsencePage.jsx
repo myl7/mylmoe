@@ -8,15 +8,15 @@ import hljs from '../utils/hljs'
 import BodyPage from './BodyPage'
 import BodyCard from '../components/BodyCard'
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   container: {
     minHeight: 'calc(100vh - 177px)'
   },
   card: {
-    backgroundColor: '#2c2c2c',
+    backgroundColor: theme.palette.background.default,
     margin: '1em'
   }
-})
+}))
 
 export default () => {
   const classes = useStyles()

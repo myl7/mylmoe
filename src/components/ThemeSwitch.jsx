@@ -9,6 +9,9 @@ export default props => {
 
   const handleSwitch = () => {
     localStorage.setItem('mylmoe.theme.dark', (!dark).toString())
+    document.getElementsByTagName('body')[0].style.setProperty(
+      'background-color', !dark ? '#303030' : '#fafafa'
+    )
     dispatch({
       type: 'theme.dark',
       payload: !dark

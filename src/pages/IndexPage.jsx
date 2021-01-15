@@ -8,7 +8,7 @@ import BodyPage from './BodyPage'
 import BodyCard from '../components/BodyCard'
 import RouterLink from '../components/RouterLink'
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   indexContainer: {
     display: 'grid',
     height: '100%'
@@ -22,10 +22,10 @@ const useStyles = makeStyles({
     minHeight: '100vh'
   },
   card: {
-    backgroundColor: '#2c2c2c',
+    backgroundColor: theme.palette.background.default,
     margin: '1em'
   }
-})
+}))
 
 export default () => {
   const classes = useStyles()
