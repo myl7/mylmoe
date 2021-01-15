@@ -33,4 +33,4 @@ Follow me on other SNSs (and games):
   - **-myl7-@Weibo**: <https://weibo.com/myl7> | No content too
   - **myl7 myl@Youtube**: <https://youtube.com/channel/UCvExDdqTBiP9eUtw3kdth0A> | There is still a long time before I can make (great enough to publish) videos
 
-Also use the `SNSs` button on the right-top side.
+Also use the `Follow Me` button on the right-top side.

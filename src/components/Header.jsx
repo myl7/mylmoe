@@ -278,7 +278,7 @@ export default () => {
             )
           }]}>
             <Typography variant={'subtitle1'}>
-              SNSs
+              Follow Me
             </Typography>
           </MenuButton>
 
