@@ -15,7 +15,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     client = cosmos.CosmosClient(uri, key)
     db = client.get_database_client('public')
     container = db.get_container_client('arcaea')
-    data = list(container.query_items('SELECT * FROM c WHERE c.id = "latest"'))
+    data = list(container.query_items('SELECT * FROM c WHERE c.id = "latest"', enable_cross_partition_query=True))
 
     if data:
         data = data[0]['data']
