@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "mylmoe-arcaea"
+version = "1.0.0"
+description = ""
+authors = ["myl7 <myl@myl.moe>"]
+
+[tool.poetry.dependencies]
+python = "^3.9.1"
+azure-functions = "^1.5.0"
+pymongo = {extras = ["tls"], version = "^3.11.2"}
+brotli = "^1.0.9"
+websockets = "^8.1"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
