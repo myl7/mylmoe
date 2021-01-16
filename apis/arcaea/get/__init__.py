@@ -11,7 +11,7 @@ db = client.public
 collection = db.kv
 
 
-def main(_req: func.HttpRequest) -> func.HttpResponse:
+def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('received')
     data = collection.find_one({'k': 'arcaea'})
 
