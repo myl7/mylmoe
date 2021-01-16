@@ -3,20 +3,23 @@ import base64
 import os
 
 import azure.functions as func
-import pymongo
+from azure import cosmos
 
-uri = os.getenv('CONN_STR')
-client = pymongo.MongoClient(uri)
-db = client.public
-collection = db.kv
+uri = os.getenv('URI')
+key = os.getenv('KEY')
 
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('received')
-    data = collection.find_one({'k': 'arcaea'})
+
+    client = cosmos.CosmosClient(uri, key)
+    db = client.get_database_client('public')
+    container = db.get_container_client('arcaea')
+    data = list(container.query_items('SELECT * FROM c WHERE c.id = "latest"'))
 
     if data:
-        res = base64.b64decode(data['v'])
+        data = data[0]['data']
+        res = base64.b64decode(data)
 
         logging.info('found')
         return func.HttpResponse(res, mimetype='application/octet-stream')

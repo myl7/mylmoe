@@ -7,14 +7,12 @@ import asyncio
 import os
 
 import azure.functions as func
-import pymongo
+from azure import cosmos
 import brotli
 import websockets
 
-db_uri = os.getenv('CONN_STR')
-client = pymongo.MongoClient(db_uri)
-db = client.public
-collection = db.kv
+uri = os.getenv('URI')
+key = os.getenv('KEY')
 
 
 def main(timer: func.TimerRequest) -> None:
@@ -28,7 +26,10 @@ def main(timer: func.TimerRequest) -> None:
     data = gzip.compress(data)
     data = base64.b64encode(data).decode()
 
-    collection.update({'k': 'arcaea'}, {'k': 'arcaea', 'v': data}, True)
+    client = cosmos.CosmosClient(uri, key)
+    db = client.get_database_client('public')
+    container = db.get_container_client('arcaea')
+    container.replace_item('latest', {'data': data})
     logging.info('ok at ' + now())
 
 

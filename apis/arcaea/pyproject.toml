@@ -7,9 +7,9 @@ authors = ["myl7 <myl@myl.moe>"]
 [tool.poetry.dependencies]
 python = "^3.9.1"
 azure-functions = "^1.5.0"
-pymongo = {extras = ["tls"], version = "^3.11.2"}
 brotli = "^1.0.9"
 websockets = "^8.1"
+azure-cosmos = "^4.2.0"
 
 [tool.poetry.dev-dependencies]
 
