@@ -29,7 +29,7 @@ def main(timer: func.TimerRequest) -> None:
     client = cosmos.CosmosClient(uri, key)
     db = client.get_database_client('public')
     container = db.get_container_client('arcaea')
-    container.replace_item('latest', {'data': data})
+    container.replace_item('latest', {'id': 'latest', 'data': data})
     logging.info('ok at ' + now())
 
 
