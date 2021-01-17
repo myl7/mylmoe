@@ -21,7 +21,7 @@ def main(timer: func.TimerRequest) -> None:
     if timer.past_due:
         logging.warning('the timer is past due')
 
-    data = asyncio.get_event_loop().run_until_complete(req_prober())
+    data = asyncio.run(req_prober())
     data = json.dumps(data, ensure_ascii=False).encode()
     data = gzip.compress(data)
     data = base64.b64encode(data).decode()
