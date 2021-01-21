@@ -38,7 +38,7 @@ export default () => {
 
   return (
     <BodyPage title={'myl7\'s nonsence'}
-              description={'Some tips, some summaries, some grumbles, some options, some feelings...'}
+              description={'Some tips, some summaries, some grumbles, some opinions, some feelings...'}
               path={'/pages/nonsence'} card={false}>
       <BodyCard className={classes.card} variant={'outlined'} title={'myl7\'s nonsence'}
                 subheader={'Some tips, some summaries, some grumbles, some options, some feelings...'}>
