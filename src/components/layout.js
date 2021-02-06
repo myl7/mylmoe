@@ -11,6 +11,7 @@ import Fireworks from './fireworks'
 import theme from '../utils/theme'
 import Header from './header'
 import Footer from './footer'
+import GoTop from './goTop'
 
 const Layout = props => {
   const {children} = props
@@ -23,6 +24,7 @@ const Layout = props => {
           {children}
         </Card>
         <Footer />
+        <GoTop />
         <Fireworks />
       </div>
     </MuiThemeProvider>
