@@ -10,6 +10,7 @@ import {Card, MuiThemeProvider} from '@material-ui/core'
 import Fireworks from './fireworks'
 import theme from '../utils/theme'
 import Header from './header'
+import Footer from './footer'
 
 const Layout = props => {
   const {children} = props
@@ -21,6 +22,7 @@ const Layout = props => {
         <Card variant="outlined" style={{margin: '5em 1em 0 1em'}}>
           {children}
         </Card>
+        <Footer />
         <Fireworks />
       </div>
     </MuiThemeProvider>
