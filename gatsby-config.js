@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'mylmoe',
+    description: 'myl7\'s blog with some other utilities',
     siteUrl: 'https://myl.moe',
     author: {
       name: 'myl7',
@@ -25,9 +26,24 @@ module.exports = {
         icon: 'src/images/icon.png'
       }
     },
-    'gatsby-transformer-remark',
-    'gatsby-plugin-mdx',
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 800,
+              backgroundColor: 'transparent'
+            }
+          },
+          'gatsby-remark-responsive-iframe',
+          'gatsby-remark-prismjs'
+        ]
+      }
+    },
     'gatsby-transformer-sharp',
+    'gatsby-plugin-catch-links',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -57,6 +73,60 @@ module.exports = {
         ]
       },
       __key: 'site'
+    },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({query: {site, allMarkdownRemark}}) => {
+              return allMarkdownRemark.edges.map(edge => {
+                return Object.assign({}, edge.node.frontmatter, {
+                  description: edge.node.excerpt,
+                  date: edge.node.frontmatter.pubDate,
+                  url: site.siteMetadata.siteUrl + edge.node.fields.path,
+                  guid: site.siteMetadata.siteUrl + edge.node.fields.path,
+                  custom_elements: [{'content:encoded': edge.node.html}]
+                })
+              })
+            },
+            query: `
+              {
+                allMarkdownRemark(sort: {order: DESC, fields: [frontmatter___pubDate]}) {
+                  edges {
+                    node {
+                      excerpt
+                      html
+                      fields {
+                        slug
+                        path
+                      }
+                      frontmatter {
+                        title
+                        pubDate
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: '/rss.xml',
+            title: 'mylmoe\'s RSS Feed',
+            match: '^/posts/'
+          }
+        ]
+      }
     }
   ]
 }
