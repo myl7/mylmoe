@@ -46,6 +46,17 @@ module.exports = {
         path: './src/pages/'
       },
       __key: 'pages'
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: 'site',
+        path: './content/site/',
+        ignore: [
+          '**/LICENSE'
+        ]
+      },
+      __key: 'site'
     }
   ]
 }
