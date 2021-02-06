@@ -2,9 +2,12 @@
   "name": "mylmoe",
   "version": "1.0.0",
   "private": true,
-  "description": "mylmoe",
-  "author": "myl7",
+  "description": "A static & serverless Gatsby-based blog system with some other utilities",
+  "author": "myl7 <myl@myl.moe> (https://myl.moe)",
   "keywords": [
+    "blog",
+    "static-site",
+    "serverless",
     "gatsby"
   ],
   "scripts": {
@@ -15,6 +18,10 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "@fontsource/roboto": "^4.2.0",
+    "@fontsource/source-code-pro": "^4.2.0",
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "gatsby": "^2.31.1",
@@ -29,6 +36,7 @@
     "gatsby-source-filesystem": "^2.11.0",
     "gatsby-transformer-remark": "^2.16.0",
     "gatsby-transformer-sharp": "^2.12.0",
+    "normalize.css": "^8.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0"
