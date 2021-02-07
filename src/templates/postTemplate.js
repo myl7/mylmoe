@@ -1,6 +1,6 @@
 import React from 'react'
 import Layout from '../components/layout'
-import {Box, CardContent, CardHeader} from '@material-ui/core'
+import {Box, CardContent, CardHeader, Divider} from '@material-ui/core'
 import {graphql} from 'gatsby'
 
 const PostTemplate = props => {
@@ -22,6 +22,7 @@ const PostTemplate = props => {
           </Box>
         </div>
       } />
+      <Divider />
       <CardContent>
         <div dangerouslySetInnerHTML={{__html: html}} />
       </CardContent>

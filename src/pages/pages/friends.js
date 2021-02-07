@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-  Box, CardContent, CardHeader, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography
+  Box, CardContent, CardHeader, Divider, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography
 } from '@material-ui/core'
 import ExtLink from '../../components/links/extLink'
 import Layout from '../../components/layout'
@@ -25,6 +25,7 @@ const FriendPage = () => {
           </Box>
         </div>
       } />
+      <Divider />
       <CardContent>
         <TableContainer>
           <Table>
