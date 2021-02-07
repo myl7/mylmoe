@@ -38,7 +38,14 @@ module.exports = {
             }
           },
           'gatsby-remark-responsive-iframe',
-          'gatsby-remark-prismjs'
+          'gatsby-remark-embed-snippet',
+          {
+            resolve: 'gatsby-remark-prismjs',
+            options: {
+              showLineNumbers: true,
+              noInlineHighlight: true,
+            }
+          }
         ]
       }
     },

@@ -13,6 +13,10 @@ import Header from './header'
 import Footer from './footer'
 import GoTop from './goTop'
 import {useSelector} from 'react-redux'
+import 'prismjs/themes/prism-okaidia.css'
+import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
+import 'prismjs/plugins/command-line/prism-command-line.css'
+import './highlight.css'
 
 const Layout = props => {
   const {children} = props
