@@ -20,7 +20,7 @@ const Layout = props => {
     <MuiThemeProvider theme={theme(false)}>
       <div>
         <Header />
-        <Card variant="outlined" style={{margin: '5em 1em 0 1em'}}>
+        <Card variant="outlined" style={{margin: '5em 1em 0 1em'}} component="main">
           {children}
         </Card>
         <Footer />

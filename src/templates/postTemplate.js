@@ -23,7 +23,7 @@ const PostTemplate = props => {
         </div>
       } />
       <CardContent>
-        <main dangerouslySetInnerHTML={{__html: html}} />
+        <div dangerouslySetInnerHTML={{__html: html}} />
       </CardContent>
     </Layout>
   )
