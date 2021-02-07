@@ -20,7 +20,9 @@ const NavMenuButton = props => {
           {text}
         </Typography>
       </Button>
-      <Menu id={menuId} className="header-menu" anchorEl={elem} keepMounted open={Boolean(elem)} onClose={handleClose}>
+      <Menu id={menuId} className="header-menu" anchorEl={elem} keepMounted open={Boolean(elem)} onClose={handleClose}
+            getContentAnchorEl={null} anchorOrigin={{vertical: 'bottom', horizontal: 'center'}}
+            transformOrigin={{vertical: 'top', horizontal: 'center'}}>
         {list.map(({text, to}) => (
           <MenuItem onClick={handleClose} key={text}>
             <IntLinkReset to={to}>
