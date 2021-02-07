@@ -1,6 +1,6 @@
 const friends = {
   title: 'Friends',
-  pubDate: '2021-02-08',
+  updDate: '2021-02-08',
   list: [
     {
       title: 'Totoro’s Blog',

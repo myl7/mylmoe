@@ -21,7 +21,7 @@ const FriendPage = () => {
         <div>
           Updated on {''}
           <Box component={'span'} fontWeight={'fontWeightBold'}>
-            {friends.pubDate}
+            {friends.updDate}
           </Box>
         </div>
       } />
