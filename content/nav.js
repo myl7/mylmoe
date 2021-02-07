@@ -2,23 +2,33 @@ const nav = [
   {
     text: 'Pages',
     list: [
-      {text: 'About'},
-      {text: 'Arcaea'},
-      {text: 'Privacy Policy'}
+      {
+        text: 'About',
+        to: '/pages/about/'
+      },
+      {
+        text: 'Arcaea',
+        to: '/pages/arcaea/'
+      },
+      {
+        text: 'Privacy Policy',
+        to: '/pages/privacy-policy/'
+      }
     ]
   },
   {
     text: 'Utils',
     list: [
-      {text: 'Brotli'}
+      {
+        text: 'Brotli',
+        to: '/utils/brotli/'
+      }
     ]
   },
-  {text: 'Friends'}
+  {
+    text: 'Friends',
+    to: '/pages/friends/'
+  }
 ]
-
-/**
- * @param {string} text
- */
-export const genTo = text => '/pages/' + text.toLowerCase().replace(' ', '-')
 
 export default nav

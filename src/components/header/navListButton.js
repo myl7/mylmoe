@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import {Collapse, List, ListItem, ListItemIcon, ListItemText, Typography} from '@material-ui/core'
 import IntLinkReset from '../links/intLinkReset'
-import {genTo} from '../../../content/nav'
 import {ChevronRight as ChevronRightIcon} from '@material-ui/icons'
 
 const NavListButton = props => {
@@ -28,7 +27,7 @@ const NavListButton = props => {
           {list.map(({text, to}) => (
             <ListItem button key={text}>
               <ListItemText style={{paddingLeft: '2em'}}>
-                <IntLinkReset to={to ? to : genTo(text)}>
+                <IntLinkReset to={to}>
                   <Typography variant="subtitle1">
                     {text}
                   </Typography>

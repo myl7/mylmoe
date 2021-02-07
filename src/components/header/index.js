@@ -2,7 +2,7 @@ import React from 'react'
 import {useXs} from '../../utils/screenSize'
 import MobileHeader from './mobileHeader'
 import {AppBar, Avatar, Button, IconButton, Toolbar, Typography} from '@material-ui/core'
-import nav, {genTo} from '../../../content/nav'
+import nav from '../../../content/nav'
 import {graphql, useStaticQuery} from 'gatsby'
 import {Home as HomeIcon} from '@material-ui/icons'
 import gravatar from '../../utils/gravatar'
@@ -47,7 +47,7 @@ const Header = () => {
           <NavMenuButton text={text} list={list} key={text} style={{marginLeft: '1em'}} />
         ) : (
           <Button variant="outlined" style={{marginLeft: '1em'}} key={text}>
-            <IntLinkReset to={to ? to : genTo(text)}>
+            <IntLinkReset to={to}>
               <Typography variant="subtitle1">
                 {text}
               </Typography>

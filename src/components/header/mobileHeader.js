@@ -3,7 +3,7 @@ import {
   AppBar, Avatar, Collapse, IconButton, List, ListItem, ListItemIcon, ListItemText, Toolbar, Typography
 } from '@material-ui/core'
 import {Home as HomeIcon, Menu as MenuIcon} from '@material-ui/icons'
-import nav, {genTo} from '../../../content/nav'
+import nav from '../../../content/nav'
 import {graphql, useStaticQuery} from 'gatsby'
 import gravatar from '../../utils/gravatar'
 import NavListButton from './navListButton'
@@ -63,7 +63,7 @@ const MobileHeader = () => {
           ) : (
             <ListItem button key={text}>
               <ListItemText>
-                <IntLinkReset to={to ? to : genTo(text)}>
+                <IntLinkReset to={to}>
                   <Typography variant="subtitle1">
                     {text}
                   </Typography>
