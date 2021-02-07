@@ -8,6 +8,7 @@ import {Home as HomeIcon} from '@material-ui/icons'
 import gravatar from '../../utils/gravatar'
 import IntLinkReset from '../links/intLinkReset'
 import NavMenuButton from './navMenuButton'
+import ThemeSwitch from './themeSwitch'
 
 const Header = () => {
   const isXs = useXs()
@@ -55,6 +56,7 @@ const Header = () => {
           </Button>
         ))}
         <div style={{flexGrow: 1}} />
+        <ThemeSwitch />
         <IntLinkReset to="/about">
           <Avatar alt={'Avatar of ' + name} src={avatarUrl} />
         </IntLinkReset>

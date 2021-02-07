@@ -12,12 +12,15 @@ import theme from '../utils/theme'
 import Header from './header'
 import Footer from './footer'
 import GoTop from './goTop'
+import {useSelector} from 'react-redux'
 
 const Layout = props => {
   const {children} = props
 
+  const dark = useSelector(state => state.theme.dark)
+
   return (
-    <MuiThemeProvider theme={theme(false)}>
+    <MuiThemeProvider theme={theme(dark)}>
       <div>
         <Header />
         <Card variant="outlined" style={{margin: '5em 1em 0 1em'}} component="main">
