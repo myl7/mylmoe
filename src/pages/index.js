@@ -6,7 +6,11 @@ import {graphql, navigate, useStaticQuery} from 'gatsby'
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
     query IndexQuery {
-      allMarkdownRemark(filter: {fields: {type: {eq: "posts"}}}, limit: 1000) {
+      allMarkdownRemark(
+        filter: {fields: {type: {eq: "posts"}}}
+        limit: 1000
+        sort: {order: DESC, fields: frontmatter___pubDate}
+      ) {
         edges {
           node {
             fields {
