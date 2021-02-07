@@ -1,6 +1,6 @@
 import React from 'react'
 import Layout from '../components/layout'
-import {Box, Card, CardActionArea, CardContent, CardHeader, Divider} from '@material-ui/core'
+import {Box, Card, CardActionArea, CardContent, CardHeader, Chip, Divider} from '@material-ui/core'
 import {graphql, navigate, useStaticQuery} from 'gatsby'
 
 const IndexPage = () => {
@@ -38,7 +38,10 @@ const IndexPage = () => {
   const updDate = updDates.reduce((a, b) => a > b ? a : b)
   const pubDate = pubDates.reduce((a, b) => a > b ? a : b)
 
-  const handleClick = path => () => navigate(path)
+  const handleCardClick = path => () => navigate(path)
+  const handleTagClick = tag => e => {
+    e.stopPropagation()
+  }
 
   return (
     <Layout>
@@ -63,19 +66,28 @@ const IndexPage = () => {
 
           return (
             <Card variant="outlined" style={{margin: '1em'}} component="article">
-              <CardActionArea onClick={handleClick(path)}>
+              <CardActionArea onClick={handleCardClick(path)}>
                 <CardHeader title={title} titleTypographyProps={{component: 'h2'}} subheader={
                   <div>
-                    Updated on {''}
-                    <Box component={'span'} fontWeight={'fontWeightBold'}>
-                      {updDate}
-                    </Box>
-                    {''} | Published on {''}
-                    <Box component={'span'} fontWeight={'fontWeightBold'}>
-                      {pubDate}
-                    </Box>
+                    <div>
+                      Updated on {''}
+                      <Box component={'span'} fontWeight={'fontWeightBold'}>
+                        {updDate}
+                      </Box>
+                      {''} | Published on {''}
+                      <Box component={'span'} fontWeight={'fontWeightBold'}>
+                        {pubDate}
+                      </Box>
+                    </div>
+                    <div>
+                      {tags.split(' ').map(tag => (
+                        <Chip label={tag} key={tag} clickable onClick={handleTagClick(tag)}
+                              style={{marginRight: '0.5em'}} />
+                      ))}
+                    </div>
                   </div>
                 } />
+                <Divider />
                 <CardContent>
                   {excerpt}
                 </CardContent>
