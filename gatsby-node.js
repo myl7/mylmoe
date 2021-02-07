@@ -41,7 +41,8 @@ exports.createPages = async ({actions, graphql}) => {
       path: path,
       component: type === 'posts' ? postTemplate : pageTemplate,
       context: {
-        postPath: path
+        postPath: path,
+        pagePath: path
       }
     })
   })
