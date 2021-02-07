@@ -65,7 +65,7 @@ const IndexPage = () => {
           const {title, pubDate, updDate, excerpt, tags} = frontmatter
 
           return (
-            <Card variant="outlined" style={{margin: '1em'}} component="article">
+            <Card variant="outlined" style={{margin: '1em'}} component="article" key={path}>
               <CardActionArea onClick={handleCardClick(path)}>
                 <CardHeader title={title} titleTypographyProps={{component: 'h2'}} subheader={
                   <div>
