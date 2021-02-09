@@ -5,6 +5,8 @@ import TextOrFileBinInput from '../../components/textOrFileBinInput'
 import {printBin} from '../../utils/binary'
 import {graphql, useStaticQuery} from 'gatsby'
 import init, {brotliDec} from '../../utils/brotli'
+import friends from '../../../content/friends'
+import HtmlHead from '../../components/htmlHead'
 
 const BrotliPage = () => {
   const encTextRef = useRef()
@@ -35,6 +37,9 @@ const BrotliPage = () => {
 
   return (
     <Layout>
+      <HtmlHead title={'Brotli online encode/decode tool'} description={
+        'Decode locally with WASM by npm package brotli-dec-wasm, and encode remotely with Azure Functions App'
+      } path={'/utils/brotli'} />
       <CardHeader title={'Brotli online encode/decode tool'} titleTypographyProps={{component: 'h1'}} subheader={
         'Decode locally with WASM by npm package brotli-dec-wasm, and encode remotely with Azure Functions App'
       } />

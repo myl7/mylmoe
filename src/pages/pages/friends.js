@@ -5,6 +5,7 @@ import {
 import ExtLink from '../../components/links/extLink'
 import Layout from '../../components/layout'
 import friends from '../../../content/friends'
+import HtmlHead from '../../components/htmlHead'
 
 const FriendPage = () => {
   const relPath = (root, url) => {
@@ -17,6 +18,7 @@ const FriendPage = () => {
 
   return (
     <Layout>
+      <HtmlHead title={friends.title} description={''} path={'/pages/friends'} />
       <CardHeader title={friends.title} titleTypographyProps={{component: 'h1'}} subheader={
         <div>
           Updated on {''}
