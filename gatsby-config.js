@@ -10,6 +10,7 @@ module.exports = {
     }
   },
   plugins: [
+    // 'gatsby-plugin-webpack-bundle-analyser-v2',
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
@@ -43,7 +44,7 @@ module.exports = {
             resolve: 'gatsby-remark-prismjs',
             options: {
               showLineNumbers: true,
-              noInlineHighlight: true,
+              noInlineHighlight: true
             }
           }
         ]
