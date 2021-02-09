@@ -12,7 +12,7 @@ const style = {
 const filter = e => {
   for (const elem of e.path) {
     const role = elem.attributes ? elem.attributes.getNamedItem('role') : null
-    if (['A', 'BUTTON', 'HEADER'].indexOf(elem.nodeName) >= 0 ||
+    if (['A', 'BUTTON', 'HEADER', 'TEXTAREA'].indexOf(elem.nodeName) >= 0 ||
       (role && (role.value === 'presentation' || role.value === 'button'))) {
       return false
     }
