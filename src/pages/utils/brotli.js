@@ -3,6 +3,8 @@ import Layout from '../../components/layout'
 import {CardContent, CardHeader, Divider, Grid} from '@material-ui/core'
 import TextOrFileBinInput from '../../components/textOrFileBinInput'
 import {printBin} from '../../utils/binary'
+import {graphql, useStaticQuery} from 'gatsby'
+import init, {brotliDec} from '../../utils/brotli'
 
 const BrotliPage = () => {
   const encTextRef = useRef()
@@ -10,8 +12,26 @@ const BrotliPage = () => {
   const decTextRef = useRef()
   const decFileRef = useRef()
 
+  const data = useStaticQuery(graphql`
+    query BrotliQuery {
+      file(relativePath: {eq: "brotli-dec-wasm_bg.wasm"}) {
+        publicURL
+      }
+    }
+  `)
+  const brotliUrl = data.file.publicURL
+
   const enc = arr => decTextRef.current.value = arr === null ? '' : printBin(arr) // TODO
-  const dec = arr => encTextRef.current.value = arr === null ? '' : printBin(arr) // TODO
+  const dec = arr => {
+    if (arr === null) {
+      encTextRef.current.value = ''
+    } else {
+      init(brotliUrl).then(() => {
+        const res = brotliDec(arr)
+        encTextRef.current.value = printBin(res)
+      })
+    }
+  }
 
   return (
     <Layout>

@@ -83,6 +83,17 @@ module.exports = {
       __key: 'site'
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: 'wasm',
+        path: './node_modules/brotli-dec-wasm/pkg/',
+        ignore: [
+          '**/*.js',
+          '**/*.ts'
+        ]
+      }
+    },
+    {
       resolve: `gatsby-plugin-feed`,
       options: {
         query: `
