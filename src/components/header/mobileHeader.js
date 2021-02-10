@@ -8,6 +8,7 @@ import {graphql, useStaticQuery} from 'gatsby'
 import gravatar from '../../utils/gravatar'
 import NavListButton from './navListButton'
 import IntLinkReset from '../links/intLinkReset'
+import ThemeSwitch from './themeSwitch'
 
 const MobileHeader = () => {
   const [open, setOpen] = useState(false)
@@ -42,6 +43,10 @@ const MobileHeader = () => {
           </Typography>
         </IntLinkReset>
         <div style={{flexGrow: 1}} />
+        <ThemeSwitch />
+        <Typography variant="subtitle1" style={{marginRight: '1em'}}>
+          Dark
+        </Typography>
         <IntLinkReset to="/about">
           <Avatar alt={'Avatar of ' + name} src={avatarUrl} />
         </IntLinkReset>

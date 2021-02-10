@@ -57,6 +57,9 @@ const Header = () => {
         ))}
         <div style={{flexGrow: 1}} />
         <ThemeSwitch />
+        <Typography variant="subtitle1" style={{marginRight: '1em'}}>
+          Dark
+        </Typography>
         <IntLinkReset to="/about">
           <Avatar alt={'Avatar of ' + name} src={avatarUrl} />
         </IntLinkReset>
