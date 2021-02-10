@@ -1,4 +1,4 @@
-import React, {useRef} from 'react'
+import React, {useEffect, useRef} from 'react'
 import Layout from '../../components/layout'
 import {CardContent, CardHeader, Divider, Grid} from '@material-ui/core'
 import TextOrFileBinInput from '../../components/textOrFileBinInput'
@@ -7,12 +7,18 @@ import {graphql, useStaticQuery} from 'gatsby'
 import init, {brotliDec} from '../../utils/brotli'
 import HtmlHead from '../../components/htmlHead'
 import {brotliEnc} from '../../api/brotli'
+import {useDispatch, useSelector} from 'react-redux'
+import {brotliInitAction} from '../../redux/brotliRedux'
 
 const BrotliPage = () => {
   const encTextRef = useRef()
   const encFileRef = useRef()
   const decTextRef = useRef()
   const decFileRef = useRef()
+
+  const dispatch = useDispatch()
+
+  const brotliInit = useSelector(state => state.brotli.init)
 
   const data = useStaticQuery(graphql`
     query BrotliQuery {
@@ -22,6 +28,12 @@ const BrotliPage = () => {
     }
   `)
   const brotliUrl = data.file.publicURL
+
+  useEffect(() => {
+    if (!brotliInit) {
+      dispatch(brotliInitAction(init(brotliUrl)))
+    }
+  })
 
   const enc = arr => {
     if (arr === null) {
@@ -34,7 +46,7 @@ const BrotliPage = () => {
     if (arr === null) {
       encTextRef.current.value = ''
     } else {
-      init(brotliUrl).then(() => {
+      brotliInit.then(() => {
         const res = brotliDec(arr)
         encTextRef.current.value = printBin(res)
       })
