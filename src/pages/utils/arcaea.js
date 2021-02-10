@@ -1,13 +1,15 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import Layout from '../../components/layout'
-import {CardContent, CardHeader} from '@material-ui/core'
+import {Button, CardContent, CardHeader, Grid, Typography} from '@material-ui/core'
 import HtmlHead from '../../components/htmlHead'
-import WIP from '../../components/wip'
 import {useDispatch, useSelector} from 'react-redux'
 import {brotliInitAction} from '../../redux/brotliRedux'
 import init, {brotliDec} from '../../utils/brotli'
 import {arcaeaProber} from '../../api/arcaea'
 import {graphql, useStaticQuery} from 'gatsby'
+import DigitInput from '../../components/digitInput'
+import {arcaeaSetAction} from '../../redux/arcaeaRedux'
+import ArcaeaUserInfo from '../../components/arcaea/arcaeaUserInfo'
 
 const ArcaeaPage = () => {
   const title = 'Arcaea Scores'
@@ -23,28 +25,59 @@ const ArcaeaPage = () => {
     query ArcaeaQuery {
       file(relativePath: {eq: "brotli-dec-wasm_bg.wasm"}) {
         publicURL
-        ext
+      }
+      site {
+        siteMetadata {
+          author {
+            arcaeaId
+          }
+        }
       }
     }
   `)
   const brotliUrl = data.file.publicURL
+  const arcaeaId = data.site.siteMetadata.author.arcaeaId
 
   useEffect(() => {
+    const uid = ref.current.value
     if (brotliInit) {
       brotliInit.then(() => {
-        console.log(arcaeaProber({uid: '984569312', brotliDec: brotliDec}))
+        arcaeaProber({uid: uid, brotliDec: brotliDec}).then(res => {
+          dispatch(arcaeaSetAction(uid, res))
+        })
       })
     } else {
       dispatch(brotliInitAction(init(brotliUrl)))
     }
   }, [brotliInit]) // eslint-disable-line react-hooks/exhaustive-deps
 
+  const ref = useRef()
+
+  const [error, setError] = useState('')
+
+  const {data: arcaeaData} = useSelector(state => state.arcaea)
+  // eslint-disable-next-line no-unused-vars
+  const {songTitle, userInfo, scores} = arcaeaData
+
   return (
     <Layout>
       <HtmlHead title={title} description={description} path={'/pages/arcaea'} />
       <CardHeader title={title} titleTypographyProps={{component: 'h1'}} subheader={description} />
       <CardContent>
-        <WIP />
+        <Grid container alignItems="center" spacing={2}>
+          <Grid item>
+            <DigitInput label={'Arcaea User ID'} inputRef={ref} error={error} setError={setError}
+                        defaultValue={arcaeaId} />
+          </Grid>
+          <Grid item>
+            <Button variant="outlined">
+              <Typography variant="subtitle1">
+                Query scores
+              </Typography>
+            </Button>
+          </Grid>
+        </Grid>
+        {userInfo ? <ArcaeaUserInfo userInfo={userInfo} style={{marginTop: '1em'}} /> : ''}
       </CardContent>
     </Layout>
   )

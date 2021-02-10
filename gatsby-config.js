@@ -6,7 +6,8 @@ module.exports = {
     author: {
       name: 'myl7',
       email: 'myl@myl.moe',
-      avatar: '' // Leave empty to use Gravatar
+      avatar: '', // Leave empty to use Gravatar
+      arcaeaId: '984569312'
     }
   },
   plugins: [
