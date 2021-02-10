@@ -7,10 +7,6 @@ const nav = [
         to: '/pages/about/'
       },
       {
-        text: 'Arcaea',
-        to: '/pages/arcaea/'
-      },
-      {
         text: 'Privacy Policy',
         to: '/pages/privacy-policy/'
       }
@@ -22,6 +18,10 @@ const nav = [
       {
         text: 'Brotli',
         to: '/utils/brotli/'
+      },
+      {
+        text: 'Arcaea',
+        to: '/utils/arcaea/'
       }
     ]
   },
