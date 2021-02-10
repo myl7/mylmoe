@@ -1,10 +1,12 @@
 import {createStore} from 'redux'
 import {initThemeState, themeReducer} from './themeRedux'
 import {brotliReducer, initBrotliState} from './brotliRedux'
+import {arcaeaReducer, initArcaeaState} from './arcaeaRedux'
 
 const initState = {
   theme: initThemeState,
-  brotli: initBrotliState
+  brotli: initBrotliState,
+  arcaea: initArcaeaState
 }
 
 const reducer = (state, action) => {
@@ -14,6 +16,8 @@ const reducer = (state, action) => {
       return themeReducer(state, action)
     case 'brotli':
       return brotliReducer(state, action)
+    case 'arcaea':
+      return arcaeaReducer(state, action)
     default:
       return state
   }
