@@ -46,7 +46,9 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <HtmlHead title={'Index: Post List'} description={''} path={'/'} />
+      <HtmlHead title={'Index: Post List'} description={
+        'All Posts written by myl7 in the blog | mylmoe: myl7\'s blog with some other utilities'
+      } path={'/'} />
       <CardHeader title={'Posts'} titleTypographyProps={{component: 'h1'}} subheader={
         <div>
           Updated on {''}

@@ -1,6 +1,7 @@
 ---
 title: Privacy Policy
 updDate: 2021-02-08
+description: The static and serverless website does not collect any information on its own. For third-party services used by the website, please come to view details.
 ---
 
 As a static and serverless website, This website does not collect any information on its own.

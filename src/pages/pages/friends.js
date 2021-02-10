@@ -16,14 +16,16 @@ const FriendPage = () => {
     }
   }
 
+  const {description, list, title, updDate} = friends
+
   return (
     <Layout>
-      <HtmlHead title={friends.title} description={''} path={'/pages/friends'} />
-      <CardHeader title={friends.title} titleTypographyProps={{component: 'h1'}} subheader={
+      <HtmlHead title={title} description={description} path={'/pages/friends'} />
+      <CardHeader title={title} titleTypographyProps={{component: 'h1'}} subheader={
         <div>
           Updated on {''}
           <Box component={'span'} fontWeight={'fontWeightBold'}>
-            {friends.updDate}
+            {updDate}
           </Box>
         </div>
       } />
@@ -41,7 +43,7 @@ const FriendPage = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {friends.list.map(({title, url, author, about, rss, github}) => (
+              {list.map(({title, url, author, about, rss, github}) => (
                 <TableRow key={url}>
                   <TableCell component={'th'} scope={'row'}>
                     <Typography variant={'subtitle1'} color={'textPrimary'} component={ExtLink} href={url}>

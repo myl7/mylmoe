@@ -1,5 +1,6 @@
 const friends = {
   title: 'Friends',
+  description: 'Blog, RSS and GitHub of myl7\'s friends.',
   updDate: '2021-02-08',
   list: [
     {

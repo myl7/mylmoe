@@ -1,6 +1,7 @@
 ---
 title: About Me
 updDate: 2021-02-08
+description: Introduction and active websites of myl7. You are always welcome to follow me anywhere.
 ---
 
 It is a pleasure to meet you!
@@ -37,5 +38,3 @@ Follow me on other SNSs (and games):
     - **myl7@Twitter**: <https://twitter.com/myl107> | No content
     - **-myl7-@Weibo**: <https://weibo.com/myl7> | No content too
     - **myl7 myl@Youtube**: <https://youtube.com/channel/UCvExDdqTBiP9eUtw3kdth0A> | There is still a long time before I can make (great enough to publish) videos
-
-Also use the `Follow Me` button on the right-top side.
