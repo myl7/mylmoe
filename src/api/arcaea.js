@@ -38,7 +38,6 @@ export const arcaeaProber = (
             const res = JSON.parse(new TextDecoder().decode(brotliDec(arr)))
             if (res.cmd === 'songtitle') {
               songTitle = res.data
-              console.log(songTitle)
               state = ArcaeaProberState.WaitUserInfo
             } else {
               reject({state: ArcaeaProberState.WaitSongTitle, data: res})
@@ -57,7 +56,6 @@ export const arcaeaProber = (
             const res = JSON.parse(new TextDecoder().decode(brotliDec(arr)))
             if (res.cmd === 'userinfo') {
               userInfo = res.data
-              console.log(userInfo)
               state = ArcaeaProberState.WaitScores
             } else {
               reject({state: ArcaeaProberState.WaitUserInfo, data: res})
@@ -84,7 +82,6 @@ export const arcaeaProber = (
           })
         } else if (e.data === 'bye') {
           ws.close()
-          console.log(scores)
           resolve({songTitle, userInfo, scores})
         } else {
           reject({state: ArcaeaProberState.WaitScores, data: e.data})
