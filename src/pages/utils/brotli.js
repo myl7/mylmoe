@@ -6,6 +6,7 @@ import {printBin} from '../../utils/binary'
 import {graphql, useStaticQuery} from 'gatsby'
 import init, {brotliDec} from '../../utils/brotli'
 import HtmlHead from '../../components/htmlHead'
+import {brotliEnc} from '../../api/brotli'
 
 const BrotliPage = () => {
   const encTextRef = useRef()
@@ -22,7 +23,13 @@ const BrotliPage = () => {
   `)
   const brotliUrl = data.file.publicURL
 
-  const enc = arr => decTextRef.current.value = arr === null ? '' : printBin(arr) // TODO
+  const enc = arr => {
+    if (arr === null) {
+      decTextRef.current.value = ''
+    } else {
+      brotliEnc(arr).then(res => decTextRef.current.value = printBin(res))
+    }
+  }
   const dec = arr => {
     if (arr === null) {
       encTextRef.current.value = ''
