@@ -10,17 +10,18 @@ const HtmlHead = props => {
       site {
         siteMetadata {
           title
+          description
           siteUrl
         }
       }
     }
   `)
-  const {title: siteTitle, siteUrl} = data.site.siteMetadata
+  const {title: siteTitle, description: siteDescription, siteUrl} = data.site.siteMetadata
 
   return (
     <Helmet>
       <title>{title} | {siteTitle}</title>
-      <meta name={'description'} content={description} />
+      <meta name={'description'} content={description + ' mylmoe, ' + siteDescription} />
       <link rel="canonical" href={siteUrl + path} />
       {children}
     </Helmet>

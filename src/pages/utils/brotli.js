@@ -36,7 +36,7 @@ const BrotliPage = () => {
 
   const title = 'Brotli online encode/decode tool'
   const description = 'Decode locally with WASM by npm package brotli-dec-wasm, ' +
-    'and encode remotely with Azure Functions App'
+    'and encode remotely with Azure Functions App.'
 
   return (
     <Layout>
