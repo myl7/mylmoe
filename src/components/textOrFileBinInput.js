@@ -9,7 +9,10 @@ const TextOrFileBinInput = props => {
 
   const [filename, setFilename] = useState(null)
 
-  const handleUpload = (e) => setFilename(e.target.files[0].name)
+  const handleUpload = (e) => {
+    const file = e.target.files[0]
+    setFilename(file ? file.name : fileHelp)
+  }
 
   const handleClick = () => {
     const text = textRef.current.value
