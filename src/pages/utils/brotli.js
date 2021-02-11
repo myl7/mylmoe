@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import Layout from '../../components/layout'
 import {CardContent, CardHeader, Divider, Grid} from '@material-ui/core'
 import TextOrFileBinInput from '../../components/textOrFileBinInput'
@@ -35,11 +35,18 @@ const BrotliPage = () => {
     }
   })
 
+  const [encWait, setEncWait] = useState(false)
+
   const enc = arr => {
     if (arr === null) {
       decTextRef.current.value = ''
     } else {
-      brotliEnc(arr).then(res => decTextRef.current.value = printBin(res))
+      const timer = setTimeout(() => setEncWait(true), 1000)
+      brotliEnc(arr).then(res => {
+        decTextRef.current.value = printBin(res)
+        clearTimeout(timer)
+        setEncWait(false)
+      })
     }
   }
   const dec = arr => {
@@ -66,11 +73,11 @@ const BrotliPage = () => {
         <Grid container spacing={2} justify={'center'}>
           <Grid item sm={6} xs={12}>
             <TextOrFileBinInput textHelp="Text to encode" fileHelp="File to encode" procHelp="Encode" procBin={enc}
-                                textRef={encTextRef} fileRef={encFileRef} />
+                                textRef={encTextRef} fileRef={encFileRef} wait={encWait} />
           </Grid>
           <Grid item sm={6} xs={12}>
             <TextOrFileBinInput textHelp="Text to decode" fileHelp="File to decode" procHelp="Decode" procBin={dec}
-                                textRef={decTextRef} fileRef={decFileRef} />
+                                textRef={decTextRef} fileRef={decFileRef} wait={false} />
           </Grid>
         </Grid>
       </CardContent>
