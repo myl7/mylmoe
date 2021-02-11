@@ -47,7 +47,8 @@ module.exports = {
               showLineNumbers: true,
               noInlineHighlight: true
             }
-          }
+          },
+          'gatsby-remark-copy-linked-files'
         ]
       }
     },
@@ -86,7 +87,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: 'wasm',
+        name: 'brotli-dec-wasm',
         path: './node_modules/brotli-dec-wasm/pkg/',
         ignore: [
           '**/*.js',
