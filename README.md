@@ -12,5 +12,6 @@ Used by myself on [mylmoe](https://myl.moe)
 ## License
 
 - MIT by default
-- Posts in `content/posts` use CC BY-NC-SA 4.0
-- Unless otherwise stated, including a `LICENSE` file in a subdirectory, or a file header description
+- Posts in `content/site/posts` use CC BY-NC-SA 4.0
+- Images in `src/images` and `content/site/posts/images` use All Rights Reserved by default
+- Unless otherwise stated, including a `LICENSE` file in a subdirectory, a file header description, or image Exif data
