@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
-import {Button, CircularProgress, Grid, TextField, Typography} from '@material-ui/core'
+import {Button, Grid, TextField, Typography} from '@material-ui/core'
 import {inputBin} from '../utils/binary'
+import WaitButton from './waitButton'
 
 const TextOrFileBinInput = props => {
   const {textHelp, fileHelp, procHelp, procBin, textRef, fileRef, wait} = props
@@ -47,16 +48,11 @@ const TextOrFileBinInput = props => {
             </label>
           </Grid>
           <Grid item>
-            <Button variant={'outlined'} onClick={handleClick}
-                    style={{display: 'inline-block', verticalAlign: 'middle'}}>
+            <WaitButton variant={'outlined'} onClick={handleClick} wait={wait}>
               <Typography variant={'subtitle1'}>
                 {procHelp}
               </Typography>
-            </Button>
-            {wait ? (
-              <CircularProgress style={{display: 'inline-block', marginLeft: '1em', verticalAlign: 'middle'}}
-                                size={25} />
-            ) : ''}
+            </WaitButton>
           </Grid>
         </Grid>
       </Grid>
