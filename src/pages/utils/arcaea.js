@@ -10,6 +10,7 @@ import {graphql, useStaticQuery} from 'gatsby'
 import DigitInput from '../../components/digitInput'
 import {arcaeaSetAction} from '../../redux/arcaeaRedux'
 import ArcaeaUserInfo from '../../components/arcaea/arcaeaUserInfo'
+import ArcaeaScoreList from '../../components/arcaea/arcaeaScoreList'
 
 const ArcaeaPage = () => {
   const title = 'Arcaea Scores'
@@ -78,6 +79,7 @@ const ArcaeaPage = () => {
           </Grid>
         </Grid>
         {userInfo ? <ArcaeaUserInfo userInfo={userInfo} style={{marginTop: '1em'}} /> : ''}
+        {scores ? <ArcaeaScoreList scores={scores} songTitle={songTitle} /> : ''}
       </CardContent>
     </Layout>
   )
