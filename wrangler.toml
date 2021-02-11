@@ -1,0 +1,8 @@
+name = "mylmoe"
+type = "webpack"
+workers_dev = true
+route = "myl.moe/*"
+
+[site]
+bucket = "public"
+entry-point = "workers-site"
