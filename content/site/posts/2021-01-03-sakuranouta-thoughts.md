@@ -12,16 +12,16 @@ tags: galgame sca-di
 虽然主角草薙直哉说了很多废话，但后面会证明~~是傲娇~~是他的温柔、为了保护大家。
 之后的相当一段日常部分就比较普通，还有点强行的感觉。
 
-![fun-1](/images/sakuranouta/fun-1.png)
+![fun-1](images/sakuranouta/fun-1.png)
 
 后面美术部一起完成草薙健一郎遗作的部分，大家倾尽全力最终完成作品的过程，燃而让人感慨万千；
 而后明石亘将声名让给主角的部分又相当感人，能够让人体会到亘当时的心情、责任和取舍。
 
-![all-1](/images/sakuranouta/all-1.png)
+![all-1](images/sakuranouta/all-1.png)
 
-![all-2](/images/sakuranouta/all-2.png)
+![all-2](images/sakuranouta/all-2.png)
 
-![all-3](/images/sakuranouta/all-3.png)
+![all-3](images/sakuranouta/all-3.png)
 
 ## 御樱禀线
 
@@ -33,9 +33,9 @@ tags: galgame sca-di
 
 这里要特别提一下，雫真的很特别，一方面人设对我胃口，另一方面众多细节都在暗示她的特殊性。不过离她的路线还早，有点可惜。
 
-![misakura-rin-1](/images/sakuranouta/misakura-rin-1.png)
+![misakura-rin-1](images/sakuranouta/misakura-rin-1.png)
 
-![misakura-rin-2](/images/sakuranouta/misakura-rin-2.png)
+![misakura-rin-2](images/sakuranouta/misakura-rin-2.png)
 
 ## 鸟谷真琴线
 
@@ -44,9 +44,9 @@ tags: galgame sca-di
 在这条线里，真哉的过去没有值得一提的显现，和之前我在某人的感想中看到的相似，是类似于“提桶跑路”的线路，选择了与过去割舍，为真琴而生活。
 另外真琴竭尽全力，最终也没有成就真哉和圭两位天才，这里的遗憾也让人感慨万分。
 
-![toritani-makoto-1](/images/sakuranouta/toritani-makoto-1.png)
+![toritani-makoto-1](images/sakuranouta/toritani-makoto-1.png)
 
-![toritani-makoto-2](/images/sakuranouta/toritani-makoto-2.png)
+![toritani-makoto-2](images/sakuranouta/toritani-makoto-2.png)
 
 ## 冰川里奈&川内野优美线 stage 1
 
