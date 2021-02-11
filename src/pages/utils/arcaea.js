@@ -39,6 +39,8 @@ const ArcaeaPage = () => {
   const brotliUrl = data.file.publicURL
   const arcaeaId = data.site.siteMetadata.author.arcaeaId
 
+  const ref = useRef()
+
   useEffect(() => {
     const uid = ref.current.value
     if (brotliInit) {
@@ -50,14 +52,11 @@ const ArcaeaPage = () => {
     } else {
       dispatch(brotliInitAction(init(brotliUrl)))
     }
-  }, [brotliInit]) // eslint-disable-line react-hooks/exhaustive-deps
-
-  const ref = useRef()
+  }, [brotliInit, ref, dispatch, brotliUrl])
 
   const [error, setError] = useState('')
 
   const {data: arcaeaData} = useSelector(state => state.arcaea)
-  // eslint-disable-next-line no-unused-vars
   const {songTitle, userInfo, scores} = arcaeaData
 
   return (
