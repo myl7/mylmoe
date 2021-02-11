@@ -1,6 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react'
 import Layout from '../../components/layout'
-import {Button, CardContent, CardHeader, Grid, Typography} from '@material-ui/core'
+import {CardContent, CardHeader, Grid, Typography} from '@material-ui/core'
 import HtmlHead from '../../components/htmlHead'
 import {useDispatch, useSelector} from 'react-redux'
 import {brotliInitAction} from '../../redux/brotliRedux'
@@ -11,6 +11,7 @@ import DigitInput from '../../components/digitInput'
 import {arcaeaSetAction} from '../../redux/arcaeaRedux'
 import ArcaeaUserInfo from '../../components/arcaea/arcaeaUserInfo'
 import ArcaeaScoreList from '../../components/arcaea/arcaeaScoreList'
+import WaitButton from '../../components/waitButton'
 
 const ArcaeaPage = () => {
   const title = 'Arcaea Scores'
@@ -21,7 +22,6 @@ const ArcaeaPage = () => {
 
   const brotliInit = useSelector(state => state.brotli.init)
 
-  // Add ext to avoid same query, which will cause gatsby error
   const data = useStaticQuery(graphql`
     query ArcaeaQuery {
       file(relativePath: {eq: "brotli-dec-wasm_bg.wasm"}) {
@@ -54,6 +54,19 @@ const ArcaeaPage = () => {
     }
   }, [brotliInit, ref, dispatch, brotliUrl])
 
+  const [wait, setWait] = useState(false)
+
+  const handleClick = () => {
+    const uid = ref.current.value
+    const timer = setTimeout(() => setWait(true), 1000)
+    brotliInit.then(() => {
+      arcaeaProber({uid: uid, brotliDec: brotliDec}).then(res => {
+        dispatch(arcaeaSetAction(uid, res))
+        clearTimeout(timer)
+      })
+    })
+  }
+
   const [error, setError] = useState('')
 
   const {data: arcaeaData} = useSelector(state => state.arcaea)
@@ -70,11 +83,11 @@ const ArcaeaPage = () => {
                         defaultValue={arcaeaId} />
           </Grid>
           <Grid item>
-            <Button variant="outlined">
+            <WaitButton variant="outlined" wait={wait} onClick={handleClick}>
               <Typography variant="subtitle1">
                 Query scores
               </Typography>
-            </Button>
+            </WaitButton>
           </Grid>
         </Grid>
         {userInfo ? <ArcaeaUserInfo userInfo={userInfo} style={{marginTop: '1em'}} /> : ''}
