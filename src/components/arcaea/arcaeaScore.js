@@ -90,9 +90,6 @@ const ArcaeaScore = props => {
             label: {
               formatter: '{b} {c} {d}%',
               color: textColor
-            },
-            tooltip: {
-              formatter: '{b} {c} {d}%'
             }
           }]
         })
