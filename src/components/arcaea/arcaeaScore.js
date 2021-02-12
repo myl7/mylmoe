@@ -51,9 +51,21 @@ const ArcaeaScore = props => {
         const echarts = m.default
         const chart = echarts.init(ref.current)
         chart.setOption({
+          title: {
+            text: 'Note accuracy',
+            left: 'center'
+          },
+          legend: {
+            orient: 'vertical',
+            left: 'left'
+          },
+          tooltip: {
+            trigger: 'item'
+          },
           color: ['#c23531', '#61a0a8', '#d48265', '#91c7ae'],
           series: [{
             type: 'pie',
+            center: ['50%', '70%'],
             radius: '50%',
             data: [
               {name: 'pure*', value: shiny_perfect_count},
@@ -61,7 +73,12 @@ const ArcaeaScore = props => {
               {name: 'far', value: near_count},
               {name: 'lost', value: miss_count}
             ],
-            label: {formatter: '{b} {c} {d}%'}
+            label: {
+              formatter: '{b} {c} {d}%'
+            },
+            tooltip: {
+              formatter: '{b} {c} {d}%'
+            }
           }]
         })
       })
@@ -83,7 +100,7 @@ const ArcaeaScore = props => {
         <Typography variant="subtitle1">
           Song available on {formatDate(song_date * 1000)}
         </Typography>
-        <div ref={ref} style={{width: 300, height: 120}}>
+        <div ref={ref} style={{width: 400, height: 200}}>
           pure {shiny_perfect_count + perfect_count}({perfect_count}) {''}
           far {near_count} {''}
           lost {miss_count}
