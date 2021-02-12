@@ -43,12 +43,20 @@ module.exports = {
           'gatsby-remark-responsive-iframe',
           'gatsby-remark-embed-snippet',
           {
+            resolve: 'gatsby-remark-autolink-headers',
+            options: {
+              isIconAfterHeader: true
+            }
+          },
+          'gatsby-remark-mermaid',
+          {
             resolve: 'gatsby-remark-prismjs',
             options: {
               showLineNumbers: true,
               noInlineHighlight: true
             }
           },
+          'gatsby-remark-katex',
           'gatsby-remark-copy-linked-files'
         ]
       }

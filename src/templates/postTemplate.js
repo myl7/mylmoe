@@ -5,7 +5,7 @@ import {graphql} from 'gatsby'
 import HtmlHead from '../components/htmlHead'
 
 const PostTemplate = props => {
-  const {html, frontmatter} = props.data.markdownRemark
+  const {html, frontmatter, tableOfContents: toc} = props.data.markdownRemark
   const {title, pubDate, updDate, excerpt, tags} = frontmatter
   const path = props.data.markdownRemark.fields.path
 
@@ -35,6 +35,7 @@ const PostTemplate = props => {
       } />
       <Divider />
       <CardContent>
+        <div dangerouslySetInnerHTML={{__html: toc}} style={{marginBottom: '1em'}} />
         <div dangerouslySetInnerHTML={{__html: html}} />
       </CardContent>
     </Layout>
@@ -47,6 +48,9 @@ export const postQuery = graphql`
   query PostQuery($postPath: String) {
     markdownRemark(fields: {path: {eq: $postPath}}) {
       html
+      tableOfContents(
+        pathToSlugField: "fields.path"
+      )
       fields {
         path
       }
