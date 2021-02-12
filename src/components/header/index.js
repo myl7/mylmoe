@@ -32,7 +32,7 @@ const Header = () => {
   return isXs ? (
     <MobileHeader />
   ) : (
-    <AppBar position="absolute" color="default" component="header">
+    <AppBar position="fixed" color="default" component="header">
       <Toolbar component="nav">
         <IconButton style={{marginLeft: '-0.5em'}}>
           <IntLinkReset to="/">

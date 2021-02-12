@@ -32,7 +32,7 @@ const MobileHeader = () => {
   const handleClick = () => setOpen(open => !open)
 
   return (
-    <AppBar position="absolute" color="default" component="header">
+    <AppBar position="fixed" color="default" component="header">
       <Toolbar style={{paddingLeft: '1em'}} component="nav">
         <IconButton onClick={handleClick} style={{marginLeft: '-0.5em'}}>
           <MenuIcon color="primary" />
