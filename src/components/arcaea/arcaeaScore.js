@@ -1,5 +1,5 @@
 import React, {useEffect, useRef} from 'react'
-import {Card, CardContent, CardHeader, Typography} from '@material-ui/core'
+import {Card, CardContent, CardHeader, Typography, useTheme} from '@material-ui/core'
 import {formatDate, formatTime} from '../../utils/datetime'
 
 const getScoreRank = score => {
@@ -45,6 +45,10 @@ const ArcaeaScore = props => {
 
   const ref = useRef()
 
+  const theme = useTheme()
+  const textColor = theme.palette.text.primary
+  const backgroundColor = theme.palette.background.paper
+
   useEffect(() => {
     if (start) {
       import('../../utils/echarts').then(m => {
@@ -53,14 +57,24 @@ const ArcaeaScore = props => {
         chart.setOption({
           title: {
             text: 'Note accuracy',
-            left: 'center'
+            left: 'center',
+            textStyle: {
+              color: textColor
+            }
           },
           legend: {
             orient: 'vertical',
-            left: 'left'
+            left: 'left',
+            textStyle: {
+              color: textColor
+            }
           },
           tooltip: {
-            trigger: 'item'
+            trigger: 'item',
+            backgroundColor,
+            textStyle: {
+              color: textColor
+            }
           },
           color: ['#c23531', '#61a0a8', '#d48265', '#91c7ae'],
           series: [{
@@ -74,7 +88,8 @@ const ArcaeaScore = props => {
               {name: 'lost', value: miss_count}
             ],
             label: {
-              formatter: '{b} {c} {d}%'
+              formatter: '{b} {c} {d}%',
+              color: textColor
             },
             tooltip: {
               formatter: '{b} {c} {d}%'
@@ -83,7 +98,7 @@ const ArcaeaScore = props => {
         })
       })
     }
-  }, [start, shiny_perfect_count, perfect_count, near_count, miss_count, ref])
+  }, [start, shiny_perfect_count, perfect_count, near_count, miss_count, ref, textColor, backgroundColor])
 
   return (
     <Card variant="outlined" component="article" {...others}>
