@@ -90,7 +90,7 @@ const ArcaeaPage = () => {
             </WaitButton>
           </Grid>
         </Grid>
-        {userInfo ? <ArcaeaUserInfo userInfo={userInfo} style={{marginTop: '1em'}} /> : ''}
+        {userInfo ? <ArcaeaUserInfo userInfo={userInfo} songTitle={songTitle} style={{marginTop: '1em'}} /> : ''}
         {scores ? <ArcaeaScoreList scores={scores} songTitle={songTitle} /> : ''}
       </CardContent>
     </Layout>

@@ -32,7 +32,7 @@ const getTitle = (songId, songTitle) => {
 }
 
 const ArcaeaScore = props => {
-  const {score: songScore, start, songTitle, ...others} = props
+  const {score: songScore, start, songTitle, titlePrefix = '', ...others} = props
   const {
     song_id, difficulty, score, shiny_perfect_count, perfect_count, near_count, miss_count, health, time_played,
     // eslint-disable-next-line no-unused-vars
@@ -70,7 +70,8 @@ const ArcaeaScore = props => {
 
   return (
     <Card variant="outlined" component="article" {...others}>
-      <CardHeader title={`${title} ${difficultyLabel} ${constant.toFixed(1)}`} titleTypographyProps={{component: 'h2'}}
+      <CardHeader title={`${titlePrefix}${title} ${difficultyLabel} ${constant.toFixed(1)}`}
+                  titleTypographyProps={{component: 'h2'}}
                   subheader={`${scoreRank} ${score} at ${formatTime(time_played)}`} />
       <CardContent>
         <Typography variant="subtitle1">
