@@ -38,7 +38,6 @@ const ArcaeaScoreList = props => {
   }
 
   const levels = Object.keys(scoresByLevel).sort((a, b) => getLevelNum(a) - getLevelNum(b)).reverse()
-  console.log(levels)
   const defaultLevel = levels[levels.length / 2 | 0]
 
   const handleChange = (_, level) => setTab(level)
