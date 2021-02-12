@@ -63,6 +63,7 @@ const ArcaeaPage = () => {
       arcaeaProber({uid: uid, brotliDec: brotliDec}).then(res => {
         dispatch(arcaeaSetAction(uid, res))
         clearTimeout(timer)
+        setWait(false)
       })
     })
   }
