@@ -8,7 +8,8 @@ module.exports = {
       email: 'myl@myl.moe',
       avatar: '', // Leave empty to use Gravatar
       arcaeaId: '984569312'
-    }
+    },
+    moeCode: '20210016'
   },
   plugins: [
     // 'gatsby-plugin-webpack-bundle-analyser-v2',

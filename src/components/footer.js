@@ -7,10 +7,20 @@ import sa from '../images/cc/sa.svg'
 import ExtLinkRel from './links/extLinkRel'
 import ExtLink from './links/extLink'
 import IntLink from './links/intLink'
-
-const moeCode = '20210016'
+import {graphql, useStaticQuery} from 'gatsby'
 
 const Footer = () => {
+  const data = useStaticQuery(graphql`
+    query FooterQuery {
+      site {
+        siteMetadata {
+          moeCode
+        }
+      }
+    }
+  `)
+  const moeCode = data.site.siteMetadata.moeCode
+
   return (
     <Card component="footer" variant="outlined" style={{margin: '1em'}}>
       <CardContent>
