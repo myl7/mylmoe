@@ -1,12 +1,11 @@
 import React from 'react'
 import {Card, CardContent, CardHeader, Grid} from '@material-ui/core'
 import {formatDate} from '../../utils/datetime'
-import WIP from '../wip'
 import ArcaeaScore from './arcaeaScore'
+import ArcaeaPttHistory from './arcaeaPttHistory'
 
 const ArcaeaUserInfo = props => {
   const {userInfo, songTitle, ...others} = props
-  // eslint-disable-next-line no-unused-vars
   const {name, user_code, join_date, rating, recent_score, rating_records} = userInfo
 
   return (
@@ -19,14 +18,14 @@ const ArcaeaUserInfo = props => {
         </div>
       } />
       <CardContent>
-        <Grid container spacing={2}>
+        <Grid container spacing={2} justify="center">
           <Grid item>
             {recent_score[0] ? (
               <ArcaeaScore songTitle={songTitle} score={recent_score[0]} titlePrefix={'Recent: '} />
             ) : ''}
           </Grid>
           <Grid item>
-            <WIP />
+            <ArcaeaPttHistory rating_records={rating_records} currentPtt={rating / 100} />
           </Grid>
         </Grid>
       </CardContent>
