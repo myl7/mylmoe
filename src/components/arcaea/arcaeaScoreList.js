@@ -58,7 +58,7 @@ const ArcaeaScoreList = props => {
           <Grid container spacing={2} justify={'center'}>
             {scoresByLevel[level].map(score => (
               <Grid item key={score.song_id}>
-                <ArcaeaScore score={score} songTitle={songTitle} start={true} />
+                <ArcaeaScore score={score} songTitle={songTitle} />
               </Grid>
             ))}
           </Grid>

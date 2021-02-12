@@ -32,7 +32,7 @@ const getTitle = (songId, songTitle) => {
 }
 
 const ArcaeaScore = props => {
-  const {score: songScore, start, songTitle, titlePrefix = '', ...others} = props
+  const {score: songScore, start = true, songTitle, titlePrefix = '', ...others} = props
   const {
     song_id, difficulty, score, shiny_perfect_count, perfect_count, near_count, miss_count, health, time_played,
     // eslint-disable-next-line no-unused-vars
