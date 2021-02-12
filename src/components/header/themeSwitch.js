@@ -13,6 +13,9 @@ const ThemeSwitch = props => {
   useEffect(() => {
     let dark = localStorage.getItem(key)
     dark = (dark === null ? false : Boolean(dark))
+    document.getElementsByTagName('body')[0].style.setProperty(
+      'background-color', dark ? '#303030' : '#fafafa'
+    )
     dispatch(themeInitAction(dark))
   })
 
