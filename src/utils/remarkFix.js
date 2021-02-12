@@ -1,9 +1,15 @@
 export const fixLink = elem => {
   const classes = ['MuiTypography-root', 'MuiLink-root', 'MuiLink-underlineHover', 'MuiTypography-colorPrimary']
-  const links = elem.querySelectorAll('a')
-  for (const link of links) {
+  elem.querySelectorAll('a').forEach(link => {
     link.classList.add(...classes)
-  }
+  })
+}
+
+export const fixInlineCode = elem => {
+  const classes = ['inline-code', 'MuiPaper-rounded']
+  elem.querySelectorAll(':not(pre) > code').forEach(inlineCode => {
+    inlineCode.classList.add(...classes)
+  })
 }
 
 const remarkFix = (elem, fixList) => {
@@ -16,6 +22,7 @@ const remarkFix = (elem, fixList) => {
     }
   } else {
     fixLink(elem)
+    fixInlineCode(elem)
   }
 }
 
