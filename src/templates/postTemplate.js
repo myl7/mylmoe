@@ -3,6 +3,7 @@ import Layout from '../components/layout'
 import {Box, CardContent, CardHeader, Chip, Divider} from '@material-ui/core'
 import {graphql} from 'gatsby'
 import HtmlHead from '../components/htmlHead'
+import remarkFix from '../utils/remarkFix'
 
 const PostTemplate = props => {
   const {html, frontmatter, tableOfContents: toc} = props.data.markdownRemark
@@ -10,6 +11,9 @@ const PostTemplate = props => {
   const path = props.data.markdownRemark.fields.path
 
   const handleTagClick = tag => () => null
+
+  const fixBodyStyles = elem => remarkFix(elem)
+  const fixTocStyles = elem => remarkFix(elem)
 
   return (
     <Layout>
@@ -35,8 +39,8 @@ const PostTemplate = props => {
       } />
       <Divider />
       <CardContent>
-        <div dangerouslySetInnerHTML={{__html: toc}} style={{marginBottom: '1em'}} />
-        <div dangerouslySetInnerHTML={{__html: html}} />
+        <div ref={fixTocStyles} dangerouslySetInnerHTML={{__html: toc}} style={{marginBottom: '1em'}} />
+        <div ref={fixBodyStyles} dangerouslySetInnerHTML={{__html: html}} />
       </CardContent>
     </Layout>
   )

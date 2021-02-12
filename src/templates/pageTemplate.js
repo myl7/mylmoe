@@ -3,11 +3,14 @@ import Layout from '../components/layout'
 import {Box, CardContent, CardHeader, Divider} from '@material-ui/core'
 import {graphql} from 'gatsby'
 import HtmlHead from '../components/htmlHead'
+import remarkFix from '../utils/remarkFix'
 
 const PageTemplate = props => {
   const {html, frontmatter} = props.data.markdownRemark
   const {title, updDate, description} = frontmatter
   const path = props.data.markdownRemark.fields.path
+
+  const fixBodyStyles = elem => remarkFix(elem)
 
   return (
     <Layout>
@@ -22,7 +25,7 @@ const PageTemplate = props => {
       } />
       <Divider />
       <CardContent>
-        <div dangerouslySetInnerHTML={{__html: html}} />
+        <div ref={fixBodyStyles} dangerouslySetInnerHTML={{__html: html}} />
       </CardContent>
     </Layout>
   )
