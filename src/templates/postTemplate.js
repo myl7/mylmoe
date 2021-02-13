@@ -1,10 +1,10 @@
-import React, {useEffect, useRef} from 'react'
+import React from 'react'
 import Layout from '../components/layout'
-import {Box, Card, CardContent, CardHeader, Chip, Divider} from '@material-ui/core'
+import {Box, CardContent, CardHeader, Chip, Divider} from '@material-ui/core'
 import {graphql} from 'gatsby'
 import HtmlHead from '../components/htmlHead'
 import remarkFix from '../utils/remarkFix'
-import {useSelector} from 'react-redux'
+import Comment from '../components/comment'
 
 const PostTemplate = props => {
   const {html, frontmatter, tableOfContents: toc} = props.data.markdownRemark
@@ -15,36 +15,6 @@ const PostTemplate = props => {
 
   const fixBodyStyles = elem => remarkFix(elem)
   const fixTocStyles = elem => remarkFix(elem)
-
-  const ref = useRef()
-
-  const dark = useSelector(state => state.theme.dark)
-
-  useEffect(() => {
-    const elem = ref.current
-    if (elem) {
-      const script = document.createElement('script')
-      script.src = 'https://telegram.org/js/telegram-widget.js?14'
-      script.async = true
-      script.dataset.telegramDiscussion = 'mylmoe'
-      script.dataset.commentsLimit = '5'
-      script.dataset.colorful = '1'
-      if (dark) {
-        script.dataset.dark = '1'
-      }
-
-      if (elem.firstChild) {
-        elem.removeChild(elem.firstChild)
-      }
-      elem.appendChild(script)
-      return () => {
-        try {
-          elem.removeChild(script)
-        } catch {
-        }
-      }
-    }
-  }, [ref, dark])
 
   return (
     <Layout>
@@ -72,7 +42,7 @@ const PostTemplate = props => {
       <CardContent>
         <div ref={fixTocStyles} dangerouslySetInnerHTML={{__html: toc}} style={{marginBottom: '1em'}} />
         <div ref={fixBodyStyles} dangerouslySetInnerHTML={{__html: html}} style={{marginBottom: '1em'}} />
-        <Card variant="outlined" ref={ref} />
+        <Comment />
       </CardContent>
     </Layout>
   )
