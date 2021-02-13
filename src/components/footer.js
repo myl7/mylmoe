@@ -52,12 +52,13 @@ const Footer = () => {
             {moeCode}号
           </ExtLink>
           {' | '}
-          <ExtLink href="https://icons8.com/icons/set/code">
-            Code icon
+          Icons made by {''}
+          <ExtLink href="https://www.freepik.com" title="Freepik">
+            Freepik
           </ExtLink>
-          {''} icon by {''}
-          <ExtLink href="https://icons8.com">
-            Icons8
+          {''} from {''}
+          <ExtLink href="https://www.flaticon.com/" title="Flaticon">
+            www.flaticon.com
           </ExtLink>
         </Typography>
         <Typography variant="body1">
