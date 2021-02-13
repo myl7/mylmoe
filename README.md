@@ -4,6 +4,12 @@ A static & serverless Gatsby-based blog system with some other utilities
 
 Used by myself on [mylmoe](https://myl.moe)
 
+## Website: mylmoe
+
+[mylmoe](https://myl.moe), myl7's blog with some other utilities
+
+Also available on Telegram: Channel [mylmoe](https://t.me/mylmoe)
+
 ## Frameworks
 
 - [Gatsby](https://www.gatsbyjs.com)
