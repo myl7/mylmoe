@@ -9,7 +9,8 @@ module.exports = {
       avatar: '', // Leave empty to use Gravatar
       arcaeaId: '984569312'
     },
-    moeCode: '20210016'
+    moeCode: '20210016',
+    addThisId: 'ra-602847081f8c7cc5'
   },
   plugins: [
     // 'gatsby-plugin-webpack-bundle-analyser-v2',
