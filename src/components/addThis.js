@@ -22,3 +22,5 @@ const AddThis = () => {
 }
 
 export default AddThis
+
+export const followClass = 'addthis_inline_follow_toolbox'
