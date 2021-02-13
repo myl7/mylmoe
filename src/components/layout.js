@@ -18,7 +18,7 @@ import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
 import 'prismjs/plugins/command-line/prism-command-line.css'
 import './highlight.css'
 import 'katex/dist/katex.min.css'
-import Share from './share'
+import AddThis from './addThis'
 
 const Layout = props => {
   const {children} = props
@@ -34,7 +34,7 @@ const Layout = props => {
         </Card>
         <Footer />
         <GoTop />
-        <Share />
+        <AddThis />
         <Fireworks />
       </div>
     </MuiThemeProvider>
