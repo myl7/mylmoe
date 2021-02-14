@@ -16,7 +16,7 @@ const AddThis = () => {
 
   return (
     <Helmet>
-      <script src={'https://s7.addthis.com/js/300/addthis_widget.js#pubid=' + addThisId} />
+      <script async src={'https://s7.addthis.com/js/300/addthis_widget.js#pubid=' + addThisId} />
     </Helmet>
   )
 }
