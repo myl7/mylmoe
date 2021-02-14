@@ -1,6 +1,6 @@
 import React from 'react'
 import {Dialog, DialogContent, DialogTitle} from '@material-ui/core'
-import {shareClass} from '../shareThis'
+import {shareClass} from '../addThis'
 
 const ShareDialog = props => {
   const {open, setOpen} = props

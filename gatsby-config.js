@@ -10,9 +10,8 @@ module.exports = {
       arcaeaId: '984569312'
     },
     moeCode: '20210016',
-    addThisId: 'ra-602847081f8c7cc5', // Deprecated
-    telegramChannel: 'mylmoe',
-    shareThisId: '602968c96d61740011431681'
+    addThisId: 'ra-602847081f8c7cc5',
+    telegramChannel: 'mylmoe'
   },
   plugins: [
     // 'gatsby-plugin-webpack-bundle-analyser-v2',

@@ -18,7 +18,7 @@ import 'prismjs/plugins/command-line/prism-command-line.css'
 import './highlight.css'
 import 'katex/dist/katex.min.css'
 import FloatAction from './floatAction'
-import ShareThis from './shareThis'
+import AddThis from './addThis'
 
 const Layout = props => {
   const {children} = props
@@ -35,7 +35,7 @@ const Layout = props => {
         <Footer />
         <FloatAction />
         <Fireworks />
-        <ShareThis />
+        <AddThis />
       </div>
     </MuiThemeProvider>
   )
