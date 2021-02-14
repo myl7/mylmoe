@@ -17,7 +17,7 @@ import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
 import 'prismjs/plugins/command-line/prism-command-line.css'
 import './highlight.css'
 import 'katex/dist/katex.min.css'
-import Action from './action'
+import FloatAction from './floatAction'
 
 const Layout = props => {
   const {children} = props
@@ -32,7 +32,7 @@ const Layout = props => {
           {children}
         </Card>
         <Footer />
-        <Action />
+        <FloatAction />
         <Fireworks />
       </div>
     </MuiThemeProvider>
