@@ -11,7 +11,8 @@ module.exports = {
     },
     moeCode: '20210016',
     addThisId: 'ra-602847081f8c7cc5', // Deprecated
-    telegramChannel: 'mylmoe'
+    telegramChannel: 'mylmoe',
+    shareThisId: '602968c96d61740011431681'
   },
   plugins: [
     // 'gatsby-plugin-webpack-bundle-analyser-v2',
