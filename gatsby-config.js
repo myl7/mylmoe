@@ -10,7 +10,7 @@ module.exports = {
       arcaeaId: '984569312'
     },
     moeCode: '20210016',
-    addThisId: 'ra-602847081f8c7cc5',
+    addThisId: 'ra-602847081f8c7cc5', // Deprecated
     telegramChannel: 'mylmoe'
   },
   plugins: [

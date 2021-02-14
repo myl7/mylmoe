@@ -5,15 +5,15 @@ import {animateScroll} from 'react-scroll/modules'
 
 const style = {
   position: 'fixed',
-  top: '5.15em',
-  right: '0.75em'
+  bottom: '1em',
+  right: '1em'
 }
 
 const GoTop = () => {
   const handleClick = () => animateScroll.scrollToTop()
 
   return (
-    <Fab aria-label="Go top" color="primary" onClick={handleClick} size="medium" style={style}>
+    <Fab aria-label="Go top" color="primary" onClick={handleClick} style={style}>
       <ArrowUpward />
     </Fab>
   )
