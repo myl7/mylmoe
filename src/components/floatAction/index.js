@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {SpeedDial, SpeedDialIcon} from '@material-ui/lab'
 import GoTop from './goTop'
+import CopyLink from './copyLink'
 
 const style = {
   position: 'fixed',
@@ -19,6 +20,7 @@ const FloatAction = () => {
       <SpeedDialIcon />
     } open={open} onOpen={handleOpen} onClose={handleClose} style={style}>
       <GoTop onClick={handleClose} FabProps={{size: 'medium'}} />
+      <CopyLink onClick={handleClose} FabProps={{size: 'medium'}} />
     </SpeedDial>
   )
 }
