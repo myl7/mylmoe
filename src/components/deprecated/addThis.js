@@ -23,4 +23,6 @@ const AddThis = () => {
 
 export default AddThis
 
+export const shareClass = 'addthis_inline_share_toolbox'
+
 export const followClass = 'addthis_inline_follow_toolbox'
