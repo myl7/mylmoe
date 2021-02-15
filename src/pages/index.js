@@ -29,15 +29,9 @@ const IndexPage = () => {
       }
     }
   `)
-  const updDates = []
-  const pubDates = []
-  for (const {node} of data.allMarkdownRemark.edges) {
-    const {updDate, pubDate} = node.frontmatter
-    updDates.push(updDate)
-    pubDates.push(pubDate)
-  }
-  const updDate = updDates.reduce((a, b) => a > b ? a : b)
-  const pubDate = pubDates.reduce((a, b) => a > b ? a : b)
+  const {edges} = data.allMarkdownRemark
+  const updDate = edges.map(({node}) => node.frontmatter.updDate).reduce((a, b) => a > b ? a : b)
+  const pubDate = edges.map(({node}) => node.frontmatter.pubDate).reduce((a, b) => a > b ? a : b)
 
   const handleCardClick = path => () => navigate(path)
   const handleTagClick = tag => e => {
