@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from '../components/layout'
 import {Box, CardContent, CardHeader, Chip, Divider} from '@material-ui/core'
-import {graphql} from 'gatsby'
+import {graphql, navigate} from 'gatsby'
 import HtmlHead from '../components/htmlHead'
 import remarkFix from '../utils/remarkFix'
 import Comment from '../components/comment'
@@ -11,7 +11,7 @@ const PostTemplate = props => {
   const {title, pubDate, updDate, excerpt, tags} = frontmatter
   const path = props.data.markdownRemark.fields.path
 
-  const handleTagClick = tag => () => null
+  const handleTagClick = tag => () => navigate(`/tags/${tag}/`)
 
   const fixBodyStyles = elem => remarkFix(elem)
   const fixTocStyles = elem => remarkFix(elem)

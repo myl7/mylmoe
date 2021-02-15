@@ -42,6 +42,7 @@ const IndexPage = () => {
   const handleCardClick = path => () => navigate(path)
   const handleTagClick = tag => e => {
     e.stopPropagation()
+    navigate(`/tags/${tag}/`)
   }
 
   return (
