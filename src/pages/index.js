@@ -1,9 +1,10 @@
 import React from 'react'
 import Layout from '../components/layout'
-import {Card, CardActionArea, CardContent, CardHeader, Chip, Divider} from '@material-ui/core'
-import {graphql, navigate, useStaticQuery} from 'gatsby'
+import {CardContent, CardHeader, Divider} from '@material-ui/core'
+import {graphql, useStaticQuery} from 'gatsby'
 import HtmlHead from '../components/htmlHead'
 import PostDate from '../components/post/postDate'
+import PostItem from '../components/post/postItem'
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -34,12 +35,6 @@ const IndexPage = () => {
   const updDate = edges.map(({node}) => node.frontmatter.updDate).reduce((a, b) => a > b ? a : b)
   const pubDate = edges.map(({node}) => node.frontmatter.pubDate).reduce((a, b) => a > b ? a : b)
 
-  const handleCardClick = path => () => navigate(path)
-  const handleTagClick = tag => e => {
-    e.stopPropagation()
-    navigate(`/tags/${tag}/`)
-  }
-
   return (
     <Layout>
       <HtmlHead title={'Index: Post List'} description={'All Posts written by myl7 in the blog.'} path={'/'} />
@@ -54,25 +49,8 @@ const IndexPage = () => {
           const {title, pubDate, updDate, excerpt, tags} = frontmatter
 
           return (
-            <Card variant="outlined" style={{margin: '1em'}} component="article" key={path}>
-              <CardActionArea onClick={handleCardClick(path)}>
-                <CardHeader title={title} titleTypographyProps={{component: 'h2'}} subheader={
-                  <div>
-                    <PostDate updDate={updDate} pubDate={pubDate} />
-                    <div>
-                      {tags.split(' ').map(tag => (
-                        <Chip label={tag} key={tag} clickable onClick={handleTagClick(tag)}
-                              style={{marginRight: '0.5em'}} />
-                      ))}
-                    </div>
-                  </div>
-                } />
-                <Divider />
-                <CardContent>
-                  {excerpt}
-                </CardContent>
-              </CardActionArea>
-            </Card>
+            <PostItem title={title} pubDate={pubDate} updDate={updDate} excerpt={excerpt} tags={tags} key={path}
+                      style={{margin: '1em'}} />
           )
         })}
       </CardContent>
