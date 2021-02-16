@@ -2,7 +2,8 @@ import React from 'react'
 import {graphql, navigate} from 'gatsby'
 import Layout from '../components/layout'
 import HtmlHead from '../components/htmlHead'
-import {Box, Card, CardActionArea, CardContent, CardHeader, Chip, Divider} from '@material-ui/core'
+import {Card, CardActionArea, CardContent, CardHeader, Chip, Divider} from '@material-ui/core'
+import PostDate from '../components/post/postDate'
 
 const TagTemplate = props => {
   const {tag} = props.pageContext
@@ -21,16 +22,7 @@ const TagTemplate = props => {
       <HtmlHead title={`Tag ${tag}: Post List`} description={`All Posts with tag ${tag} written by myl7 in the blog.`}
                 path={`/tags/${tag}/`} />
       <CardHeader title={`Tag ${tag}`} titleTypographyProps={{component: 'h1'}} subheader={
-        <div>
-          Updated on {''}
-          <Box component={'span'} fontWeight={'fontWeightBold'}>
-            {updDate}
-          </Box>
-          {''} | Published on {''}
-          <Box component={'span'} fontWeight={'fontWeightBold'}>
-            {pubDate}
-          </Box>
-        </div>
+        <PostDate updDate={updDate} pubDate={pubDate} />
       } />
       <Divider />
       <CardContent style={{paddingTop: 0, paddingBottom: 0}}>
@@ -44,16 +36,7 @@ const TagTemplate = props => {
               <CardActionArea onClick={handleCardClick(path)}>
                 <CardHeader title={title} titleTypographyProps={{component: 'h2'}} subheader={
                   <div>
-                    <div>
-                      Updated on {''}
-                      <Box component={'span'} fontWeight={'fontWeightBold'}>
-                        {updDate}
-                      </Box>
-                      {''} | Published on {''}
-                      <Box component={'span'} fontWeight={'fontWeightBold'}>
-                        {pubDate}
-                      </Box>
-                    </div>
+                    <PostDate updDate={updDate} pubDate={pubDate} />
                     <div>
                       {tags.split(' ').map(tag => (
                         <Chip label={tag} key={tag} clickable onClick={handleTagClick(tag)}

@@ -1,10 +1,11 @@
 import React from 'react'
 import Layout from '../components/layout'
-import {Box, CardContent, CardHeader, Chip, Divider} from '@material-ui/core'
+import {CardContent, CardHeader, Chip, Divider} from '@material-ui/core'
 import {graphql, navigate} from 'gatsby'
 import HtmlHead from '../components/htmlHead'
 import remarkFix from '../utils/remarkFix'
 import Comment from '../components/comment'
+import PostDate from '../components/post/postDate'
 
 const PostTemplate = props => {
   const {html, frontmatter, tableOfContents: toc} = props.data.markdownRemark
@@ -21,17 +22,9 @@ const PostTemplate = props => {
       <HtmlHead title={title} description={excerpt} path={path} />
       <CardHeader title={title} titleTypographyProps={{component: 'h1'}} subheader={
         <div>
-          <div>
-            {excerpt ? excerpt + ' | ' : ''}
-            Updated on {''}
-            <Box component={'span'} fontWeight={'fontWeightBold'}>
-              {updDate}
-            </Box>
-            {''} | Published on {''}
-            <Box component={'span'} fontWeight={'fontWeightBold'}>
-              {pubDate}
-            </Box>
-          </div>
+          <PostDate updDate={updDate} pubDate={pubDate}>
+            {excerpt}
+          </PostDate>
           {tags.split(' ').map(tag => (
             <Chip label={tag} key={tag} clickable onClick={handleTagClick(tag)}
                   style={{marginRight: '0.5em'}} />

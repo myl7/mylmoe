@@ -1,8 +1,9 @@
 import React from 'react'
 import Layout from '../components/layout'
-import {Box, Card, CardActionArea, CardContent, CardHeader, Chip, Divider} from '@material-ui/core'
+import {Card, CardActionArea, CardContent, CardHeader, Chip, Divider} from '@material-ui/core'
 import {graphql, navigate, useStaticQuery} from 'gatsby'
 import HtmlHead from '../components/htmlHead'
+import PostDate from '../components/post/postDate'
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -43,16 +44,7 @@ const IndexPage = () => {
     <Layout>
       <HtmlHead title={'Index: Post List'} description={'All Posts written by myl7 in the blog.'} path={'/'} />
       <CardHeader title={'Posts'} titleTypographyProps={{component: 'h1'}} subheader={
-        <div>
-          Updated on {''}
-          <Box component={'span'} fontWeight={'fontWeightBold'}>
-            {updDate}
-          </Box>
-          {''} | Published on {''}
-          <Box component={'span'} fontWeight={'fontWeightBold'}>
-            {pubDate}
-          </Box>
-        </div>
+        <PostDate updDate={updDate} pubDate={pubDate} />
       } />
       <Divider />
       <CardContent style={{paddingTop: 0, paddingBottom: 0}}>
@@ -66,16 +58,7 @@ const IndexPage = () => {
               <CardActionArea onClick={handleCardClick(path)}>
                 <CardHeader title={title} titleTypographyProps={{component: 'h2'}} subheader={
                   <div>
-                    <div>
-                      Updated on {''}
-                      <Box component={'span'} fontWeight={'fontWeightBold'}>
-                        {updDate}
-                      </Box>
-                      {''} | Published on {''}
-                      <Box component={'span'} fontWeight={'fontWeightBold'}>
-                        {pubDate}
-                      </Box>
-                    </div>
+                    <PostDate updDate={updDate} pubDate={pubDate} />
                     <div>
                       {tags.split(' ').map(tag => (
                         <Chip label={tag} key={tag} clickable onClick={handleTagClick(tag)}
