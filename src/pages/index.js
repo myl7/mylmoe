@@ -49,8 +49,8 @@ const IndexPage = () => {
           const {title, pubDate, updDate, excerpt, tags} = frontmatter
 
           return (
-            <PostItem title={title} pubDate={pubDate} updDate={updDate} excerpt={excerpt} tags={tags} key={path}
-                      style={{margin: '1em'}} />
+            <PostItem title={title} pubDate={pubDate} updDate={updDate} excerpt={excerpt} tags={tags} path={path}
+                      key={path} style={{margin: '1em'}} />
           )
         })}
       </CardContent>
