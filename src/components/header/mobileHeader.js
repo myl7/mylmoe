@@ -2,13 +2,14 @@ import React, {useState} from 'react'
 import {
   AppBar, Avatar, Collapse, IconButton, List, ListItem, ListItemIcon, ListItemText, Toolbar, Typography
 } from '@material-ui/core'
-import {Home as HomeIcon, Menu as MenuIcon} from '@material-ui/icons'
+import {Home as HomeIcon, Menu as MenuIcon, RssFeed as RssFeedIcon} from '@material-ui/icons'
 import nav from '../../../content/nav'
 import {graphql, useStaticQuery} from 'gatsby'
 import gravatar from '../../utils/gravatar'
 import NavListButton from './navListButton'
 import IntLinkReset from '../links/intLinkReset'
 import ThemeSwitch from './themeSwitch'
+import ExtLink from '../links/extLink'
 
 const MobileHeader = () => {
   const [open, setOpen] = useState(false)
@@ -44,9 +45,14 @@ const MobileHeader = () => {
         </IntLinkReset>
         <div style={{flexGrow: 1}} />
         <ThemeSwitch />
-        <Typography variant="subtitle1" style={{marginRight: '1em'}}>
+        <Typography variant="subtitle1">
           Dark
         </Typography>
+        <IconButton>
+          <ExtLink href="/rss.xml">
+            <RssFeedIcon />
+          </ExtLink>
+        </IconButton>
         <IntLinkReset to="/about">
           <Avatar alt={'Avatar of ' + name} src={avatarUrl} />
         </IntLinkReset>

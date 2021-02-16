@@ -4,11 +4,12 @@ import MobileHeader from './mobileHeader'
 import {AppBar, Avatar, Button, IconButton, Toolbar, Typography} from '@material-ui/core'
 import nav from '../../../content/nav'
 import {graphql, useStaticQuery} from 'gatsby'
-import {Home as HomeIcon} from '@material-ui/icons'
+import {Home as HomeIcon, RssFeed as RssFeedIcon} from '@material-ui/icons'
 import gravatar from '../../utils/gravatar'
 import IntLinkReset from '../links/intLinkReset'
 import NavMenuButton from './navMenuButton'
 import ThemeSwitch from './themeSwitch'
+import ExtLink from '../links/extLink'
 
 const Header = () => {
   const isXs = useXs()
@@ -57,9 +58,14 @@ const Header = () => {
         ))}
         <div style={{flexGrow: 1}} />
         <ThemeSwitch />
-        <Typography variant="subtitle1" style={{marginRight: '1em'}}>
+        <Typography variant="subtitle1">
           Dark
         </Typography>
+        <IconButton>
+          <ExtLink href="/rss.xml">
+            <RssFeedIcon />
+          </ExtLink>
+        </IconButton>
         <IntLinkReset to="/about">
           <Avatar alt={'Avatar of ' + name} src={avatarUrl} />
         </IntLinkReset>
