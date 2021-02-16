@@ -1,18 +1,17 @@
 import React from 'react'
 import Layout from '../components/layout'
 import {CardContent, CardHeader, Chip, Divider} from '@material-ui/core'
-import {graphql, navigate} from 'gatsby'
+import {graphql} from 'gatsby'
 import HtmlHead from '../components/htmlHead'
 import remarkFix from '../utils/remarkFix'
 import Comment from '../components/comment'
 import PostDate from '../components/post/postDate'
+import IntLinkReset from '../components/links/intLinkReset'
 
 const PostTemplate = props => {
   const {html, frontmatter, tableOfContents: toc} = props.data.markdownRemark
   const {title, pubDate, updDate, excerpt, tags} = frontmatter
   const path = props.data.markdownRemark.fields.path
-
-  const handleTagClick = tag => () => navigate(`/tags/${tag}/`)
 
   const fixBodyStyles = elem => remarkFix(elem)
   const fixTocStyles = elem => remarkFix(elem)
@@ -26,8 +25,11 @@ const PostTemplate = props => {
             {excerpt}
           </PostDate>
           {tags.split(' ').map(tag => (
-            <Chip label={tag} key={tag} clickable onClick={handleTagClick(tag)}
-                  style={{marginRight: '0.5em'}} />
+            <Chip label={
+              <IntLinkReset to={`/tags/${tag}/`}>
+                {tag}
+              </IntLinkReset>
+            } key={tag} clickable style={{marginRight: '0.5em'}} />
           ))}
         </div>
       } />
