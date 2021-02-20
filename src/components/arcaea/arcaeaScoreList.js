@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import {AppBar, Grid, Tab} from '@material-ui/core'
 import {TabContext, TabList, TabPanel} from '@material-ui/lab'
-import {useLg} from '../../utils/screenSize'
 import ArcaeaScore from './arcaeaScore'
 
 const getLevel = constant => {
@@ -23,8 +22,6 @@ const getLevelNum = level => {
 const ArcaeaScoreList = props => {
   const {scores, songTitle, ...others} = props
 
-  const isLg = useLg()
-
   const [tab, setTab] = useState(null)
 
   const scoresByLevel = {}
@@ -45,9 +42,7 @@ const ArcaeaScoreList = props => {
   return (
     <TabContext value={tab === null ? defaultLevel : tab} {...others}>
       <AppBar position={'sticky'} style={{marginTop: '1em'}}>
-        <TabList onChange={handleChange} {...(
-          isLg ? {variant: 'fullWidth', centered: true} : {variant: 'scrollable'}
-        )} scrollButtons={'on'}>
+        <TabList onChange={handleChange} variant="scrollable" scrollButtons={'on'}>
           {levels.map(level => (
             <Tab label={level} value={level} key={level} />
           ))}

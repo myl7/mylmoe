@@ -1,7 +1,6 @@
 import React from 'react'
-import {useXs} from '../../utils/screenSize'
 import MobileHeader from './mobileHeader'
-import {AppBar, Avatar, Button, IconButton, Toolbar, Typography} from '@material-ui/core'
+import {AppBar, Avatar, Box, Button, IconButton, Toolbar, Typography} from '@material-ui/core'
 import nav from '../../../content/nav'
 import {graphql, useStaticQuery} from 'gatsby'
 import {Home as HomeIcon, RssFeed as RssFeedIcon} from '@material-ui/icons'
@@ -13,8 +12,6 @@ import ExtLink from '../links/extLink'
 import Search from './search'
 
 const Header = () => {
-  const isXs = useXs()
-
   const data = useStaticQuery(graphql`
     query HeaderQuery {
       site {
@@ -31,48 +28,53 @@ const Header = () => {
   const {name, email, avatar} = data.site.siteMetadata.author
   const avatarUrl = avatar ? avatar : gravatar(email)
 
-  return isXs ? (
-    <MobileHeader />
-  ) : (
-    <AppBar position="fixed" color="default" component="header">
-      <Toolbar component="nav">
-        <IconButton style={{marginLeft: '-0.5em'}}>
-          <IntLinkReset to="/">
-            <HomeIcon color="primary" />
-          </IntLinkReset>
-        </IconButton>
-        <IntLinkReset to="/">
-          <Typography variant="h6">
-            mylmoe
-          </Typography>
-        </IntLinkReset>
-        {nav.map(({list, text, to}) => list ? (
-          <NavMenuButton text={text} list={list} key={text} style={{marginLeft: '1em'}} />
-        ) : (
-          <Button variant="outlined" style={{marginLeft: '1em'}} key={text}>
-            <IntLinkReset to={to}>
-              <Typography variant="subtitle1">
-                {text}
+  return (
+    <>
+      <Box display={{xs: 'block', sm: 'none'}}>
+        <MobileHeader />
+      </Box>
+      <Box display={{xs: 'none', sm: 'block'}}>
+        <AppBar position="fixed" color="default" component="header">
+          <Toolbar component="nav">
+            <IconButton style={{marginLeft: '-0.5em'}}>
+              <IntLinkReset to="/">
+                <HomeIcon color="primary" />
+              </IntLinkReset>
+            </IconButton>
+            <IntLinkReset to="/">
+              <Typography variant="h6">
+                mylmoe
               </Typography>
             </IntLinkReset>
-          </Button>
-        ))}
-        <div style={{flexGrow: 1}} />
-        <Search style={{width: 'auto'}} />
-        <ThemeSwitch />
-        <Typography variant="subtitle1">
-          Dark
-        </Typography>
-        <IconButton>
-          <ExtLink href="/rss.xml">
-            <RssFeedIcon />
-          </ExtLink>
-        </IconButton>
-        <IntLinkReset to="/about">
-          <Avatar alt={'Avatar of ' + name} src={avatarUrl} />
-        </IntLinkReset>
-      </Toolbar>
-    </AppBar>
+            {nav.map(({list, text, to}) => list ? (
+              <NavMenuButton text={text} list={list} key={text} style={{marginLeft: '1em'}} />
+            ) : (
+              <Button variant="outlined" style={{marginLeft: '1em'}} key={text}>
+                <IntLinkReset to={to}>
+                  <Typography variant="subtitle1">
+                    {text}
+                  </Typography>
+                </IntLinkReset>
+              </Button>
+            ))}
+            <div style={{flexGrow: 1}} />
+            <Search style={{width: 'auto'}} />
+            <ThemeSwitch />
+            <Typography variant="subtitle1">
+              Dark
+            </Typography>
+            <IconButton>
+              <ExtLink href="/rss.xml">
+                <RssFeedIcon />
+              </ExtLink>
+            </IconButton>
+            <IntLinkReset to="/about">
+              <Avatar alt={'Avatar of ' + name} src={avatarUrl} />
+            </IntLinkReset>
+          </Toolbar>
+        </AppBar>
+      </Box>
+    </>
   )
 }
 
