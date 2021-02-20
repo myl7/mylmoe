@@ -10,6 +10,7 @@ import IntLinkReset from '../links/intLinkReset'
 import NavMenuButton from './navMenuButton'
 import ThemeSwitch from './themeSwitch'
 import ExtLink from '../links/extLink'
+import Search from './search'
 
 const Header = () => {
   const isXs = useXs()
@@ -57,6 +58,7 @@ const Header = () => {
           </Button>
         ))}
         <div style={{flexGrow: 1}} />
+        <Search style={{width: 'auto'}} />
         <ThemeSwitch />
         <Typography variant="subtitle1">
           Dark

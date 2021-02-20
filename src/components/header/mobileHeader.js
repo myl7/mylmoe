@@ -10,6 +10,7 @@ import NavListButton from './navListButton'
 import IntLinkReset from '../links/intLinkReset'
 import ThemeSwitch from './themeSwitch'
 import ExtLink from '../links/extLink'
+import Search from './search'
 
 const MobileHeader = () => {
   const [open, setOpen] = useState(false)
@@ -68,6 +69,9 @@ const MobileHeader = () => {
                 Home
               </IntLinkReset>
             </ListItemText>
+          </ListItem>
+          <ListItem>
+            <Search />
           </ListItem>
           {nav.map(({list, text, to}) => list ? (
             <NavListButton text={text} list={list} key={text} />
