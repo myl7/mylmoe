@@ -41,9 +41,8 @@ async function handleEvent(event) {
         bypassCache: true
       }
     } else {
-      // Do not cache HTML
-      const isHtml = mapRequestToAsset(event.request).url.match(/.html$/)
-      if (!isHtml) {
+      const path = new URL(mapRequestToAsset(event.request).url).pathname
+      if (path.match(/^\/static\//) || (path.match(/\.(js|css)$/) && !path.match(/^\/sw\.js$/))) {
         options.cacheControl = {
           browserTTL: 365 * 60 * 60 * 24
         }
