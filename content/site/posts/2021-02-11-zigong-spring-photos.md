@@ -1,7 +1,7 @@
 ---
 title: Spring photos of hometown Zigong
 pubDate: 2021-02-11
-updDate: 2021-02-11
+updDate: 2021-02-21
 excerpt: Taken on 2021-02-07, at Nanshan Botanical Garden, Zigong, Sichuan, China. All licensed under CC BY-NC-SA 4.0.
 tags: photo spring zigong
 ---
@@ -24,7 +24,7 @@ We took a walk around it and also took many satisfying photos.
 
 ![Trees among flowers](images/zigong-2021-02-07/trees-among-flowers-fixed.jpg)
 
-<div style="width: 560px; height: 1000px; margin-left: auto; margin-right: auto">
+<div style="max-width: 560px; margin-left: auto; margin-right: auto">
 
 ![Walkway among trees](images/zigong-2021-02-07/walkway-among-trees.jpg)
 
@@ -36,7 +36,7 @@ We took a walk around it and also took many satisfying photos.
 
 ![Tree between towers](images/zigong-2021-02-07/tree-between-towers.jpg)
 
-<div style="width: 560px; height: 1000px; margin-left: auto; margin-right: auto">
+<div style="max-width: 560px; margin-left: auto; margin-right: auto">
 
 ![Down road between trees](images/zigong-2021-02-07/down-road-between-trees.jpg)
 
@@ -44,7 +44,7 @@ We took a walk around it and also took many satisfying photos.
 
 ## Monument
 
-<div style="width: 560px; height: 1000px; margin-left: auto; margin-right: auto">
+<div style="max-width: 560px; margin-left: auto; margin-right: auto">
 
 ![Accident monument](images/zigong-2021-02-07/accident-monument.jpg)
 
