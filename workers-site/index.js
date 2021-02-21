@@ -41,8 +41,12 @@ async function handleEvent(event) {
         bypassCache: true
       }
     } else {
-      options.cacheControl = {
-        browserTTL: 365 * 60 * 60 * 24
+      // Do not cache HTML
+      const isHtml = mapRequestToAsset(event.request).url.match(/.html$/)
+      if (!isHtml) {
+        options.cacheControl = {
+          browserTTL: 365 * 60 * 60 * 24
+        }
       }
     }
     return await getAssetFromKV(event, options)
