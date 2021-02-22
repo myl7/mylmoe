@@ -21,7 +21,7 @@ const ArcaeaUserInfo = props => {
         <Grid container spacing={2} justify="center">
           <Grid item>
             {recent_score[0] ? (
-              <ArcaeaScore songTitle={songTitle} score={recent_score[0]} titlePrefix={'Recent: '} />
+              <ArcaeaScore songTitle={songTitle} start={true} score={recent_score[0]} titlePrefix={'Recent: '} />
             ) : ''}
           </Grid>
           <Grid item>

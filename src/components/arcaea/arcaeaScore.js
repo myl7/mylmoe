@@ -1,6 +1,7 @@
-import React, {useEffect, useRef} from 'react'
+import React, {useEffect} from 'react'
 import {Card, CardContent, CardHeader, Typography, useTheme} from '@material-ui/core'
 import {formatDate, formatTime} from '../../utils/datetime'
+import useObserve from '../../utils/useObserve'
 
 const getScoreRank = score => {
   if (score > 9900000) {
@@ -32,7 +33,7 @@ const getTitle = (songId, songTitle) => {
 }
 
 const ArcaeaScore = props => {
-  const {score: songScore, start = true, songTitle, titlePrefix = '', ...others} = props
+  const {score: songScore, start: startFromProp, songTitle, titlePrefix = '', ...others} = props
   const {
     song_id, difficulty, score, shiny_perfect_count, perfect_count, near_count, miss_count, health, time_played,
     // eslint-disable-next-line no-unused-vars
@@ -43,14 +44,14 @@ const ArcaeaScore = props => {
   const difficultyLabel = ['PST', 'PRT', 'FTR', 'BYD'][difficulty]
   let scoreRank = getScoreRank(score)
 
-  const ref = useRef()
-
   const theme = useTheme()
   const textColor = theme.palette.text.primary
   const backgroundColor = theme.palette.background.paper
 
+  const {start, ref} = useObserve()
+
   useEffect(() => {
-    if (start) {
+    if (startFromProp === undefined ? start : startFromProp) {
       import('../../utils/echarts').then(m => {
         const echarts = m.default
         const chart = echarts.init(ref.current)
@@ -95,7 +96,9 @@ const ArcaeaScore = props => {
         })
       })
     }
-  }, [start, shiny_perfect_count, perfect_count, near_count, miss_count, ref, textColor, backgroundColor])
+  }, [
+    start, startFromProp, shiny_perfect_count, perfect_count, near_count, miss_count, ref, textColor, backgroundColor
+  ])
 
   return (
     <Card variant="outlined" component="article" {...others}>
