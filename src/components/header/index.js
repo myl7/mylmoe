@@ -64,7 +64,7 @@ const Header = () => {
               Dark
             </Typography>
             <Follow style={{marginLeft: '0.5em'}} />
-            <IntLinkReset to="/about">
+            <IntLinkReset to="/pages/about">
               <Avatar alt={'Avatar of ' + name} src={avatarUrl} />
             </IntLinkReset>
           </Toolbar>
