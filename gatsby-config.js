@@ -43,7 +43,7 @@ module.exports = {
             }
           },
           'gatsby-remark-responsive-iframe',
-          'gatsby-remark-embed-snippet',
+          // 'gatsby-remark-embed-snippet',
           {
             resolve: 'gatsby-remark-autolink-headers',
             options: {
@@ -64,7 +64,7 @@ module.exports = {
       }
     },
     'gatsby-transformer-sharp',
-    'gatsby-plugin-catch-links',
+    // 'gatsby-plugin-catch-links',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
