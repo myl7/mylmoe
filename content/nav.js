@@ -3,8 +3,8 @@ const nav = [
     text: 'Pages',
     list: [
       {
-        text: 'About',
-        to: '/pages/about/'
+        text: 'About Me',
+        to: '/pages/about-me/'
       },
       {
         text: 'Privacy Policy',
