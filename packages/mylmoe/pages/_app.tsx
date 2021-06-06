@@ -14,6 +14,7 @@ import store from '../redux/store'
 import Theme from '../components/theme'
 import Footer from '../components/footer'
 import {Card} from '@material-ui/core'
+import FloatAction from '../components/floatAction'
 
 function MyApp({Component, pageProps}: AppProps) {
   return (
@@ -23,6 +24,7 @@ function MyApp({Component, pageProps}: AppProps) {
           <Component {...pageProps} />
         </Card>
         <Footer />
+        <FloatAction />
       </Theme>
     </Provider>
   )
