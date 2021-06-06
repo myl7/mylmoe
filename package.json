@@ -1,0 +1,36 @@
+{
+  "name": "mylmoe",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static & serverless blog system based on React and Next.js with some other utilities",
+  "author": "myl7 <myl@myl.moe> (https://myl.moe)",
+  "keywords": [
+    "blog",
+    "static-site",
+    "serverless",
+    "next-js",
+    "react"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@fontsource/roboto": "^4.4.5",
+    "@fontsource/source-code-pro": "^4.4.5",
+    "@material-ui/core": "^4.11.4",
+    "@material-ui/icons": "^4.11.2",
+    "immer": "^9.0.2",
+    "next": "^10.2.3",
+    "normalize.css": "^8.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.4",
+    "redux": "^4.1.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.3.2"
+  }
+}
