@@ -1,10 +1,8 @@
-import {Card} from '@material-ui/core'
+import Comment from '../components/comment'
 
 const Index = () => {
   return (
-    <Card>
-      Hello World!
-    </Card>
+    <Comment />
   )
 }
 

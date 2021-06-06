@@ -7,7 +7,6 @@
     "jsx": "preserve",
     "isolatedModules": true,
     "strict": true,
-    "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
