@@ -1,5 +1,5 @@
 import {createMuiTheme, MuiThemeProvider} from '@material-ui/core'
-import React, {useEffect} from 'react'
+import {FC, useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {State} from '../redux/state'
 import {themeInitAction} from '../redux/theme'
@@ -15,7 +15,7 @@ const theme = (dark: boolean) => createMuiTheme({
   }
 })
 
-const Theme: React.FC = ({children}) => {
+const Theme: FC = ({children}) => {
   const dark = useSelector((state: State) => state.theme.dark)
 
   const dispatch = useDispatch()

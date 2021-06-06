@@ -1,4 +1,4 @@
-import React from 'react'
+import {FC} from 'react'
 import {Helmet} from 'react-helmet'
 import site from '../config/site'
 
@@ -8,7 +8,7 @@ export interface HeadProps {
   path: string
 }
 
-const Head: React.FC<HeadProps> = props => {
+const Head: FC<HeadProps> = props => {
   const {title, description: d, path, children} = props
 
   const description = d ? d : '...No description currently'
