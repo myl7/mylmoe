@@ -1,6 +1,6 @@
 import {FC} from 'react'
-import {Helmet} from 'react-helmet'
 import site from '../config/site'
+import {default as NextHead} from 'next/head'
 
 export interface HeadProps {
   title: string,
@@ -14,12 +14,12 @@ const Head: FC<HeadProps> = props => {
   const description = d ? d : '...No description currently'
 
   return (
-    <Helmet>
+    <NextHead>
       <title>{title} | {site.title}</title>
       <meta name={'description'} content={`${description} | ${site.title}: ${site.description}`} />
       <link rel="canonical" href={site.url + path} />
       {children}
-    </Helmet>
+    </NextHead>
   )
 }
 
