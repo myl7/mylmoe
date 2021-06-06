@@ -1,8 +1,8 @@
-import React from 'react'
+import React, {FC} from 'react'
 import {SpeedDialAction, SpeedDialActionProps} from '@material-ui/lab'
 import {Link as LinkIcon} from '@material-ui/icons'
 
-const CopyLink = (props: SpeedDialActionProps) => {
+const CopyLink: FC<SpeedDialActionProps> = props => {
   const {onClick, ...others} = props
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
