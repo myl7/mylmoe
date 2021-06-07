@@ -20,7 +20,7 @@ export const themeReducer = (state: State, action: ThemeAction) => {
       return produce(state, state => {
         state.theme.dark = action.payload as boolean
       })
-    case 'switch':
+    case 'toggle':
       return produce(state, state => {
         state.theme.dark = !state.theme.dark
       })
