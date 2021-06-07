@@ -15,11 +15,13 @@ import Theme from '../components/theme'
 import Footer from '../components/footer'
 import {Card} from '@material-ui/core'
 import FloatAction from '../components/floatAction'
+import Header from '../components/header'
 
 function MyApp({Component, pageProps}: AppProps) {
   return (
     <Provider store={store}>
       <Theme>
+        <Header />
         <Card variant="outlined" style={{margin: '5em 1em 0 1em'}} component="main">
           <Component {...pageProps} />
         </Card>
