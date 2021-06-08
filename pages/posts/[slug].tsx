@@ -6,7 +6,7 @@ import PostDate from '../../components/post/postDate'
 import Comment from '../../components/comment'
 import getPosts from '../../utils/getPosts'
 import {useRouter} from 'next/router'
-import fixStyles from '../../utils/fixStyles'
+import fixStyles from '../../remark/fixStyles'
 
 const Post = (props: {post: PostInfo}) => {
   const {meta, html} = props.post
