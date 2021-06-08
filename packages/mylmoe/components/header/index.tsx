@@ -21,7 +21,7 @@ const Header = () => {
         <MobileHeader />
       </Box>
       <Box display={{xs: 'none', sm: 'block'}}>
-        <AppBar position="fixed" color="default" component="header">
+        <AppBar position="relative" color="default" component="header">
           <Toolbar component="nav">
             <IconButton style={{marginLeft: '-0.5em'}} onClick={handleGo('/')}>
               <HomeIcon color="primary" />

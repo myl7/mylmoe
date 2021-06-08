@@ -17,7 +17,7 @@ function MyApp({Component, pageProps}: AppProps) {
   return (
     <Theme>
       <Header />
-      <Card variant="outlined" style={{margin: '5em 1em 0 1em'}} component="main">
+      <Card variant="outlined" style={{margin: '1em 1em 0 1em'}} component="main">
         <Component {...pageProps} />
       </Card>
       <Footer />
