@@ -29,6 +29,7 @@ const PostItem: FC<PostItemProps> = props => {
             <PostDate updDate={updDate} pubDate={pubDate} />
             <div>
               {tags.split(' ').map(tag => (
+                // TODO: z-index
                 <Chip label={
                   <IntLinkReset href={`/tags/${tag}/`}>
                     {tag}
