@@ -1,5 +1,5 @@
 import {createMuiTheme, MuiThemeProvider} from '@material-ui/core'
-import {FC, useEffect} from 'react'
+import {FC, useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {State} from '../redux/state'
 import {themeInitAction} from '../redux/theme'
@@ -20,17 +20,26 @@ const Theme: FC = ({children}) => {
 
   const dispatch = useDispatch()
 
+  const [mounted, setMounted] = useState(false)
+
   useEffect(() => {
+    setMounted(true)
     const darkStore = localStorage.getItem('mylmoe.theme.dark')
     const dark = (darkStore == null ? false : Boolean(darkStore))
     themeEffect(dark)
     dispatch(themeInitAction(dark))
   })
 
-  return (
+  const body = (
     <MuiThemeProvider theme={theme(dark)}>
       {children}
     </MuiThemeProvider>
+  )
+
+  return mounted ? body : (
+    <div style={{visibility: 'hidden'}}>
+      {body}
+    </div>
   )
 }
 
