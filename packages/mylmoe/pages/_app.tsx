@@ -12,6 +12,7 @@ import {Card} from '@material-ui/core'
 import FloatAction from '../components/floatAction'
 import Header from '../components/header'
 import {storeWrapper} from '../redux/store'
+import Fireworks from '../components/fireworks'
 
 function MyApp({Component, pageProps}: AppProps) {
   return (
@@ -21,6 +22,7 @@ function MyApp({Component, pageProps}: AppProps) {
         <Component {...pageProps} />
       </Card>
       <Footer />
+      <Fireworks />
       <FloatAction />
     </Theme>
   )

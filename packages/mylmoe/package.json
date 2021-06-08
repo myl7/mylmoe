@@ -24,6 +24,7 @@
     "@material-ui/core": "^4.11.4",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.58",
+    "animejs": "^3.2.1",
     "dayjs": "^1.10.5",
     "immer": "^9.0.2",
     "js-yaml": "^4.1.0",
