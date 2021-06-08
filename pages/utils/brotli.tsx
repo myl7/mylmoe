@@ -4,7 +4,7 @@ import BinInput from '../../components/binInput'
 import {printBin} from '../../utils/bin'
 import Head from '../../components/head'
 
-const BrotliPage = () => {
+const Brotli = () => {
   const encTextRef = useRef<HTMLInputElement>(null)
   const encFileRef = useRef<HTMLInputElement>(null)
   const decTextRef = useRef<HTMLInputElement>(null)
@@ -17,8 +17,10 @@ const BrotliPage = () => {
       decTextRef.current!.value = ''
     } else {
       setEncStatus('waiting')
-      decTextRef.current!.value = printBin(arr)
-      setEncStatus('ok')
+      setTimeout(() => {
+        decTextRef.current!.value = printBin(arr)
+        setEncStatus('ok')
+      }, 2000)
     }
   }
   const dec = (arr: Uint8Array|null) => {
@@ -59,4 +61,4 @@ const BrotliPage = () => {
   )
 }
 
-export default BrotliPage
+export default Brotli

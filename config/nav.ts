@@ -11,7 +11,7 @@ const nav = [
     name: 'Utils',
     list: [
       {name: 'Brotli', href: '/utils/brotli/'},
-      {name: 'Arcaea', href: '/utils/arcaea/'}
+      // {name: 'Arcaea', href: '/utils/arcaea/'}
     ]
   }
 ]
