@@ -40,7 +40,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({params}) => {
   const tag = params!['tag'] as string
-  const posts = getPosts().filter(post => post.meta.tags.split(' ').indexOf(tag) !== -1)
+  const posts = getPosts().filter(post => post.meta.tags.split(' ').indexOf(tag) != -1)
   return {
     props: {
       tag,

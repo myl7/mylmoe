@@ -22,7 +22,7 @@ const Theme: FC = ({children}) => {
 
   useEffect(() => {
     const darkStore = localStorage.getItem('mylmoe.theme.dark')
-    const dark = (darkStore === null ? false : Boolean(darkStore))
+    const dark = (darkStore == null ? false : Boolean(darkStore))
     themeEffect(dark)
     dispatch(themeInitAction(dark))
   })

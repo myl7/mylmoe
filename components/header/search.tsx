@@ -18,7 +18,7 @@ const Search: FC<SearchProps> = props => {
   const ref = useRef<HTMLInputElement>()
 
   const handleEnter = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter') {
+    if (e.key == 'Enter') {
       window.open(searchUrl((e.target as HTMLInputElement).value), '_blank')
     }
   }
