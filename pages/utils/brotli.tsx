@@ -27,8 +27,10 @@ const Brotli = () => {
     if (arr == null) {
       encTextRef.current!.value = ''
     } else {
-      const res = arr
-      encTextRef.current!.value = printBin(res)
+      import('brotli-dec-wasm').then(({brotliDec}) => {
+        const res = brotliDec(arr)
+        encTextRef.current!.value = printBin(res)
+      })
     }
   }
 
