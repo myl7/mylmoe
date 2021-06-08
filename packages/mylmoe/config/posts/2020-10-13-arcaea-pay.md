@@ -6,6 +6,8 @@ excerpt: 先买主线包，支线包、联动包和单曲按个人喜好。
 tags: arcaea payment
 ---
 
+## TOC
+
 ## 立场预设
 
 此建议假设你：

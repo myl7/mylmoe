@@ -6,6 +6,8 @@ excerpt: Replace git submodule url with GitHub repo HTTP url.
 tags: aws-amplify git-submodule aws git debug
 ---
 
+## TOC
+
 # Problem
 
 To get a better preview and take full use of AWS Amplify static file service with Cloudflare CDN,

@@ -6,6 +6,8 @@ excerpt: Redmi Note 8 Pro MTK 版 opengapps 不能用。
 tags: miui xiaomi android
 ---
 
+## TOC
+
 ## 基本环境：开发版，初始设置，初始应用
 
 首先切换到开发公测版，因为它有 root。

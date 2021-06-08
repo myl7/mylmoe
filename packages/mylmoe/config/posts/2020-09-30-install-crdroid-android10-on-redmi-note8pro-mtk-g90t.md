@@ -6,6 +6,8 @@ excerpt: TWRP 需要额外刷入 misc 分区。最后还是换 MIUI 了。
 tags: mobile-flash xiaomi android
 ---
 
+## TOC
+
 ## 解锁 Bootloader
 
 按照小米官方指引：[申请解锁小米手机](http://www.miui.com/unlock/download.html) 即可。

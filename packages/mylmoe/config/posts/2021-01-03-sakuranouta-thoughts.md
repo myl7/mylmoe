@@ -6,6 +6,8 @@ excerpt:
 tags: galgame sca-di
 ---
 
+## TOC
+
 ## 共通线
 
 开篇很惊艳，感伤的氛围倾泻而出，很能触动人心。
