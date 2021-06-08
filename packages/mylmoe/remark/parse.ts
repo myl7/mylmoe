@@ -14,6 +14,7 @@ import rehypeStringify from 'rehype-stringify'
 import yaml from 'js-yaml'
 import {PostInfo, PostFM, PostMeta} from './post'
 import dayjs from 'dayjs'
+import remarkExternalLinks from 'remark-external-links'
 
 const parse = (name: string, content: string, pathPrefix: string = '/posts/'): PostInfo => {
   name = name.substring(0, name.length - 3)
@@ -30,6 +31,7 @@ const parse = (name: string, content: string, pathPrefix: string = '/posts/'): P
     .use(remarkFootnotes, {inlineNotes: true})
     .use(remarkToc)
     .use(remarkMath)
+    .use(remarkExternalLinks)
     .use(remark2rehype)
     .use(rehypeKatex)
     .use(rehypeSlug)
