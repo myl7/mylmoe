@@ -1,6 +1,4 @@
 import {GetStaticPaths, GetStaticProps} from 'next'
-import path from 'path'
-import fs from 'fs'
 import {PostInfo} from '../../remark/post'
 import {CardContent, CardHeader, Chip, Divider} from '@material-ui/core'
 import Head from '../../components/head'
@@ -42,9 +40,8 @@ const Post = (props: {post: PostInfo}) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const postDir = path.join(process.cwd(), 'config', 'posts')
-  const names = await fs.promises.readdir(postDir)
-  const paths = names.map(name => ({params: {slug: name}}))
+  const posts = getPosts()
+  const paths = posts.map(post => ({params: {slug: post.meta.slug}}))
   return {paths, fallback: false}
 }
 
