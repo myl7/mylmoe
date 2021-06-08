@@ -16,43 +16,31 @@ We took a walk around it and also took many satisfying photos.
 
 ## Lake and pavilion
 
-![Lake and pavilion](images/zigong-2021-02-07/pavilion-in-lake.jpg)
+![Lake and pavilion](/images/zigong-2021-02-07/pavilion-in-lake.jpg)
 
 ## Flowers and trees
 
-![Buildings among flowers](images/zigong-2021-02-07/buildings-among-flowers.jpg)
+![Buildings among flowers](/images/zigong-2021-02-07/buildings-among-flowers.jpg)
 
-![Sun above flowers](images/zigong-2021-02-07/sun-above-flowers.jpg)
+![Sun above flowers](/images/zigong-2021-02-07/sun-above-flowers.jpg)
 
-![Mountain among flowers](images/zigong-2021-02-07/mountain-among-flowers.jpg)
+![Mountain among flowers](/images/zigong-2021-02-07/mountain-among-flowers.jpg)
 
-![Trees among flowers](images/zigong-2021-02-07/trees-among-flowers-fixed.jpg)
+![Trees among flowers](/images/zigong-2021-02-07/trees-among-flowers-fixed.jpg)
 
-<div style="max-width: 560px; margin-left: auto; margin-right: auto">
+![Walkway among trees](/images/zigong-2021-02-07/walkway-among-trees.jpg)
 
-![Walkway among trees](images/zigong-2021-02-07/walkway-among-trees.jpg)
-
-</div>
-
-![Buildings with old man among flowers](images/zigong-2021-02-07/buildings-with-old-man-among-flowers.jpg)
+![Buildings with old man among flowers](/images/zigong-2021-02-07/buildings-with-old-man-among-flowers.jpg)
 
 ## Down road
 
-![Tree between towers](images/zigong-2021-02-07/tree-between-towers.jpg)
+![Tree between towers](/images/zigong-2021-02-07/tree-between-towers.jpg)
 
-<div style="max-width: 560px; margin-left: auto; margin-right: auto">
-
-![Down road between trees](images/zigong-2021-02-07/down-road-between-trees.jpg)
-
-</div>
+![Down road between trees](/images/zigong-2021-02-07/down-road-between-trees.jpg)
 
 ## Monument
 
-<div style="max-width: 560px; margin-left: auto; margin-right: auto">
-
-![Accident monument](images/zigong-2021-02-07/accident-monument.jpg)
-
-</div>
+![Accident monument](/images/zigong-2021-02-07/accident-monument.jpg)
 
 ## Release and license
 
