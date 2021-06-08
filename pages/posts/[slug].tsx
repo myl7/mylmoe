@@ -6,12 +6,11 @@ import PostDate from '../../components/post/postDate'
 import Comment from '../../components/comment'
 import getPosts from '../../utils/getPosts'
 import {useRouter} from 'next/router'
+import fixStyles from '../../utils/fixStyles'
 
 const Post = (props: {post: PostInfo}) => {
   const {meta, html} = props.post
   const {title, pubDate, updDate, excerpt, tags, path} = meta
-
-  const fixStyles = (elem: HTMLDivElement) => elem
 
   const router = useRouter()
 

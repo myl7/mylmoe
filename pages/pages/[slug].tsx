@@ -5,12 +5,11 @@ import parse from '../../remark/parse'
 import {Box, CardContent, CardHeader, Divider} from '@material-ui/core'
 import Head from '../../components/head'
 import {PostInfo} from '../../remark/post'
+import fixStyles from '../../utils/fixStyles'
 
 const Page = (props: {post: PostInfo}) => {
   const {meta, html} = props.post
   const {title, updDate, excerpt, path} = meta
-
-  const fixStyles = (elem: HTMLDivElement) => elem
 
   return (
     <>
