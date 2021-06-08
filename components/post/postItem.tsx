@@ -1,7 +1,6 @@
 import React, {FC} from 'react'
 import {Card, CardActionArea, CardContent, CardHeader, CardProps, Chip, Divider} from '@material-ui/core'
 import PostDate from './postDate'
-import IntLinkReset from '../links/intLinkReset'
 import {useRouter} from 'next/router'
 
 export interface PostItemProps extends CardProps {
@@ -19,7 +18,10 @@ const PostItem: FC<PostItemProps> = props => {
   const router = useRouter()
 
   const handleCardClick = () => router.push(path)
-  const handleTagClick = (e: React.MouseEvent) => e.stopPropagation()
+  const handleTagClick = (tag: string) => (e: React.MouseEvent) => {
+    e.stopPropagation()
+    router.push(`/tags/${tag}/`)
+  }
 
   return (
     <Card variant="outlined" component="article" {...others}>
@@ -29,12 +31,7 @@ const PostItem: FC<PostItemProps> = props => {
             <PostDate updDate={updDate} pubDate={pubDate} />
             <div>
               {tags.split(' ').map(tag => (
-                // TODO: z-index
-                <Chip label={
-                  <IntLinkReset href={`/tags/${tag}/`}>
-                    {tag}
-                  </IntLinkReset>
-                } key={tag} clickable onClick={handleTagClick} style={{marginRight: '0.5em'}} />
+                <Chip label={tag} key={tag} clickable onClick={handleTagClick(tag)} style={{marginRight: '0.5em'}} />
               ))}
             </div>
           </div>
