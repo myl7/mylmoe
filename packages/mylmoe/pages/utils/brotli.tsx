@@ -3,6 +3,7 @@ import {CardContent, CardHeader, Divider, Grid, Typography} from '@material-ui/c
 import BinInput from '../../components/binInput'
 import {printBin} from '../../utils/bin'
 import Head from '../../components/head'
+import {brotliEnc} from '../../api/brotli'
 
 const Brotli = () => {
   const encTextRef = useRef<HTMLInputElement>(null)
@@ -17,10 +18,10 @@ const Brotli = () => {
       decTextRef.current!.value = ''
     } else {
       setEncStatus('waiting')
-      setTimeout(() => {
-        decTextRef.current!.value = printBin(arr)
+      brotliEnc(arr).then(res => {
+        decTextRef.current!.value = printBin(res)
         setEncStatus('ok')
-      }, 2000)
+      })
     }
   }
   const dec = (arr: Uint8Array|null) => {
