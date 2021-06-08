@@ -2,11 +2,9 @@ import Head from '../components/head'
 import {CardContent, CardHeader, Divider} from '@material-ui/core'
 import PostItem from '../components/post/postItem'
 import {GetStaticProps} from 'next'
-import parse from '../remark/parse'
 import PostDate from '../components/post/postDate'
 import {PostInfo} from '../remark/post'
-import fs from 'fs'
-import path from 'path'
+import getPosts from '../utils/getPosts'
 
 const Index = (props: {posts: PostInfo[]}) => {
   const {posts} = props
@@ -16,7 +14,7 @@ const Index = (props: {posts: PostInfo[]}) => {
   return (
     <>
       <Head
-        title={'Index & Post List'}
+        title={'Index: Post List'}
         description={'All blog posts & some probably useful utilities made by myl7'}
         path={'/'}
       />
@@ -38,13 +36,7 @@ const Index = (props: {posts: PostInfo[]}) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const postDir = path.join(process.cwd(), 'config', 'posts')
-  const names = await fs.promises.readdir(postDir)
-  const posts = await Promise.all(names.filter(name => name.endsWith('.md')).map(async name => {
-    const filePath = path.join(postDir, name)
-    const content = await fs.promises.readFile(filePath).then(buf => buf.toString())
-    return parse(name, content)
-  }))
+  const posts = getPosts()
   posts.sort((a, b) => -a.meta.updDate.localeCompare(b.meta.updDate))
   return {
     props: {
