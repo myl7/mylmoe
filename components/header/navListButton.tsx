@@ -1,7 +1,7 @@
 import {FC, useState} from 'react'
 import {Collapse, List, ListItem, ListItemIcon, ListItemText, Typography} from '@material-ui/core'
-import IntLinkReset from '../links/intLinkReset'
 import {ChevronRight as ChevronRightIcon} from '@material-ui/icons'
+import {useRouter} from 'next/router'
 
 export interface NavListButtonProps {
   name: string,
@@ -14,6 +14,10 @@ const NavListButton: FC<NavListButtonProps> = props => {
   const [open, setOpen] = useState(false)
 
   const handleClick = () => setOpen(open => !open)
+
+  const router = useRouter()
+
+  const handleGo = (href: string) => () => router.push(href)
 
   return (
     <>
@@ -30,13 +34,11 @@ const NavListButton: FC<NavListButtonProps> = props => {
       <Collapse in={open}>
         <List disablePadding>
           {list.map(({name, href}) => (
-            <ListItem button key={name}>
+            <ListItem button key={name} onClick={handleGo(href)}>
               <ListItemText style={{paddingLeft: '2em'}}>
-                <IntLinkReset href={href}>
-                  <Typography variant="subtitle1">
-                    {name}
-                  </Typography>
-                </IntLinkReset>
+                <Typography variant="subtitle1">
+                  {name}
+                </Typography>
               </ListItemText>
             </ListItem>
           ))}
