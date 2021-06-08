@@ -66,7 +66,7 @@ Arcaea 中付费可以：
 
 ### Luminous Sky（白包）、Vicious Labyrinth（黑包）
 
-![Luminous Sky](images/arcaea-pack-covers/luminous-sky.png) ![Vicious Labyrinth](images/arcaea-pack-covers/vicious-labyrinth.png)
+![Luminous Sky](/images/arcaea-pack-covers/luminous-sky.png) ![Vicious Labyrinth](/images/arcaea-pack-covers/vicious-labyrinth.png)
 
 只要继续玩下去，早晚会买的，早买早享受。
 
@@ -87,7 +87,7 @@ Arcaea 中付费可以：
 
 ### External Core
 
-![External Core](images/arcaea-pack-covers/eternal-core.png)
+![External Core](/images/arcaea-pack-covers/eternal-core.png)
 
 700/包，更贵，但有 9 首曲子，所以其实性价比还比较高，但又不送角色。
 
@@ -100,14 +100,14 @@ Arcaea 中付费可以：
 
 ### Adverse Prelude
 
-![Adverse Prelude](images/arcaea-pack-covers/adverse-prelude.png)
+![Adverse Prelude](/images/arcaea-pack-covers/adverse-prelude.png)
 
 这个包曲子质量很棒，也有一个水 9+ BLRINK FTR 可以用来度过 9 到 9+。
 可以紧跟在黑白包后购买。
 
 ### Black Fate
 
-![Black Fate](images/arcaea-pack-covers/black-fate.png)
+![Black Fate](/images/arcaea-pack-covers/black-fate.png)
 
 作为最新的主线包，难度很大。
 两个 9+ 都是 9+ 中最难的，很有挑战性。
@@ -120,7 +120,7 @@ Arcaea 中付费可以：
 
 ### World Extend
 
-![World Extend](images/arcaea-pack-covers/world-extend.png)
+![World Extend](/images/arcaea-pack-covers/world-extend.png)
 
 这个包其实不是主线包，但也没有其他归属，就先放到这里了。700/包。
 
@@ -136,14 +136,14 @@ Arcaea 中付费可以：
 
 ### Sunset Radiance
 
-![Sunset Radiance](images/arcaea-pack-covers/sunset-radiance.png)
+![Sunset Radiance](/images/arcaea-pack-covers/sunset-radiance.png)
 
 AI\[UE\]OON FTR 这个 9 很不错，谱面打起来很爽。
 A Wandering Melody of Love 是我个人很喜欢的一个曲子，打起来也很爽，变化多，但在 9+ 里又算比较简单的。
 
 ### Absolute Reason（绿包）
 
-![Absolute Reason](images/arcaea-pack-covers/absolute-reason.png)
+![Absolute Reason](/images/arcaea-pack-covers/absolute-reason.png)
 
 Black Territory 和 Corruption 打起来有点难受，前者需要准确分离天 note 和蛇，后者则有变化多端的旋转蛇，有一定训练意义，但就是比较难受。
 Vicious Heroism 则是比较简单的 10，而且打起来很爽，节奏感强。
@@ -152,7 +152,7 @@ Vicious Heroism 则是比较简单的 10，而且打起来很爽，节奏感强�
 
 ### Binary Enfold
 
-![Binary Enfold](images/arcaea-pack-covers/binary-enfold.png)
+![Binary Enfold](/images/arcaea-pack-covers/binary-enfold.png)
 
 其他曲子没有给我留下很深的印象。
 next to you 听起来不错，但是只有 8。
@@ -160,13 +160,13 @@ next to you 听起来不错，但是只有 8。
 
 ### Ambivalent Vision（黄包）
 
-![Ambivalent Vision](images/arcaea-pack-covers/ambivalent-vision.png)
+![Ambivalent Vision](/images/arcaea-pack-covers/ambivalent-vision.png)
 
 我还没买……买了打了之后再来更新感想。
 
 ### Crimson Solace（红包）
 
-![Crimson Solace](images/arcaea-pack-covers/crimson-solace.png)
+![Crimson Solace](/images/arcaea-pack-covers/crimson-solace.png)
 
 才买，还没打……打完再说吧。
 
@@ -174,7 +174,7 @@ next to you 听起来不错，但是只有 8。
 
 联动包我只买了 CHUNITHM，就不分开说了。
 
-![CHUNITHM](images/arcaea-pack-covers/chunithm.png)
+![CHUNITHM](/images/arcaea-pack-covers/chunithm.png)
 
 CHUNITHM 包只有三首曲子，性价比比较低，但三首难度是 10、10、10+，所以后期买来挑战还是不错的。
 只是这三首曲子的风格不是很对我胃口。
@@ -189,7 +189,7 @@ CHUNITHM 包只有三首曲子，性价比比较低，但三首难度是 10、10
 
 ## 免费包
 
-![Arcaea](images/arcaea-pack-covers/arcaea.png)
+![Arcaea](/images/arcaea-pack-covers/arcaea.png)
 
 在 Arcaea 这个免费包中也有很多很棒的单曲。
 其缺点是解锁需要残片，要靠积累，而且以 8、9 为主，难度较低。
