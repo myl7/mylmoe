@@ -6,6 +6,8 @@ excerpt: Do not reinvent the wheel. Use appleboy/ssh-action or appleboy/scp-acti
 tags: github-action ssh
 ---
 
+## TOC
+
 ## Where it starts from
 
 CD is delicious, liberating our productivity from worrying about trivial things.

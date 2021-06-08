@@ -6,6 +6,10 @@ excerpt: Static with React and AWS Amplify, serverless with Cloudflare Workers/K
 tags: blog architecture
 ---
 
+## TOC
+
+## Start
+
 As mylmoe is about to release 3.4.0 soon,
 the blog system which also has some other utilities is going to be one more greater.
 Looking at the about 400 commits in [myl7/mylmoe](https://myl.moe/myl7/mylmoe) repo,

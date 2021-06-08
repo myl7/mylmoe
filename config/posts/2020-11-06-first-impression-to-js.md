@@ -6,6 +6,8 @@ excerpt:
 tags: javascript
 ---
 
+## TOC
+
 ## Introduction
 
 The post is not going to explain the details of Javascript.

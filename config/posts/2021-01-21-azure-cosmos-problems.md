@@ -6,6 +6,8 @@ excerpt: When building an Azure Functions App to access Azure Cosmos DB.
 tags: azure-cosmosdb azure debug
 ---
 
+## TOC
+
 ## Background
 
 Recently I am building an Azure Functions App to communicate with GitHub OAuth.

@@ -6,6 +6,8 @@ excerpt: Use YAML safe functions and explicitly convert Beautiful Soup string to
 tags: yaml html python
 ---
 
+## TOC
+
 ## Problem
 
 Today I am writing a Telegram bot.

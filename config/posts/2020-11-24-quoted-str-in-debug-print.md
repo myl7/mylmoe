@@ -6,6 +6,8 @@ excerpt: Quoted spring in debug printing may indicate that the spring variable j
 tags: string print debug
 ---
 
+## TOC
+
 ## Background
 
 At that time I was writing a Kotlin Spring backend application.
