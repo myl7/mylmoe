@@ -119,3 +119,8 @@ dist
 
 # IDE
 .idea/
+
+# prebuild output
+/scripts/*.js
+/public/rss.xml
+/public/sitemap.xml
