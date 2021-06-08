@@ -1,11 +1,9 @@
 import {GetStaticPaths, GetStaticProps} from 'next'
-import path from 'path'
-import fs from 'fs'
-import parse from '../../remark/parse'
 import {Box, CardContent, CardHeader, Divider} from '@material-ui/core'
 import Head from '../../components/head'
 import {PostInfo} from '../../remark/post'
 import fixStyles from '../../utils/fixStyles'
+import getPosts from '../../utils/getPosts'
 
 const Page = (props: {post: PostInfo}) => {
   const {meta, html} = props.post
@@ -31,22 +29,18 @@ const Page = (props: {post: PostInfo}) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const pageDir = path.join(process.cwd(), 'config', 'pages')
-  const names = fs.readdirSync(pageDir).filter(name => name.endsWith('.md'))
-  const slugs = names.map(name => name.substring(0, name.length - 3))
-  const paths = slugs.map(slug => ({params: {slug}}))
+  const pages = getPosts('pages')
+  const paths = pages.map(pages => ({params: {slug: pages.meta.slug}}))
   return {paths, fallback: false}
 }
 
 export const getStaticProps: GetStaticProps = async ({params}) => {
   const slug = params!['slug'] as string
-  const name = slug + '.md'
-  const filePath = path.join(process.cwd(), 'config', 'pages', name)
-  const content = await fs.promises.readFile(filePath).then(buf => buf.toString())
-  const post = parse(name, content, '/pages/')
+  const pages = getPosts('pages')
+  const page = pages.filter(page => page.meta.slug == slug)[0]!
   return {
     props: {
-      post
+      post: page
     }
   }
 }
