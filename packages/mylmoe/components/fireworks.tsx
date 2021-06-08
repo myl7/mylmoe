@@ -14,7 +14,7 @@ const filter = (e: React.MouseEvent) => {
   for (const elem of e.path) {
     const role = elem.attributes ? elem.attributes.getNamedItem('role') : null
     if (['A', 'BUTTON', 'HEADER', 'TEXTAREA'].indexOf(elem.nodeName) >= 0 ||
-      (role && (role.value === 'presentation' || role.value === 'button'))) {
+      (role && (role.value == 'presentation' || role.value == 'button'))) {
       return false
     }
   }
