@@ -3,19 +3,19 @@ import fs from 'fs'
 import parse from '../remark/parse'
 import {PostInfo} from '../remark/post'
 
-let posts: PostInfo[]|null = null
+const cache = {} as {[key: string]: PostInfo[]|null}
 
-const getPosts = () => {
-  if (!posts) {
-    const postDir = path.join(process.cwd(), 'config', 'posts')
+const getPosts = (folder: string = 'posts') => {
+  if (!cache[folder]) {
+    const postDir = path.join(process.cwd(), 'config', folder)
     const names = fs.readdirSync(postDir)
-    posts = names.filter(name => name.endsWith('.md')).map(name => {
+    cache[folder] = names.filter(name => name.endsWith('.md')).map(name => {
       const filePath = path.join(postDir, name)
       const content = fs.readFileSync(filePath).toString()
       return parse(name, content)
     })
   }
-  return posts
+  return cache[folder]!
 }
 
 export default getPosts
