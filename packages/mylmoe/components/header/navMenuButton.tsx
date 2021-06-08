@@ -1,6 +1,6 @@
 import React, {FC, useState} from 'react'
 import {Button, ButtonProps, Menu, MenuItem, Typography} from '@material-ui/core'
-import IntLinkReset from '../links/intLinkReset'
+import {useRouter} from 'next/router'
 
 export interface NavMenuButtonProps extends ButtonProps {
   name: string,
@@ -18,6 +18,10 @@ const NavMenuButton: FC<NavMenuButtonProps> = props => {
 
   const handleClose = () => setElem(null)
 
+  const router = useRouter()
+
+  const handleGo = (href: string) => () => router.push(href)
+
   return (
     <>
       <Button variant="outlined" aria-controls={menuId} aria-haspopup={true} onClick={handleClick} {...others}>
@@ -29,12 +33,10 @@ const NavMenuButton: FC<NavMenuButtonProps> = props => {
             getContentAnchorEl={null} anchorOrigin={{vertical: 'bottom', horizontal: 'center'}}
             transformOrigin={{vertical: 'top', horizontal: 'center'}}>
         {list.map(({name, href}) => (
-          <MenuItem onClick={handleClose} key={name}>
-            <IntLinkReset href={href}>
-              <Typography variant="subtitle1">
-                {name}
-              </Typography>
-            </IntLinkReset>
+          <MenuItem onClick={handleGo(href)} key={name}>
+            <Typography variant="subtitle1">
+              {name}
+            </Typography>
           </MenuItem>
         ))}
       </Menu>

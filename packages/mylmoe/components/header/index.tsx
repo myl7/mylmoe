@@ -2,14 +2,19 @@ import MobileHeader from './mobileHeader'
 import {AppBar, Avatar, Box, IconButton, Toolbar, Typography} from '@material-ui/core'
 import nav from '../../config/nav'
 import {Home as HomeIcon} from '@material-ui/icons'
-import IntLinkReset from '../links/intLinkReset'
 import NavMenuButton from './navMenuButton'
 import ThemeToggle from './themeSwitch'
 import Search from './search'
 import Follow from './follow'
 import site from '../../config/site'
+import {useRouter} from 'next/router'
+import IntLink from '../links/intLink'
 
 const Header = () => {
+  const router = useRouter()
+
+  const handleGo = (href: string) => () => router.push(href)
+
   return (
     <>
       <Box display={{xs: 'block', sm: 'none'}}>
@@ -18,16 +23,14 @@ const Header = () => {
       <Box display={{xs: 'none', sm: 'block'}}>
         <AppBar position="fixed" color="default" component="header">
           <Toolbar component="nav">
-            <IconButton style={{marginLeft: '-0.5em'}}>
-              <IntLinkReset href="/">
-                <HomeIcon color="primary" />
-              </IntLinkReset>
+            <IconButton style={{marginLeft: '-0.5em'}} onClick={handleGo('/')}>
+              <HomeIcon color="primary" />
             </IconButton>
-            <IntLinkReset href="/">
+            <IntLink href="/">
               <Typography variant="h6">
                 mylmoe
               </Typography>
-            </IntLinkReset>
+            </IntLink>
             {nav.map(({list, name}) => (
               <NavMenuButton name={name} list={list} key={name} style={{marginLeft: '1em'}} />
             ))}
@@ -38,9 +41,9 @@ const Header = () => {
               Dark
             </Typography>
             <Follow style={{marginLeft: '0.5em'}} />
-            <IntLinkReset href="/pages/about">
+            <IntLink href="/pages/about">
               <Avatar alt={`Avatar of ${site.name}`} src={site.avatar} />
-            </IntLinkReset>
+            </IntLink>
           </Toolbar>
         </AppBar>
       </Box>

@@ -5,15 +5,19 @@ import {PostInfo} from '../../remark/post'
 import {CardContent, CardHeader, Chip, Divider} from '@material-ui/core'
 import Head from '../../components/head'
 import PostDate from '../../components/post/postDate'
-import IntLinkReset from '../../components/links/intLinkReset'
 import Comment from '../../components/comment'
 import getPosts from '../../utils/getPosts'
+import {useRouter} from 'next/router'
 
 const Post = (props: {post: PostInfo}) => {
   const {meta, html} = props.post
   const {title, pubDate, updDate, excerpt, tags, path} = meta
 
   const fixStyles = (elem: HTMLDivElement) => elem
+
+  const router = useRouter()
+
+  const handleGo = (tag: string) => () => router.push(`/tags/${tag}/`)
 
   return (
     <>
@@ -24,11 +28,7 @@ const Post = (props: {post: PostInfo}) => {
             {excerpt}
           </PostDate>
           {tags.split(' ').map(tag => (
-            <Chip label={
-              <IntLinkReset href={`/tags/${tag}/`}>
-                {tag}
-              </IntLinkReset>
-            } key={tag} clickable style={{marginRight: '0.5em'}} />
+            <Chip label={tag} key={tag} clickable onClick={handleGo(tag)} style={{marginRight: '0.5em'}} />
           ))}
         </div>
       } />
@@ -48,7 +48,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return {paths, fallback: false}
 }
 
-export const getStaticProps: GetStaticProps = async ({params}) => {
+export const getStaticProps: GetStaticProps = async (
+{
+  params
+}
+) =>
+{
   const slug = params!['slug'] as string
   const post = getPosts().filter(post => post.meta.slug == slug)[0]!
   return {
