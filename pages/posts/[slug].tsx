@@ -1,13 +1,13 @@
 import {GetStaticPaths, GetStaticProps} from 'next'
 import path from 'path'
 import fs from 'fs'
-import parse from '../../remark/parse'
 import {PostInfo} from '../../remark/post'
 import {CardContent, CardHeader, Chip, Divider} from '@material-ui/core'
 import Head from '../../components/head'
 import PostDate from '../../components/post/postDate'
 import IntLinkReset from '../../components/links/intLinkReset'
 import Comment from '../../components/comment'
+import getPosts from '../../utils/getPosts'
 
 const Post = (props: {post: PostInfo}) => {
   const {meta, html} = props.post
@@ -49,10 +49,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({params}) => {
-  const name = params!['slug'] as string
-  const filePath = path.join(process.cwd(), 'config', 'posts', name)
-  const content = await fs.promises.readFile(filePath).then(buf => buf.toString())
-  const post = parse(name, content)
+  const slug = params!['slug'] as string
+  const post = getPosts().filter(post => post.meta.slug === slug)[0]!
   return {
     props: {
       post
