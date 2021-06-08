@@ -40,6 +40,7 @@
     "rehype-katex": "^5.0.0",
     "rehype-slug": "^4.0.1",
     "rehype-stringify": "^8.0.0",
+    "remark-external-links": "^8.0.0",
     "remark-footnotes": "^3.0.0",
     "remark-frontmatter": "^3.0.0",
     "remark-gfm": "^1.0.0",
