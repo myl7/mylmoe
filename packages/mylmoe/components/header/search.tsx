@@ -24,7 +24,6 @@ const Search: FC<SearchProps> = props => {
   }
 
   const handleClick = () => {
-    console.log(ref.current)
     if (ref.current && ref.current.value) {
       window.open(searchUrl(ref.current.value), '_blank')
     }
