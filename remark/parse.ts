@@ -16,6 +16,7 @@ import {PostInfo, PostFM, PostMeta} from './post'
 import dayjs from 'dayjs'
 
 const parse = (name: string, content: string, pathPrefix: string = '/posts/'): PostInfo => {
+  name = name.substring(0, name.length - 3)
   let fmVal = ''
   const html = unified()
     .use(remarkParse)
