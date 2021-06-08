@@ -48,12 +48,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return {paths, fallback: false}
 }
 
-export const getStaticProps: GetStaticProps = async (
-{
-  params
-}
-) =>
-{
+export const getStaticProps: GetStaticProps = async ({params}) => {
   const slug = params!['slug'] as string
   const post = getPosts().filter(post => post.meta.slug == slug)[0]!
   return {
