@@ -1,3 +1,4 @@
+import 'highlight.js/styles/atom-one-dark.css'
 import {GetStaticPaths, GetStaticProps} from 'next'
 import {PostInfo} from '../../remark/post'
 import {CardContent, CardHeader, Chip, Divider} from '@material-ui/core'
