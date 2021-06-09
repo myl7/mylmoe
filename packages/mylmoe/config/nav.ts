@@ -4,7 +4,8 @@ const nav = [
     list: [
       {name: 'About', href: '/pages/about/'},
       {name: 'Friends', href: '/pages/friends/'},
-      {name: 'Privacy Policy', href: '/pages/privacy-policy/'}
+      {name: 'Privacy Policy', href: '/pages/privacy-policy/'},
+      {name: 'Tags', href: '/pages/tags/'}
     ]
   },
   {
