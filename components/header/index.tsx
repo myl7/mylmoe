@@ -17,10 +17,10 @@ const Header = () => {
 
   return (
     <>
-      <Box display={{xs: 'block', sm: 'block', lg: 'none', xl: 'none'}}>
+      <Box display={{xs: 'block', sm: 'block', md: 'none', lg: 'none', xl: 'none'}}>
         <MobileHeader />
       </Box>
-      <Box display={{xs: 'none', sm: 'none', lg: 'block', xl: 'block'}}>
+      <Box display={{xs: 'none', sm: 'none', md: 'block', lg: 'block', xl: 'block'}}>
         <AppBar position="relative" color="default" component="header">
           <Toolbar component="nav">
             <IconButton style={{marginLeft: '-0.5em'}} onClick={handleGo('/')} aria-label="Home">
