@@ -1,10 +1,13 @@
+import {fromUint8Array, toUint8Array} from 'js-base64'
+
 export const brotliEnc = async (arr: Uint8Array) => {
-  const res = await fetch('https://c.azure-api.net/brotli/enc', {
+  const res = await fetch('https://1g067nz0ob.execute-api.us-west-2.amazonaws.com/brotli-enc', {
     method: 'POST',
-    body: arr.buffer
+    body: fromUint8Array(arr)
   })
   if (res.status == 200) {
-    return new Uint8Array(await res.arrayBuffer())
+    const body = await res.text()
+    return toUint8Array(body)
   } else {
     throw new Error(await res.text())
   }

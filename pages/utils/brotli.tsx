@@ -48,8 +48,6 @@ const Brotli = () => {
         <Typography variant="body1">
           Input and output support hex string and Python-style string
           e.g. <code>a\xff</code> or <code>b'a\xff'</code>.
-          Currently the tool is broken.
-          Fixing has been started and will finish soon.
         </Typography>
         <Grid container spacing={2} justify={'center'} style={{marginTop: '0.5em'}}>
           <Grid item sm={6} xs={12}>
