@@ -3,6 +3,7 @@ import {Button, ButtonProps, ListItemIcon, ListItemText, Menu, MenuItem, Typogra
 import {AddAlert as AddAlertIcon, RssFeed as RssFeedIcon, Telegram as TelegramIcon} from '@material-ui/icons'
 import {blue, yellow} from '@material-ui/core/colors'
 import site from '../../config/site'
+import ExtLinkSign from '../links/extLinkSign'
 
 const Follow: FC<ButtonProps> = props => {
   const [elem, setElem] = useState<Element|null>(null)
@@ -36,6 +37,9 @@ const Follow: FC<ButtonProps> = props => {
             <TelegramIcon style={{color: blue[500]}} />
           </ListItemIcon>
           <ListItemText primary="Telegram" />
+          <span className="ext-link">
+            <ExtLinkSign />
+          </span>
         </MenuItem>
       </Menu>
     </>
