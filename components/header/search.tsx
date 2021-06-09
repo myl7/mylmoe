@@ -32,7 +32,7 @@ const Search: FC<SearchProps> = props => {
   return (
     <Grid container spacing={1} {...others} alignItems="center">
       <Grid item>
-        <IconButton onClick={handleClick}>
+        <IconButton onClick={handleClick} aria-label="Search">
           <SearchIcon />
         </IconButton>
       </Grid>
