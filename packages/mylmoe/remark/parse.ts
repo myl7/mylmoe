@@ -16,6 +16,7 @@ import {PostInfo, PostFM, PostMeta} from './post'
 import dayjs from 'dayjs'
 import remarkExternalLinks from 'remark-external-links'
 import extLinkOptions from './extLinkOptions'
+import rehypeRaw from 'rehype-raw'
 
 const parse = (name: string, content: string, pathPrefix: string = '/posts/'): PostInfo => {
   name = name.substring(0, name.length - 3)
@@ -33,11 +34,12 @@ const parse = (name: string, content: string, pathPrefix: string = '/posts/'): P
     .use(remarkToc)
     .use(remarkMath)
     .use(remarkExternalLinks, extLinkOptions)
-    .use(remark2rehype)
+    .use(remark2rehype, {allowDangerousHtml: true})
+    .use(rehypeRaw)
     .use(rehypeKatex)
     .use(rehypeSlug)
     .use(rehypeHighlight, {plainText: ['log']})
-    .use(rehypeStringify)
+    .use(rehypeStringify, {allowDangerousHtml: true})
     .processSync(content).toString()
   const fm = yaml.load(fmVal) as PostFM
   const meta: PostMeta = {

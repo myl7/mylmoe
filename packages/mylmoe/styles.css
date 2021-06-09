@@ -5,3 +5,13 @@ body {
 code {
   font-family: Source Code Pro, monospace;
 }
+
+img.resp-image {
+  max-width: 100%;
+  height: auto;
+}
+
+img.resp-image-vert {
+  max-height: 100vh;
+  width: auto;
+}
