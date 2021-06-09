@@ -17,10 +17,10 @@ const Header = () => {
 
   return (
     <>
-      <Box display={{xs: 'block', sm: 'none'}}>
+      <Box display={{xs: 'block', sm: 'block', lg: 'none', xl: 'none'}}>
         <MobileHeader />
       </Box>
-      <Box display={{xs: 'none', sm: 'block'}}>
+      <Box display={{xs: 'none', sm: 'none', lg: 'block', xl: 'block'}}>
         <AppBar position="relative" color="default" component="header">
           <Toolbar component="nav">
             <IconButton style={{marginLeft: '-0.5em'}} onClick={handleGo('/')} aria-label="Home">
@@ -35,12 +35,12 @@ const Header = () => {
               <NavMenuButton name={name} list={list} key={name} style={{marginLeft: '1em'}} />
             ))}
             <div style={{flexGrow: 1}} />
-            <Search style={{width: 'auto'}} />
+            <Search />
             <ThemeToggle />
             <Typography variant="subtitle1">
               Dark
             </Typography>
-            <Follow style={{marginLeft: '0.5em'}} />
+            <Follow style={{marginLeft: '0.5em', marginRight: '0.5em'}} />
             <IntLink href="/pages/about">
               <Avatar alt={`Avatar of ${site.name}`} src={site.avatar} />
             </IntLink>

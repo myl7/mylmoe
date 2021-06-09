@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import {
-  AppBar, Avatar, Collapse, IconButton, List, ListItem, ListItemIcon, ListItemText, Toolbar, Typography
+  AppBar, Avatar, Button, Collapse, IconButton, List, ListItem, ListItemIcon, ListItemText, Toolbar, Typography
 } from '@material-ui/core'
 import {Home as HomeIcon, Menu as MenuIcon} from '@material-ui/icons'
 import nav from '../../config/nav'
@@ -22,16 +22,16 @@ const MobileHeader = () => {
   const handleGo = (href: string) => () => router.push(href)
 
   return (
-    <AppBar position="fixed" color="default" component="header">
+    <AppBar position="relative" color="default" component="header">
       <Toolbar style={{paddingLeft: '1em'}} component="nav">
         <IconButton onClick={handleClick} style={{marginLeft: '-0.5em'}} aria-label="Menu">
           <MenuIcon color="primary" />
         </IconButton>
-        <IntLink href="/">
-          <Typography variant="h6">
+        <Button onClick={handleClick}>
+          <Typography variant="h6" color="primary">
             mylmoe
           </Typography>
-        </IntLink>
+        </Button>
         <div style={{flexGrow: 1}} />
         <ThemeToggle />
         <Typography variant="subtitle1">

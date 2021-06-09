@@ -35,7 +35,7 @@ const NavListButton: FC<NavListButtonProps> = props => {
         <List disablePadding>
           {list.map(({name, href}) => (
             <ListItem button key={name} onClick={handleGo(href)}>
-              <ListItemText style={{paddingLeft: '2em'}}>
+              <ListItemText style={{paddingLeft: '5em'}}>
                 <Typography variant="subtitle1">
                   {name}
                 </Typography>
