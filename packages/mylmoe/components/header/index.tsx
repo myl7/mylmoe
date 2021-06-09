@@ -23,7 +23,7 @@ const Header = () => {
       <Box display={{xs: 'none', sm: 'block'}}>
         <AppBar position="relative" color="default" component="header">
           <Toolbar component="nav">
-            <IconButton style={{marginLeft: '-0.5em'}} onClick={handleGo('/')}>
+            <IconButton style={{marginLeft: '-0.5em'}} onClick={handleGo('/')} aria-label="Home">
               <HomeIcon color="primary" />
             </IconButton>
             <IntLink href="/">

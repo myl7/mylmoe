@@ -24,7 +24,7 @@ const MobileHeader = () => {
   return (
     <AppBar position="fixed" color="default" component="header">
       <Toolbar style={{paddingLeft: '1em'}} component="nav">
-        <IconButton onClick={handleClick} style={{marginLeft: '-0.5em'}}>
+        <IconButton onClick={handleClick} style={{marginLeft: '-0.5em'}} aria-label="Menu">
           <MenuIcon color="primary" />
         </IconButton>
         <IntLink href="/">
