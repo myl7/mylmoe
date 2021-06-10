@@ -17,6 +17,7 @@ import dayjs from 'dayjs'
 import remarkExternalLinks from 'remark-external-links'
 import rehypeRaw from 'rehype-raw'
 import extLinkSign from './extLinkSign'
+import rehypeMuiLink from './rehypeMuiLink'
 
 const parse = (name: string, content: string, pathPrefix: string = '/posts/'): PostInfo => {
   name = name.substring(0, name.length - 3)
@@ -43,6 +44,7 @@ const parse = (name: string, content: string, pathPrefix: string = '/posts/'): P
     .use(rehypeKatex)
     .use(rehypeSlug)
     .use(rehypeHighlight, {plainText: ['log']})
+    .use(rehypeMuiLink)
     .use(rehypeStringify, {allowDangerousHtml: true})
     .processSync(content).toString()
   const fm = yaml.load(fmVal) as PostFM
