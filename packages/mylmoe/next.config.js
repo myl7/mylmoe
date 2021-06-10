@@ -1,4 +1,6 @@
-module.exports = {
+const withTM = require('next-transpile-modules')(['hast-util-classnames'])
+
+module.exports = withTM({
   future: {
     webpack5: true
   },
@@ -6,4 +8,4 @@ module.exports = {
     config.experiments = {...config.experiments, syncWebAssembly: true}
     return config
   }
-}
+})
