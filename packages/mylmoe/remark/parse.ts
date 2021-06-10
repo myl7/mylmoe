@@ -15,8 +15,8 @@ import yaml from 'js-yaml'
 import {PostInfo, PostFM, PostMeta} from './post'
 import dayjs from 'dayjs'
 import remarkExternalLinks from 'remark-external-links'
-import extLinkOptions from './extLinkOptions'
 import rehypeRaw from 'rehype-raw'
+import extLinkSign from './extLinkSign'
 
 const parse = (name: string, content: string, pathPrefix: string = '/posts/'): PostInfo => {
   name = name.substring(0, name.length - 3)
@@ -33,7 +33,11 @@ const parse = (name: string, content: string, pathPrefix: string = '/posts/'): P
     .use(remarkFootnotes, {inlineNotes: true})
     .use(remarkToc)
     .use(remarkMath)
-    .use(remarkExternalLinks, extLinkOptions)
+    .use(remarkExternalLinks, {
+      rel: 'noopener',
+      contentProperties: {className: 'ext-link'},
+      content: extLinkSign
+    })
     .use(remark2rehype, {allowDangerousHtml: true})
     .use(rehypeRaw)
     .use(rehypeKatex)
