@@ -6,8 +6,8 @@ from PIL import Image
 
 
 def lambda_handler(event, context):
+    path = 'images/' + event['pathParameters']['proxy']
     qs = event['queryStringParameters']
-    path = qs['p']
     width = qs.get('w', None)
     height = qs.get('h', None)
     if width is None and height is None:
