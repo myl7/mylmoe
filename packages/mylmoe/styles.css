@@ -19,3 +19,8 @@ div.post-html img.resp-image-vert {
 :not(pre) > code {
   color: #50a14f;
 }
+
+a.heading-link {
+  margin-right: 0.3rem;
+  vertical-align: middle;
+}

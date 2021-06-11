@@ -16,10 +16,11 @@ import {PostInfo, PostFM, PostMeta} from './post'
 import dayjs from 'dayjs'
 import remarkExternalLinks from 'remark-external-links'
 import rehypeRaw from 'rehype-raw'
-import extLinkSign from './extLinkSign'
 import rehypeMuiLink from './rehypeMuiLink'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
-import h from 'hastscript'
+import react2hast from './react2hast'
+import ExtLinkSign from '../components/links/extLinkSign'
+import {Link as LinkIcon} from '@material-ui/icons'
 
 const parse = (name: string, content: string, pathPrefix: string = '/posts/'): PostInfo => {
   name = name.substring(0, name.length - 3)
@@ -39,14 +40,17 @@ const parse = (name: string, content: string, pathPrefix: string = '/posts/'): P
     .use(remarkExternalLinks, {
       rel: 'noopener',
       contentProperties: {className: 'ext-link'},
-      content: extLinkSign
+      content: react2hast(<ExtLinkSign />)
     })
     .use(remark2rehype, {allowDangerousHtml: true})
     .use(rehypeRaw)
     .use(rehypeKatex)
     .use(rehypeSlug)
     .use(rehypeHighlight, {plainText: ['log']})
-    .use(rehypeAutolinkHeadings, {content: h('span.icon.icon-link', '# ')})
+    .use(rehypeAutolinkHeadings, {
+      properties: {ariaHidden: true, tabIndex: -1, className: 'heading-link'},
+      content: react2hast(<LinkIcon />)
+    })
     .use(rehypeMuiLink)
     .use(rehypeStringify, {allowDangerousHtml: true})
     .processSync(content).toString()
