@@ -34,7 +34,10 @@ def lambda_handler(event, context):
     body = base64.b64encode(f.read())
     return {
         'statusCode': 200,
-        'headers': {'Content-Type': res['ContentType']},
+        'headers': {
+            'Content-Type': res['ContentType'],
+            'Cache-Control': 'public,max-age=31536000'
+        },
         'body': body,
         'isBase64Encoded': True
     }
