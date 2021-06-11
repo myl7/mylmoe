@@ -119,6 +119,7 @@ dist
 
 # IDE
 .idea/
+.vscode/
 
 # prebuild output
 /scripts/*.js
