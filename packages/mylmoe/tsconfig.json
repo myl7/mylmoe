@@ -9,7 +9,6 @@
     "strict": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedIndexedAccess": true,
-    "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
