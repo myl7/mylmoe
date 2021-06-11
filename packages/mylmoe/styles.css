@@ -6,12 +6,12 @@ code {
   font-family: Source Code Pro, monospace;
 }
 
-img.resp-image {
+div.post-html img:not(.resp-image-vert) {
   max-width: 100%;
   height: auto;
 }
 
-img.resp-image-vert {
+div.post-html img.resp-image-vert {
   max-height: 100vh;
   width: auto;
 }

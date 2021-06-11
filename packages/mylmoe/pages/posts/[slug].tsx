@@ -7,7 +7,6 @@ import PostDate from '../../components/post/postDate'
 import Comment from '../../components/comment'
 import getPosts from '../../utils/getPosts'
 import {useRouter} from 'next/router'
-import fixStyles from '../../remark/fixStyles'
 
 const Post = (props: {post: PostInfo}) => {
   const {meta, html} = props.post
@@ -32,7 +31,7 @@ const Post = (props: {post: PostInfo}) => {
       } />
       <Divider />
       <CardContent>
-        <div ref={fixStyles} dangerouslySetInnerHTML={{__html: html}} style={{marginBottom: '1em'}} />
+        <div className="post-html" dangerouslySetInnerHTML={{__html: html}} style={{marginBottom: '1em'}} />
         <Comment />
       </CardContent>
     </>

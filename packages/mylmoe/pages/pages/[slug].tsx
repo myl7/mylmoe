@@ -2,7 +2,6 @@ import {GetStaticPaths, GetStaticProps} from 'next'
 import {Box, CardContent, CardHeader, Divider} from '@material-ui/core'
 import Head from '../../components/head'
 import {PostInfo} from '../../remark/post'
-import fixStyles from '../../remark/fixStyles'
 import getPosts from '../../utils/getPosts'
 
 const Page = (props: {post: PostInfo}) => {
@@ -22,7 +21,7 @@ const Page = (props: {post: PostInfo}) => {
       } />
       <Divider />
       <CardContent>
-        <div ref={fixStyles} dangerouslySetInnerHTML={{__html: html}} />
+        <div className="post-html" dangerouslySetInnerHTML={{__html: html}} />
       </CardContent>
     </>
   )
