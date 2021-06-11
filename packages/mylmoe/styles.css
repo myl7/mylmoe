@@ -24,3 +24,12 @@ a.heading-link {
   margin-right: 0.3rem;
   vertical-align: middle;
 }
+
+#toc + ul, #toc + ul ul {
+  padding-inline-start: 2em;
+}
+
+#toc + ul p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
