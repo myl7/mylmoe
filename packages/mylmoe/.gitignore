@@ -126,5 +126,6 @@ dist
 /public/rss.xml
 /public/sitemap.xml
 
-# AWS S3
+# AWS
 /s3/
+/lambda/*/*.zip
