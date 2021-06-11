@@ -12,8 +12,8 @@ const Search = () => {
   const ref = useRef<HTMLInputElement>()
 
   const handleEnter = (e: React.KeyboardEvent) => {
-    if (e.key == 'Enter') {
-      window.open(searchUrl((e.target as HTMLInputElement).value), '_blank')
+    if (e.key == 'Enter' && ref.current && ref.current.value) {
+      window.open(searchUrl(ref.current.value), '_blank')
     }
   }
 
