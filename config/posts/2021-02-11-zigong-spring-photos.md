@@ -16,31 +16,31 @@ We took a walk around it and also took many satisfying photos.
 
 ## Lake and pavilion
 
-![Lake and pavilion](/images/zigong-2021-02-07/pavilion-in-lake.jpg)
+![Lake and pavilion](../../s3/images/zigong-2021-02-07/pavilion-in-lake.jpg)
 
 ## Flowers and trees
 
-![Buildings among flowers](/images/zigong-2021-02-07/buildings-among-flowers.jpg)
+![Buildings among flowers](../../s3/images/zigong-2021-02-07/buildings-among-flowers.jpg)
 
-![Sun above flowers](/images/zigong-2021-02-07/sun-above-flowers.jpg)
+![Sun above flowers](../../s3/images/zigong-2021-02-07/sun-above-flowers.jpg)
 
-![Mountain among flowers](/images/zigong-2021-02-07/mountain-among-flowers.jpg)
+![Mountain among flowers](../../s3/images/zigong-2021-02-07/mountain-among-flowers.jpg)
 
-![Trees among flowers](/images/zigong-2021-02-07/trees-among-flowers-fixed.jpg)
+![Trees among flowers](../../s3/images/zigong-2021-02-07/trees-among-flowers-fixed.jpg)
 
-<img src="/images/zigong-2021-02-07/walkway-among-trees.jpg" alt="Walkway among trees" class="resp-image-vert">
+<img src="../../s3/images/zigong-2021-02-07/walkway-among-trees.jpg" alt="Walkway among trees" class="resp-image-vert">
 
-![Buildings with old man among flowers](/images/zigong-2021-02-07/buildings-with-old-man-among-flowers.jpg)
+![Buildings with old man among flowers](../../s3/images/zigong-2021-02-07/buildings-with-old-man-among-flowers.jpg)
 
 ## Down road
 
-![Tree between towers](/images/zigong-2021-02-07/tree-between-towers.jpg)
+![Tree between towers](../../s3/images/zigong-2021-02-07/tree-between-towers.jpg)
 
-<img src="/images/zigong-2021-02-07/down-road-between-trees.jpg" alt="Down road between trees" class="resp-image-vert">
+<img src="../../s3/images/zigong-2021-02-07/down-road-between-trees.jpg" alt="Down road between trees" class="resp-image-vert">
 
 ## Monument
 
-<img src="/images/zigong-2021-02-07/accident-monument.jpg" alt="Accident monument" class="resp-image-vert">
+<img src="../../s3/images/zigong-2021-02-07/accident-monument.jpg" alt="Accident monument" class="resp-image-vert">
 
 ## Release and license
 
