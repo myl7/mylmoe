@@ -21,6 +21,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import react2hast from './react2hast'
 import ExtLinkSign from '../components/links/extLinkSign'
 import {Link as LinkIcon} from '@material-ui/icons'
+import type {Parent} from 'unist'
 
 const parse = (name: string, content: string, pathPrefix: string = '/posts/'): PostInfo => {
   name = name.substring(0, name.length - 3)
@@ -30,9 +31,10 @@ const parse = (name: string, content: string, pathPrefix: string = '/posts/'): P
     .use(remarkGfm)
     .use(remarkFrontmatter, ['yaml'])
     .use(() => node => {
-      // @ts-ignore
-      fmVal = node.children[0].value
-      return node
+      const root = node as Parent
+      fmVal = root.children[0]!['value'] as string
+      root.children.shift()
+      return root
     })
     .use(remarkFootnotes, {inlineNotes: true})
     .use(remarkToc)
