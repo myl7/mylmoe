@@ -8,7 +8,8 @@ const Footer = () => {
   const ccProps = (code: string) => ({
     src: `/images/cc/${code}.svg`,
     alt: `${code.toUpperCase()} icon of CC license`,
-    height: '22px !important',
+    width: '22px',
+    height: '22px',
     style: {
       verticalAlign: 'text-bottom'
     }
