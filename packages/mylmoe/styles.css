@@ -15,3 +15,7 @@ img.resp-image-vert {
   max-height: 100vh;
   width: auto;
 }
+
+:not(pre) > code {
+  color: #50a14f;
+}
