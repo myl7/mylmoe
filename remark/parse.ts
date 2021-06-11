@@ -18,6 +18,8 @@ import remarkExternalLinks from 'remark-external-links'
 import rehypeRaw from 'rehype-raw'
 import extLinkSign from './extLinkSign'
 import rehypeMuiLink from './rehypeMuiLink'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import h from 'hastscript'
 
 const parse = (name: string, content: string, pathPrefix: string = '/posts/'): PostInfo => {
   name = name.substring(0, name.length - 3)
@@ -44,6 +46,7 @@ const parse = (name: string, content: string, pathPrefix: string = '/posts/'): P
     .use(rehypeKatex)
     .use(rehypeSlug)
     .use(rehypeHighlight, {plainText: ['log']})
+    .use(rehypeAutolinkHeadings, {content: h('span.icon.icon-link', '# ')})
     .use(rehypeMuiLink)
     .use(rehypeStringify, {allowDangerousHtml: true})
     .processSync(content).toString()
