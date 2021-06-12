@@ -13,7 +13,7 @@ const rehypeS3Image: Plugin<RehypeS3ImageSetting[]> = setting => {
 
   const visitor: Visitor<Element> = (node, _i, _parent) => {
     const src = node.properties!['src'] as string
-    node.properties!['src'] = src.replace(/^\.\.\/\.\.\/s3/, baseUrl)
+    node.properties!['src'] = src.replace(/^\.\.\/\.\.\/s3\/images/, baseUrl)
   }
 
   return tree => visit(tree, isElement.convert('img'), visitor)
