@@ -55,7 +55,7 @@ const parse = (name: string, content: string, pathPrefix: string = '/posts/'): P
       content: react2hast(<LinkIcon />)
     })
     .use(rehypeMuiLink)
-    .use(rehypeS3Image, {baseUrl: 'https://mylmoe.s3.us-west-2.amazonaws.com'})
+    .use(rehypeS3Image, {baseUrl: 'https://store.myl.moe/images'})
     .use(rehypeStringify, {allowDangerousHtml: true})
     .processSync(content).toString()
   const fm = yaml.load(fmVal) as PostFM
