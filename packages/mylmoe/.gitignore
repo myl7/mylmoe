@@ -122,7 +122,7 @@ dist
 .vscode/
 
 # prebuild output
-/scripts/*.js
+/scripts/build/*.js
 /public/rss.xml
 /public/sitemap.xml
 
