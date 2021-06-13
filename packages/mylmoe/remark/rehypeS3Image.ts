@@ -6,7 +6,29 @@ import isElement from 'hast-util-is-element'
 import h from 'hastscript'
 import path from 'path'
 import fs from 'fs'
-import imageSize from 'image-size'
+
+const imageInfo: {[key: string]: {width: number, height: number}} = (() => {
+  const p = path.join(process.cwd(), 'config', 'images.json')
+  if (fs.existsSync(p)) {
+    return JSON.parse(fs.readFileSync(p).toString())
+  }
+  const info = process.env['MYLMOE_IMAGE_INFO']
+  if (!info) {
+    process.stderr.write('Can not find image info')
+    process.exit(1)
+  }
+  return JSON.parse(info)
+})()
+
+const fileExists = (p: string) => {
+  const k = path.relative(process.cwd(), p)
+  return Object.keys(imageInfo).indexOf(k) != -1
+}
+
+const imageSize = (p: string) => {
+  const k = path.relative(process.cwd(), p)
+  return imageInfo[k]!
+}
 
 export interface RehypeS3ImageSetting {
   baseUrl: string
@@ -32,7 +54,7 @@ const rehypeS3Image: Plugin<RehypeS3ImageSetting[]> = setting => {
     const name = path.basename(s, ext)
     let vert = false
     let p = path.join(path.dirname(s), name + `_h${breakPoints[0]}.webp`)
-    if (fs.existsSync(p)) {
+    if (fileExists(p)) {
       vert = true
     }
 
@@ -40,7 +62,7 @@ const rehypeS3Image: Plugin<RehypeS3ImageSetting[]> = setting => {
     for (let i = 0; i < breakPoints.length; i++) {
       const point = breakPoints[i]!
       let p = path.join(path.dirname(s), name + `_${vert ? 'h' : 'w'}${point}.webp`)
-      if (fs.existsSync(p)) {
+      if (fileExists(p)) {
         const {width, height} = imageSize(p)
         const sizes = `${width}px,${height}px`
         if (i < breakPoints.length - 1) {
@@ -53,7 +75,7 @@ const rehypeS3Image: Plugin<RehypeS3ImageSetting[]> = setting => {
         }
       } else {
         let p = path.join(path.dirname(s), name + '.webp')
-        if (fs.existsSync(p)) {
+        if (fileExists(p)) {
           const {width, height} = imageSize(p)
           const sizes = `${width}px,${height}px`
           const srcset = p.replace(/^.*s3\/images/, baseUrl)
