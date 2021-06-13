@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "incremental": true,
-    "target": "es6",
+    "target": "es2020",
     "module": "esnext",
     "allowJs": true,
     "jsx": "preserve",
