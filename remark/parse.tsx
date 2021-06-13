@@ -67,7 +67,7 @@ const parse = (name: string, content: string, pathPrefix: string = '/posts/'): P
     excerpt: fm.excerpt ? fm.excerpt : '',
     tags: fm.tags ? fm.tags : '',
     wip: Boolean(fm.wip),
-    path: pathPrefix + name + '/'
+    path: pathPrefix + name
   }
   return {
     meta,
