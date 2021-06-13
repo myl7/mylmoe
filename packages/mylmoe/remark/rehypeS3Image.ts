@@ -6,9 +6,9 @@ import isElement from 'hast-util-is-element'
 import h from 'hastscript'
 import path from 'path'
 import fs from 'fs'
-import got from 'got'
+import childProcess from 'child_process'
 
-const imageInfo: {[key: string]: {width: number, height: number}} = await (async () => {
+const imageInfo: {[key: string]: {width: number, height: number}} = (() => {
   const p = path.join(process.cwd(), 's3', 'images', 'images.json')
   if (fs.existsSync(p)) {
     return JSON.parse(fs.readFileSync(p).toString())
@@ -17,9 +17,9 @@ const imageInfo: {[key: string]: {width: number, height: number}} = await (async
   if (info) {
     return JSON.parse(info)
   }
-  const res = await got('https://store.myl.moe/images/images.json')
-  if (res.statusCode == 200 && res.body) {
-    return JSON.parse(res.body)
+  const res = childProcess.execSync('curl -o- https://store.myl.moe/images/images.json').toString()
+  if (res) {
+    return JSON.parse(res)
   }
   process.stderr.write('Can not find image info')
   process.exit(1)
