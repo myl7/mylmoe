@@ -14,5 +14,5 @@ glob.sync(p).filter(p => {
   const k = path.relative(process.cwd(), p)
   info[k] = {width, height}
 })
-const f = path.join(process.cwd(), 'config', 'images.json')
+const f = path.join(process.cwd(), 's3', 'images', 'images.json')
 fs.writeFileSync(f, JSON.stringify(info))
