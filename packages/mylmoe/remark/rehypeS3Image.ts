@@ -6,18 +6,23 @@ import isElement from 'hast-util-is-element'
 import h from 'hastscript'
 import path from 'path'
 import fs from 'fs'
+import got from 'got'
 
-const imageInfo: {[key: string]: {width: number, height: number}} = (() => {
-  const p = path.join(process.cwd(), 'config', 'images.json')
+const imageInfo: {[key: string]: {width: number, height: number}} = await (async () => {
+  const p = path.join(process.cwd(), 's3', 'images', 'images.json')
   if (fs.existsSync(p)) {
     return JSON.parse(fs.readFileSync(p).toString())
   }
   const info = process.env['MYLMOE_IMAGE_INFO']
-  if (!info) {
-    process.stderr.write('Can not find image info')
-    process.exit(1)
+  if (info) {
+    return JSON.parse(info)
   }
-  return JSON.parse(info)
+  const res = await got('https://store.myl.moe/images/images.json')
+  if (res.statusCode == 200 && res.body) {
+    return JSON.parse(res.body)
+  }
+  process.stderr.write('Can not find image info')
+  process.exit(1)
 })()
 
 const fileExists = (p: string) => {
