@@ -93,7 +93,7 @@ Next.js 的 API 有 React 的味道，很精炼很基本，使用起来很直观
 解码解决了，就该解决编码了。原先我编码用的是 Azure Functions，但现在订阅已经过期。
 外加 Azure 的控制面板实在是慢（Office Web Apps 也是慢，我也不知道为什么微软的东西都这么慢）（不过 Azure 的各个配置都挺好用的，解释明确文档充足选项下有说明），我就决定直接换到 AWS 了，正好充分利用首年的优惠。
 
-# 上 AWS
+## 上 AWS
 
 Brotli 编码我选择了 Python，因为 Python 是官方支持（Brotli 的源码在 google/brotli，是 Google 搞的一个更强的压缩标准，Clouflare 就有支持）。
 AWS Lambda 不允许安装依赖，而是要求把依赖一起打包上传，但也算常见的做法。
