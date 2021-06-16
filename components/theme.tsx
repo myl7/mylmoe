@@ -11,7 +11,10 @@ const theme = (dark: boolean) => createMuiTheme({
     }
   },
   palette: {
-    type: dark ? 'dark' : 'light'
+    type: dark ? 'dark' : 'light',
+    primary: {
+      main: '#2196f3'
+    }
   }
 })
 
