@@ -1,4 +1,4 @@
-import {createMuiTheme, MuiThemeProvider} from '@material-ui/core'
+import {createMuiTheme, MuiThemeProvider, useMediaQuery} from '@material-ui/core'
 import {FC, useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {State} from '../redux/state'
@@ -25,10 +25,12 @@ const Theme: FC = ({children}) => {
 
   const [mounted, setMounted] = useState(false)
 
+  const darkPrefer = useMediaQuery('(prefers-color-scheme: dark)')
+
   useEffect(() => {
     setMounted(true)
     const darkStore = localStorage.getItem('mylmoe.theme.dark')
-    const dark = (darkStore == null ? false : Boolean(darkStore))
+    const dark = (darkStore == null ? darkPrefer : Boolean(darkStore))
     themeEffect(dark)
     dispatch(themeInitAction(dark))
   })
