@@ -28,7 +28,7 @@ We took a walk around it and also took many satisfying photos.
 
 ![Trees among flowers](../../s3/images/zigong-2021-02-07/trees-among-flowers-fixed.jpg)
 
-<img src="../../s3/images/zigong-2021-02-07/walkway-among-trees.jpg" alt="Walkway among trees" class="resp-image-vert">
+![Walkway among trees](../../s3/images/zigong-2021-02-07/walkway-among-trees.jpg)
 
 ![Buildings with old man among flowers](../../s3/images/zigong-2021-02-07/buildings-with-old-man-among-flowers.jpg)
 
@@ -36,11 +36,11 @@ We took a walk around it and also took many satisfying photos.
 
 ![Tree between towers](../../s3/images/zigong-2021-02-07/tree-between-towers.jpg)
 
-<img src="../../s3/images/zigong-2021-02-07/down-road-between-trees.jpg" alt="Down road between trees" class="resp-image-vert">
+![Down road between trees](../../s3/images/zigong-2021-02-07/down-road-between-trees.jpg)
 
 ## Monument
 
-<img src="../../s3/images/zigong-2021-02-07/accident-monument.jpg" alt="Accident monument" class="resp-image-vert">
+![Accident monument](../../s3/images/zigong-2021-02-07/accident-monument.jpg)
 
 ## Release and license
 
