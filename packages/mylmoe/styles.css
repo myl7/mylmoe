@@ -6,16 +6,6 @@ code {
   font-family: Source Code Pro, monospace;
 }
 
-div.post-html img:not(.resp-image-vert) {
-  max-width: 100%;
-  height: auto;
-}
-
-div.post-html img.resp-image-vert {
-  max-height: 100vh;
-  width: auto;
-}
-
 :not(pre) > code {
   color: #50a14f;
 }
