@@ -7,8 +7,7 @@ module.exports = withTM({
   webpack: config => {
     config.experiments = {
       ...config.experiments,
-      syncWebAssembly: true,
-      topLevelAwait: true
+      syncWebAssembly: true
     }
     return config
   }
