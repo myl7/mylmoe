@@ -45,6 +45,6 @@ We took a walk around it and also took many satisfying photos.
 ## Release and license
 
 The photos are licensed under CC BY-NC-SA 4.0.
-You can get the raw photos on [OneDrive][zigong-2021-02-07@OneDrive].
+You can get the raw photos on [OneDrive][zigong-2021-02-07].
 
-[zigong-2021-02-07@OneDrive]: https://share.myl.workers.dev/raw-images/zigong-2021-02-07.tar.gz
+[zigong-2021-02-07]: https://share.myl.workers.dev/raw-images/zigong-2021-02-07/

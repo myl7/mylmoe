@@ -62,7 +62,7 @@ $ wine --version
 wine-5.22
 ```
 
-这里我留下了紧邻崩溃前的存档：[`Sakuranouta013.sud` on Azure Files](https://mylmoefileshare.file.core.windows.net/sakuranouta/Sakuranouta013.sud?sp=rl&st=2021-01-03T22:18:16Z&se=2100-01-03T22:18:00Z&sv=2019-12-12&sig=MDu1qonQAi6xbnu1OU038%2BC7V7bKZ%2BNbhUrjUbOEevQ%3D&sr=f)
+这里我留下了紧邻崩溃前的存档：[sakuranouta][sakuranouta]
 
 试着用 Windows 10 20h2 新装的虚拟机打开，发现游戏主程序直接打不开了！
 感觉像是资源不足（虚拟机开在一台性能接近轻薄本的全能本上），又像是有虚拟机检测。
@@ -87,3 +87,5 @@ wine-5.22
 [樱之诗 －樱花林上飞舞－ 中文攻略_2DFan](https://www.2dfan.com/topics/11335)
 
 [サクラノ詩 —櫻の森の上を舞う— | Bangumi 番组计划](https://bangumi.tv/subject/22423)
+
+[sakuranouta]: https://share.myl.workers.dev/savedata/sakuranouta/
