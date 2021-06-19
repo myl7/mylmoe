@@ -23,3 +23,13 @@ a.heading-link {
   margin-top: 0;
   margin-bottom: 0;
 }
+
+.wrap-around {
+  display: inline-block;
+  width: 100%;
+}
+
+.wrap-around :first-child {
+  float: left;
+  margin-right: 0.5em;
+}
