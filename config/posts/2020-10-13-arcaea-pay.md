@@ -66,6 +66,8 @@ Arcaea 中付费可以：
 
 ### Luminous Sky（白包）、Vicious Labyrinth（黑包）
 
+<div class="wrap-around">
+
 ![Luminous Sky](../../s3/images/arcaea-pack-covers/luminous-sky.png) ![Vicious Labyrinth](../../s3/images/arcaea-pack-covers/vicious-labyrinth.png)
 
 只要继续玩下去，早晚会买的，早买早享受。
@@ -85,7 +87,11 @@ Arcaea 中付费可以：
 相比之下白包的难度跨度就比较大，FTR 直接从 8 到 9+，更有曾经的最难曲 Fracture Ray FTR（现在已经是 Tempestissimo BYD 了）。
 但其中的 9+ 质量还是很棒的，仍然值得购买。
 
+</div>
+
 ### External Core
+
+<div class="wrap-around">
 
 ![External Core](../../s3/images/arcaea-pack-covers/eternal-core.png)
 
@@ -98,14 +104,22 @@ Arcaea 中付费可以：
 
 总的来说还是可以买，前期尤其是卡 8 时就是推荐了。
 
+</div>
+
 ### Adverse Prelude
+
+<div class="wrap-around">
 
 ![Adverse Prelude](../../s3/images/arcaea-pack-covers/adverse-prelude.png)
 
 这个包曲子质量很棒，也有一个水 9+ BLRINK FTR 可以用来度过 9 到 9+。
 可以紧跟在黑白包后购买。
 
+</div>
+
 ### Black Fate
+
+<div class="wrap-around">
 
 ![Black Fate](../../s3/images/arcaea-pack-covers/black-fate.png)
 
@@ -118,7 +132,11 @@ Arcaea 中付费可以：
 
 另外如果到了比这里定义的后期更“后期”的水平，这里的高难度曲子也会让平时打歌变得不再枯燥。
 
+</div>
+
 ### World Extend
+
+<div class="wrap-around">
 
 ![World Extend](../../s3/images/arcaea-pack-covers/world-extend.png)
 
@@ -129,6 +147,8 @@ Arcaea 中付费可以：
 这个包目前正在更新之中，会添加曲子到这个包，所以不知道最后这个包中有多少曲子。
 但现有的包中曲子难度都不太大，之后再看这个包的走向吧。
 
+</div>
+
 ## 支线包购买建议
 
 直线包就看个人的喜好来购买了。
@@ -136,12 +156,18 @@ Arcaea 中付费可以：
 
 ### Sunset Radiance
 
+<div class="wrap-around">
+
 ![Sunset Radiance](../../s3/images/arcaea-pack-covers/sunset-radiance.png)
 
 AI\[UE\]OON FTR 这个 9 很不错，谱面打起来很爽。
 A Wandering Melody of Love 是我个人很喜欢的一个曲子，打起来也很爽，变化多，但在 9+ 里又算比较简单的。
 
+</div>
+
 ### Absolute Reason（绿包）
+
+<div class="wrap-around">
 
 ![Absolute Reason](../../s3/images/arcaea-pack-covers/absolute-reason.png)
 
@@ -150,7 +176,11 @@ Vicious Heroism 则是比较简单的 10，而且打起来很爽，节奏感强�
 绿魔王 Cyaegha 其实算不太难的 10+，谱面很棒，后期可以日常打。
 绿魔王在最新的 Arcaea 曲目投票中超越了 Grievous Lady 成为了第一，可见其受欢迎程度。
 
+</div>
+
 ### Binary Enfold
+
+<div class="wrap-around">
 
 ![Binary Enfold](../../s3/images/arcaea-pack-covers/binary-enfold.png)
 
@@ -158,26 +188,40 @@ Vicious Heroism 则是比较简单的 10，而且打起来很爽，节奏感强�
 next to you 听起来不错，但是只有 8。
 但 Singularity 打起来实在是快乐，作为一个节奏曲，跟着音乐狂按很有乐趣。
 
+</div>
+
 ### Ambivalent Vision（黄包）
+
+<div class="wrap-around">
 
 ![Ambivalent Vision](../../s3/images/arcaea-pack-covers/ambivalent-vision.png)
 
 我还没买……买了打了之后再来更新感想。
 
+</div>
+
 ### Crimson Solace（红包）
+
+<div class="wrap-around">
 
 ![Crimson Solace](../../s3/images/arcaea-pack-covers/crimson-solace.png)
 
 才买，还没打……打完再说吧。
 
+</div>
+
 ## 联动包购买建议
 
 联动包我只买了 CHUNITHM，就不分开说了。
+
+<div class="wrap-around">
 
 ![CHUNITHM](../../s3/images/arcaea-pack-covers/chunithm.png)
 
 CHUNITHM 包只有三首曲子，性价比比较低，但三首难度是 10、10、10+，所以后期买来挑战还是不错的。
 只是这三首曲子的风格不是很对我胃口。
+
+</div>
 
 ## 单曲购买建议
 
@@ -189,11 +233,15 @@ CHUNITHM 包只有三首曲子，性价比比较低，但三首难度是 10、10
 
 ## 免费包
 
+<div class="wrap-around">
+
 ![Arcaea](../../s3/images/arcaea-pack-covers/arcaea.png)
 
 在 Arcaea 这个免费包中也有很多很棒的单曲。
 其缺点是解锁需要残片，要靠积累，而且以 8、9 为主，难度较低。
 前期还是推荐先在免费包中打一打，看看自己适不适合这个游戏，确定了之后在付费，这样不容易后悔。
+
+</div>
 
 ## 引用
 
