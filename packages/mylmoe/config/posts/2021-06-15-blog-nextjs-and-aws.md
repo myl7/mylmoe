@@ -11,37 +11,38 @@ tags: blog nextjs frontend serverless
 ## 起因
 
 三大前端框架 Vue、React、Angular，我只有 React 能使得得心应手。
-我看到对这样一个对 React 的评价：学会后是不需要文档的。
-React 的 API 称得上精炼：JSX、Hook、再加点和 DOM 交互的实践，再再配合一个足够强大的 UI 库（例如 Material-UI）就基本足够写出一个称得上工程级别的前端项目了。
+我看到过这样一个对 React 的评价：学会后是不需要文档的。
+React 的 API 称得上精炼：JSX、Hook、再加点和 DOM 交互的实践、再配合一个足够强大的 UI 库（例如 Material-UI）就基本足够写出一个称得上工程级别的前端项目了。
 
-相比之下，对于 Vue，虽然我有兴趣，但是一直不太看得进它的官方文档。
+相比之下，对于 Vue，虽然我有兴趣，但是一直不太能看得进它的官方文档。
 虽然这份文档被人广为称赞，但是我由于个人原因有些地方不太接受：
 例如开头它就表示自己是一个渐进式前端框架，可以直接加个 `<script>` 就开写——我觉得最后还是得在 npm 里干事，不妨直接讲 `*.vue` 文件的组织和使用吧，实际一些。
-另外 Vue 也有好几套 API，喜欢的人会说这是灵活的体现，你想用哪套就用哪套——我是那种写得了 Java 和 Rust 的人，其实不在乎限制多一少些，但确实希望能看到 Best Practice，就像我想看到《Effective C++》时一样。
+另外 Vue 也有好几套 API，喜欢的人会说这是灵活的体现，你想用哪套就用哪套——我是那种写得了 Java 和 Rust 的人，其实不在乎限制多一些，但确实希望能看到 Best Practice，那份感情就像我想看到《Effective C++》一样。
 几套 API 给了我选择困难症的感觉。
-我还看见过有人称赞 Vue 能像以前的前端那样分离 HTML 和 CSS，比较有传统气息，方便过渡——我个人是这几年才接触前端，自然是希望学到最新的东西了，更何况我相当喜欢 All-in-JS，我觉得在 JS 里还是很灵活的，能轻松地实现很多功能。
-HTML 改成 JSX，而 CSS 我就不太想深究了，搞清楚几个 `display` 是怎么排版的就差不多了。
+我还看见过有人称赞 Vue 能像以前的前端那样分离 HTML 和 CSS，比较有传统气息，方便过渡——我个人是这几年才接触前端的，自然希望学到最新的东西，更何况我个人也相当喜欢 All-in-JS，觉得在 JS 里很灵活，能轻松实现很多功能。
+HTML 变成了 JSX，而 CSS 我就不太想深究了，搞清楚几个 `display` 是怎么排版的就差不多了。
 我一般会在用 React 时加上 Material-UI，CSS 也就靠 Material-UI 里的 inline style 和 `useStyles` 外加 theme，也还挺行的。
 不过话归如此，Vue 3 出来了的当下我应该还是会在某一天找时间再学学 Vue 吧。
 Angular 就完全没有接触过了，国内也不太有 Angular 的环境。
 
 有点偏题了。
 总之我就用 React 写了自己 blog，代码在 [myl7/mylmoe](https://github.com/myl7/mylmoe)。
-开始时用的 Vanilla React，也就是单纯的 React，结果 JS 文件近 1MB，优化了后也慢得不行，配合 Cloudflare 打开首页要近 10s，这基本是不太行的。
-然后由于 React 官方推荐的 SSR 框架是 Gatsby，我就用 Gatsby 重写了一遍。
-Gatsby 的槽点实际体会后实在是蛮多的，例如 `gatsby-node.js`、`gatsby-ssr.js`、`gatsby-config.js`、`gatsby-browser.js` 一堆配置文佳，外加这些文件里一堆 API，让人眼花缭乱。
-GraphQL 看起来高端，但是一小博客实在是不需要那么高端的东西。
-除此之外还有一些令人无语的功能缺失，例如由于 Gatsby 里对 GraphQL 的限制（不允许 optional field），导致 Markdown frontmatter 中可选 field 的处理非常麻烦。
-另外还有像由于数据集中存储用 GraphQL 取用，所以完全不知道数据有哪些、得在 GraphQL debug page 自行查看，虽然方便了一些统计性的工作（例如 sitemap、RSS 的生成），但常规取用不明确，WebStorm 也没法对 GraphQL query 出的数据作推断。
+开始时用的 Vanilla React，也就是单纯的 React，结果 JS 文件近 1MB，优化后也慢得不行，配合 Cloudflare 打开首页要近 10s，这基本是不行的。
+由于 React 官方推荐的 SSR 框架是 Gatsby，我就接着用 Gatsby 重写了一遍。
+Gatsby 的槽点实际体会后实在是蛮多的，例如 `gatsby-node.js`、`gatsby-ssr.js`、`gatsby-config.js`、`gatsby-browser.js` 一堆配置文件，外加这些文件里一堆 API，让人眼花缭乱。
+GraphQL 看起来高端，但是一小博客实在是不需要那么高端的东西，更何况 JSON 和 GraphQL 这样的中间部分终归是不如直接 JS 来得灵活，它们带来的解耦也在不大的项目里表现得不太出彩。
+除此之外还有一些令人无语的功能缺失，例如由于 Gatsby 里对 GraphQL 的限制（不允许 optional field），导致 Markdown 的 frontmatter schema 必须一样，否则需要自己额外处理，非常麻烦。
+另外还有：由于数据集中存储、用 GraphQL 取用，所以完全不知道数据有哪些，得在 GraphQL debug page 里自行查看，虽然方便了一些统计性的工作（例如 sitemap、RSS 的生成），但常规取用不明确，WebStorm 也没法对 GraphQL query 出的数据作类型推断。
 
 不过这不是我弃用 Gatsby 的最终理由。
-最终理由是，在几个星期前我突然想改自己的 blog，结果忘了 API，一查发现 Gatsby 滚 major 版本号了。
+最终理由是，几个星期前我突然想改自己的 blog，结果忘了 API，一查发现 Gatsby 滚 major 版本号了。
 我自然要用最新版，毕竟自己的 OS 都是 Arch Linux。
 结果没想到跟着一滚，除了官方的插件外，其他的社区插件炸了一堆，还有好一些是承载重要功能的。
-一起炸的还有 npm 的版本管理，`npm audit fix` 报了一堆 BUG 后还没法自动修复，因为分析出来修复方法是把 Gatsby 一个核心插件回退到老版本。
-恰好又在几天前，我和一位同学闲聊时谈到 React SSR，他向我强烈推荐 Next.js，并批判 Gatsby 搞得太复杂了。
+一起炸的还有 npm 的版本管理，`npm audit fix` 报了一堆 BUG 后还没法自动修复，因为分析出来的修复方法是把 Gatsby 的一个核心插件回退到老版本。
+这还不是刚变更 major 版本号的时间节点，实际上距离更新已经有相当一段时间了，可见社区中相当一部分是没有跟上的。
+恰好又在几天前，我和一位同学闲聊时谈到了 React SSR，他向我强烈推荐 Next.js，并批判 Gatsby 搞得太复杂了。
 最终我还是决定趁这机会直接换到 Next.js 了，来体验一下 React SSR 框架的另一极。
-弃用的 Vanilla React 和 Gatsby 实现就移到 `vanilla-react` 和 `gatsby` 分支了。
+弃用的 Vanilla React 和 Gatsby 实现就移到 `vanilla-react` 和 `gatsby` 分支上去了。
 
 ## 上 Next.js
 
