@@ -125,6 +125,7 @@ dist
 /scripts/build/*.js
 /public/rss.xml
 /public/sitemap.xml
+/public/rss3.json
 /config/images.json
 
 # AWS
