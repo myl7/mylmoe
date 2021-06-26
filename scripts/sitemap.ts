@@ -30,5 +30,4 @@ const res = `\
 ${items.join('\n')}
 </urlset>
 `
-const fd = fs.openSync(path.join(process.cwd(), 'public', 'sitemap.xml'), 'w')
-fs.writeSync(fd, res)
+fs.writeFileSync(path.join(process.cwd(), 'public', 'sitemap.xml'), res)

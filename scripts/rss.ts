@@ -39,5 +39,4 @@ ${items.join('\n')}
   </channel>
 </rss>
 `
-const fd = fs.openSync(path.join(process.cwd(), 'public', 'rss.xml'), 'w')
-fs.writeSync(fd, res)
+fs.writeFileSync(path.join(process.cwd(), 'public', 'rss.xml'), res)
