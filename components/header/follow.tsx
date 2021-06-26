@@ -32,6 +32,12 @@ const Follow: FC<ButtonProps> = props => {
           </ListItemIcon>
           <ListItemText primary="RSS" />
         </MenuItem>
+        <MenuItem onClick={handleGo(`${site.url}/rss3.json`)}>
+          <ListItemIcon style={{minWidth: 'auto', marginRight: '0.5em'}}>
+            <RssFeedIcon style={{color: yellow[800]}} />
+          </ListItemIcon>
+          <ListItemText primary="RSS3" />
+        </MenuItem>
         <MenuItem onClick={handleGo(`https://t.me/${site.tgChannel}`)}>
           <ListItemIcon style={{minWidth: 'auto', marginRight: '0.5em'}}>
             <TelegramIcon style={{color: blue[500]}} />
