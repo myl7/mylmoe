@@ -9,7 +9,7 @@ const getPosts = lodash.memoize((folder: string = 'posts') => {
   return names.filter(name => name.endsWith('.md')).map(name => {
     const filePath = path.join(postDir, name)
     const content = fs.readFileSync(filePath).toString()
-    return parse(name, content)
+    return parse(name, content, folder ? `/${folder}/` : undefined)
   })
 })
 
