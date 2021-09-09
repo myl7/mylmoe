@@ -1,5 +1,5 @@
-import {useRef, useState} from 'react'
-import {CardContent, CardHeader, Divider, Grid, Typography} from '@material-ui/core'
+import React, {useRef, useState} from 'react'
+import {CardContent, CardHeader, Divider, Grid, TextField, Typography} from '@material-ui/core'
 import BinInput from '../../components/binInput'
 import {printBin} from '../../utils/bin'
 import Head from '../../components/head'
@@ -8,29 +8,27 @@ import {brotliEnc} from '../../api/brotli'
 const Brotli = () => {
   const encTextRef = useRef<HTMLInputElement>(null)
   const encFileRef = useRef<HTMLInputElement>(null)
+  const encResRef = useRef<HTMLInputElement>(null)
   const decTextRef = useRef<HTMLInputElement>(null)
   const decFileRef = useRef<HTMLInputElement>(null)
+  const decResRef = useRef<HTMLInputElement>(null)
 
   const [encStatus, setEncStatus] = useState<'none'|'waiting'|'failed'|'ok'>('none')
 
   const enc = (arr: Uint8Array|null) => {
-    if (arr == null) {
-      decTextRef.current!.value = ''
-    } else {
+    if (arr != null) {
       setEncStatus('waiting')
       brotliEnc(arr).then(res => {
-        decTextRef.current!.value = printBin(res)
+        encResRef.current!.value = printBin(res)
         setEncStatus('ok')
       })
     }
   }
   const dec = (arr: Uint8Array|null) => {
-    if (arr == null) {
-      encTextRef.current!.value = ''
-    } else {
+    if (arr != null) {
       import('brotli-dec-wasm').then(({brotliDec}) => {
         const res = brotliDec(arr)
-        encTextRef.current!.value = printBin(res)
+        decResRef.current!.value = printBin(res)
       })
     }
   }
@@ -50,12 +48,22 @@ const Brotli = () => {
         </Typography>
         <Grid container spacing={2} justify={'center'} style={{marginTop: '0.5em'}}>
           <Grid item sm={6} xs={12}>
+            <BinInput textHelp="Bytes to decode" fileHelp="File to decode" procHelp="Decode" procBin={dec}
+                      textRef={decTextRef} fileRef={decFileRef} />
+          </Grid>
+          <Grid item sm={6} xs={12}>
+            <TextField label="Decoding result" multiline rowsMax={10} variant={'outlined'} fullWidth
+                       inputRef={decResRef} InputLabelProps={{shrink: true}} />
+          </Grid>
+        </Grid>
+        <Grid container spacing={2} justify={'center'} style={{marginTop: '0.5em'}}>
+          <Grid item sm={6} xs={12}>
             <BinInput textHelp="Bytes to encode" fileHelp="File to encode" procHelp="Encode" procBin={enc}
                       textRef={encTextRef} fileRef={encFileRef} status={encStatus} />
           </Grid>
           <Grid item sm={6} xs={12}>
-            <BinInput textHelp="Bytes to decode" fileHelp="File to decode" procHelp="Decode" procBin={dec}
-                      textRef={decTextRef} fileRef={decFileRef} />
+            <TextField label="Encoding result" multiline rowsMax={10} variant={'outlined'} fullWidth
+                       inputRef={encResRef} InputLabelProps={{shrink: true}} />
           </Grid>
         </Grid>
       </CardContent>
