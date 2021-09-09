@@ -1,6 +1,6 @@
 import React, {FC, RefObject, useState} from 'react'
 import {Button, Grid, TextField, Typography} from '@material-ui/core'
-import {inputBin} from '../utils/bin'
+import {inputBin} from '../../utils/bin'
 import StatusButton from './statusButton'
 
 export interface BinInputProps {
