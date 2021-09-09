@@ -5,7 +5,8 @@ const nav = [
       {name: 'About', href: '/pages/about/'},
       {name: 'Friends', href: '/pages/friends/'},
       {name: 'Privacy Policy', href: '/pages/privacy-policy/'},
-      {name: 'Tags', href: '/pages/tags/'}
+      {name: 'Tags', href: '/pages/tags/'},
+      {name: 'Share', href: 'https://share.myl.moe/', external: true}
     ]
   },
   {

@@ -1,10 +1,11 @@
 import React, {FC, useState} from 'react'
 import {Button, ButtonProps, Menu, MenuItem, Typography} from '@material-ui/core'
 import {useRouter} from 'next/router'
+import ExtLinkSign from '../links/extLinkSign'
 
 export interface NavMenuButtonProps extends ButtonProps {
   name: string,
-  list: {name: string, href: string}[],
+  list: {name: string, href: string, external?: boolean}[]
 }
 
 const NavMenuButton: FC<NavMenuButtonProps> = props => {
@@ -20,7 +21,13 @@ const NavMenuButton: FC<NavMenuButtonProps> = props => {
 
   const router = useRouter()
 
-  const handleGo = (href: string) => () => router.push(href)
+  const handleGo = (href: string, external?: boolean) => () => {
+    if (!external) {
+      router.push(href)
+    } else {
+      window.location.assign(href)
+    }
+  }
 
   return (
     <>
@@ -32,11 +39,16 @@ const NavMenuButton: FC<NavMenuButtonProps> = props => {
       <Menu id={menuId} className="header-menu" anchorEl={elem} keepMounted open={Boolean(elem)} onClose={handleClose}
             getContentAnchorEl={null} anchorOrigin={{vertical: 'bottom', horizontal: 'center'}}
             transformOrigin={{vertical: 'top', horizontal: 'center'}}>
-        {list.map(({name, href}) => (
-          <MenuItem onClick={handleGo(href)} key={name}>
+        {list.map(({name, href, external}) => (
+          <MenuItem onClick={handleGo(href, external)} key={name}>
             <Typography variant="subtitle1">
               {name}
             </Typography>
+            {external ? (
+              <span className="ext-link">
+                <ExtLinkSign />
+              </span>
+            ) : ''}
           </MenuItem>
         ))}
       </Menu>
