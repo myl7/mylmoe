@@ -1,6 +1,6 @@
 import React, {useRef, useState} from 'react'
 import {CardContent, CardHeader, Divider, Grid, TextField, Typography} from '@material-ui/core'
-import BinInput from '../../components/binInput'
+import BinInput from '../../components/utils/binInput'
 import {printBin} from '../../utils/bin'
 import Head from '../../components/head'
 import {brotliEnc} from '../../api/brotli'
