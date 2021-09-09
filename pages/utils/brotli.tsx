@@ -1,17 +1,21 @@
 import React, {useRef, useState} from 'react'
-import {CardContent, CardHeader, Divider, Grid, TextField, Typography} from '@material-ui/core'
+import {CardContent, CardHeader, Divider, Grid, Typography} from '@material-ui/core'
 import BinInput from '../../components/utils/binInput'
 import {printBin} from '../../utils/bin'
 import Head from '../../components/head'
 import {brotliEnc} from '../../api/brotli'
+import BinOutput from '../../components/utils/binOutput'
 
 const Brotli = () => {
   const encTextRef = useRef<HTMLInputElement>(null)
   const encFileRef = useRef<HTMLInputElement>(null)
   const encResRef = useRef<HTMLInputElement>(null)
+  const [encResFile, setEncResFile] = useState<Blob>()
+
   const decTextRef = useRef<HTMLInputElement>(null)
   const decFileRef = useRef<HTMLInputElement>(null)
   const decResRef = useRef<HTMLInputElement>(null)
+  const [decResFile, setDecResFile] = useState<Blob>()
 
   const [encStatus, setEncStatus] = useState<'none'|'waiting'|'failed'|'ok'>('none')
 
@@ -20,6 +24,7 @@ const Brotli = () => {
       setEncStatus('waiting')
       brotliEnc(arr).then(res => {
         encResRef.current!.value = printBin(res)
+        setEncResFile(new Blob([res.buffer], {type: 'application/octet-stream'}))
         setEncStatus('ok')
       })
     }
@@ -29,6 +34,7 @@ const Brotli = () => {
       import('brotli-dec-wasm').then(({brotliDec}) => {
         const res = brotliDec(arr)
         decResRef.current!.value = printBin(res)
+        setDecResFile(new Blob([res.buffer], {type: 'application/octet-stream'}))
       })
     }
   }
@@ -52,8 +58,7 @@ const Brotli = () => {
                       textRef={decTextRef} fileRef={decFileRef} />
           </Grid>
           <Grid item sm={6} xs={12}>
-            <TextField label="Decoding result" multiline rowsMax={10} variant={'outlined'} fullWidth
-                       inputRef={decResRef} InputLabelProps={{shrink: true}} />
+            <BinOutput textHelp={'Decoding result'} textRef={decResRef} file={decResFile} />
           </Grid>
         </Grid>
         <Grid container spacing={2} justify={'center'} style={{marginTop: '0.5em'}}>
@@ -62,8 +67,7 @@ const Brotli = () => {
                       textRef={encTextRef} fileRef={encFileRef} status={encStatus} />
           </Grid>
           <Grid item sm={6} xs={12}>
-            <TextField label="Encoding result" multiline rowsMax={10} variant={'outlined'} fullWidth
-                       inputRef={encResRef} InputLabelProps={{shrink: true}} />
+            <BinOutput textHelp={'Encoding result'} textRef={encResRef} file={encResFile} />
           </Grid>
         </Grid>
       </CardContent>
