@@ -13,8 +13,8 @@ const BinOutput: FC<BinOutputProps> = props => {
 
   const handleClick = () => {
     if (file) {
-      let url = window.URL.createObjectURL(file)
-      let a = document.createElement('a')
+      const url = window.URL.createObjectURL(file)
+      const a = document.createElement('a')
       a.style.display = 'none'
       a.download = filename ? filename : 'result'
       a.href = url
