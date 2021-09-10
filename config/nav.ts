@@ -11,7 +11,7 @@ const nav = [
   {
     name: 'Services',
     list: [
-      {name: 'dn42', href: '/pages/dn42/'},
+      {name: 'DN42', href: '/pages/dn42/'},
       {name: 'Share', href: 'https://share.myl.moe/', external: true}
     ]
   },
