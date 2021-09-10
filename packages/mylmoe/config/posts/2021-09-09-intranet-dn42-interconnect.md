@@ -1,8 +1,8 @@
 ---
-title: 内网互连转发及多机接入 dn42 的配置解析
+title: 内网互连转发及多机接入 DN42 的配置解析
 pubDate: 2021-09-09
 updDate: 2021-09-09
-excerpt: 指 Wireguard 如何不受 AllowIPs 限制地连接和如何把 dn42 官方的 BIRD2 配置文件改成带 iBGP、能在内网传播路由的版本，特别地 debug 了一个 BIRD IPv6 不 bind 的 BUG。
+excerpt: 指 Wireguard 如何不受 AllowIPs 限制地连接和如何把 DN42 官方的 BIRD2 配置文件改成带 iBGP、能在内网传播路由的版本，特别地 debug 了一个 BIRD IPv6 不 bind 的 BUG。
 tags: vpn bgp intranet dn42 wireguard bird
 ---
 
@@ -18,7 +18,7 @@ tags: vpn bgp intranet dn42 wireguard bird
 
 具体而言，由于各方面优势（以及个人喜好）我选择了 Wireguard 作为 VPN 软件、选择了 BIRD2（2 指 major version，以下就直接称作 BIRD 了）作为 BGP 软件来实现以上目标
 
-将模型简化~~受财力限制~~，我们只考虑三台机器以及连接 dn42 的硬件情况
+将模型简化~~受财力限制~~，我们只考虑三台机器以及连接 DN42 的硬件情况
 
 ## 内网互连
 
@@ -28,7 +28,7 @@ tags: vpn bgp intranet dn42 wireguard bird
 
 ## 内网转发
 
-为了实现转发，一些 Linux 上的基本配置可以参考 [Lan Tian dalao 的 dn42 guide][lan-tian-dn42]，主要是 sysctl 的 options，in short：
+为了实现转发，一些 Linux 上的基本配置可以参考 [Lan Tian dalao 的 DN42 guide][lan-tian-dn42]，主要是 sysctl 的 options，in short：
 
 ```
 net.ipv4.conf.default.rp_filter = 2
@@ -46,7 +46,7 @@ net.ipv6.conf.default.forwarding = 1
 
 在此基础上，我们加上 `Table = off` 关闭 Wireguard 自己的基于 AllowIPs 的路由生成（其实是 wg-quick 干的，wg-quick 可以配合 systemd 使用直接 `systemctl enable wg-quick@wg0` 很方便，所以我就直接用它而不必用 ip command 慢慢加了），然后通过配置中添加 PostUp 和 PostDown 使用 ip command 添加 IP 到 interface。
 不使用配置中的 Address 选项是因为我们这里添加 IP 的过程与 Address 的有所不同。
-我参考了前面说过的 [Lan Tian dalao 的 dn42 guide][lan-tian-dn42]，但略有不同，具体配置是：
+我参考了前面说过的 [Lan Tian dalao 的 DN42 guide][lan-tian-dn42]，但略有不同，具体配置是：
 
 ```
 [Interface]
@@ -74,21 +74,21 @@ IPv4 中的 `<my ipv4> peer <your ipv4>` 的配置在 iproute（就是 ip comman
 IPv6 其实也可以用 peer，但是这里还是用更常见的方法，额外指定一个 IPv6 link local IP，然后 ip route add 添加路由让系统直到对端是可达的、只需发给这个 interface 即可。
 这样 `ping6 <your ipv6>` 或者 `ping6 <your ipv6 link local>%<interface>` 就都能通了。
 
-## 单机接入 dn42
+## 单机接入 DN42
 
-dn42 官方给的 BIRD 配置是能用的，不过你可能会疑惑：为什么只有一份配置文件、也完全没提先内网连通然后再单点接入 dn42 的情况。
-我估计是因为太麻烦了：仅靠官方的配置，再给每台机器找个 peer 就能够让每台机器接入 dn42 了。
+DN42 官方给的 BIRD 配置是能用的，不过你可能会疑惑：为什么只有一份配置文件、也完全没提先内网连通然后再单点接入 DN42 的情况。
+我估计是因为太麻烦了：仅靠官方的配置，再给每台机器找个 peer 就能够让每台机器接入 DN42 了。
 不过这样每台机器都要有至少一个 peer，而且内网内的连通性是没有被利用的。
-如果需要先内网连通，然后通过一台机器接入 dn42 完成所有机器的 dn42 接入，需要在内网内配好 iBGP。
+如果需要先内网连通，然后通过一台机器接入 DN42 完成所有机器的 DN42 接入，需要在内网内配好 iBGP。
 
 这里岔开一下，额外讲一下 BGP 对应在 BIRD 上的情况（也是我一开始没有搞清楚的部分）：
-为了让所有机器接入 dn42，你需要在**所有**机器上配好 BIRD。
+为了让所有机器接入 DN42，你需要在**所有**机器上配好 BIRD。
 即便在内网内、在同一个 AS 内，你也需要为相邻的机器间配好 BGP session，在 BIRD 里体现为内网内机器间也有一个 protocol bgp 块。
 
-又双叒叕要拿出 [Lan Tian dalao 的 dn42 guide][lan-tian-dn42] 了，里面虽然没有细讲内网内的 BIRD 配置，但是 peer 的处理讲得很清楚了，不过 Wireguard 也得像前面那样加上 ip route。
+又双叒叕要拿出 [Lan Tian dalao 的 DN42 guide][lan-tian-dn42] 了，里面虽然没有细讲内网内的 BIRD 配置，但是 peer 的处理讲得很清楚了，不过 Wireguard 也得像前面那样加上 ip route。
 这里面 1xRTT Peering 的概念我觉得非常好，需要推广。
 
-按上述配置好，peer 了的那台机器就能接入 dn42 了。
+按上述配置好，peer 了的那台机器就能接入 DN42 了。
 可以用 burble 的两个 pingable IP address 做测试：
 
 ```bash
@@ -96,7 +96,7 @@ ping 172.20.129.5
 ping6 fd42:4242:2601:ac05::1
 ```
 
-接下来就要将内网内的其他机器通过这台机器接入 dn42 了
+接下来就要将内网内的其他机器通过这台机器接入 DN42 了
 
 ## （不 work 的）内网 iBGP
 
@@ -106,7 +106,7 @@ ping6 fd42:4242:2601:ac05::1
 不过就像这篇文章里说的，读者得先知道一些 BGP 的基本知识。
 完全不懂 BGP 的话可以找大学的计算机网络教科书《计算机网络：自顶向下方法》看看，这里面讲得已经比较细了（更细致的具体算法和实现虽然没细讲，不过应该也不太需要）。
 
-这里我们以 dn42 官方给的 BIRD 配置为基础，添加上 iBGP：
+这里我们以 DN42 官方给的 BIRD 配置为基础，添加上 iBGP：
 
 首先 OWNIP 和 OWNIPv6 设为此机器的 IPv4 和 IPv6 而非随便从自己的网段里选一个
 
@@ -166,7 +166,7 @@ protocol bgp <name>_v6 from myibgp {
 
 通过 `birdc show protocol` 以及 `birdc show protocol all <name>` 查看详细信息可以发现，IPv6 iBGP 处于 idle 状态，查阅 BGP state 可以得知此状态下 BGP session 压根没建立起来。
 
-接下来为了方便区分，我们将已经接入 dn42 的机器称作 a，将 IPv6 尚未接入 dn42 的机器称作 b
+接下来为了方便区分，我们将已经接入 DN42 的机器称作 a，将 IPv6 尚未接入 DN42 的机器称作 b
 
 首先受怀疑的是 iptables，但我仔细查看后没有发现问题。
 接下来在对端上安装 nmap 直接 `nmap -6 -Pn <ipv6>` 扫一遍端口，发现 IPv6 下 b 的 port 179 不通（IPv4 下正常）。
