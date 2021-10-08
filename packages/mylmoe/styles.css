@@ -33,3 +33,7 @@ a.heading-link {
   float: left;
   margin-right: 0.5em;
 }
+
+html {
+  scroll-padding-top: calc(64px + 1em);
+}
