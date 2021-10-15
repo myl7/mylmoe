@@ -1,6 +1,12 @@
 {
   "name": "root",
   "private": true,
+  "scripts": {
+    "prebuild": "lerna run prebuild",
+    "build": "lerna run build",
+    "dev": "lerna run dev --parallel --scope mylmoe",
+    "start": "lerna run start --parallel --scope mylmoe"
+  },
   "devDependencies": {
     "lerna": "^4.0.0"
   }
