@@ -4,12 +4,12 @@ import PostDate from '../../components/post/postDate'
 import PostItem from '../../components/post/postItem'
 import {GetStaticPaths, GetStaticProps} from 'next'
 import getPosts from '../../utils/getPosts'
-import {PostInfo} from '../../remark/post'
+import {PostMeta} from '../../remark/post'
 
-const Tag = (props: {tag: string, posts: PostInfo[]}) => {
-  const {tag, posts} = props
-  const updDate = posts.map(post => post.meta.updDate).reduce((a, b) => a > b ? a : b)
-  const pubDate = posts.map(post => post.meta.pubDate).reduce((a, b) => a > b ? a : b)
+const Tag = (props: {tag: string, metas: PostMeta[]}) => {
+  const {tag, metas} = props
+  const updDate = metas.map(meta => meta.updDate).reduce((a, b) => a > b ? a : b)
+  const pubDate = metas.map(meta => meta.pubDate).reduce((a, b) => a > b ? a : b)
 
   return (
     <>
@@ -19,8 +19,8 @@ const Tag = (props: {tag: string, posts: PostInfo[]}) => {
       } />
       <Divider />
       <CardContent style={{paddingTop: 0, paddingBottom: 0}}>
-        {posts.map(post => {
-          const {title, pubDate, updDate, excerpt, tags, path} = post.meta
+        {metas.map(meta => {
+          const {title, pubDate, updDate, excerpt, tags, path} = meta
           return (
             <PostItem title={title} pubDate={pubDate} updDate={updDate} excerpt={excerpt} tags={tags} path={path}
                       key={path} style={{margin: '1em'}} />
