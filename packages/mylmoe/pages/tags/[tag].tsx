@@ -2,9 +2,10 @@ import Head from '../../components/head'
 import {CardContent, CardHeader, Divider} from '@material-ui/core'
 import PostDate from '../../components/post/postDate'
 import PostItem from '../../components/post/postItem'
-import {GetStaticPaths, GetStaticProps} from 'next'
-import getPosts from '../../utils/getPosts'
+import {GetServerSideProps} from 'next'
 import {PostMeta} from '../../remark/post'
+import fs from 'fs'
+import lodash from 'lodash'
 
 const Tag = (props: {tag: string, metas: PostMeta[]}) => {
   const {tag, metas} = props
@@ -31,21 +32,17 @@ const Tag = (props: {tag: string, metas: PostMeta[]}) => {
   )
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = getPosts()
-  const tags = Array.from(new Set(posts.flatMap(post => post.meta.tags.split(' '))))
-  const paths = tags.map(tag => ({params: {tag}}))
-  return {paths, fallback: false}
-}
+const getTagRelText = lodash.memoize(() => {
+  return fs.readFileSync('public/data/tagrel.json').toString()
+})
 
-export const getStaticProps: GetStaticProps = async ({params}) => {
-  const tag = params!['tag'] as string
-  const posts = getPosts().filter(post => post.meta.tags.split(' ').indexOf(tag) != -1)
-  return {
-    props: {
-      tag,
-      posts
-    }
+export const getServerSideProps: GetServerSideProps = async ctx => {
+  const tag = ctx.params!!['tag'] as string
+  const map = new Map(JSON.parse(getTagRelText()))
+  if (map.has(tag)) {
+    return {props: {tag, metas: map.get(tag)}}
+  } else {
+    return {props: {tag: '', metas: []}}
   }
 }
 
