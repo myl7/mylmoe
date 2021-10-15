@@ -20,6 +20,13 @@ Also available on Telegram: Channel [@mylmoe](https://t.me/mylmoe)
 - Brotli: WASM local decoding and AWS Lambda remote encoding 
 - Redux working pretty fine with Next.js
 
+## Notice
+
+All relative paths in the README are calculated from `mylmoe` project root,
+which is at `packages/mylmoe` from GitHub repo root.
+The README is located at `packages/mylmoe/README.md` from repo root,
+and soft-linked to `README.md` from repo root for better readability.
+
 ## Quick Start
 
 ```bash
