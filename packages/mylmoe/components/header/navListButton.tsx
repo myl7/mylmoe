@@ -6,16 +6,16 @@ import ExtLinkSign from '../links/extLinkSign'
 
 export interface NavListButtonProps {
   name: string,
-  list: {name: string, href: string, external?: boolean}[]
+  list: {name: string, href: string, external?: boolean}[],
+  handleRootClose?: () => void
 }
 
 const NavListButton: FC<NavListButtonProps> = props => {
-  const {name, list} = props
+  const {name, list, handleRootClose = () => 0} = props
 
   const [open, setOpen] = useState(false)
 
   const handleClick = () => setOpen(open => !open)
-  const handleClose = () => setOpen(false)
 
   const router = useRouter()
 
@@ -42,7 +42,7 @@ const NavListButton: FC<NavListButtonProps> = props => {
       <Collapse in={open}>
         <List disablePadding>
           {list.map(({name, href, external}) => (
-            <ListItem button key={name} onClick={handleGo(href, external)} onAnimationEnd={handleClose}>
+            <ListItem button key={name} onClick={handleGo(href, external)} onAnimationEnd={handleRootClose}>
               <ListItemText style={{paddingLeft: '5em'}}>
                 <Typography variant="subtitle1">
                   {name}
