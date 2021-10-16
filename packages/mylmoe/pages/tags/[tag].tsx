@@ -4,8 +4,6 @@ import PostDate from '../../components/post/postDate'
 import PostItem from '../../components/post/postItem'
 import {GetServerSideProps} from 'next'
 import {PostMeta} from '../../remark/post'
-import fs from 'fs'
-import lodash from 'lodash'
 
 const Tag = (props: {tag: string, metas: PostMeta[]}) => {
   const {tag, metas} = props
@@ -32,13 +30,10 @@ const Tag = (props: {tag: string, metas: PostMeta[]}) => {
   )
 }
 
-const getTagRelText = lodash.memoize(() => {
-  return fs.readFileSync('public/data/tagrel.json').toString()
-})
-
 export const getServerSideProps: GetServerSideProps = async ctx => {
   const tag = ctx.params!!['tag'] as string
-  const map = new Map(JSON.parse(getTagRelText()))
+  const obj = await import(/* webpackMode: "eager" */ '../../data/tagrel.json')
+  const map = new Map(obj.default as [string, PostMeta[]][])
   if (map.has(tag)) {
     return {props: {tag, metas: map.get(tag)}}
   } else {
