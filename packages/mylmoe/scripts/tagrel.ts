@@ -8,4 +8,4 @@ const rel = tags.map(tag => {
   return [tag, posts.map(post => post.meta)]
 })
 const res = JSON.stringify(rel)
-fs.writeFileSync(path.join(process.cwd(), 'public', 'data', 'tagrel.json'), res)
+fs.writeFileSync(path.join(process.cwd(), 'data', 'tagrel.json'), res)
