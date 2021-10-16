@@ -40,7 +40,7 @@ const NavMenuButton: FC<NavMenuButtonProps> = props => {
             getContentAnchorEl={null} anchorOrigin={{vertical: 'bottom', horizontal: 'center'}}
             transformOrigin={{vertical: 'top', horizontal: 'center'}}>
         {list.map(({name, href, external}) => (
-          <MenuItem onClick={handleGo(href, external)} key={name}>
+          <MenuItem onClick={handleGo(href, external)} key={name} onAnimationEnd={handleClose}>
             <Typography variant="subtitle1">
               {name}
             </Typography>

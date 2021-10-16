@@ -15,6 +15,7 @@ const NavListButton: FC<NavListButtonProps> = props => {
   const [open, setOpen] = useState(false)
 
   const handleClick = () => setOpen(open => !open)
+  const handleClose = () => setOpen(false)
 
   const router = useRouter()
 
@@ -41,7 +42,7 @@ const NavListButton: FC<NavListButtonProps> = props => {
       <Collapse in={open}>
         <List disablePadding>
           {list.map(({name, href, external}) => (
-            <ListItem button key={name} onClick={handleGo(href, external)}>
+            <ListItem button key={name} onClick={handleGo(href, external)} onAnimationEnd={handleClose}>
               <ListItemText style={{paddingLeft: '5em'}}>
                 <Typography variant="subtitle1">
                   {name}
