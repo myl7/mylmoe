@@ -3,7 +3,7 @@ import {CardContent, CardHeader, Divider, Grid, Typography} from '@material-ui/c
 import BinInput from '../../components/utils/binInput'
 import {printBin} from '../../utils/bin'
 import Head from '../../components/head'
-import {brotliEnc} from '../../api/brotli'
+import {brotliEnc} from '../../extern/brotli'
 import BinOutput from '../../components/utils/binOutput'
 
 const Brotli = () => {
