@@ -1,6 +1,7 @@
 import {FC} from 'react'
 import site from '../config/site'
 import {default as NextHead} from 'next/head'
+import Icon from './icon'
 
 export interface HeadProps {
   title: string,
@@ -18,6 +19,7 @@ const Head: FC<HeadProps> = props => {
       <title>{title} | {site.title}</title>
       <meta name={'description'} content={`${description} | ${site.title}: ${site.description}`} />
       <link rel="canonical" href={site.url + path} />
+      <Icon />
       {children}
     </NextHead>
   )
