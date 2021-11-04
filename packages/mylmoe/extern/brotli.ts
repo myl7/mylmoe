@@ -1,13 +1,19 @@
-import {fromUint8Array, toUint8Array} from 'js-base64'
+export const brotliEnc = async (file: Blob, quality?: number, lgwin?: number) => {
+  const form = new FormData()
+  if (quality) {
+    form.set('quality', quality.toString())
+  }
+  if (lgwin) {
+    form.set('lgwin', lgwin.toString())
+  }
+  form.set('file', file)
 
-export const brotliEnc = async (arr: Uint8Array) => {
-  const res = await fetch('https://api.myl.moe/brotli-enc', {
+  const res = await fetch('https://brotli.myl.moe/api/enc', {
     method: 'POST',
-    body: fromUint8Array(arr)
+    body: form
   })
   if (res.status == 200) {
-    const body = await res.text()
-    return toUint8Array(body)
+    return await res.blob()
   } else {
     throw new Error(await res.text())
   }
