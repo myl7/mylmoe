@@ -22,10 +22,13 @@ const Brotli = () => {
   const enc = (arr: Uint8Array|null) => {
     if (arr != null) {
       setEncStatus('waiting')
-      brotliEnc(arr).then(res => {
-        encResRef.current!.value = printBin(res)
-        setEncResFile(new Blob([res.buffer], {type: 'application/octet-stream'}))
-        setEncStatus('ok')
+      brotliEnc(new Blob([arr])).then(b => {
+        b.arrayBuffer().then(buf => {
+          const res = new Uint8Array(buf)
+          encResRef.current!.value = printBin(res)
+          setEncResFile(new Blob([res.buffer], {type: 'application/octet-stream'}))
+          setEncStatus('ok')
+        })
       })
     }
   }
