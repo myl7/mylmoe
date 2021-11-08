@@ -41,7 +41,7 @@ export interface RehypeS3ImageSetting {
 
 const breakPoints = [200, 400, 600, 800, 1000]
 
-const rehypeS3Image: Plugin<RehypeS3ImageSetting[]> = setting => {
+const rehypeExtImage: Plugin<RehypeS3ImageSetting[]> = setting => {
   const {baseUrl} = setting
 
   const visitor: Visitor<Element> = (node, i, parent) => {
@@ -97,4 +97,4 @@ const rehypeS3Image: Plugin<RehypeS3ImageSetting[]> = setting => {
   return tree => visit(tree, isElement.convert('img'), visitor)
 }
 
-export default rehypeS3Image
+export default rehypeExtImage

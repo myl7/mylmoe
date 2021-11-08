@@ -22,7 +22,7 @@ import react2hast from './react2hast'
 import ExtLinkSign from '../components/links/extLinkSign'
 import {Link as LinkIcon} from '@material-ui/icons'
 import type {Parent} from 'unist'
-import rehypeS3Image from './rehypeS3Image'
+import rehypeExtImage from './rehypeExtImage'
 
 const parse = (name: string, content: string, pathPrefix: string = '/posts/'): PostInfo => {
   name = name.substring(0, name.length - 3)
@@ -56,7 +56,7 @@ const parse = (name: string, content: string, pathPrefix: string = '/posts/'): P
       content: react2hast(<LinkIcon />)
     })
     .use(rehypeMuiLink)
-    .use(rehypeS3Image, {baseUrl: 'https://store.myl.moe/images'})
+    .use(rehypeExtImage, {baseUrl: 'https://store.myl.moe/images'})
     .use(rehypeStringify, {allowDangerousHtml: true})
     .processSync(content).toString()
   const fm = yaml.load(fmVal) as PostFM
