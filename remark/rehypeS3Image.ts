@@ -9,7 +9,7 @@ import fs from 'fs'
 import childProcess from 'child_process'
 
 const imageInfo: {[key: string]: {width: number, height: number}} = (() => {
-  const p = path.join(process.cwd(), 's3', 'images', 'images.json')
+  const p = path.join(process.cwd(), 'storage', 'images', 'images.json')
   if (fs.existsSync(p)) {
     return JSON.parse(fs.readFileSync(p).toString())
   }
@@ -46,14 +46,14 @@ const rehypeS3Image: Plugin<RehypeS3ImageSetting[]> = setting => {
 
   const visitor: Visitor<Element> = (node, i, parent) => {
     const src = node.properties!['src'] as string
-    const prefix = /^\.\.\/\.\.\/s3\/images/
+    const prefix = /^\.\/images/
     if (!prefix.test(src)) {
       return
     }
     const url = src.replace(prefix, baseUrl)
     node.properties!['src'] = url
 
-    let s = path.join(process.cwd(), src.replace(/^\.\.\/\.\.\//, ''))
+    let s = path.join(process.cwd(), 'storage', src)
     const {width: ws, height: hs} = imageSize(s)
     const ext = path.extname(s)
     const name = path.basename(s, ext)
@@ -72,10 +72,10 @@ const rehypeS3Image: Plugin<RehypeS3ImageSetting[]> = setting => {
         const sizes = `${width}px,${height}px`
         if (i < breakPoints.length - 1) {
           const media = `(max-${vert ? 'height' : 'width'}:${breakPoints[i + 1]! + (vert ? 0 : 100)}px)`
-          const srcset = p.replace(/^.*s3\/images/, baseUrl)
+          const srcset = p.replace(/^.*storage\/images/, baseUrl)
           pic.children.push(h('source', {media, srcset, sizes}))
         } else {
-          const srcset = p.replace(/^.*s3\/images/, baseUrl)
+          const srcset = p.replace(/^.*storage\/images/, baseUrl)
           pic.children.push(h('source', {srcset, sizes}))
         }
       } else {
@@ -83,7 +83,7 @@ const rehypeS3Image: Plugin<RehypeS3ImageSetting[]> = setting => {
         if (fileExists(p)) {
           const {width, height} = imageSize(p)
           const sizes = `${width}px,${height}px`
-          const srcset = p.replace(/^.*s3\/images/, baseUrl)
+          const srcset = p.replace(/^.*storage\/images/, baseUrl)
           pic.children.push(h('source', {srcset, sizes}))
         }
         break

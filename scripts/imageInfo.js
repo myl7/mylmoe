@@ -3,7 +3,7 @@ const glob = require('glob')
 const imageSize = require('image-size')
 const fs = require('fs')
 
-const p = path.join(process.cwd(), 's3', 'images', '**', '*')
+const p = path.join(process.cwd(), 'storage', 'images', '**', '*')
 let info = {}
 glob.sync(p).filter(p => {
   const ext = path.extname(p)
@@ -14,5 +14,5 @@ glob.sync(p).filter(p => {
   const k = path.relative(process.cwd(), p)
   info[k] = {width, height}
 })
-const f = path.join(process.cwd(), 's3', 'images', 'images.json')
+const f = path.join(process.cwd(), 'storage', 'images', 'images.json')
 fs.writeFileSync(f, JSON.stringify(info))

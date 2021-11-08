@@ -121,15 +121,11 @@ dist
 .idea/
 .vscode/
 
-# Prebuild output
+# Generated content
 /scripts/build/*.js
 /public/rss.xml
 /public/sitemap.xml
 /public/rss3.json
 /content/images.json
 /data/
-
-# AWS
-/s3/
-/lambda/*/build/
-/lambda/*/*.zip
+/storage/
