@@ -17,15 +17,8 @@ Also available on Telegram: Channel [@mylmoe](https://t.me/mylmoe)
 - Markdown: [remark](https://github.com/remarkjs/remark) and [rehype](https://github.com/rehypejs/rehype) of [unified](https://github.com/unifiedjs/unified)
 - Comment: [Telegram discussion widget](https://core.telegram.org/widgets/discussion)
 - RSS and sitemap with self-impl
-- Brotli: WASM local decoding and AWS Lambda remote encoding 
+- Brotli: WASM local decoding and Azure Functions remote streaming encoding
 - Redux working pretty fine with Next.js
-
-## Notice
-
-All relative paths in the README are calculated from `mylmoe` project root,
-which is at `packages/mylmoe` from GitHub repo root.
-The README is located at `packages/mylmoe/README.md` from repo root,
-and soft-linked to `README.md` from repo root for better readability.
 
 ## Quick Start
 
