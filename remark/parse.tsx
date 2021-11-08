@@ -33,7 +33,8 @@ const parse = (name: string, content: string, pathPrefix: string = '/posts/'): P
     .use(remarkFrontmatter, ['yaml'])
     .use(() => node => {
       const root = node as Parent
-      fmVal = root.children[0]!['value'] as string
+      // @ts-ignore
+      fmVal = root.children[0]!.value as string
       root.children.shift()
       return root
     })
