@@ -120,3 +120,16 @@ dist
 # IDE
 .idea/
 .vscode/
+
+# Prebuild output
+/scripts/build/*.js
+/public/rss.xml
+/public/sitemap.xml
+/public/rss3.json
+/config/images.json
+/data/
+
+# AWS
+/s3/
+/lambda/*/build/
+/lambda/*/*.zip
