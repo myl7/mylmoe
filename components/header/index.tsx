@@ -1,5 +1,5 @@
 import MobileHeader from './mobileHeader'
-import {AppBar, Avatar, Box, IconButton, Toolbar, Typography} from '@material-ui/core'
+import {AppBar, Avatar, Box, IconButton, makeStyles, Toolbar, Typography} from '@material-ui/core'
 import nav from '../../content/nav'
 import {Home as HomeIcon} from '@material-ui/icons'
 import NavMenuButton from './navMenuButton'
@@ -10,8 +10,19 @@ import site from '../../content/site'
 import {useRouter} from 'next/router'
 import IntLink from '../links/intLink'
 
+const useStyles = makeStyles({
+  avatar: {
+    transition: 'transform 0.6s',
+    cursor: 'pointer',
+    '&:hover': {
+      'transform': 'rotate(360deg)'
+    }
+  }
+})
+
 const Header = () => {
   const router = useRouter()
+  const classes = useStyles()
 
   const handleGo = (href: string) => () => router.push(href)
 
@@ -41,9 +52,8 @@ const Header = () => {
               Dark
             </Typography>
             <Follow style={{marginLeft: '0.5em', marginRight: '0.5em'}} />
-            <IntLink href="/pages/about">
-              <Avatar alt={`Avatar of ${site.name}`} src={site.avatar} />
-            </IntLink>
+            <Avatar role="button" className={classes.avatar} alt={`Avatar of ${site.name}`} src={site.avatar}
+                    onClick={handleGo('/pages/about')} />
           </Toolbar>
         </AppBar>
       </Box>
