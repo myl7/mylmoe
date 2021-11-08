@@ -2,7 +2,7 @@ import {useEffect, useRef} from 'react'
 import {Card} from '@material-ui/core'
 import {useSelector} from 'react-redux'
 import {State} from '../redux/state'
-import site from '../config/site'
+import site from '../content/site'
 
 const Comment = () => {
   const ref = useRef<HTMLDivElement>()

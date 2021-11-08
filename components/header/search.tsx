@@ -1,7 +1,7 @@
 import React, {useRef} from 'react'
 import {Grid, IconButton, TextField} from '@material-ui/core'
 import {Search as SearchIcon} from '@material-ui/icons'
-import site from '../../config/site'
+import site from '../../content/site'
 
 const searchUrl = (q: string) => {
   const params = new URLSearchParams([['q', q], ['as_sitesearch', site.url], ['ncr', '1']])

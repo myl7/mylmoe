@@ -1,4 +1,4 @@
-import site from '../config/site'
+import site from '../content/site'
 import getPosts from '../utils/getPosts'
 import fs from 'fs'
 import path from 'path'

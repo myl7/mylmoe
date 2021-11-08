@@ -126,7 +126,7 @@ dist
 /public/rss.xml
 /public/sitemap.xml
 /public/rss3.json
-/config/images.json
+/content/images.json
 /data/
 
 # AWS

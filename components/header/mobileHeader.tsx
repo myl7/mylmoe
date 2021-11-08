@@ -4,12 +4,12 @@ import {
   Typography
 } from '@material-ui/core'
 import {Home as HomeIcon, Menu as MenuIcon} from '@material-ui/icons'
-import nav from '../../config/nav'
+import nav from '../../content/nav'
 import NavListButton from './navListButton'
 import ThemeToggle from './themeSwitch'
 import Search from './search'
 import Follow from './follow'
-import site from '../../config/site'
+import site from '../../content/site'
 import IntLink from '../links/intLink'
 import {useRouter} from 'next/router'
 

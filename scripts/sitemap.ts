@@ -1,8 +1,8 @@
-import site from '../config/site'
+import site from '../content/site'
 import getPosts from '../utils/getPosts'
 import fs from 'fs'
 import path from 'path'
-import friends from '../config/friends'
+import friends from '../content/friends'
 
 const posts = getPosts()
 const postDate = posts.map(post => post.meta.updDate).reduce((a, b) => a > b ? a : b)

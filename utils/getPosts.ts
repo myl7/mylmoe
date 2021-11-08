@@ -4,7 +4,7 @@ import parse from '../remark/parse'
 import lodash from 'lodash'
 
 const getPosts = lodash.memoize((folder: string = 'posts') => {
-  const postDir = path.join(process.cwd(), 'config', folder)
+  const postDir = path.join(process.cwd(), 'content', folder)
   const names = fs.readdirSync(postDir)
   return names.filter(name => name.endsWith('.md')).map(name => {
     const filePath = path.join(postDir, name)

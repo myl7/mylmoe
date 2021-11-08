@@ -2,7 +2,7 @@ import {
   Box, CardContent, CardHeader, Divider, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography
 } from '@material-ui/core'
 import ExtLink from '../../components/links/extLink'
-import friends from '../../config/friends'
+import friends from '../../content/friends'
 import Head from '../../components/head'
 
 const Friend = () => {

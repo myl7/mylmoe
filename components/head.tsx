@@ -1,5 +1,5 @@
 import {FC} from 'react'
-import site from '../config/site'
+import site from '../content/site'
 import {default as NextHead} from 'next/head'
 import Icon from './icon'
 

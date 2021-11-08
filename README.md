@@ -34,7 +34,7 @@ next export
 To enable SSR (not only SSG), follow Next.js doc to deploy the `out` dir
 e.g. using a docker image or using a static serving service supporting SSR such as Cloudflare Pages
 
-To change most personal config, just edit files in `config` folder
+To change most personal config, just edit files in `content` folder
 
 You may also want to edit files in `api` dir, which wraps HTTP API.
 Replace the URLs to your own ones with you own impl.
@@ -42,7 +42,7 @@ Replace the URLs to your own ones with you own impl.
 ## License
 
 - MIT by default
-- Posts in `config/pages` and `config/posts` use CC BY-NC-SA 4.0
+- Posts in `content/pages` and `content/posts` use CC BY-NC-SA 4.0
 - Images in `public/images` use All Rights Reserved by default
 - Unless otherwise stated, including a `LICENSE` file in a subdirectory, a file header description, or image Exif data
 
