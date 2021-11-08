@@ -1,22 +1,31 @@
 {
   "name": "mylmoe",
   "version": "1.0.0",
-  "private": true,
-  "description": "Static & serverless blog system based on React and Next.js with some other utilities",
+  "description": "Next-based blog system with some other utilities",
   "author": "myl7 <myl@myl.moe> (https://myl.moe)",
   "keywords": [
     "blog",
-    "static-site",
-    "serverless",
-    "next-js",
-    "react"
+    "next",
+    "serverless"
   ],
+  "main": "pages/index.tsx",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/myl7/mylmoe.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/myl7/mylmoe/issues"
+  },
+  "homepage": "https://github.com/myl7/mylmoe#readme",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prebuild": "bash prebuild.sh",
+    "prebuild": "bash scripts/prebuild.sh",
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "next lint",
+    "export": "next export"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.4",
