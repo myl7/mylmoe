@@ -8,7 +8,7 @@ let info = {}
 glob.sync(p).filter(p => {
   const ext = path.extname(p)
   const name = path.basename(p, ext)
-  return ext && name !== 'README' && name !== 'LICENSE'
+  return ext && ext !== '.json' && name !== 'README' && name !== 'LICENSE'
 }).forEach(p => {
   const {width, height} = imageSize(p)
   const k = path.relative(process.cwd(), p)
