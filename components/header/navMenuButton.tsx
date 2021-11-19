@@ -38,7 +38,7 @@ const NavMenuButton: FC<NavMenuButtonProps> = props => {
       </Button>
       <Menu id={menuId} className="header-menu" anchorEl={elem} keepMounted open={Boolean(elem)} onClose={handleClose}
             getContentAnchorEl={null} anchorOrigin={{vertical: 'bottom', horizontal: 'center'}}
-            transformOrigin={{vertical: 'top', horizontal: 'center'}}>
+            transformOrigin={{vertical: 'top', horizontal: 'center'}} disableScrollLock={true}>
         {list.map(({name, href, external}) => (
           <MenuItem onClick={handleGo(href, external)} key={name} onAnimationEnd={handleClose}>
             <Typography variant="subtitle1">

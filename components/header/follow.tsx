@@ -25,7 +25,7 @@ const Follow: FC<ButtonProps> = props => {
       </Button>
       <Menu id="follow-menu" anchorEl={elem} keepMounted open={Boolean(elem)} onClose={handleClose}
             getContentAnchorEl={null} anchorOrigin={{vertical: 'bottom', horizontal: 'center'}}
-            transformOrigin={{vertical: 'top', horizontal: 'center'}}>
+            transformOrigin={{vertical: 'top', horizontal: 'center'}} disableScrollLock={true}>
         <MenuItem onClick={handleGo(`${site.url}/rss.xml`)}>
           <ListItemIcon style={{minWidth: 'auto', marginRight: '0.5em'}}>
             <RssFeedIcon style={{color: yellow[800]}} />
