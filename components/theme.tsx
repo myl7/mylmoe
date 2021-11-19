@@ -1,10 +1,10 @@
-import {createMuiTheme, MuiThemeProvider, useMediaQuery} from '@material-ui/core'
+import {createTheme, MuiThemeProvider, useMediaQuery} from '@material-ui/core'
 import {FC, useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {State} from '../redux/state'
 import {themeInitAction} from '../redux/theme'
 
-const theme = (dark: boolean) => createMuiTheme({
+const theme = (dark: boolean) => createTheme({
   typography: {
     button: {
       textTransform: 'none'
