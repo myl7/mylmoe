@@ -3,7 +3,13 @@ body {
 }
 
 code {
-  font-family: Source Code Pro, monospace;
+  font-family: DM Mono, monospace;
+}
+
+@font-face {
+  font-family: Han;
+  font-style: italic;
+  src: local("PingFang SC"), local("Hiragino Sans GB"), local("Heiti SC"), local("Microsoft YaHei"), local("WenQuanYi Micro Hei");
 }
 
 :not(pre) > code {
