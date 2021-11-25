@@ -7,7 +7,6 @@ excerpt: Personal CV a.k.a. resume
 ## Profile
 
 - Name: Yulong Ming, 明宇龙 in Chinese
-- Gender: Male
 - Birthday: 2000-07-08
 - Current location: University of Science and Technology of China, China
 - Email: [myl.ustc@gmail.com](mailto:myl.ustc@gmail.com)
@@ -23,6 +22,7 @@ excerpt: Personal CV a.k.a. resume
 ## Interests
 
 - XDP (i.e. eXpress Data Path) packet forwarding, filtering, tunneling, and other processing in Linux kernel
+  - Planing to make XDP tunneling as graduation design
 - BFT (i.e. Byzantine fault tolerance) algorithm optimization in blockchain
 
 ## Experiences
