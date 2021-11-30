@@ -8,6 +8,10 @@ tags: arcaea payment
 
 ## TOC
 
+## Notice
+
+> Updates are required
+
 ## 立场预设
 
 此建议假设你：
