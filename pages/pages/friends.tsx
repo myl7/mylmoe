@@ -1,9 +1,11 @@
 import {
-  Box, CardContent, CardHeader, Divider, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography
+  CardContent, CardHeader, Divider, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography
 } from '@material-ui/core'
 import ExtLink from '../../components/links/extLink'
 import friends from '../../content/friends'
 import Head from '../../components/head'
+import head from '../../content/head'
+import PostDate from '../../components/post/postDate'
 
 const Friend = () => {
   const relPath = (root: string, url: string) => {
@@ -14,18 +16,13 @@ const Friend = () => {
     }
   }
 
-  const {description, list, title, updDate} = friends
+  const {list, updDate} = friends
 
   return (
     <>
-      <Head title={title} description={description} path={'/pages/friends'} />
-      <CardHeader title={title} titleTypographyProps={{component: 'h1'}} subheader={
-        <div>
-          Updated on {''}
-          <Box component={'span'} fontWeight={'fontWeightBold'}>
-            {updDate}
-          </Box>
-        </div>
+      <Head {...head['/pages/friends']} path="/pages/friends" />
+      <CardHeader title={head['/pages/friends'].title} titleTypographyProps={{component: 'h1'}} subheader={
+        <PostDate updDate={updDate} />
       } />
       <Divider />
       <CardContent>

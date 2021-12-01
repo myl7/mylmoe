@@ -3,6 +3,8 @@ import {Box, Card, CardActionArea, CardContent, CardHeader, Divider, Grid} from 
 import {GetStaticProps} from 'next'
 import getPosts from '../../utils/getPosts'
 import {useRouter} from 'next/router'
+import head from '../../content/head'
+import PostDate from '../../components/post/postDate'
 
 const Tag = (props: {tagInfos: {tag: string, updDate: string, pubDate: string}[]}) => {
   const {tagInfos} = props
@@ -13,8 +15,8 @@ const Tag = (props: {tagInfos: {tag: string, updDate: string, pubDate: string}[]
 
   return (
     <>
-      <Head title={'Tag List'} description={'All tags from all blog posts.'} path={`/pages/tags/`} />
-      <CardHeader title={'Tag List'} titleTypographyProps={{component: 'h1'}} />
+      <Head {...head['/pages/tags']} path="/pages/tags/" />
+      <CardHeader title={head['/pages/tags'].title} titleTypographyProps={{component: 'h1'}} />
       <Divider />
       <CardContent style={{paddingTop: 0, paddingBottom: 0}}>
         <Grid container spacing={2} justify="center" style={{paddingTop: '1em', paddingBottom: '1em'}}>
@@ -23,20 +25,7 @@ const Tag = (props: {tagInfos: {tag: string, updDate: string, pubDate: string}[]
               <Card variant="outlined" component="article">
                 <CardActionArea onClick={handleClick(tag)}>
                   <CardHeader title={tag} titleTypographyProps={{component: 'h2'}} subheader={
-                    <>
-                      <div>
-                        Updated on {''}
-                        <Box component={'span'} fontWeight={'fontWeightBold'}>
-                          {updDate}
-                        </Box>
-                      </div>
-                      <div>
-                        Published on {''}
-                        <Box component={'span'} fontWeight={'fontWeightBold'}>
-                          {pubDate}
-                        </Box>
-                      </div>
-                    </>
+                    <PostDate updDate={updDate} pubDate={pubDate} />
                   } />
                 </CardActionArea>
               </Card>
