@@ -5,6 +5,7 @@ import {printBin} from '../../utils/bin'
 import Head from '../../components/head'
 import {brotliEnc} from '../../extern/brotli'
 import BinOutput from '../../components/utils/binOutput'
+import head from '../../content/head'
 
 const Brotli = () => {
   const encTextRef = useRef<HTMLInputElement>(null)
@@ -42,13 +43,12 @@ const Brotli = () => {
     }
   }
 
-  const title = 'Brotli online encode/decode tool'
-  const description = 'Decode locally with WASM via npm package brotli-dec-wasm, and encode remotely with AWS Lambda'
+  const h = head['/utils/brotli']
 
   return (
     <>
-      <Head title={title} description={description} path={'/utils/brotli/'} />
-      <CardHeader title={title} titleTypographyProps={{component: 'h1'}} subheader={description} />
+      <Head {...h} path={'/utils/brotli/'} />
+      <CardHeader title={h.title} titleTypographyProps={{component: 'h1'}} subheader={h.description} />
       <Divider />
       <CardContent>
         <Typography variant="body1">
