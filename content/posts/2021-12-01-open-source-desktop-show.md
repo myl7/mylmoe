@@ -177,21 +177,21 @@ Gnome 里所以已安装的插件可以在在 Extensions 应用中查看和配�
 
 以下是我安装并启用了的插件及其配置，大部分都是排名前列的、比较热门的插件：
 
-### AltTab Mod by Leleat
+**AltTab Mod by Leleat**
 
 > Alt/Super+Tab can also be navigated with WASD and hjkl. Q just closes the selected item and only the first window will be raised on app activation. Optionally, only show windows from the current workspace or monitor and remove the slight popup delay.
 
-### BackSlide by p91paul
+**BackSlide by p91paul**
 
 > Automatic background-image (wallpaper) slideshow for Gnome Shell
 
 自动切换壁纸，有托盘图标可以对切换做参数配置，备选壁纸可以自行指定
 
-### Bluetooth Quick Connect by bjarosze
+**Bluetooth Quick Connect by bjarosze**
 
 > Allow to connect to paired devices from gnome control panel.
 
-### Clipboard Indicator by Tudmotu
+**Clipboard Indicator by Tudmotu**
 
 > Clipboard Manager extension for Gnome-Shell - Adds a clipboard indicator to the top panel, and caches clipboard history.
 
@@ -199,81 +199,81 @@ Gnome 里所以已安装的插件可以在在 Extensions 应用中查看和配�
 History Size 调大就是了，我是 200 条。
 Max cache file size (kb) 也要调大，我是 16384（= 16MB）。
 
-### Color Picker by grroot
+**Color Picker by grroot**
 
 > Simple color picker for gnome shell
 
 由于 Wayland 的隐私保护，gpick 这样的三方取色软件是无法取色的，而这个插件可以弥补这一功能缺失
 
-### Disconnect Wifi by kgshank
+**Disconnect Wifi by kgshank**
 
 > Adds a Disconnect option for Wifi in status menu, when a network is connected. Shows a Reconnect option, after network is disconnected.
 
-### Espresso by tharbold
+**Espresso by tharbold**
 
 > Set conditions to disable the screensaver and auto suspend. Espresso is a fork of the Caffeine extension, and Espresso only supports Gnome 40 and Gnome 41. Please leave feedback or report issues through the Extension Homepage
 
 方便电脑挂机
 
-### GSConnect by dlandau
+**GSConnect by dlandau**
 
 > GSConnect is a complete implementation of KDE Connect especially for GNOME Shell with Nautilus, Chrome and Firefox integration. It does not rely on the KDE Connect desktop application and will not work with it installed.
 
 其实没用过，直接插 USB 线也不算麻烦
 
-### Hide Activities Button by zeten30
+**Hide Activities Button by zeten30**
 
 > Hides the Activities button from the status bar (the hot corner and keyboard shortcut keeps working). To disable top left hot corner use 'No Topleft Hot Corner' extension — https://extensions.gnome.org/extension/118/no-topleft-hot-corner/ .
 
-### Just Perfection by JustPerfection
+**Just Perfection by JustPerfection**
 
 > Tweak Tool to Customize GNOME Shell and Disable UI Elements
 
-### Mpris Indicator Button by JasonLG1979
+**Mpris Indicator Button by JasonLG1979**
 
 > A full featured MPRIS indicator.
 
-### No overview at start-up by fthx
+**No overview at start-up by fthx**
 
 > No overview at start-up. For GNOME Shell 40+.
 
 似乎没用，刚开机时还是会进入按 Win 键会进入的窗口预览界面，说到底不确定这个插件到底是不是针对的这个 feature
 
-### Proxy Switcher by flannable
+**Proxy Switcher by flannable**
 
 > Switches between the system proxy settings profiles defined in Network Settings.
 
-### Refresh Wifi Connections by kgshank
+**Refresh Wifi Connections by kgshank**
 
 > This extension adds a refresh button to the Wi-Fi connection selection dialog to manually request for a network scan.
 
-### Removable Drive Menu by fmuellner
+**Removable Drive Menu by fmuellner**
 
 > A status menu for accessing and unmounting removable devices.
 
-### Remove Alt+Tab Delay v2 by bjoerndaase
+**Remove Alt+Tab Delay v2 by bjoerndaase**
 
 > Another extension that removes the 0.15 second popup delay in switcher pop-ups. This extension is actively maintained. It fixes at least this known issue: https://gitlab.gnome.org/GNOME/mutter/issues/888.
 
-### Screenshot Locations by TimurKiyivinski **Outdated**
+**Screenshot Locations by TimurKiyivinski **Outdated****
 
 > Change the default GNOME screenshot directory
 
-### Sound Input & Output Device Chooser by kgshank
+**Sound Input & Output Device Chooser by kgshank**
 
 > Shows a list of sound output and input devices (similar to gnome sound settings) in the status menu below the volume slider. Various active ports like HDMI , Speakers etc. of the same device are also displayed for selection. V20+ needs python as dependency. If you want to continue with the old method without Python, use options to switch off New Port identification. But it works with only English
 
-### System Action - Hibernate by TimurKiyivinski **Outdated**
+**System Action - Hibernate by TimurKiyivinski **Outdated****
 
 > A GNOME extension that adds the option to hibernate amongst other system actions
 
-### Tray Icons: Reloaded by MartinPL
+**Tray Icons: Reloaded by MartinPL**
 
 > Tray Icons Reloaded is a GNOME Shell extension which bring back Tray Icons to top panel, with additional features.
 
 托盘图标框架，个人认为本来应该 Gnome 自带的功能
 
-### Vitals by corecoding
+**Vitals by corecoding**
 
 > A glimpse into your computer's temperature, voltage, fan speed, memory usage, processor load, system resources, network speed and storage stats. This is a one stop shop to monitor all of your vital sensors. Uses asynchronous polling to provide a smooth user experience. Feature requests or bugs? Please use GitHub.
 
@@ -282,7 +282,7 @@ Max cache file size (kb) 也要调大，我是 16384（= 16MB）。
 Sensors 可以按需启动，我是除了 Battery（可以直接看右上角电池百分比）其余都启用。
 如果都启用的话，将 Position in panel 设为 Left 才能够始终完整地显示所有信息，而不会挤压其他按钮。
 
-### Window Is Ready - Notification Remover by nunofarruca
+**Window Is Ready - Notification Remover by nunofarruca**
 
 > Removes window is ready Notification
 
