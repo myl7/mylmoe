@@ -292,28 +292,28 @@ Sensors 可以按需启动，我是除了 Battery（可以直接看右上角电�
 
 整体效果：
 
-![general](images/linux-desktop/screenshot-general.png)
+![general](./images/linux-desktop/screenshot-general.png)
 
 空置效果：
 
-![empty](images/linux-desktop/screenshot-empty.png)
+![empty](./images/linux-desktop/screenshot-empty.png)
 
 系统性能数据界面：
 
-![statistics](images/linux-desktop/screenshot-statistics.png)
+![statistics](./images/linux-desktop/screenshot-statistics.png)
 
 日期时间界面：
 
-![datetime](images/linux-desktop/screenshot-datetime.png)
+![datetime](./images/linux-desktop/screenshot-datetime.png)
 
 壁纸自动切换界面：
 
-![wallpaper switcher](images/linux-desktop/screenshot-wallpaper-switcher.png)
+![wallpaper switcher](./images/linux-desktop/screenshot-wallpaper-switcher.png)
 
 历史剪切板界面：
 
-![clipboard history](images/linux-desktop/screenshot-clipboard-history.png)
+![clipboard history](./images/linux-desktop/screenshot-clipboard-history.png)
 
 被收纳的操作的界面：
 
-![more actions](images/linux-desktop/screenshot-actions.png)
+![more actions](./images/linux-desktop/screenshot-actions.png)
