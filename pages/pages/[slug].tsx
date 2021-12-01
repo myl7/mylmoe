@@ -1,8 +1,9 @@
 import {GetStaticPaths, GetStaticProps} from 'next'
-import {Box, CardContent, CardHeader, Divider} from '@material-ui/core'
+import {CardContent, CardHeader, Divider} from '@material-ui/core'
 import Head from '../../components/head'
 import {PostInfo} from '../../remark/post'
 import getPosts from '../../utils/getPosts'
+import PostDate from '../../components/post/postDate'
 
 const Page = (props: {post: PostInfo}) => {
   const {meta, html} = props.post
@@ -12,12 +13,7 @@ const Page = (props: {post: PostInfo}) => {
     <>
       <Head title={title} description={excerpt} path={path} />
       <CardHeader title={title} titleTypographyProps={{component: 'h1'}} subheader={
-        <div>
-          Updated on {''}
-          <Box component={'span'} fontWeight={'fontWeightBold'}>
-            {updDate}
-          </Box>
-        </div>
+        <PostDate updDate={updDate} />
       } />
       <Divider />
       <CardContent>
