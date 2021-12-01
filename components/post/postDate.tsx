@@ -2,12 +2,13 @@ import {Box} from '@material-ui/core'
 import {FC} from 'react'
 
 export interface PostDateProps {
-  updDate: string,
+  updDate?: string,
   pubDate: string
 }
 
 const PostDate: FC<PostDateProps> = props => {
-  const {updDate, pubDate, children} = props
+  const {updDate: updD, pubDate, children} = props
+  const updDate = updD ?? pubDate
 
   return (
     <div>
