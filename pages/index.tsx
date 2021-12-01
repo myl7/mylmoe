@@ -37,7 +37,11 @@ const Index = (props: {posts: PostInfo[]}) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   const posts = getPosts()
-  posts.sort((a, b) => -a.meta.updDate.localeCompare(b.meta.updDate))
+  posts.sort((a, b) => (
+    a.meta.updDate == b.meta.updDate ?
+    -a.meta.pubDate.localeCompare(b.meta.pubDate) :
+    -a.meta.updDate.localeCompare(b.meta.updDate)
+  ))
   return {
     props: {
       posts
