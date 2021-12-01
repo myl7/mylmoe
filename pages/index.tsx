@@ -20,9 +20,13 @@ const Index = (props: {posts: PostInfo[]}) => {
       } />
       <Divider />
       <CardContent style={{paddingTop: 0, paddingBottom: 0}}>
-        {posts.map(post => (
-          <PostItem {...post.meta} key={post.meta.path} style={{margin: '1em'}} />
-        ))}
+        {posts.map(post => {
+          const {title, pubDate, updDate, excerpt, tags, path} = post.meta
+          return (
+            <PostItem title={title} pubDate={pubDate} updDate={updDate} excerpt={excerpt} tags={tags} path={path}
+                      key={path} style={{margin: '1em'}} />
+          )
+        })}
       </CardContent>
     </>
   )
