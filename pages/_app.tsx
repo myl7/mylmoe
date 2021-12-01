@@ -1,7 +1,7 @@
 import '../styles.css'
 import type {AppProps} from 'next/app'
 import Theme from '../components/theme'
-import Footer from '../components/footer'
+import Footer from '../content/footer'
 import {Card} from '@material-ui/core'
 import FloatAction from '../components/floatAction'
 import Header from '../components/header'

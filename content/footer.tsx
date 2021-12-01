@@ -1,8 +1,8 @@
 import {Card, CardContent, Typography} from '@material-ui/core'
-import ExtLinkRel from './links/extLinkRel'
-import ExtLink from './links/extLink'
-import IntLink from './links/intLink'
-import site from '../content/site'
+import ExtLinkRel from '../components/links/extLinkRel'
+import ExtLink from '../components/links/extLink'
+import IntLink from '../components/links/intLink'
+import site from './site'
 
 const Footer = () => {
   const ccProps = (code: string) => ({
