@@ -1,7 +1,7 @@
 ---
 title: Python YAML + Beautiful Soup reports RecursionError
 pubDate: 2020-10-02
-updDate: 2020-11-24
+updDate: 2021-12-01
 excerpt: Prefer safe YAML load/dump utilities and explicitly convert Beautiful Soup string to builtin str.
 tags: python beautiful-soup yaml html serialization recursion
 lang: en
