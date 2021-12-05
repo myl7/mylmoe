@@ -4,6 +4,8 @@ pubDate: 2021-11-24
 excerpt: Personal CV a.k.a. resume
 ---
 
+## TOC
+
 ## Profile
 
 - Name: Yulong Ming, 明宇龙 in Chinese
@@ -68,3 +70,7 @@ Additional ones:
 - Email: [myl.ustc@gmail.com](mailto:myl.ustc@gmail.com) (official) and [myl@myl.moe](mailto:myl@myl.moe) (personal)
 
 [nonfree-antisocial]: https://www.fsf.org/news/lifes-better-together-when-you-avoid-windows-11/#:~:text=Developing%20nonfree%20software%20is%20an%20inherently%20antisocial%20act "\"Developing nonfree software is an inherently antisocial act\" by FSF"
+
+## License
+
+> The page is specially licensed under [CC-BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/)
