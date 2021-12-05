@@ -8,7 +8,9 @@ const site = {
   email: 'myl@myl.moe',
   avatar: 'https://www.gravatar.com/avatar/41e17fe63d0c1f91234b320b1feb3bef&d=retro', // Here use Gravatar
   gpgId: 'A74C0EAF8DB7502D7D51F9BE04F1013B67177C88',
-  tags: ['cs', 'acg']
+  tags: ['cs', 'acg'],
+  imageBaseUrl: 'https://store.myl.moe/images',
+  imageInfoUrl: 'https://store.myl.moe/images/images.json'
 }
 
 export default site

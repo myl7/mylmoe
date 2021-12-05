@@ -7,6 +7,7 @@ import h from 'hastscript'
 import path from 'path'
 import fs from 'fs'
 import childProcess from 'child_process'
+import site from '../content/site'
 
 const imageInfo: {[key: string]: {width: number, height: number}} = (() => {
   const p = path.join(process.cwd(), 'storage', 'images', 'images.json')
@@ -17,7 +18,7 @@ const imageInfo: {[key: string]: {width: number, height: number}} = (() => {
   if (info) {
     return JSON.parse(info)
   }
-  const res = childProcess.execSync('curl -o- https://store.myl.moe/images/images.json').toString()
+  const res = childProcess.execSync(`curl -o- ${site.imageInfoUrl}`).toString()
   if (res) {
     return JSON.parse(res)
   }
