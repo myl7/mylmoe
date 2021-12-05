@@ -42,8 +42,6 @@ Replace the URLs to your own ones with you own impl.
 ## License
 
 - MIT by default
-- Posts in `content/pages` and `content/posts` use CC BY-NC-SA 4.0
+- Posts in `content/pages` and `content/posts` use CC BY-SA 4.0
 - Images in `public/images` use All Rights Reserved by default
 - Unless otherwise stated, including a `LICENSE` file in a subdirectory, a file header description, or image Exif data
-
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fmyl7%2Fmylmoe.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fmyl7%2Fmylmoe?ref=badge_large)

@@ -22,13 +22,12 @@ const Footer = () => {
         <Typography variant="body1">
           Copyright (c) 2020-2021 myl7 | Posts use {''}
           <ExtLinkRel rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0">
-            CC-BY-NC-SA 4.0
+            CC-BY-SA 4.0
           </ExtLinkRel>
           {' '}
           <ExtLinkRel rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0">
             <img {...ccProps('cc')} />
             <img {...ccProps('by')} />
-            <img {...ccProps('nc')} />
             <img {...ccProps('sa')} />
           </ExtLinkRel>
           , code uses MIT, unless otherwise stated | Released on {''}
