@@ -10,10 +10,9 @@ export interface HeadProps {
 
 const Head: FC<HeadProps> = props => {
   const {title: t, description: d, path, children} = props
-  const title = t ? `${t} | ${site.title}` : site.title
-  const description = d ? `${d} | ${site.title}: ${site.description}` : (
-    t ? `${site.title}: ${site.description}` : site.description
-  )
+  const tail = `${site.title}: ${site.description}`
+  const title = t ? `${t} | ${tail}` : tail
+  const description = d ? `${d} | ${tail}` : tail
 
   return (
     <NextHead>
