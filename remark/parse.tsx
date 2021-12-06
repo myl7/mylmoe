@@ -24,12 +24,18 @@ import {Link as LinkIcon} from '@material-ui/icons'
 import type {Parent} from 'unist'
 import rehypeExtImage from './rehypeExtImage'
 import site from '../content/site'
+import rehypeCcIcons from './rehypeCcIcons'
+import remarkDirective from 'remark-directive'
+import remarkDirectiveRehype from './remarkDirectiveRehype'
 
 const parse = (name: string, content: string, pathPrefix: string = '/posts/'): PostInfo => {
   name = name.substring(0, name.length - 3)
   let fmVal = ''
   const html = unified()
     .use(remarkParse)
+    // @ts-ignore
+    .use(remarkDirective)
+    .use(remarkDirectiveRehype)
     .use(remarkGfm)
     .use(remarkFrontmatter, ['yaml'])
     .use(() => node => {
@@ -58,6 +64,7 @@ const parse = (name: string, content: string, pathPrefix: string = '/posts/'): P
     })
     .use(rehypeMuiLink)
     .use(rehypeExtImage, {baseUrl: site.imageBaseUrl})
+    .use(rehypeCcIcons)
     .use(rehypeStringify, {allowDangerousHtml: true})
     .processSync(content).toString()
   const fm = yaml.load(fmVal) as PostFM

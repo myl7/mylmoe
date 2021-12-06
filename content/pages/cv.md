@@ -73,4 +73,4 @@ Additional ones:
 
 ## License
 
-> The page is specially licensed under [CC-BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/)
+The page is specially licensed under :cc-icons[CC-BY-ND 4.0].

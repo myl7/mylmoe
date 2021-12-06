@@ -15,6 +15,7 @@
     "allowUmdGlobalAccess": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
     "lib": [
       "dom",
       "dom.iterable",
