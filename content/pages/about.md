@@ -11,7 +11,7 @@ excerpt: Introduction of the website and me
 I am myl7, Yulong Ming in real name.
 It is a pleasure to meet you!
 
-My CV (a.k.a. resume), which includes detailed and formal introduction of me and my experience so far, can be found on [CV page](/pages/cv/).
+My CV, which includes detailed and formal introduction of me and my experience so far, can be found on [CV page](/pages/cv/).
 
 As an active GitHub user, you can also refer to [my GitHub profile](https://github.com/myl7) to see most of my virtual life.
 

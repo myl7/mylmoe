@@ -1,7 +1,7 @@
 ---
 title: CV
 pubDate: 2021-11-24
-excerpt: Personal CV a.k.a. resume
+excerpt: Personal CV
 ---
 
 ## TOC
@@ -40,9 +40,16 @@ excerpt: Personal CV a.k.a. resume
   - Got gold medal (1st level) and Best Software Award nominations (2 in total)
   - Ref: [Project homepage](https://2019.igem.org/Team:USTC-Software) [Source code](https://github.com/igemsoftware2019/Team_USTC_Software)
 - [VLAB](https://vlab.ustc.edu.cn), developer and manager, 2019 -- now
-  - is a virtualization platform providing students with virtual machines, online editors, etc.
+  - Is a virtualization platform providing students with virtual machines, online editors, etc.
   - Participated in parts like SSH reverse proxy, KVM virtual machine API, and more
   - Already used in some university courses like Digital Circuits and OS, 1k+ users
+- [Summer 2021 of OSPP](https://summer.iscas.ac.cn/#/?lang=en) vice mentor of [mirror-cache](https://github.com/SeanChao/mirror-cache) project, 2021-07 -- 2021-10
+  - Is a general-purpose HTTP reverse proxy with policy-supported caching and metric
+  - Reviewed Rust code of the project and gave feature requests with development suggestion
+  - Currently deployed in USTC mirror for internal usage, and planned to be made public later
+  - Ref: [Project homepage](https://summer.iscas.ac.cn/#/org/prodetail/210280471?lang=en) [Source code](https://github.com/SeanChao/mirror-cache)
+- 2021 HKU/CS Summer Research Internship Program project to eval Zyzzyva BFT (i.e. Byzantine Fault Tolerance) algorithm performance, 2021-07 -- 2021-08
+  - Ref: [Source code](https://github.com/myl7/zyzzyva) [HKU homepage](https://www.hku.hk/) [paper of Zyzzyva](http://www.cs.cornell.edu/lorenzo/papers/kotla07Zyzzyva.pdf)
 
 ## Projects
 
@@ -58,7 +65,7 @@ Additional ones:
 - Linux maintaining stuff and technology stack concepts
 - Container principles and Docker with related tools usage
 - [React](https://reactjs.org) frontend ecosystem usage and philosophy
-- Programing languages: Python, Rust, Go, Javascript with Typescript, which all are with practical use, and prime C, C++，Java
+- Programing languages: Python, Rust, Go, Javascript with Typescript, C++, which all are with practical use, and prime C，Java
 - Natural languages: Chinese (mother tongue), English (TOEFL 87, R27-L22-S17-W21), a little Japanese (elementary listening)
 - Frameworks and libraries: Django, Gin, Next.js, which all are with products, and Spring, FastAPI, ANTLR, Serverless of famous cloud providers, etc.
 
