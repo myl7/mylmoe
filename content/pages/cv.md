@@ -48,7 +48,7 @@ excerpt: Personal CV
   - Reviewed Rust code of the project and gave feature requests with development suggestion
   - Currently deployed in USTC mirror for internal usage, and planned to be made public later
   - Ref: [Project homepage](https://summer.iscas.ac.cn/#/org/prodetail/210280471?lang=en) [Source code](https://github.com/SeanChao/mirror-cache)
-- 2021 HKU/CS Summer Research Internship Program project to eval Zyzzyva BFT (i.e. Byzantine Fault Tolerance) algorithm performance, 2021-07 -- 2021-08
+- 2021 HKU Summer Intern project to eval Zyzzyva BFT (i.e. Byzantine Fault Tolerance) algorithm performance, 2021-07 -- 2021-08
   - Ref: [Source code](https://github.com/myl7/zyzzyva) [HKU homepage](https://www.hku.hk/) [paper of Zyzzyva](http://www.cs.cornell.edu/lorenzo/papers/kotla07Zyzzyva.pdf)
 
 ## Projects
