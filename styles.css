@@ -43,3 +43,13 @@ a.heading-link {
 html {
   scroll-padding-top: calc(64px + 1em);
 }
+
+.post-html blockquote {
+  margin-left: 1em;
+  margin-right: 1em;
+  filter: contrast(0.5);
+}
+
+.post-html blockquote > p::before {
+  content: '> ';
+}
