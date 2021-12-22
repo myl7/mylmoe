@@ -24,7 +24,6 @@ excerpt: Personal CV
 ## Interests
 
 - XDP (i.e. eXpress Data Path) packet forwarding, filtering, tunneling, and other processing in Linux kernel
-  - Planing to make XDP tunneling as graduation design
 - BFT (i.e. Byzantine fault tolerance) algorithm optimization in blockchain
 
 ## Experiences
@@ -65,7 +64,7 @@ Additional ones:
 - Linux maintaining stuff and technology stack concepts
 - Container principles and Docker with related tools usage
 - [React](https://reactjs.org) frontend ecosystem usage and philosophy
-- Programing languages: Python, Rust, Go, Javascript with Typescript, C++, which all are with practical use, and prime C，Java
+- Programing languages: Python, Rust, Go, Javascript with Typescript, C++, which all are with practical use, and prime C, Java
 - Natural languages: Chinese (mother tongue), English (TOEFL 87, R27-L22-S17-W21), a little Japanese (elementary listening)
 - Frameworks and libraries: Django, Gin, Next.js, which all are with products, and Spring, FastAPI, ANTLR, Serverless of famous cloud providers, etc.
 
