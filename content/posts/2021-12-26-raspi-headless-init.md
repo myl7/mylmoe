@@ -19,7 +19,7 @@ There are lots of critical points, and the tutorial is just to try to show all o
 
 My raspi described in the post is 3B+ model, though IMO the following process should fit all raspi models.
 
-You PC may be Windows or Linux.
+Your PC may be Windows or Linux.
 Mac users may refer to Linux version steps, though I do not have a Mac to test.
 
 ## Imaging
