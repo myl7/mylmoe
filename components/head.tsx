@@ -1,15 +1,15 @@
-import {FC} from 'react'
+import { FC } from 'react'
 import site from '../content/site'
-import {default as NextHead} from 'next/head'
+import { default as NextHead } from 'next/head'
 
 export interface HeadProps {
-  title?: string,
-  description?: string,
+  title?: string
+  description?: string
   path: string
 }
 
 const Head: FC<HeadProps> = props => {
-  const {title: t, description: d, path, children} = props
+  const { title: t, description: d, path, children } = props
   const tail = `${site.title}: ${site.description}`
   const title = t ? `${t} | ${tail}` : tail
   const description = d ? `${d} | ${tail}` : tail

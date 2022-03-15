@@ -1,30 +1,40 @@
 import Head from '../../components/head'
-import {CardContent, CardHeader, Divider} from '@material-ui/core'
+import { CardContent, CardHeader, Divider } from '@material-ui/core'
 import PostDate from '../../components/post/postDate'
 import PostItem from '../../components/post/postItem'
-import {GetServerSideProps} from 'next'
-import {PostMeta} from '../../remark/post'
+import { GetServerSideProps } from 'next'
+import { PostMeta } from '../../remark/post'
 import head from '../../content/head'
 
-const Tag = (props: {tag: string, metas: PostMeta[]}) => {
-  const {tag, metas} = props
+const Tag = (props: { tag: string; metas: PostMeta[] }) => {
+  const { tag, metas } = props
   const h = head['/tags/[tag]'](tag)
-  const updDate = metas.map(meta => meta.updDate).reduce((a, b) => a > b ? a : b)
-  const pubDate = metas.map(meta => meta.pubDate).reduce((a, b) => a > b ? a : b)
+  const updDate = metas.map(meta => meta.updDate).reduce((a, b) => (a > b ? a : b))
+  const pubDate = metas.map(meta => meta.pubDate).reduce((a, b) => (a > b ? a : b))
 
   return (
     <>
       <Head {...h} path={`/tags/${tag}/`} />
-      <CardHeader title={h.title} titleTypographyProps={{component: 'h1'}} subheader={
-        <PostDate updDate={updDate} pubDate={pubDate} />
-      } />
+      <CardHeader
+        title={h.title}
+        titleTypographyProps={{ component: 'h1' }}
+        subheader={<PostDate updDate={updDate} pubDate={pubDate} />}
+      />
       <Divider />
-      <CardContent style={{paddingTop: 0, paddingBottom: 0}}>
+      <CardContent style={{ paddingTop: 0, paddingBottom: 0 }}>
         {metas.map(meta => {
-          const {title, pubDate, updDate, excerpt, tags, path} = meta
+          const { title, pubDate, updDate, excerpt, tags, path } = meta
           return (
-            <PostItem title={title} pubDate={pubDate} updDate={updDate} excerpt={excerpt} tags={tags} path={path}
-                      key={path} style={{margin: '1em'}} />
+            <PostItem
+              title={title}
+              pubDate={pubDate}
+              updDate={updDate}
+              excerpt={excerpt}
+              tags={tags}
+              path={path}
+              key={path}
+              style={{ margin: '1em' }}
+            />
           )
         })}
       </CardContent>
@@ -37,9 +47,9 @@ export const getServerSideProps: GetServerSideProps = async ctx => {
   const obj = await import(/* webpackMode: "eager" */ '../../data/tagrel.json')
   const map = new Map(obj.default as [string, PostMeta[]][])
   if (map.has(tag)) {
-    return {props: {tag, metas: map.get(tag)}}
+    return { props: { tag, metas: map.get(tag) } }
   } else {
-    return {props: {tag: '', metas: []}}
+    return { props: { tag: '', metas: [] } }
   }
 }
 

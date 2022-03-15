@@ -1,9 +1,9 @@
-import React, {FC} from 'react'
-import {SpeedDialAction, SpeedDialActionProps} from '@material-ui/lab'
-import {Link as LinkIcon} from '@material-ui/icons'
+import React, { FC } from 'react'
+import { SpeedDialAction, SpeedDialActionProps } from '@material-ui/lab'
+import { Link as LinkIcon } from '@material-ui/icons'
 
 const CopyLink: FC<SpeedDialActionProps> = props => {
-  const {onClick, ...others} = props
+  const { onClick, ...others } = props
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
     onClick!(e)
@@ -18,9 +18,13 @@ const CopyLink: FC<SpeedDialActionProps> = props => {
   }
 
   return (
-    <SpeedDialAction icon={
-      <LinkIcon color="secondary" />
-    } tooltipTitle="Copy link" onClick={handleClick} title="Copy link" {...others} />
+    <SpeedDialAction
+      icon={<LinkIcon color="secondary" />}
+      tooltipTitle="Copy link"
+      onClick={handleClick}
+      title="Copy link"
+      {...others}
+    />
   )
 }
 

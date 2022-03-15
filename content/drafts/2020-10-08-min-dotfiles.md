@@ -154,38 +154,30 @@ Install `flake8` and `autopep8` for Python.
 
 ```json
 {
-    "files.trimTrailingWhitespace": true,
-    "editor.fontFamily": "'Source Code Pro', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
-    "editor.tabSize": 2,
-    "update.showReleaseNotes": false,
-    "telemetry.enableCrashReporter": false,
-    "telemetry.enableTelemetry": false,
-    "editor.minimap.enabled": false,
-    "editor.renderWhitespace": "boundary",
-    "python.formatting.autopep8Args": [
-        "--max-line-length=120"
-    ],
-    "python.linting.flake8Args": [
-        "--max-line-length=120",
-        "--extend-ignore=F841"
-    ],
-    "editor.rulers": [
-        80,
-        120
-    ],
-    "workbench.colorTheme": "One Dark Pro",
-    "workbench.iconTheme": "material-icon-theme",
-    "python.linting.pylintEnabled": false,
-    "python.linting.flake8Enabled": true,
-    "[python]": {
-        "editor.tabSize": 4
-    },
-    "explorer.confirmDelete": false,
-    "workbench.startupEditor": "none",
-    "html.format.endWithNewline": true,
-    "html.format.indentHandlebars": true,
-    "html.format.extraLiners": "",
-    "files.insertFinalNewline": true
+  "files.trimTrailingWhitespace": true,
+  "editor.fontFamily": "'Source Code Pro', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+  "editor.tabSize": 2,
+  "update.showReleaseNotes": false,
+  "telemetry.enableCrashReporter": false,
+  "telemetry.enableTelemetry": false,
+  "editor.minimap.enabled": false,
+  "editor.renderWhitespace": "boundary",
+  "python.formatting.autopep8Args": ["--max-line-length=120"],
+  "python.linting.flake8Args": ["--max-line-length=120", "--extend-ignore=F841"],
+  "editor.rulers": [80, 120],
+  "workbench.colorTheme": "One Dark Pro",
+  "workbench.iconTheme": "material-icon-theme",
+  "python.linting.pylintEnabled": false,
+  "python.linting.flake8Enabled": true,
+  "[python]": {
+    "editor.tabSize": 4
+  },
+  "explorer.confirmDelete": false,
+  "workbench.startupEditor": "none",
+  "html.format.endWithNewline": true,
+  "html.format.indentHandlebars": true,
+  "html.format.extraLiners": "",
+  "files.insertFinalNewline": true
 }
 ```
 

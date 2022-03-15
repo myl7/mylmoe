@@ -7,7 +7,7 @@ const friends = {
       author: 'Totoroyyw',
       about: 'https://yyw.moe/about',
       rss: 'https://yyw.moe/atom.xml',
-      github: 'yuanyiwei'
+      github: 'yuanyiwei',
     },
     {
       title: 'RubyOcelot’s Homepage',
@@ -15,7 +15,7 @@ const friends = {
       author: 'RubyOcelot',
       about: 'https://loliw.moe/about',
       rss: 'https://loliw.moe/feed.xml',
-      github: 'RubyOcelot'
+      github: 'RubyOcelot',
     },
     {
       title: 'Elsa Granger',
@@ -23,15 +23,15 @@ const friends = {
       author: 'Elsa Granger',
       about: 'https://elsagranger.com',
       rss: 'https://blog.elsagranger.com/rss.xml',
-      github: 'zeyugao'
+      github: 'zeyugao',
     },
     {
-      title: 'taoky\'s blog',
+      title: "taoky's blog",
       url: 'https://blog.taoky.moe',
       author: 'taoky',
       about: 'https://blog.taoky.moe/about',
       rss: 'https://blog.taoky.moe/feed.xml',
-      github: 'taoky'
+      github: 'taoky',
     },
     {
       title: 'Sirius’ blog',
@@ -39,7 +39,7 @@ const friends = {
       author: 'Sirius',
       about: 'https://sirius1242.github.io',
       rss: 'https://sirius1242.github.io/feed.xml',
-      github: 'sirius1242'
+      github: 'sirius1242',
     },
     {
       title: 'iBug',
@@ -47,9 +47,9 @@ const friends = {
       author: 'iBug',
       about: 'https://ibug.io/about',
       rss: 'https://ibug.io/feed.xml',
-      github: 'iBug'
-    }
-  ]
+      github: 'iBug',
+    },
+  ],
 }
 
 export default friends

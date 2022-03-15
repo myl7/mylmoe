@@ -5,8 +5,8 @@ module.exports = withTM({
   webpack: config => {
     config.experiments = {
       ...config.experiments,
-      syncWebAssembly: true
+      syncWebAssembly: true,
     }
     return config
-  }
+  },
 })

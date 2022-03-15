@@ -5,12 +5,12 @@ import path from 'path'
 import dayjs from 'dayjs'
 
 const posts = getPosts()
-const postDate = posts.map(post => post.meta.updDate).reduce((a, b) => a > b ? a : b)
+const postDate = posts.map(post => post.meta.updDate).reduce((a, b) => (a > b ? a : b))
 
 const rfc822 = (s: string) => dayjs(s).format('ddd, DD MMM YYYY HH:mm:ss +0800')
 
 const items = posts.map(post => {
-  const {title, excerpt, updDate, path} = post.meta
+  const { title, excerpt, updDate, path } = post.meta
   return `\
     <item>
       <title>${title}</title>

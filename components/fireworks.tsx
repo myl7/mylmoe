@@ -1,20 +1,22 @@
-import React, {CSSProperties, useEffect, useRef} from 'react'
-import {handleResize, handleTap, tap} from '../utils/fireworks'
+import React, { CSSProperties, useEffect, useRef } from 'react'
+import { handleResize, handleTap, tap } from '../utils/fireworks'
 
 const style: CSSProperties = {
   position: 'fixed',
   top: 0,
   left: 0,
   zIndex: 99999,
-  pointerEvents: 'none'
+  pointerEvents: 'none',
 }
 
 const filter = (e: React.MouseEvent) => {
   // @ts-ignore
   for (const elem of e.path) {
     const role = elem.attributes ? elem.attributes.getNamedItem('role') : null
-    if (['A', 'BUTTON', 'HEADER', 'TEXTAREA'].indexOf(elem.nodeName) >= 0 ||
-      (role && (role.value == 'presentation' || role.value == 'button'))) {
+    if (
+      ['A', 'BUTTON', 'HEADER', 'TEXTAREA'].indexOf(elem.nodeName) >= 0 ||
+      (role && (role.value == 'presentation' || role.value == 'button'))
+    ) {
       return false
     }
   }

@@ -5,20 +5,23 @@ import path from 'path'
 import friends from '../content/friends'
 
 const posts = getPosts()
-const postDate = posts.map(post => post.meta.updDate).reduce((a, b) => a > b ? a : b)
+const postDate = posts.map(post => post.meta.updDate).reduce((a, b) => (a > b ? a : b))
 const pages = getPosts('pages')
 
 const items = [
-  {path: '/', date: postDate},
-  ...posts.map(post => ({path: post.meta.path, date: post.meta.updDate})),
-  ...pages.map(post => ({path: post.meta.path, date: post.meta.updDate})),
-  {path: '/pages/friends', date: friends.updDate},
-  {path: '/utils/brotli', date: null}
-].map(({path, date}) => date ? `\
+  { path: '/', date: postDate },
+  ...posts.map(post => ({ path: post.meta.path, date: post.meta.updDate })),
+  ...pages.map(post => ({ path: post.meta.path, date: post.meta.updDate })),
+  { path: '/pages/friends', date: friends.updDate },
+  { path: '/utils/brotli', date: null },
+].map(({ path, date }) =>
+  date
+    ? `\
   <url>
     <loc>${site.url + path}</loc>
     <lastmod>${date}</lastmod>
-  </url>` : `\
+  </url>`
+    : `\
   <url>
     <loc>${site.url + path}</loc>
   </url>`

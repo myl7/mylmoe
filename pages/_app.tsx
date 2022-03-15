@@ -1,18 +1,18 @@
 import '../styles.css'
-import type {AppProps} from 'next/app'
+import type { AppProps } from 'next/app'
 import Theme from '../components/theme'
 import Footer from '../content/footer'
-import {Card} from '@material-ui/core'
+import { Card } from '@material-ui/core'
 import FloatAction from '../components/floatAction'
 import Header from '../components/header'
-import {storeWrapper} from '../redux/store'
+import { storeWrapper } from '../redux/store'
 import Fireworks from '../components/fireworks'
 
-function MyApp({Component, pageProps}: AppProps) {
+function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Theme>
       <Header />
-      <Card variant="outlined" style={{margin: 'calc(64px + 1em) 1em 0 1em'}} component="main">
+      <Card variant="outlined" style={{ margin: 'calc(64px + 1em) 1em 0 1em' }} component="main">
         <Component {...pageProps} />
       </Card>
       <Footer />

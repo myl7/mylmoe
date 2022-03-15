@@ -1,10 +1,10 @@
-import React, {FC} from 'react'
-import {ArrowUpward as ArrowUpwardIcon} from '@material-ui/icons'
-import {SpeedDialAction, SpeedDialActionProps} from '@material-ui/lab'
-import {animateScroll} from 'react-scroll'
+import React, { FC } from 'react'
+import { ArrowUpward as ArrowUpwardIcon } from '@material-ui/icons'
+import { SpeedDialAction, SpeedDialActionProps } from '@material-ui/lab'
+import { animateScroll } from 'react-scroll'
 
 const GoTop: FC<SpeedDialActionProps> = props => {
-  const {onClick, ...others} = props
+  const { onClick, ...others } = props
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
     onClick!(e)
@@ -12,9 +12,13 @@ const GoTop: FC<SpeedDialActionProps> = props => {
   }
 
   return (
-    <SpeedDialAction icon={
-      <ArrowUpwardIcon color="secondary" />
-    } tooltipTitle="Go top" onClick={handleClick} title="Go top" {...others} />
+    <SpeedDialAction
+      icon={<ArrowUpwardIcon color="secondary" />}
+      tooltipTitle="Go top"
+      onClick={handleClick}
+      title="Go top"
+      {...others}
+    />
   )
 }
 

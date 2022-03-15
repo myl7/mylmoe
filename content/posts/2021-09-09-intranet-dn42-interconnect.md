@@ -187,7 +187,7 @@ systemd 关掉，`strace -Tfe trace=bind birdc -f`，看到 BIRD 压根没尝试
 
 我又倒过去翻了一下 BIRD 的文档，里面对于 direct 的解释是这样的：
 
->direct
+> direct
 >
 > Specify that the neighbor is directly connected. The IP address of the neighbor must be from a directly reachable IP range (i.e. associated with one of your router's interfaces), **otherwise the BGP session wouldn't start but it would wait for such interface to appear**. The alternative is the multihop option. Default: enabled for eBGP.
 

@@ -1,8 +1,8 @@
-import visit, {Visitor} from 'unist-util-visit'
+import visit, { Visitor } from 'unist-util-visit'
 import lodash from 'lodash'
 import react2hast from './react2hast'
 import CcIcons from '../components/ccIcons'
-import type {Plugin} from 'unified'
+import type { Plugin } from 'unified'
 
 const getLicenseTree = lodash.memoize((license: string) => react2hast(<CcIcons license={license} />))
 

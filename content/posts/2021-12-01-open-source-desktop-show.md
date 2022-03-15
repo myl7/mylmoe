@@ -32,19 +32,19 @@ TL;DR：[最终效果展示](#最终效果展示)
 >
 > 提交的配置方案应当包含如下具体内容：
 >
-> + 缩略图
-> + 类型：
->   + 教程：应附带文字说明，阐述配置过程，列出所用软件，并附带高清图
->   + 展示：应有一张或多张高清图，图片内容包含壁纸，终端，窗口和dock等，可以附带文字说明
-> + 环境：
->   + linux内核版本/其他开源系统
->   + 发行版本
->   + 窗口系统
->   + 桌面环境
->   + 运行时内存/cpu占用（optional）
-> + 桌面截图
-> + 配置的文字说明
-> + 链接（配置文件，相关参考）
+> - 缩略图
+> - 类型：
+>   - 教程：应附带文字说明，阐述配置过程，列出所用软件，并附带高清图
+>   - 展示：应有一张或多张高清图，图片内容包含壁纸，终端，窗口和 dock 等，可以附带文字说明
+> - 环境：
+>   - linux 内核版本/其他开源系统
+>   - 发行版本
+>   - 窗口系统
+>   - 桌面环境
+>   - 运行时内存/cpu 占用（optional）
+> - 桌面截图
+> - 配置的文字说明
+> - 链接（配置文件，相关参考）
 
 ## 基本部件
 
@@ -255,7 +255,7 @@ Max cache file size (kb) 也要调大，我是 16384（= 16MB）。
 
 > Another extension that removes the 0.15 second popup delay in switcher pop-ups. This extension is actively maintained. It fixes at least this known issue: https://gitlab.gnome.org/GNOME/mutter/issues/888.
 
-**Screenshot Locations by TimurKiyivinski **Outdated****
+**Screenshot Locations by TimurKiyivinski **Outdated\*\*\*\*
 
 > Change the default GNOME screenshot directory
 
@@ -263,7 +263,7 @@ Max cache file size (kb) 也要调大，我是 16384（= 16MB）。
 
 > Shows a list of sound output and input devices (similar to gnome sound settings) in the status menu below the volume slider. Various active ports like HDMI , Speakers etc. of the same device are also displayed for selection. V20+ needs python as dependency. If you want to continue with the old method without Python, use options to switch off New Port identification. But it works with only English
 
-**System Action - Hibernate by TimurKiyivinski **Outdated****
+**System Action - Hibernate by TimurKiyivinski **Outdated\*\*\*\*
 
 > A GNOME extension that adds the option to hibernate amongst other system actions
 

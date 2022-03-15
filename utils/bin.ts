@@ -4,14 +4,14 @@ export const printBin = (arr: Uint8Array) => {
     if (i === 0x5c) {
       res += '\\\\'
     } else if (i === 0x27) {
-      res += '\\\''
+      res += "\\'"
     } else if (0x20 <= i && i <= 0x7e) {
       res += String.fromCharCode(i)
     } else {
       res += '\\x' + i.toString(16).padStart(2, '0')
     }
   }
-  res = 'b\'' + res + '\''
+  res = "b'" + res + "'"
   return res
 }
 

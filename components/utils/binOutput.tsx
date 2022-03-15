@@ -1,15 +1,15 @@
-import React, {FC, RefObject} from 'react'
-import {Button, Grid, TextField, Typography} from '@material-ui/core'
+import React, { FC, RefObject } from 'react'
+import { Button, Grid, TextField, Typography } from '@material-ui/core'
 
 export interface BinOutputProps {
-  textHelp: string,
-  textRef: RefObject<HTMLInputElement>,
-  file?: Blob,
+  textHelp: string
+  textRef: RefObject<HTMLInputElement>
+  file?: Blob
   filename?: string
 }
 
 const BinOutput: FC<BinOutputProps> = props => {
-  const {textHelp, textRef, file, filename} = props
+  const { textHelp, textRef, file, filename } = props
 
   const handleClick = () => {
     if (file) {
@@ -28,16 +28,21 @@ const BinOutput: FC<BinOutputProps> = props => {
   return (
     <Grid container direction={'column'} alignItems={'stretch'} spacing={2}>
       <Grid item>
-        <TextField label={textHelp} multiline rowsMax={10} variant={'outlined'} fullWidth
-                   inputRef={textRef} InputLabelProps={{shrink: true}} />
+        <TextField
+          label={textHelp}
+          multiline
+          rowsMax={10}
+          variant={'outlined'}
+          fullWidth
+          inputRef={textRef}
+          InputLabelProps={{ shrink: true }}
+        />
       </Grid>
       <Grid item>
         <Grid container justify={'space-around'}>
           <Grid item>
             <Button variant={'outlined'} onClick={handleClick}>
-              <Typography variant={'subtitle1'}>
-                Download result
-              </Typography>
+              <Typography variant={'subtitle1'}>Download result</Typography>
             </Button>
           </Grid>
         </Grid>

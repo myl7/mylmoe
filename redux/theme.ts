@@ -1,17 +1,17 @@
 import produce from 'immer'
-import {State} from './state'
+import { State } from './state'
 
 export const themeInitAction = (dark: boolean) => ({
   type: 'theme.init',
-  payload: dark
+  payload: dark,
 })
 
 export const themeToggleAction = () => ({
   type: 'theme.toggle',
-  payload: null
+  payload: null,
 })
 
-export type ThemeAction = ReturnType<typeof themeInitAction>|ReturnType<typeof themeToggleAction>
+export type ThemeAction = ReturnType<typeof themeInitAction> | ReturnType<typeof themeToggleAction>
 
 export const themeReducer = (state: State, action: ThemeAction) => {
   const key = action.type.substring(action.type.indexOf('.') + 1)

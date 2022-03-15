@@ -1,4 +1,4 @@
-import {FC} from 'react'
+import { FC } from 'react'
 import ExtLinkRel from './links/extLinkRel'
 
 export interface CcIconsProps {
@@ -6,7 +6,7 @@ export interface CcIconsProps {
 }
 
 const CcIcons: FC<CcIconsProps> = props => {
-  const {license} = props
+  const { license } = props
 
   let [licenseSlug, licenseVer] = license.toLowerCase().split(' ')
   if (!licenseSlug || !licenseVer) {
@@ -24,8 +24,8 @@ const CcIcons: FC<CcIconsProps> = props => {
     width: '22px',
     height: '22px',
     style: {
-      verticalAlign: 'text-bottom'
-    }
+      verticalAlign: 'text-bottom',
+    },
   })
 
   // noinspection HtmlRequiredAltAttribute Provided with `ccProps`

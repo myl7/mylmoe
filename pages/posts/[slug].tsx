@@ -1,16 +1,16 @@
 import 'highlight.js/styles/atom-one-dark.css'
-import {GetStaticPaths, GetStaticProps} from 'next'
-import {PostInfo} from '../../remark/post'
-import {CardContent, CardHeader, Chip, Divider} from '@material-ui/core'
+import { GetStaticPaths, GetStaticProps } from 'next'
+import { PostInfo } from '../../remark/post'
+import { CardContent, CardHeader, Chip, Divider } from '@material-ui/core'
 import Head from '../../components/head'
 import PostDate from '../../components/post/postDate'
 import Comment from '../../components/comment'
 import getPosts from '../../utils/getPosts'
-import {useRouter} from 'next/router'
+import { useRouter } from 'next/router'
 
-const Post = (props: {post: PostInfo}) => {
-  const {meta, html} = props.post
-  const {title, pubDate, updDate, excerpt, tags, path} = meta
+const Post = (props: { post: PostInfo }) => {
+  const { meta, html } = props.post
+  const { title, pubDate, updDate, excerpt, tags, path } = meta
 
   const router = useRouter()
 
@@ -19,19 +19,23 @@ const Post = (props: {post: PostInfo}) => {
   return (
     <>
       <Head title={title} description={excerpt} path={path} />
-      <CardHeader title={title} titleTypographyProps={{component: 'h1'}} subheader={
-        <div>
-          <PostDate updDate={updDate} pubDate={pubDate}>
-            {excerpt}
-          </PostDate>
-          {tags.split(' ').map(tag => (
-            <Chip label={tag} key={tag} clickable onClick={handleGo(tag)} style={{marginRight: '0.5em'}} />
-          ))}
-        </div>
-      } />
+      <CardHeader
+        title={title}
+        titleTypographyProps={{ component: 'h1' }}
+        subheader={
+          <div>
+            <PostDate updDate={updDate} pubDate={pubDate}>
+              {excerpt}
+            </PostDate>
+            {tags.split(' ').map(tag => (
+              <Chip label={tag} key={tag} clickable onClick={handleGo(tag)} style={{ marginRight: '0.5em' }} />
+            ))}
+          </div>
+        }
+      />
       <Divider />
       <CardContent>
-        <div className="post-html" dangerouslySetInnerHTML={{__html: html}} style={{marginBottom: '1em'}} />
+        <div className="post-html" dangerouslySetInnerHTML={{ __html: html }} style={{ marginBottom: '1em' }} />
         <Comment />
       </CardContent>
     </>
@@ -40,17 +44,17 @@ const Post = (props: {post: PostInfo}) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const posts = getPosts()
-  const paths = posts.map(post => ({params: {slug: post.meta.slug}}))
-  return {paths, fallback: false}
+  const paths = posts.map(post => ({ params: { slug: post.meta.slug } }))
+  return { paths, fallback: false }
 }
 
-export const getStaticProps: GetStaticProps = async ({params}) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const slug = params!['slug'] as string
   const post = getPosts().filter(post => post.meta.slug == slug)[0]!
   return {
     props: {
-      post
-    }
+      post,
+    },
   }
 }
 

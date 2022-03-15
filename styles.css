@@ -1,5 +1,6 @@
 body {
-  font-family: Roboto, Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  font-family: Roboto, Helvetica, Tahoma, Arial, 'PingFang SC', 'Hiragino Sans GB', 'Heiti SC', 'Microsoft YaHei',
+    'WenQuanYi Micro Hei', sans-serif;
 }
 
 code {
@@ -9,7 +10,8 @@ code {
 @font-face {
   font-family: Han;
   font-style: italic;
-  src: local("PingFang SC"), local("Hiragino Sans GB"), local("Heiti SC"), local("Microsoft YaHei"), local("WenQuanYi Micro Hei");
+  src: local('PingFang SC'), local('Hiragino Sans GB'), local('Heiti SC'), local('Microsoft YaHei'),
+    local('WenQuanYi Micro Hei');
 }
 
 :not(pre) > code {
@@ -21,7 +23,8 @@ a.heading-link {
   vertical-align: middle;
 }
 
-#toc + ul, #toc + ul ul {
+#toc + ul,
+#toc + ul ul {
   padding-inline-start: 2em;
 }
 

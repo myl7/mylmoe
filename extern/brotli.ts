@@ -10,7 +10,7 @@ export const brotliEnc = async (file: Blob, quality?: number, lgwin?: number) =>
 
   const res = await fetch('https://brotli.myl.moe/api/enc', {
     method: 'POST',
-    body: form
+    body: form,
   })
   if (res.status == 200) {
     return await res.blob()

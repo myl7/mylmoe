@@ -1,5 +1,14 @@
 import {
-  CardContent, CardHeader, Divider, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography
+  CardContent,
+  CardHeader,
+  Divider,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Typography,
 } from '@material-ui/core'
 import ExtLink from '../../components/links/extLink'
 import friends from '../../content/friends'
@@ -16,14 +25,16 @@ const Friend = () => {
     }
   }
 
-  const {list, updDate} = friends
+  const { list, updDate } = friends
 
   return (
     <>
       <Head {...head['/pages/friends']} path="/pages/friends" />
-      <CardHeader title={head['/pages/friends'].title} titleTypographyProps={{component: 'h1'}} subheader={
-        <PostDate updDate={updDate} />
-      } />
+      <CardHeader
+        title={head['/pages/friends'].title}
+        titleTypographyProps={{ component: 'h1' }}
+        subheader={<PostDate updDate={updDate} />}
+      />
       <Divider />
       <CardContent>
         <TableContainer>
@@ -38,7 +49,7 @@ const Friend = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {list.map(({title, url, author, about, rss, github}) => (
+              {list.map(({ title, url, author, about, rss, github }) => (
                 <TableRow key={url}>
                   <TableCell component={'th'} scope={'row'}>
                     <Typography variant={'subtitle1'} color={'textPrimary'} component={ExtLink} href={url}>
@@ -56,17 +67,21 @@ const Friend = () => {
                     </Typography>
                   </TableCell>
                   <TableCell>
-                    {
-                      rss ? (
-                        <Typography variant={'subtitle1'} color={'textPrimary'} component={ExtLink} href={rss}>
-                          {relPath(url, rss)}
-                        </Typography>
-                      ) : ''
-                    }
+                    {rss ? (
+                      <Typography variant={'subtitle1'} color={'textPrimary'} component={ExtLink} href={rss}>
+                        {relPath(url, rss)}
+                      </Typography>
+                    ) : (
+                      ''
+                    )}
                   </TableCell>
                   <TableCell>
-                    <Typography variant={'subtitle1'} color={'textPrimary'} component={ExtLink}
-                                href={`https://github.com/${github}`}>
+                    <Typography
+                      variant={'subtitle1'}
+                      color={'textPrimary'}
+                      component={ExtLink}
+                      href={`https://github.com/${github}`}
+                    >
                       {github}
                     </Typography>
                   </TableCell>

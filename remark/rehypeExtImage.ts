@@ -1,6 +1,6 @@
-import {Plugin} from 'unified'
-import visit, {Visitor} from 'unist-util-visit'
-import type {Element} from 'hast'
+import { Plugin } from 'unified'
+import visit, { Visitor } from 'unist-util-visit'
+import type { Element } from 'hast'
 // @ts-ignore
 import isElement from 'hast-util-is-element'
 import h from 'hastscript'
@@ -9,7 +9,7 @@ import fs from 'fs'
 import childProcess from 'child_process'
 import site from '../content/site'
 
-const imageInfo: {[key: string]: {width: number, height: number}} = (() => {
+const imageInfo: { [key: string]: { width: number; height: number } } = (() => {
   const p = path.join(process.cwd(), 'storage', 'images', 'images.json')
   if (fs.existsSync(p)) {
     return JSON.parse(fs.readFileSync(p).toString())
@@ -43,7 +43,7 @@ export interface RehypeS3ImageSetting {
 const breakPoints = [200, 400, 600, 800, 1000]
 
 const rehypeExtImage: Plugin<RehypeS3ImageSetting[]> = setting => {
-  const {baseUrl} = setting
+  const { baseUrl } = setting
 
   const visitor: Visitor<Element> = (node, i, parent) => {
     const src = node.properties!['src'] as string
@@ -55,7 +55,7 @@ const rehypeExtImage: Plugin<RehypeS3ImageSetting[]> = setting => {
     node.properties!['src'] = url
 
     let s = path.join(process.cwd(), 'storage', src)
-    const {width: ws, height: hs} = imageSize(s)
+    const { width: ws, height: hs } = imageSize(s)
     const ext = path.extname(s)
     const name = path.basename(s, ext)
     let vert = false
@@ -69,30 +69,30 @@ const rehypeExtImage: Plugin<RehypeS3ImageSetting[]> = setting => {
       const point = breakPoints[i]!
       let p = path.join(path.dirname(s), name + `_${vert ? 'h' : 'w'}${point}.webp`)
       if (fileExists(p)) {
-        const {width, height} = imageSize(p)
+        const { width, height } = imageSize(p)
         const sizes = `${width}px,${height}px`
         if (i < breakPoints.length - 1) {
           const media = `(max-${vert ? 'height' : 'width'}:${breakPoints[i + 1]! + (vert ? 0 : 100)}px)`
           const srcset = p.replace(/^.*storage\/images/, baseUrl)
-          pic.children.push(h('source', {media, srcset, sizes}))
+          pic.children.push(h('source', { media, srcset, sizes }))
         } else {
           const srcset = p.replace(/^.*storage\/images/, baseUrl)
-          pic.children.push(h('source', {srcset, sizes}))
+          pic.children.push(h('source', { srcset, sizes }))
         }
       } else {
         let p = path.join(path.dirname(s), name + '.webp')
         if (fileExists(p)) {
-          const {width, height} = imageSize(p)
+          const { width, height } = imageSize(p)
           const sizes = `${width}px,${height}px`
           const srcset = p.replace(/^.*storage\/images/, baseUrl)
-          pic.children.push(h('source', {srcset, sizes}))
+          pic.children.push(h('source', { srcset, sizes }))
         }
         break
       }
     }
     node.properties!['sizes'] = `${ws}px,${hs}px`
     pic.children.push(node)
-    parent!.children[i] = h('a', {target: '_blank', href: url}, [pic])
+    parent!.children[i] = h('a', { target: '_blank', href: url }, [pic])
   }
 
   return tree => visit(tree, isElement.convert('img'), visitor)

@@ -45,7 +45,7 @@ lang: zh
 
 但使用 TWRP 官网的 image，我无论如何也无法 boot 到 recovery，处理了 AVB 也一样。
 
-后来通过观看这个 B 站视频：[【教程】谁说联发科无法搞机？Redmi Note 8 Pro刷入类原生教程](https://www.bilibili.com/video/BV1n64y1u7p4)，我发现他使用了一键刷机包。
+后来通过观看这个 B 站视频：[【教程】谁说联发科无法搞机？Redmi Note 8 Pro 刷入类原生教程](https://www.bilibili.com/video/BV1n64y1u7p4)，我发现他使用了一键刷机包。
 结合到报告红米 Note 8 Pro 无法刷入 recovery 的人很少（准确的说，一个也没见到），我猜测一键刷机包中带有其他的、是重要成败要素的文件。
 尤其是这些一键刷机包还区分了 Android 9 和 10（而 TWRP 官网的下载并未区分），这就更蹊跷了。
 
@@ -70,7 +70,7 @@ fastboot reboot
 
 ## 刷入 System
 
-继续按照视频 [【教程】谁说联发科无法搞机？Redmi Note 8 Pro刷入类原生教程](https://www.bilibili.com/video/BV1n64y1u7p4) 的指引操作即可。
+继续按照视频 [【教程】谁说联发科无法搞机？Redmi Note 8 Pro 刷入类原生教程](https://www.bilibili.com/video/BV1n64y1u7p4) 的指引操作即可。
 
 根据他所提供的兼容性清单和推荐，我也选择了 crDroid。
 从 [crDroid 官网下载页](https://crdroid.net/dl.php) 下载适合 Redmi Note 8 Pro 的版本，安装即可。

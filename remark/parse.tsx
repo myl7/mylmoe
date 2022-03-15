@@ -12,7 +12,7 @@ import rehypeSlug from 'rehype-slug'
 import rehypeHighlight from 'rehype-highlight'
 import rehypeStringify from 'rehype-stringify'
 import yaml from 'js-yaml'
-import {PostInfo, PostFM, PostMeta} from './post'
+import { PostInfo, PostFM, PostMeta } from './post'
 import dayjs from 'dayjs'
 import remarkExternalLinks from 'remark-external-links'
 import rehypeRaw from 'rehype-raw'
@@ -20,8 +20,8 @@ import rehypeMuiLink from './rehypeMuiLink'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import react2hast from './react2hast'
 import ExtLinkSign from '../components/links/extLinkSign'
-import {Link as LinkIcon} from '@material-ui/icons'
-import type {Parent} from 'unist'
+import { Link as LinkIcon } from '@material-ui/icons'
+import type { Parent } from 'unist'
 import rehypeExtImage from './rehypeExtImage'
 import site from '../content/site'
 import rehypeCcIcons from './rehypeCcIcons'
@@ -45,28 +45,29 @@ const parse = (name: string, content: string, pathPrefix: string = '/posts/'): P
       root.children.shift()
       return root
     })
-    .use(remarkFootnotes, {inlineNotes: true})
+    .use(remarkFootnotes, { inlineNotes: true })
     .use(remarkToc)
     .use(remarkMath)
     .use(remarkExternalLinks, {
       rel: 'noopener',
-      contentProperties: {className: 'ext-link'},
-      content: react2hast(<ExtLinkSign />)
+      contentProperties: { className: 'ext-link' },
+      content: react2hast(<ExtLinkSign />),
     })
-    .use(remark2rehype, {allowDangerousHtml: true})
+    .use(remark2rehype, { allowDangerousHtml: true })
     .use(rehypeRaw)
     .use(rehypeKatex)
     .use(rehypeSlug)
-    .use(rehypeHighlight, {plainText: ['log']})
+    .use(rehypeHighlight, { plainText: ['log'] })
     .use(rehypeAutolinkHeadings, {
-      properties: {ariaHidden: true, tabIndex: -1, className: 'heading-link'},
-      content: react2hast(<LinkIcon />)
+      properties: { ariaHidden: true, tabIndex: -1, className: 'heading-link' },
+      content: react2hast(<LinkIcon />),
     })
     .use(rehypeMuiLink)
-    .use(rehypeExtImage, {baseUrl: site.imageBaseUrl})
+    .use(rehypeExtImage, { baseUrl: site.imageBaseUrl })
     .use(rehypeCcIcons)
-    .use(rehypeStringify, {allowDangerousHtml: true})
-    .processSync(content).toString()
+    .use(rehypeStringify, { allowDangerousHtml: true })
+    .processSync(content)
+    .toString()
   const fm = yaml.load(fmVal) as PostFM
   const meta: PostMeta = {
     slug: name,
@@ -76,11 +77,11 @@ const parse = (name: string, content: string, pathPrefix: string = '/posts/'): P
     excerpt: fm.excerpt ? fm.excerpt : '',
     tags: fm.tags ? fm.tags : '',
     wip: Boolean(fm.wip),
-    path: pathPrefix + name
+    path: pathPrefix + name,
   }
   return {
     meta,
-    html
+    html,
   }
 }
 

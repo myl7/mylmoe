@@ -31,7 +31,7 @@ I love the simplicity and expandability of React.
 The frontend of mylmoe is a SPA with React system, including `react`, `react-router-dom`, `redux`, and `react-redux`
 (though `redux` is not a part of React system, but, well, you know it is widely used in React system).
 
-One surprised me is that, unlike `react` and `react-dom`, which is 2 parts of React basic framework, 
+One surprised me is that, unlike `react` and `react-dom`, which is 2 parts of React basic framework,
 `react-router` and `react-router-dom` are inclusive, which is that `react-router-dom` is based on `react-router`,
 so you should not install the 2 together.
 

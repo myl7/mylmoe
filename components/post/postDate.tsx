@@ -1,18 +1,16 @@
-import {FC} from 'react'
+import { FC } from 'react'
 
 export interface PostDateProps {
-  updDate?: string,
+  updDate?: string
   pubDate?: string
 }
 
 const PostDate: FC<PostDateProps> = props => {
-  const {updDate, pubDate, children} = props
+  const { updDate, pubDate, children } = props
 
   return (
     <div>
-      <div>
-        {children}
-      </div>
+      <div>{children}</div>
       <div>
         {updDate ? `Updated on ${updDate}` : ''}
         {updDate && pubDate ? ' | ' : ''}

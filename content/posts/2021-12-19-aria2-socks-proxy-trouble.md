@@ -101,7 +101,7 @@ The final implementation is available on [my PR](https://github.com/aria2/aria2/
 
 BTW, in SOCKS proxy RFC RFC1928, page 7, it says:
 
-> The DST.ADDR and DST.PORT fields contain the address and port that the client expects to use to send UDP datagrams *on* for the association.
+> The DST.ADDR and DST.PORT fields contain the address and port that the client expects to use to send UDP datagrams _on_ for the association.
 
 Do not miss the word ON, which means `DST.ADDR` and `DST.PORT` for SOCKS UDP proxy is like local bind address and port.
 

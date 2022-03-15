@@ -8,7 +8,7 @@ export interface PostFM {
 }
 
 export interface PostMeta {
-  slug: string,
+  slug: string
   title: string
   pubDate: string
   updDate: string
@@ -19,6 +19,6 @@ export interface PostMeta {
 }
 
 export interface PostInfo {
-  meta: PostMeta,
+  meta: PostMeta
   html: string
 }

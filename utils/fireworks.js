@@ -40,7 +40,7 @@ const handleTap = (filter, canvasEl) => e => {
   if (filter(e)) {
     const render = anime({
       duration: Infinity,
-      update: () => ctx.clearRect(0, 0, canvasEl.width, canvasEl.height)
+      update: () => ctx.clearRect(0, 0, canvasEl.width, canvasEl.height),
     })
     render.play()
 
@@ -50,25 +50,26 @@ const handleTap = (filter, canvasEl) => e => {
   }
 }
 
-const handleResize = canvasEl => debounce(() => {
-  canvasEl.width = window.innerWidth
-  canvasEl.height = window.innerHeight
-  canvasEl.style.width = window.innerWidth + 'px'
-  canvasEl.style.height = window.innerHeight + 'px'
-  canvasEl.getContext('2d').scale(1, 1)
-}, 500)
+const handleResize = canvasEl =>
+  debounce(() => {
+    canvasEl.width = window.innerWidth
+    canvasEl.height = window.innerHeight
+    canvasEl.style.width = window.innerWidth + 'px'
+    canvasEl.style.height = window.innerHeight + 'px'
+    canvasEl.getContext('2d').scale(1, 1)
+  }, 500)
 
-const tap = () => ('ontouchstart' in window || navigator.msMaxTouchPoints) ? 'touchstart' : 'mousedown'
+const tap = () => ('ontouchstart' in window || navigator.msMaxTouchPoints ? 'touchstart' : 'mousedown')
 
-module.exports = {tap, handleTap, handleResize}
+module.exports = { tap, handleTap, handleResize }
 
 const setParticuleDirection = p => {
-  const angle = anime.random(0, 360) * Math.PI / 180
+  const angle = (anime.random(0, 360) * Math.PI) / 180
   const value = anime.random(50, 180)
   const radius = [-1, 1][anime.random(0, 1)] * value
   return {
     x: p.x + radius * Math.cos(angle),
-    y: p.y + radius * Math.sin(angle)
+    y: p.y + radius * Math.sin(angle),
   }
 }
 
@@ -120,26 +121,31 @@ const animateParticules = (ctx, x, y) => {
   for (let i = 0; i < numberOfParticules; i++) {
     particules.push(createParticule(ctx, x, y))
   }
-  anime.timeline().add({
-    targets: particules,
-    x: p => p.endPos.x,
-    y: p => p.endPos.y,
-    radius: 0.1,
-    duration: anime.random(1200, 1800),
-    easing: 'easeOutExpo',
-    update: renderParticule
-  })
+  anime
+    .timeline()
     .add({
-      targets: circle,
-      radius: anime.random(80, 160),
-      lineWidth: 0,
-      alpha: {
-        value: 0,
-        easing: 'linear',
-        duration: anime.random(600, 800)
-      },
+      targets: particules,
+      x: p => p.endPos.x,
+      y: p => p.endPos.y,
+      radius: 0.1,
       duration: anime.random(1200, 1800),
       easing: 'easeOutExpo',
-      update: renderParticule
-    }, 0)
+      update: renderParticule,
+    })
+    .add(
+      {
+        targets: circle,
+        radius: anime.random(80, 160),
+        lineWidth: 0,
+        alpha: {
+          value: 0,
+          easing: 'linear',
+          duration: anime.random(600, 800),
+        },
+        duration: anime.random(1200, 1800),
+        easing: 'easeOutExpo',
+        update: renderParticule,
+      },
+      0
+    )
 }

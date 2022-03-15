@@ -249,4 +249,4 @@ CHUNITHM 包只有三首曲子，性价比比较低，但三首难度是 10、10
 
 ## 引用
 
-Arcaea 曲包封面图片引用自[分类:曲包封面图片 - Arcaea中文维基](https://wiki.arcaea.cn/index.php/分类:曲包封面图片)，按 CC BY-NC-SA 3.0 获得授权。
+Arcaea 曲包封面图片引用自[分类:曲包封面图片 - Arcaea 中文维基](https://wiki.arcaea.cn/index.php/分类:曲包封面图片)，按 CC BY-NC-SA 3.0 获得授权。

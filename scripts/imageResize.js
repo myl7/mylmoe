@@ -10,7 +10,7 @@ const f = async s => {
     return
   }
   const image = sharp(s)
-  const {size, width, height} = await image.metadata()
+  const { size, width, height } = await image.metadata()
   let vert = false
   let check = width
   if (height > width) {
@@ -29,7 +29,7 @@ const f = async s => {
       break
     }
     const p = path.join(path.dirname(s), name + `_${vert ? 'h' : 'w'}${point}.webp`)
-    await image.resize(vert ? {height: point} : {width: point}).toFile(p)
+    await image.resize(vert ? { height: point } : { width: point }).toFile(p)
   }
 }
 process.argv.slice(2).map(f)

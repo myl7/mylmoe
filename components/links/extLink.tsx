@@ -1,9 +1,9 @@
-import {forwardRef} from 'react'
-import {Link, LinkProps} from '@material-ui/core'
+import { forwardRef } from 'react'
+import { Link, LinkProps } from '@material-ui/core'
 import ExtLinkSign from './extLinkSign'
 
 const ExtLink = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
-  const {children, ...others} = props
+  const { children, ...others } = props
 
   return (
     <Link target="_blank" rel="noopener" ref={ref} {...others}>

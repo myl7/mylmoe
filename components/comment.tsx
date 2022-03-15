@@ -1,7 +1,7 @@
-import {useEffect, useRef} from 'react'
-import {Card} from '@material-ui/core'
-import {useSelector} from 'react-redux'
-import {State} from '../redux/state'
+import { useEffect, useRef } from 'react'
+import { Card } from '@material-ui/core'
+import { useSelector } from 'react-redux'
+import { State } from '../redux/state'
 import site from '../content/site'
 
 const Comment = () => {
@@ -29,15 +29,12 @@ const Comment = () => {
       return () => {
         try {
           elem.removeChild(script)
-        } catch {
-        }
+        } catch {}
       }
     }
   }, [ref, dark])
 
-  return (
-    <Card variant="outlined" ref={ref} />
-  )
+  return <Card variant="outlined" ref={ref} />
 }
 
 export default Comment

@@ -1,13 +1,13 @@
 import MobileHeader from './mobileHeader'
-import {AppBar, Avatar, Box, IconButton, makeStyles, Toolbar, Typography} from '@material-ui/core'
+import { AppBar, Avatar, Box, IconButton, makeStyles, Toolbar, Typography } from '@material-ui/core'
 import nav from '../../content/nav'
-import {Home as HomeIcon} from '@material-ui/icons'
+import { Home as HomeIcon } from '@material-ui/icons'
 import NavMenuButton from './navMenuButton'
 import ThemeToggle from './themeSwitch'
 import Search from './search'
 import Follow from './follow'
 import site from '../../content/site'
-import {useRouter} from 'next/router'
+import { useRouter } from 'next/router'
 import IntLink from '../links/intLink'
 
 const useStyles = makeStyles({
@@ -15,9 +15,9 @@ const useStyles = makeStyles({
     transition: 'transform 0.6s',
     cursor: 'pointer',
     '&:hover': {
-      'transform': 'rotate(360deg)'
-    }
-  }
+      transform: 'rotate(360deg)',
+    },
+  },
 })
 
 const Header = () => {
@@ -28,32 +28,33 @@ const Header = () => {
 
   return (
     <>
-      <Box display={{xs: 'block', sm: 'block', md: 'none', lg: 'none', xl: 'none'}}>
+      <Box display={{ xs: 'block', sm: 'block', md: 'none', lg: 'none', xl: 'none' }}>
         <MobileHeader />
       </Box>
-      <Box display={{xs: 'none', sm: 'none', md: 'block', lg: 'block', xl: 'block'}}>
+      <Box display={{ xs: 'none', sm: 'none', md: 'block', lg: 'block', xl: 'block' }}>
         <AppBar position="fixed" color="default" component="header">
           <Toolbar component="nav">
-            <IconButton style={{marginLeft: '-0.5em'}} onClick={handleGo('/')} aria-label="Home">
+            <IconButton style={{ marginLeft: '-0.5em' }} onClick={handleGo('/')} aria-label="Home">
               <HomeIcon color="primary" />
             </IconButton>
             <IntLink href="/">
-              <Typography variant="h6">
-                mylmoe
-              </Typography>
+              <Typography variant="h6">mylmoe</Typography>
             </IntLink>
-            {nav.map(({list, name}) => (
-              <NavMenuButton name={name} list={list} key={name} style={{marginLeft: '1em'}} />
+            {nav.map(({ list, name }) => (
+              <NavMenuButton name={name} list={list} key={name} style={{ marginLeft: '1em' }} />
             ))}
-            <div style={{flexGrow: 1}} />
+            <div style={{ flexGrow: 1 }} />
             <Search />
             <ThemeToggle />
-            <Typography variant="subtitle1">
-              Dark
-            </Typography>
-            <Follow style={{marginLeft: '0.5em', marginRight: '0.5em'}} />
-            <Avatar role="button" className={classes.avatar} alt={`Avatar of ${site.name}`} src={site.avatar}
-                    onClick={handleGo('/pages/about')} />
+            <Typography variant="subtitle1">Dark</Typography>
+            <Follow style={{ marginLeft: '0.5em', marginRight: '0.5em' }} />
+            <Avatar
+              role="button"
+              className={classes.avatar}
+              alt={`Avatar of ${site.name}`}
+              src={site.avatar}
+              onClick={handleGo('/pages/about')}
+            />
           </Toolbar>
         </AppBar>
       </Box>

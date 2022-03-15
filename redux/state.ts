@@ -1,7 +1,7 @@
 export const initState = {
   theme: {
-    dark: false
-  }
+    dark: false,
+  },
 }
 
 export type State = typeof initState

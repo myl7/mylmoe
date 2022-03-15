@@ -1,12 +1,12 @@
-import {CSSProperties, useState} from 'react'
-import {SpeedDial, SpeedDialIcon} from '@material-ui/lab'
+import { CSSProperties, useState } from 'react'
+import { SpeedDial, SpeedDialIcon } from '@material-ui/lab'
 import GoTop from './goTop'
 import CopyLink from './copyLink'
 
 const style: CSSProperties = {
   position: 'fixed',
   bottom: '1em',
-  right: '1em'
+  right: '1em',
 }
 
 const FloatAction = () => {
@@ -16,11 +16,16 @@ const FloatAction = () => {
   const handleClose = () => setOpen(false)
 
   return (
-    <SpeedDial ariaLabel="Floating actions" icon={
-      <SpeedDialIcon />
-    } open={open} onOpen={handleOpen} onClose={handleClose} style={style}>
-      <GoTop onClick={handleClose} FabProps={{size: 'medium'}} />
-      <CopyLink onClick={handleClose} FabProps={{size: 'medium'}} />
+    <SpeedDial
+      ariaLabel="Floating actions"
+      icon={<SpeedDialIcon />}
+      open={open}
+      onOpen={handleOpen}
+      onClose={handleClose}
+      style={style}
+    >
+      <GoTop onClick={handleClose} FabProps={{ size: 'medium' }} />
+      <CopyLink onClick={handleClose} FabProps={{ size: 'medium' }} />
     </SpeedDial>
   )
 }

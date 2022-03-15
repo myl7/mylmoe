@@ -84,7 +84,7 @@ wine-5.22
 
 ## 相关链接
 
-[樱之诗 －樱花林上飞舞－ 中文攻略_2DFan](https://www.2dfan.com/topics/11335)
+[樱之诗 －樱花林上飞舞－ 中文攻略\_2DFan](https://www.2dfan.com/topics/11335)
 
 [サクラノ詩 —櫻の森の上を舞う— | Bangumi 番组计划](https://bangumi.tv/subject/22423)
 

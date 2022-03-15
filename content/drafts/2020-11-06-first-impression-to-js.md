@@ -60,7 +60,7 @@ const j = 0
 export default j
 
 // b.js
-import j, {i} from 'a.js'
+import j, { i } from 'a.js'
 ```
 
 Loading the js script with HTML `<script>` tag, and put the result into globals, or mount to a global like `window`,
@@ -96,7 +96,9 @@ const f0 = () => console.log('')
 f0()
 const f1 = i => i + 1
 console.log(f1(1))
-const f2 = (i, j) => {console.log(i, j)}
+const f2 = (i, j) => {
+  console.log(i, j)
+}
 f2(1, 2)
 ```
 
@@ -259,8 +261,12 @@ As I prefer to use function component, which is younger but more powerful and wo
 Here is a example of function component:
 
 ```jsx
-const C = (props) => <div>{props.i}</div>
-const Root = <div><C i={1} /></div>
+const C = props => <div>{props.i}</div>
+const Root = (
+  <div>
+    <C i={1} />
+  </div>
+)
 ```
 
 Here also shows how to pass arguments from the parent component to the child component, via `props`.
@@ -275,16 +281,14 @@ With this way, you can only drive the events by the value update of a variable, 
 Here is an example of `useEffect` hook to update the page when the page is rendered:
 
 ```jsx
-const C = (props) => {
-  const {i} = props
+const C = props => {
+  const { i } = props
 
   useEffect(() => {
     console.log(i)
   }, [i])
 
-  return (
-    <div>{i}</div>
-  )
+  return <div>{i}</div>
 }
 ```
 

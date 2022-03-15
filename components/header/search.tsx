@@ -1,10 +1,14 @@
-import React, {useRef} from 'react'
-import {Grid, IconButton, TextField} from '@material-ui/core'
-import {Search as SearchIcon} from '@material-ui/icons'
+import React, { useRef } from 'react'
+import { Grid, IconButton, TextField } from '@material-ui/core'
+import { Search as SearchIcon } from '@material-ui/icons'
 import site from '../../content/site'
 
 const searchUrl = (q: string) => {
-  const params = new URLSearchParams([['q', q], ['as_sitesearch', site.url], ['ncr', '1']])
+  const params = new URLSearchParams([
+    ['q', q],
+    ['as_sitesearch', site.url],
+    ['ncr', '1'],
+  ])
   return 'https://www.google.com/search?' + params.toString()
 }
 
@@ -32,8 +36,14 @@ const Search = () => {
           </IconButton>
         </Grid>
         <Grid item>
-          <TextField type="search" label="Search..." variant="outlined" size="small" onKeyDown={handleEnter}
-                     inputRef={ref} />
+          <TextField
+            type="search"
+            label="Search..."
+            variant="outlined"
+            size="small"
+            onKeyDown={handleEnter}
+            inputRef={ref}
+          />
         </Grid>
       </Grid>
     </div>

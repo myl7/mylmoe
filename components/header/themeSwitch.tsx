@@ -1,9 +1,9 @@
-import {Switch, SwitchProps} from '@material-ui/core'
-import {useDispatch, useSelector} from 'react-redux'
-import {themeToggleAction} from '../../redux/theme'
-import {themeEffect} from '../theme'
-import {State} from '../../redux/state'
-import {FC} from 'react'
+import { Switch, SwitchProps } from '@material-ui/core'
+import { useDispatch, useSelector } from 'react-redux'
+import { themeToggleAction } from '../../redux/theme'
+import { themeEffect } from '../theme'
+import { State } from '../../redux/state'
+import { FC } from 'react'
 
 const ThemeSwitch: FC<SwitchProps> = props => {
   const dark = useSelector((state: State) => state.theme.dark)
@@ -16,9 +16,7 @@ const ThemeSwitch: FC<SwitchProps> = props => {
     dispatch(themeToggleAction())
   }
 
-  return (
-    <Switch checked={dark} onChange={handleChange} {...props} />
-  )
+  return <Switch checked={dark} onChange={handleChange} {...props} />
 }
 
 export default ThemeSwitch
