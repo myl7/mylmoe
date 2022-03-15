@@ -1,14 +1,15 @@
 {
   "name": "mylmoe",
   "version": "1.0.0",
-  "description": "Next-based blog system with some other utilities",
+  "description": "myl7's blog system with some other utilities",
   "author": "myl7 <myl@myl.moe> (https://myl.moe)",
   "keywords": [
     "blog",
-    "next",
+    "nextjs",
+    "react",
     "serverless"
   ],
-  "main": "pages/index.tsx",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/myl7/mylmoe.git"
