@@ -129,3 +129,4 @@ dist
 /content/images.json
 /data/
 /storage/
+pnpm-lock.yaml
