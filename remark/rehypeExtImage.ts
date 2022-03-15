@@ -10,10 +10,12 @@ import childProcess from 'child_process'
 import site from '../content/site'
 
 const imageInfo: { [key: string]: { width: number; height: number } } = (() => {
-  // const p = path.join(process.cwd(), 'storage', 'images', 'images.json')
-  // if (fs.existsSync(p)) {
-  //   return JSON.parse(fs.readFileSync(p).toString())
-  // }
+  if (process.env.NODE_ENV == 'development') {
+    const p = path.join(process.cwd(), 'storage', 'images', 'images.json')
+    if (fs.existsSync(p)) {
+      return JSON.parse(fs.readFileSync(p).toString())
+    }
+  }
   const info = process.env['MYLMOE_IMAGE_INFO']
   if (info) {
     return JSON.parse(info)

@@ -2,6 +2,7 @@
 set -euo pipefail
 
 mkdir -p data
+mkdir -p storage/images
 esbuild scripts/rss.ts --bundle --platform=node --outfile=scripts/build/rss.js --inject:scripts/misc/react-shim.ts
 node scripts/build/rss.js
 esbuild scripts/sitemap.ts --bundle --platform=node --outfile=scripts/build/sitemap.js --inject:scripts/misc/react-shim.ts
