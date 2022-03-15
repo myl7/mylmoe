@@ -2,7 +2,7 @@ import { Plugin } from 'unified'
 import visit, { Visitor } from 'unist-util-visit'
 import type { Element } from 'hast'
 // @ts-ignore
-import isElement from 'hast-util-is-element'
+import { convertElement } from 'hast-util-is-element'
 import h from 'hastscript'
 import path from 'path'
 import fs from 'fs'
@@ -97,7 +97,7 @@ const rehypeExtImage: Plugin<RehypeS3ImageSetting[]> = setting => {
     parent!.children[i] = h('a', { target: '_blank', href: url }, [pic])
   }
 
-  return tree => visit(tree, isElement.convert('img'), visitor)
+  return tree => visit(tree, convertElement('img'), visitor)
 }
 
 export default rehypeExtImage

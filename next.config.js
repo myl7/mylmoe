@@ -1,6 +1,4 @@
-const withTM = require('next-transpile-modules')(['hast-util-classnames'])
-
-module.exports = withTM({
+module.exports = {
   webpack5: true,
   webpack: config => {
     config.experiments = {
@@ -9,4 +7,4 @@ module.exports = withTM({
     }
     return config
   },
-})
+}

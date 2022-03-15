@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
-import { Grid, IconButton, TextField } from '@material-ui/core'
-import { Search as SearchIcon } from '@material-ui/icons'
+import { Grid, IconButton, TextField } from '@mui/material'
+import { Search as SearchIcon } from '@mui/icons-material'
 import site from '../../content/site'
 
 const searchUrl = (q: string) => {

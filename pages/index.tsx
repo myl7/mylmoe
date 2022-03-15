@@ -1,5 +1,5 @@
 import Head from '../components/head'
-import { CardContent, CardHeader, Divider } from '@material-ui/core'
+import { CardContent, CardHeader, Divider } from '@mui/material'
 import PostItem from '../components/post/postItem'
 import { GetStaticProps } from 'next'
 import PostDate from '../components/post/postDate'

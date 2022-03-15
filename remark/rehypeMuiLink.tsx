@@ -2,11 +2,11 @@ import { renderToString } from 'react-dom/server'
 import unified, { Plugin } from 'unified'
 import rehypeParse from 'rehype-parse'
 import type { Root, Element } from 'hast'
-import { Link } from '@material-ui/core'
+import { Link } from '@mui/material'
 import visit, { Visitor } from 'unist-util-visit'
 import { classnames } from 'hast-util-classnames'
 // @ts-ignore
-import isElement from 'hast-util-is-element'
+import { convertElement } from 'hast-util-is-element'
 
 const linkClasses = (() => {
   const html = renderToString(<Link>{''}</Link>) // Resolve warning to no children of `Link`
@@ -20,7 +20,7 @@ const rehypeMuiLink: Plugin = () => {
     parent!.children[i] = classnames!(node, ...linkClasses) as Element
   }
 
-  return tree => visit(tree, isElement.convert('a'), visitor)
+  return tree => visit(tree, convertElement('a'), visitor)
 }
 
 export default rehypeMuiLink

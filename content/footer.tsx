@@ -1,4 +1,4 @@
-import { Card, CardContent, Typography } from '@material-ui/core'
+import { Card, CardContent, Typography } from '@mui/material'
 import ExtLink from '../components/links/extLink'
 import IntLink from '../components/links/intLink'
 import site from './site'

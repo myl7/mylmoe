@@ -1,6 +1,6 @@
 import { FC, useState } from 'react'
-import { Collapse, List, ListItem, ListItemIcon, ListItemText, Typography } from '@material-ui/core'
-import { ChevronRight as ChevronRightIcon } from '@material-ui/icons'
+import { Collapse, List, ListItem, ListItemIcon, ListItemText, Typography } from '@mui/material'
+import { ChevronRight as ChevronRightIcon } from '@mui/icons-material'
 import { useRouter } from 'next/router'
 import ExtLinkSign from '../links/extLinkSign'
 

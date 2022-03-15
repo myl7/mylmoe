@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
-import { SpeedDialAction, SpeedDialActionProps } from '@material-ui/lab'
-import { Link as LinkIcon } from '@material-ui/icons'
+import { SpeedDialAction, SpeedDialActionProps } from '@mui/material'
+import { Link as LinkIcon } from '@mui/icons-material'
 
 const CopyLink: FC<SpeedDialActionProps> = props => {
   const { onClick, ...others } = props
@@ -10,11 +10,7 @@ const CopyLink: FC<SpeedDialActionProps> = props => {
     const input = document.createElement('input')
     const meta: HTMLLinkElement = document.querySelector('link[rel=canonical]')!
     const link = meta.href
-    document.body.appendChild(input)
-    input.value = link
-    input.select()
-    document.execCommand('copy')
-    document.body.removeChild(input)
+    navigator.clipboard.writeText(link)
   }
 
   return (

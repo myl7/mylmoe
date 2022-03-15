@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react'
-import { Button, ButtonProps, Menu, MenuItem, Typography } from '@material-ui/core'
+import { Button, ButtonProps, Menu, MenuItem, Typography } from '@mui/material'
 import { useRouter } from 'next/router'
 import ExtLinkSign from '../links/extLinkSign'
 

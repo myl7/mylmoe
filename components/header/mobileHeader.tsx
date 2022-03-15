@@ -12,8 +12,8 @@ import {
   ListItemText,
   Toolbar,
   Typography,
-} from '@material-ui/core'
-import { Home as HomeIcon, Menu as MenuIcon } from '@material-ui/icons'
+} from '@mui/material'
+import { Home as HomeIcon, Menu as MenuIcon } from '@mui/icons-material'
 import nav from '../../content/nav'
 import NavListButton from './navListButton'
 import ThemeToggle from './themeSwitch'

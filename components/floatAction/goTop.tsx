@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
-import { ArrowUpward as ArrowUpwardIcon } from '@material-ui/icons'
-import { SpeedDialAction, SpeedDialActionProps } from '@material-ui/lab'
+import { ArrowUpward as ArrowUpwardIcon } from '@mui/icons-material'
+import { SpeedDialAction, SpeedDialActionProps } from '@mui/material'
 import { animateScroll } from 'react-scroll'
 
 const GoTop: FC<SpeedDialActionProps> = props => {

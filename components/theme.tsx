@@ -1,4 +1,4 @@
-import { createTheme, MuiThemeProvider, useMediaQuery } from '@material-ui/core'
+import { createTheme, ThemeProvider, useMediaQuery } from '@mui/material'
 import { FC, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { State } from '../redux/state'
@@ -12,9 +12,12 @@ const theme = (dark: boolean) =>
       },
     },
     palette: {
-      type: dark ? 'dark' : 'light',
+      mode: dark ? 'dark' : 'light',
       primary: {
         main: '#2196f3',
+      },
+      secondary: {
+        main: '#f50057',
       },
     },
   })
@@ -36,7 +39,7 @@ const Theme: FC = ({ children }) => {
     dispatch(themeInitAction(dark))
   })
 
-  const body = <MuiThemeProvider theme={theme(dark)}>{children}</MuiThemeProvider>
+  const body = <ThemeProvider theme={theme(dark)}>{children}</ThemeProvider>
 
   return mounted ? body : <div style={{ visibility: 'hidden' }}>{body}</div>
 }

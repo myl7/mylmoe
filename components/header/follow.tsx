@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react'
-import { Button, ButtonProps, ListItemIcon, ListItemText, Menu, MenuItem, Typography } from '@material-ui/core'
-import { AddAlert as AddAlertIcon, RssFeed as RssFeedIcon, Telegram as TelegramIcon } from '@material-ui/icons'
-import { blue, yellow } from '@material-ui/core/colors'
+import { Button, ButtonProps, ListItemIcon, ListItemText, Menu, MenuItem, Typography } from '@mui/material'
+import { AddAlert as AddAlertIcon, RssFeed as RssFeedIcon, Telegram as TelegramIcon } from '@mui/icons-material'
+import { blue, yellow } from '@mui/material/colors'
 import site from '../../content/site'
 import ExtLinkSign from '../links/extLinkSign'
 
@@ -31,7 +31,6 @@ const Follow: FC<ButtonProps> = props => {
         keepMounted
         open={Boolean(elem)}
         onClose={handleClose}
-        getContentAnchorEl={null}
         anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
         transformOrigin={{ vertical: 'top', horizontal: 'center' }}
         disableScrollLock={true}

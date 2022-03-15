@@ -9,7 +9,7 @@ import {
   TableHead,
   TableRow,
   Typography,
-} from '@material-ui/core'
+} from '@mui/material'
 import ExtLink from '../../components/links/extLink'
 import friends from '../../content/friends'
 import Head from '../../components/head'

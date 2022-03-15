@@ -1,5 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
-import { CardContent, CardHeader, Divider } from '@material-ui/core'
+import { CardContent, CardHeader, Divider } from '@mui/material'
 import Head from '../../components/head'
 import { PostInfo } from '../../remark/post'
 import getPosts from '../../utils/getPosts'

@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import { CardContent, CardHeader, Divider, Grid, Typography } from '@material-ui/core'
+import { CardContent, CardHeader, Divider, Grid, Typography } from '@mui/material'
 import BinInput from '../../components/utils/binInput'
 import { printBin } from '../../utils/bin'
 import Head from '../../components/head'

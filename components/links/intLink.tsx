@@ -1,4 +1,4 @@
-import { Link, LinkProps } from '@material-ui/core'
+import { Link, LinkProps } from '@mui/material'
 import { default as NextLink, LinkProps as NextLinkProps } from 'next/link'
 import { FC, forwardRef } from 'react'
 

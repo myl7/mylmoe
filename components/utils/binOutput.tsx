@@ -1,5 +1,5 @@
 import React, { FC, RefObject } from 'react'
-import { Button, Grid, TextField, Typography } from '@material-ui/core'
+import { Button, Grid, TextField, Typography } from '@mui/material'
 
 export interface BinOutputProps {
   textHelp: string

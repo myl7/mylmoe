@@ -1,5 +1,5 @@
 import Head from '../../components/head'
-import { Box, Card, CardActionArea, CardContent, CardHeader, Divider, Grid } from '@material-ui/core'
+import { Box, Card, CardActionArea, CardContent, CardHeader, Divider, Grid } from '@mui/material'
 import { GetStaticProps } from 'next'
 import getPosts from '../../utils/getPosts'
 import { useRouter } from 'next/router'

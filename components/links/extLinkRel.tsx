@@ -1,5 +1,5 @@
 import { forwardRef } from 'react'
-import { Link, LinkProps } from '@material-ui/core'
+import { Link, LinkProps } from '@mui/material'
 import ExtLinkSign from './extLinkSign'
 
 const ExtLinkRel = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {

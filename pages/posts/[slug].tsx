@@ -1,7 +1,7 @@
 import 'highlight.js/styles/atom-one-dark.css'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { PostInfo } from '../../remark/post'
-import { CardContent, CardHeader, Chip, Divider } from '@material-ui/core'
+import { CardContent, CardHeader, Chip, Divider } from '@mui/material'
 import Head from '../../components/head'
 import PostDate from '../../components/post/postDate'
 import Comment from '../../components/comment'

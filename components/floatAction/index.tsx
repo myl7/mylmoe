@@ -1,5 +1,5 @@
 import { CSSProperties, useState } from 'react'
-import { SpeedDial, SpeedDialIcon } from '@material-ui/lab'
+import { SpeedDial, SpeedDialIcon } from '@mui/material'
 import GoTop from './goTop'
 import CopyLink from './copyLink'
 

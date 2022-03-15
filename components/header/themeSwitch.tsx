@@ -1,4 +1,4 @@
-import { Switch, SwitchProps } from '@material-ui/core'
+import { Switch, SwitchProps } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 import { themeToggleAction } from '../../redux/theme'
 import { themeEffect } from '../theme'

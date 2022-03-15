@@ -1,6 +1,6 @@
-import { Button, ButtonProps, CircularProgress } from '@material-ui/core'
+import { Button, ButtonProps, CircularProgress } from '@mui/material'
 import { CSSProperties, FC } from 'react'
-import { Close as CloseIcon, Done as DoneIcon } from '@material-ui/icons'
+import { Close as CloseIcon, Done as DoneIcon } from '@mui/icons-material'
 
 export interface StatusButtonProps extends ButtonProps {
   status: 'none' | 'waiting' | 'failed' | 'ok'

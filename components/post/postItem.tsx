@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { Card, CardActionArea, CardContent, CardHeader, CardProps, Chip, Divider } from '@material-ui/core'
+import { Card, CardActionArea, CardContent, CardHeader, CardProps, Chip, Divider } from '@mui/material'
 import PostDate from './postDate'
 import { useRouter } from 'next/router'
 

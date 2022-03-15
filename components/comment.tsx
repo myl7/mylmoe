@@ -1,11 +1,11 @@
 import { useEffect, useRef } from 'react'
-import { Card } from '@material-ui/core'
+import { Card } from '@mui/material'
 import { useSelector } from 'react-redux'
 import { State } from '../redux/state'
 import site from '../content/site'
 
 const Comment = () => {
-  const ref = useRef<HTMLDivElement>()
+  const ref = useRef<HTMLDivElement>(null)
 
   const dark = useSelector((state: State) => state.theme.dark)
 
