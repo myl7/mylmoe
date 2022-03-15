@@ -14,5 +14,6 @@ const ExtLinkRel = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
     </Link>
   )
 })
+ExtLinkRel.displayName = 'ExtLinkRel'
 
 export default ExtLinkRel

@@ -52,9 +52,9 @@ const Brotli = () => {
       <Divider />
       <CardContent>
         <Typography variant="body1">
-          Input and output support hex string and Python-style string e.g. <code>a\xff</code> or <code>b'a\xff'</code>.
+          Input and output support hex string and Python-style string e.g. <code>a\xff</code> or <code>b&apos;a\xff&apos;</code>.
         </Typography>
-        <Grid container spacing={2} justify={'center'} style={{ marginTop: '0.5em' }}>
+        <Grid container spacing={2} justifyContent={'center'} style={{ marginTop: '0.5em' }}>
           <Grid item sm={6} xs={12}>
             <BinInput
               textHelp="Bytes to decode"
@@ -69,7 +69,7 @@ const Brotli = () => {
             <BinOutput textHelp={'Decoding result'} textRef={decResRef} file={decResFile} />
           </Grid>
         </Grid>
-        <Grid container spacing={2} justify={'center'} style={{ marginTop: '0.5em' }}>
+        <Grid container spacing={2} justifyContent={'center'} style={{ marginTop: '0.5em' }}>
           <Grid item sm={6} xs={12}>
             <BinInput
               textHelp="Bytes to encode"

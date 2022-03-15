@@ -31,7 +31,7 @@ const BinOutput: FC<BinOutputProps> = props => {
         <TextField
           label={textHelp}
           multiline
-          rowsMax={10}
+          maxRows={10}
           variant={'outlined'}
           fullWidth
           inputRef={textRef}
@@ -39,7 +39,7 @@ const BinOutput: FC<BinOutputProps> = props => {
         />
       </Grid>
       <Grid item>
-        <Grid container justify={'space-around'}>
+        <Grid container justifyContent={'space-around'}>
           <Grid item>
             <Button variant={'outlined'} onClick={handleClick}>
               <Typography variant={'subtitle1'}>Download result</Typography>

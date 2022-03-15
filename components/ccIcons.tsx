@@ -34,9 +34,11 @@ const CcIcons: FC<CcIconsProps> = props => {
       <ExtLinkRel rel="license" href={licenseUrl}>
         {license}
       </ExtLinkRel>
+      {/* eslint-disable-next-line @next/next/no-img-element,jsx-a11y/alt-text */}
       <img {...ccProps('cc')} />
       {licenseSlug.split('-').map(code => (
-        <img {...ccProps(code)} />
+        // eslint-disable-next-line @next/next/no-img-element,jsx-a11y/alt-text
+        <img {...ccProps(code)} key={code} />
       ))}
     </span>
   )

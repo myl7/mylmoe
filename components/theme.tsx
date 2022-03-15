@@ -37,7 +37,7 @@ const Theme: FC = ({ children }) => {
     const dark = darkStore == null ? darkPrefer : Boolean(darkStore)
     themeEffect(dark)
     dispatch(themeInitAction(dark))
-  })
+  }, [darkPrefer, dispatch])
 
   const body = <ThemeProvider theme={theme(dark)}>{children}</ThemeProvider>
 

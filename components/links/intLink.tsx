@@ -5,6 +5,7 @@ import { FC, forwardRef } from 'react'
 const RefLink = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
   return <Link ref={ref} {...props} />
 })
+RefLink.displayName = 'RefLink'
 
 const IntLink: FC<NextLinkProps & { linkProps?: LinkProps }> = props => {
   const { children, linkProps, passHref, ...others } = props

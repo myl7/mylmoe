@@ -1,7 +1,7 @@
 import { Plugin } from 'unified'
 import { visit, Visitor } from 'unist-util-visit'
 import type { Element } from 'hast'
-import h from 'hastscript'
+import { h } from 'hastscript'
 import path from 'path'
 import fs from 'fs'
 import childProcess from 'child_process'

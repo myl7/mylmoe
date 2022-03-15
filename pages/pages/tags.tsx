@@ -19,7 +19,7 @@ const Tag = (props: { tagInfos: { tag: string; updDate: string; pubDate: string 
       <CardHeader title={head['/pages/tags'].title} titleTypographyProps={{ component: 'h1' }} />
       <Divider />
       <CardContent style={{ paddingTop: 0, paddingBottom: 0 }}>
-        <Grid container spacing={2} justify="center" style={{ paddingTop: '1em', paddingBottom: '1em' }}>
+        <Grid container spacing={2} justifyContent="center" style={{ paddingTop: '1em', paddingBottom: '1em' }}>
           {tagInfos.map(({ tag, pubDate, updDate }) => (
             <Grid item key={tag}>
               <Card variant="outlined" component="article">

@@ -1,5 +1,5 @@
 import { visit, Visitor } from 'unist-util-visit'
-import h from 'hastscript'
+import { h } from 'hastscript'
 import type { Plugin } from 'unified'
 import type { TextDirective } from 'mdast-util-directive'
 

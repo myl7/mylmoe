@@ -48,7 +48,7 @@ const BinInput: FC<BinInputProps> = props => {
         <TextField
           label={textHelp}
           multiline
-          rowsMax={10}
+          maxRows={10}
           variant={'outlined'}
           fullWidth
           inputRef={textRef}
@@ -56,7 +56,7 @@ const BinInput: FC<BinInputProps> = props => {
         />
       </Grid>
       <Grid item>
-        <Grid container justify={'space-around'}>
+        <Grid container justifyContent={'space-around'}>
           <Grid item>
             <input id={inputId} type={'file'} hidden onChange={handleUpload} ref={fileRef} />
             <label htmlFor={inputId}>
