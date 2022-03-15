@@ -16,6 +16,7 @@ import { PostInfo, PostFM, PostMeta } from './post'
 import dayjs from 'dayjs'
 import remarkExternalLinks from 'remark-external-links'
 import rehypeRaw from 'rehype-raw'
+import rehypeMuiLink from './rehypeMuiLink'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import react2hast from './react2hast'
 import ExtLinkSign from '../components/links/extLinkSign'
@@ -61,6 +62,7 @@ const parse = (name: string, content: string, pathPrefix: string = '/posts/'): P
       properties: { ariaHidden: true, tabIndex: -1, className: 'heading-link' },
       content: react2hast(<LinkIcon />),
     })
+    .use(rehypeMuiLink)
     .use(rehypeExtImage, { baseUrl: site.imageBaseUrl })
     .use(rehypeCcIcons)
     .use(rehypeStringify, { allowDangerousHtml: true })

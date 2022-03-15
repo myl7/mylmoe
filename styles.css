@@ -56,3 +56,12 @@ html {
 .post-html blockquote > p::before {
   content: '> ';
 }
+
+.post-html .post-link {
+  color: #2196f3;
+  text-decoration: none;
+}
+
+.post-html .post-link:hover {
+  text-decoration: underline;
+}
