@@ -41,7 +41,6 @@ const NavMenuButton: FC<NavMenuButtonProps> = props => {
         keepMounted
         open={Boolean(elem)}
         onClose={handleClose}
-        getContentAnchorEl={null}
         anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
         transformOrigin={{ vertical: 'top', horizontal: 'center' }}
         disableScrollLock={true}

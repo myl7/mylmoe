@@ -1,8 +1,6 @@
 import { Plugin } from 'unified'
-import visit, { Visitor } from 'unist-util-visit'
+import { visit, Visitor } from 'unist-util-visit'
 import type { Element } from 'hast'
-// @ts-ignore
-import { convertElement } from 'hast-util-is-element'
 import h from 'hastscript'
 import path from 'path'
 import fs from 'fs'
@@ -47,7 +45,8 @@ const breakPoints = [200, 400, 600, 800, 1000]
 const rehypeExtImage: Plugin<RehypeS3ImageSetting[]> = setting => {
   const { baseUrl } = setting
 
-  const visitor: Visitor<Element> = (node, i, parent) => {
+  const visitor: Visitor = (n, i, parent) => {
+    const node = n as Element
     const src = node.properties!['src'] as string
     const prefix = /^\.\/images/
     if (!prefix.test(src)) {
@@ -94,10 +93,10 @@ const rehypeExtImage: Plugin<RehypeS3ImageSetting[]> = setting => {
     }
     node.properties!['sizes'] = `${ws}px,${hs}px`
     pic.children.push(node)
-    parent!.children[i] = h('a', { target: '_blank', href: url }, [pic])
+    parent!.children[i!] = h('a', { target: '_blank', href: url }, [pic])
   }
 
-  return tree => visit(tree, convertElement('img'), visitor)
+  return tree => visit(tree, 'img', visitor)
 }
 
 export default rehypeExtImage

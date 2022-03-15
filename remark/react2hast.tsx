@@ -1,5 +1,5 @@
 import { renderToString } from 'react-dom/server'
-import unified from 'unified'
+import { unified } from 'unified'
 import rehypeParse from 'rehype-parse'
 import type { Root, Element } from 'hast'
 

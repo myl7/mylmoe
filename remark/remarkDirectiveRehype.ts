@@ -1,4 +1,4 @@
-import visit, { Visitor } from 'unist-util-visit'
+import { visit, Visitor } from 'unist-util-visit'
 import h from 'hastscript'
 import type { Plugin } from 'unified'
 import type { TextDirective } from 'mdast-util-directive'
@@ -8,7 +8,8 @@ const remarkDirectiveRehype: Plugin = () => {
     return ['textDirective', 'leafDirective', 'containerDirective'].indexOf(node.type) != -1
   }
 
-  const visitor: Visitor<any> = (node: TextDirective) => {
+  const visitor: Visitor = n => {
+    const node = n as TextDirective
     const data = node.data || {}
     const hNode = h(node.name, node.attributes)
     data['hName'] = hNode.tagName
