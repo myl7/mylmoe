@@ -1,10 +1,8 @@
-import React from 'react'
-
-export function tap(): keyof DocumentEventMap
+export function tap(): 'touchstart' | 'mousedown'
 
 export function handleResize(elem: HTMLCanvasElement): () => void
 
 export function handleTap(
-  filter: (e: React.MouseEvent) => boolean,
+  filter: (e: MouseEvent | TouchEvent) => boolean,
   elem: HTMLCanvasElement
-): (e: React.MouseEvent) => void
+): (e: MouseEvent | TouchEvent) => void

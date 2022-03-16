@@ -9,9 +9,8 @@ const style: CSSProperties = {
   pointerEvents: 'none',
 }
 
-const filter = (e: React.MouseEvent) => {
-  // @ts-ignore
-  for (const elem of e.path) {
+const filter = (e: MouseEvent | TouchEvent) => {
+  for (const elem of (e as any).path) {
     const role = elem.attributes ? elem.attributes.getNamedItem('role') : null
     if (
       ['A', 'BUTTON', 'HEADER', 'TEXTAREA'].indexOf(elem.nodeName) >= 0 ||
@@ -25,11 +24,11 @@ const filter = (e: React.MouseEvent) => {
 
 declare global {
   interface Window {
-    fireworkResizeListener: () => void
+    fireworkResizeListener?: () => void
   }
 
   interface Document {
-    fireworkTapListener: (e: React.MouseEvent) => void
+    fireworkTapListener?: (e: MouseEvent | TouchEvent) => void
   }
 }
 
@@ -47,11 +46,9 @@ const Fireworks = () => {
 
   useEffect(() => {
     if (document.fireworkTapListener) {
-      // @ts-ignore
       document.removeEventListener(tap(), document.fireworkTapListener)
     }
     document.fireworkTapListener = handleTap(filter, ref.current!)
-    // @ts-ignore
     document.addEventListener(tap(), document.fireworkTapListener)
   }, [ref])
 

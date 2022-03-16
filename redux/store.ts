@@ -22,9 +22,12 @@ const reducer = (state: State = initState, action: Action) => {
 const makeStore = () =>
   createStore(
     reducer,
-    initState
-    // @ts-ignore
-    // typeof window !== 'undefined' ? window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() : undefined
+    initState,
+    typeof process != undefined && process.env.NODE_ENV == 'development'
+      ? typeof window !== 'undefined'
+        ? (window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__()
+        : undefined
+      : undefined
   )
 
 export const storeWrapper = createWrapper<Store<State>>(makeStore)
