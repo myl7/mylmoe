@@ -6,6 +6,7 @@ import path from 'path'
 import fs from 'fs'
 import childProcess from 'child_process'
 import site from '../content/site'
+import { convertElement } from 'hast-util-is-element'
 
 const imageInfo: { [key: string]: { width: number; height: number } } = (() => {
   if (process.env.NODE_ENV == 'development') {
@@ -96,7 +97,7 @@ const rehypeExtImage: Plugin<RehypeS3ImageSetting[]> = setting => {
     parent!.children[i!] = h('a', { target: '_blank', href: url }, [pic])
   }
 
-  return tree => visit(tree, 'img', visitor)
+  return tree => visit(tree, convertElement('img'), visitor)
 }
 
 export default rehypeExtImage
