@@ -129,4 +129,7 @@ dist
 /content/images.json
 /data/
 /storage/
+/next.config.js
+
+# Included generated content
 pnpm-lock.yaml

@@ -8,7 +8,6 @@ import remarkMath from 'remark-math'
 import remark2rehype from 'remark-rehype'
 import rehypeKatex from 'rehype-katex'
 import rehypeSlug from 'rehype-slug'
-// @ts-ignore
 import rehypeHighlight from 'rehype-highlight'
 import rehypeStringify from 'rehype-stringify'
 import yaml from 'js-yaml'
@@ -33,15 +32,13 @@ const parse = (name: string, content: string, pathPrefix: string = '/posts/'): P
   let fmVal = ''
   const html = unified()
     .use(remarkParse)
-    // @ts-ignore
     .use(remarkDirective)
     .use(remarkDirectiveRehype)
     .use(remarkGfm)
     .use(remarkFrontmatter, ['yaml'])
     .use(() => node => {
       const root = node as Parent
-      // @ts-ignore
-      fmVal = root.children[0]!.value as string
+      fmVal = (root.children[0]! as any).value as string
       root.children.shift()
       return root
     })
