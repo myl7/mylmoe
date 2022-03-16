@@ -37,13 +37,13 @@ const imageSize = (p: string) => {
   return imageInfo[k]!
 }
 
-export interface RehypeS3ImageSetting {
+export interface RehypeExtImageSetting {
   baseUrl: string
 }
 
 const breakPoints = [200, 400, 600, 800, 1000]
 
-const rehypeExtImage: Plugin<RehypeS3ImageSetting[]> = setting => {
+const rehypeExtImage: Plugin<RehypeExtImageSetting[]> = setting => {
   const { baseUrl } = setting
 
   const visitor: Visitor = (n, i, parent) => {
@@ -101,3 +101,25 @@ const rehypeExtImage: Plugin<RehypeS3ImageSetting[]> = setting => {
 }
 
 export default rehypeExtImage
+
+export const rehypeMdxExtImage: Plugin<RehypeExtImageSetting[]> = setting => {
+  const { baseUrl } = setting
+
+  const visitor: Visitor = (n, i, parent) => {
+    const node = n as Element
+    const src = node.properties!['src'] as string
+    const prefix = /^\.\/images/
+    if (!prefix.test(src)) {
+      return
+    }
+    const url = src.replace(prefix, baseUrl)
+    node.properties!['src'] = url
+
+    let s = path.join(process.cwd(), 'storage', src)
+    const { width: ws, height: hs } = imageSize(s)
+    node.properties!['sizes'] = `${ws}px,${hs}px`
+    parent!.children[i!] = h('a', { target: '_blank', href: url }, [node])
+  }
+
+  return tree => visit(tree, convertElement('img'), visitor)
+}

@@ -7,18 +7,22 @@ import FloatAction from '../components/floatAction'
 import Header from '../components/header'
 import { storeWrapper } from '../redux/store'
 import Fireworks from '../components/fireworks'
+import { MDXProvider } from '@mdx-js/react'
+import mdxComponents from '../remark/mdxComponents'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Theme>
-      <Header />
-      <Card variant="outlined" style={{ margin: 'calc(64px + 1em) 1em 0 1em' }} component="main">
-        <Component {...pageProps} />
-      </Card>
-      <Footer />
-      <Fireworks />
-      <FloatAction />
-    </Theme>
+    <MDXProvider components={mdxComponents}>
+      <Theme>
+        <Header />
+        <Card variant="outlined" style={{ margin: 'calc(64px + 1em) 1em 0 1em' }} component="main">
+          <Component {...pageProps} />
+        </Card>
+        <Footer />
+        <Fireworks />
+        <FloatAction />
+      </Theme>
+    </MDXProvider>
   )
 }
 

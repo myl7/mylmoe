@@ -13,6 +13,8 @@ import ExtLinkSign from '../components/links/extLinkSign'
 import { Link as LinkIcon } from '@mui/icons-material'
 import remarkDirectiveRehype from './remarkDirectiveRehype'
 import remarkDirective from 'remark-directive'
+import site from '../content/site'
+import { rehypeMdxExtImage } from './rehypeExtImage'
 
 export const remarkPlugins = [
   remarkDirective,
@@ -45,6 +47,5 @@ export const rehypePlugins = [
   ],
   // MDX links can reuse Link component
   // rehypeMuiLink,
-  // MDX images need width & height only
-  // [rehypeExtImage, { baseUrl: site.imageBaseUrl }],
+  [rehypeMdxExtImage, { baseUrl: site.imageBaseUrl }],
 ]
