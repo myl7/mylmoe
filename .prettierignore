@@ -122,7 +122,7 @@ dist
 .vscode/
 
 # Generated content
-/scripts/build/*.js
+/scripts/build/*
 /public/rss.xml
 /public/sitemap.xml
 /public/rss3.json
@@ -130,6 +130,7 @@ dist
 /data/
 /storage/
 /next.config.js
+/next.config.mjs
 
 # Included generated content
 pnpm-lock.yaml

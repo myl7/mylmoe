@@ -2,9 +2,13 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import type { Configuration } from 'webpack'
+import type { NextConfig } from 'next'
 import { remarkPlugins, rehypePlugins } from './remark/mdx'
+// @ts-ignore
+import getWithMDX from '@next/mdx'
+import site from './content/site'
 
-const withMDX = require('@next/mdx')({
+const withMDX = getWithMDX({
   extension: /\.mdx?$/,
   options: {
     remarkPlugins,
@@ -13,9 +17,8 @@ const withMDX = require('@next/mdx')({
   },
 })
 
-export default withMDX({
+const nextConfig: NextConfig = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'mdx'],
-  webpack5: true,
   webpack: (config: Configuration) => {
     config.experiments = {
       ...config.experiments,
@@ -23,4 +26,15 @@ export default withMDX({
     }
     return config
   },
-})
+  redirects: async () => {
+    return [
+      {
+        source: '/pages/about',
+        destination: site.profileUrl,
+        permanent: false,
+      },
+    ]
+  },
+}
+
+export default withMDX(nextConfig)

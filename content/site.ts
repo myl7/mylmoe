@@ -14,6 +14,7 @@ const site = {
   tags: ['cs', 'acg'],
   imageBaseUrl: 'https://store.myl.moe/images',
   imageInfoUrl: 'https://store.myl.moe/images/images.json',
+  profileUrl: 'https://github.com/myl7',
 }
 
 export default site
