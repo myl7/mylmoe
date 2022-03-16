@@ -41,7 +41,10 @@ Replace the URLs to your own ones with you own impl.
 
 ## License
 
-- MIT by default
-- Posts in `content/pages` and `content/posts` use CC BY-SA 4.0
-- Images in `public/images` use All Rights Reserved by default
-- Unless otherwise stated, including a `LICENSE` file in a subdirectory, a file header description, or image Exif data
+Posts SPDX-License-Identifier: CC-BY-SA-4.0
+
+Code SPDX-License-Identifier: Apache-2.0 by default, unless otherwise explicitly stated
+
+Icons in `public` and images in `public/images` are All Rights Reserved by default (since I am not the copyright holder), unless otherwise explicitly stated
+
+An explicit statement includes a `LICENSE` file in a subdirectory, a file header description, or image EXIF data
