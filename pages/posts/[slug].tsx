@@ -1,3 +1,6 @@
+// Copyright (c) 2020-2022 myl7
+// SPDX-License-Identifier: Apache-2.0
+
 import 'highlight.js/styles/atom-one-dark.css'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { PostInfo } from '../../remark/post'

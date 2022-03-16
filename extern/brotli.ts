@@ -1,3 +1,6 @@
+// Copyright (c) 2020-2022 myl7
+// SPDX-License-Identifier: Apache-2.0
+
 export const brotliEnc = async (file: Blob, quality?: number, lgwin?: number) => {
   const form = new FormData()
   if (quality) {

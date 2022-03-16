@@ -4,6 +4,9 @@ pubDate: 2021-11-24
 excerpt: Personal CV
 ---
 
+<!-- Copyright (c) 2020-2022 myl7 -->
+<!-- SPDX-License-Identifier: CC-BY-NC-ND-4.0 -->
+
 ## TOC
 
 ## Profile
@@ -79,4 +82,4 @@ Additional ones:
 
 ## License
 
-The page is specially licensed under :cc-icons[CC-BY-ND 4.0].
+The page is specially licensed under :cc-icons[CC-BY-NC-ND 4.0].

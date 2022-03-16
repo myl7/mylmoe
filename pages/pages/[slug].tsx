@@ -1,3 +1,6 @@
+// Copyright (c) 2020-2022 myl7
+// SPDX-License-Identifier: Apache-2.0
+
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { CardContent, CardHeader, Divider } from '@mui/material'
 import Head from '../../components/head'

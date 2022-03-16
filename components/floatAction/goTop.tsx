@@ -1,3 +1,6 @@
+// Copyright (c) 2020-2022 myl7
+// SPDX-License-Identifier: Apache-2.0
+
 import React, { FC } from 'react'
 import { ArrowUpward as ArrowUpwardIcon } from '@mui/icons-material'
 import { SpeedDialAction, SpeedDialActionProps } from '@mui/material'

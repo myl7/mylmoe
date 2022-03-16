@@ -1,3 +1,6 @@
+// Copyright (c) 2020-2022 myl7
+// SPDX-License-Identifier: Apache-2.0
+
 import React, { useRef } from 'react'
 import { Grid, IconButton, TextField } from '@mui/material'
 import { Search as SearchIcon } from '@mui/icons-material'

@@ -6,6 +6,9 @@ excerpt: Quoted spring in debug printing may indicate that the spring variable j
 tags: string print debug
 ---
 
+<!-- Copyright (c) 2020-2022 myl7 -->
+<!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
+
 ## TOC
 
 ## Background

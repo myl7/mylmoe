@@ -6,6 +6,9 @@ excerpt: 指 Wireguard 如何不受 AllowIPs 限制地连接和如何把 DN42 �
 tags: vpn bgp intranet dn42 wireguard bird
 ---
 
+<!-- Copyright (c) 2020-2022 myl7 -->
+<!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
+
 ## TOC
 
 ## 基本信息

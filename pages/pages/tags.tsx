@@ -1,3 +1,6 @@
+// Copyright (c) 2020-2022 myl7
+// SPDX-License-Identifier: Apache-2.0
+
 import Head from '../../components/head'
 import { Box, Card, CardActionArea, CardContent, CardHeader, Divider, Grid } from '@mui/material'
 import { GetStaticProps } from 'next'

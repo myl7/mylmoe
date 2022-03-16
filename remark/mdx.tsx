@@ -1,3 +1,6 @@
+// Copyright (c) 2020-2022 myl7
+// SPDX-License-Identifier: Apache-2.0
+
 import remarkFootnotes from 'remark-footnotes'
 import remarkToc from 'remark-toc'
 import remarkGfm from 'remark-gfm'

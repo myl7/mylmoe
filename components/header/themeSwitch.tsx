@@ -1,3 +1,6 @@
+// Copyright (c) 2020-2022 myl7
+// SPDX-License-Identifier: Apache-2.0
+
 import { Switch, SwitchProps } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 import { themeToggleAction } from '../../redux/theme'

@@ -1,3 +1,6 @@
+// Copyright (c) 2020-2022 myl7
+// SPDX-License-Identifier: Apache-2.0
+
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 
 class MyDocument extends Document {

@@ -1,3 +1,6 @@
+// Copyright (c) 2020-2022 myl7
+// SPDX-License-Identifier: Apache-2.0
+
 import React, { FC } from 'react'
 import { Card, CardActionArea, CardContent, CardHeader, CardProps, Chip, Divider } from '@mui/material'
 import PostDate from './postDate'

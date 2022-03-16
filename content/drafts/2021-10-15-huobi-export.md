@@ -6,6 +6,9 @@ excerpt: 用对个人而言更 ergonomic 的方式解释 Ethereum 的一些架�
 tags: ethereum huobi heco-chain metamask blockchain digital-currency
 ---
 
+<!-- Copyright (c) 2020-2022 myl7 -->
+<!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
+
 ## TOC
 
 ## Ethereum 基本知识

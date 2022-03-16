@@ -1,3 +1,6 @@
+// Copyright (c) 2020-2022 myl7
+// SPDX-License-Identifier: Apache-2.0
+
 const site = {
   title: 'mylmoe',
   description: "myl7's blog with some other utilities.",

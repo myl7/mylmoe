@@ -6,6 +6,9 @@ excerpt: When building an Azure Functions App to access Azure Cosmos DB.
 tags: azure-cosmosdb azure debug
 ---
 
+<!-- Copyright (c) 2020-2022 myl7 -->
+<!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
+
 ## TOC
 
 ## Background

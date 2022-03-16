@@ -1,3 +1,6 @@
+// Copyright (c) 2020-2022 myl7
+// SPDX-License-Identifier: Apache-2.0
+
 import React, { FC, useState } from 'react'
 import { Button, ButtonProps, Menu, MenuItem, Typography } from '@mui/material'
 import { useRouter } from 'next/router'

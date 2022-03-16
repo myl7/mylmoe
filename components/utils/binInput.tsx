@@ -1,3 +1,6 @@
+// Copyright (c) 2020-2022 myl7
+// SPDX-License-Identifier: Apache-2.0
+
 import React, { FC, RefObject, useState } from 'react'
 import { Button, Grid, TextField, Typography } from '@mui/material'
 import { inputBin } from '../../utils/bin'

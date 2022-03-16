@@ -1,3 +1,6 @@
+// Copyright (c) 2020-2022 myl7
+// SPDX-License-Identifier: Apache-2.0
+
 import { CSSProperties, useState } from 'react'
 import { SpeedDial, SpeedDialIcon } from '@mui/material'
 import GoTop from './goTop'

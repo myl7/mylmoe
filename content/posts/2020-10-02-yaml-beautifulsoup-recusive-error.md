@@ -7,6 +7,9 @@ tags: python beautiful-soup yaml html serialization recursion
 lang: en
 ---
 
+<!-- Copyright (c) 2020-2022 myl7 -->
+<!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
+
 ## TOC
 
 ## Problem

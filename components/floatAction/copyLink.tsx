@@ -1,3 +1,6 @@
+// Copyright (c) 2020-2022 myl7
+// SPDX-License-Identifier: Apache-2.0
+
 import React, { FC } from 'react'
 import { SpeedDialAction, SpeedDialActionProps } from '@mui/material'
 import { Link as LinkIcon } from '@mui/icons-material'

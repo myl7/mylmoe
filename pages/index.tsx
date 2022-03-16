@@ -1,3 +1,6 @@
+// Copyright (c) 2020-2022 myl7
+// SPDX-License-Identifier: Apache-2.0
+
 import Head from '../components/head'
 import { CardContent, CardHeader, Divider } from '@mui/material'
 import PostItem from '../components/post/postItem'

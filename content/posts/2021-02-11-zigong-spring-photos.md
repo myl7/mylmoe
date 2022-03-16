@@ -6,6 +6,9 @@ excerpt: Taken on 2021-02-07, at Nanshan Botanical Garden, Zigong, Sichuan, Chin
 tags: photo spring zigong
 ---
 
+<!-- Copyright (c) 2020-2022 myl7 -->
+<!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
+
 ## TOC
 
 ## Start

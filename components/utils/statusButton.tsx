@@ -1,3 +1,6 @@
+// Copyright (c) 2020-2022 myl7
+// SPDX-License-Identifier: Apache-2.0
+
 import { Button, ButtonProps, CircularProgress } from '@mui/material'
 import { CSSProperties, FC } from 'react'
 import { Close as CloseIcon, Done as DoneIcon } from '@mui/icons-material'

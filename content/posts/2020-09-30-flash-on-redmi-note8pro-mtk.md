@@ -7,6 +7,9 @@ tags: mobile-flash xiaomi android mobile mtk
 lang: zh
 ---
 
+<!-- Copyright (c) 2020-2022 myl7 -->
+<!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
+
 ## TOC
 
 ## 意义

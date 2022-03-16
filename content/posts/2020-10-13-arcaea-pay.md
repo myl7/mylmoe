@@ -6,6 +6,9 @@ excerpt: 先买主线包，支线包、联动包和单曲按个人喜好。
 tags: arcaea payment
 ---
 
+<!-- Copyright (c) 2020-2022 myl7 -->
+<!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
+
 ## TOC
 
 ## Notice

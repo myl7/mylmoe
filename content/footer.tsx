@@ -1,3 +1,6 @@
+// Copyright (c) 2020-2022 myl7
+// SPDX-License-Identifier: Apache-2.0
+
 import { Card, CardContent, Typography } from '@mui/material'
 import ExtLink from '../components/links/extLink'
 import IntLink from '../components/links/intLink'

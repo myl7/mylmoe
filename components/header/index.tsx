@@ -1,3 +1,6 @@
+// Copyright (c) 2020-2022 myl7
+// SPDX-License-Identifier: Apache-2.0
+
 import MobileHeader from './mobileHeader'
 import { AppBar, Avatar, Box, IconButton, Toolbar, Typography } from '@mui/material'
 import { makeStyles } from '@mui/styles'

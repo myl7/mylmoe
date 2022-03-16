@@ -1,3 +1,6 @@
+// Copyright (c) 2020-2022 myl7
+// SPDX-License-Identifier: Apache-2.0
+
 import getPosts from '../utils/getPosts'
 import fs from 'fs'
 import path from 'path'

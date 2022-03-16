@@ -1,3 +1,6 @@
+// Copyright (c) 2020-2022 myl7
+// SPDX-License-Identifier: Apache-2.0
+
 import { FC, useState } from 'react'
 import { Collapse, List, ListItem, ListItemIcon, ListItemText, Typography } from '@mui/material'
 import { ChevronRight as ChevronRightIcon } from '@mui/icons-material'

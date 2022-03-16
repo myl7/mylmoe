@@ -1,3 +1,6 @@
+// Copyright (c) 2020-2022 myl7
+// SPDX-License-Identifier: Apache-2.0
+
 import type { Element } from 'hast'
 import { visit, Visitor } from 'unist-util-visit'
 import lodash from 'lodash'

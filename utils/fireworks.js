@@ -16,7 +16,7 @@
 // * The licencee must not, explicitly or implicitly, request or schedule
 //   their employees to be at work consecutively for 10 hours.
 //
-// Modifications copyright (C) 2021 myl7
+// Modifications Copyright (c) 2021-2022 myl7
 // Modifications in the file are still licensed under 996ICU license.
 
 const anime = require('animejs').default

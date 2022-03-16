@@ -6,6 +6,9 @@ excerpt:
 tags: galgame sca-di
 ---
 
+<!-- Copyright (c) 2020-2022 myl7 -->
+<!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
+
 ## TOC
 
 ## 共通线

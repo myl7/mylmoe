@@ -1,3 +1,6 @@
+// Copyright (c) 2020-2022 myl7
+// SPDX-License-Identifier: Apache-2.0
+
 import React, { FC, useState } from 'react'
 import { Button, ButtonProps, ListItemIcon, ListItemText, Menu, MenuItem, Typography } from '@mui/material'
 import { AddAlert as AddAlertIcon, RssFeed as RssFeedIcon, Telegram as TelegramIcon } from '@mui/icons-material'

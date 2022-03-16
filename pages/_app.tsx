@@ -1,3 +1,6 @@
+// Copyright (c) 2020-2022 myl7
+// SPDX-License-Identifier: Apache-2.0
+
 import '../styles.css'
 import type { AppProps } from 'next/app'
 import Theme from '../components/theme'

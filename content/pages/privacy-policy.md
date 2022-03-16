@@ -4,6 +4,9 @@ pubDate: 2021-02-08
 excerpt: The static and serverless website does not collect any information on its own. For third-party services used by the website, please come to view details.
 ---
 
+<!-- Copyright (c) 2020-2022 myl7 -->
+<!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
+
 ## TOC
 
 ## Start

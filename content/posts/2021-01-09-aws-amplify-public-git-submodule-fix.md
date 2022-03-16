@@ -6,6 +6,9 @@ excerpt: Replace git submodule url with GitHub repo HTTP url.
 tags: aws-amplify git-submodule aws git debug
 ---
 
+<!-- Copyright (c) 2020-2022 myl7 -->
+<!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
+
 ## TOC
 
 # Problem

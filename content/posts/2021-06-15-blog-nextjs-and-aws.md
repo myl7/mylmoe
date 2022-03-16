@@ -6,6 +6,9 @@ excerpt: 最近把 blog 从 Gatsby 换到 Next.js 了，并迁移了部分功能
 tags: blog nextjs frontend serverless
 ---
 
+<!-- Copyright (c) 2020-2022 myl7 -->
+<!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
+
 ## TOC
 
 ## 起因

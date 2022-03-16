@@ -4,6 +4,9 @@ pubDate: 2021-12-02
 excerpt: Introduction of the website and me
 ---
 
+<!-- Copyright (c) 2020-2022 myl7 -->
+<!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
+
 ## TOC
 
 ## About Me

@@ -1,3 +1,6 @@
+// Copyright (c) 2020-2022 myl7
+// SPDX-License-Identifier: Apache-2.0
+
 import { Link, LinkProps } from '@mui/material'
 import { default as NextLink, LinkProps as NextLinkProps } from 'next/link'
 import { FC, forwardRef } from 'react'

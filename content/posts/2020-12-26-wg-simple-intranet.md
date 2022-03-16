@@ -6,6 +6,9 @@ excerpt: See wg0.conf below if you are in a hurry.
 tags: wireguard intranet routing
 ---
 
+<!-- Copyright (c) 2020-2022 myl7 -->
+<!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
+
 ## TOC
 
 ## Ideas

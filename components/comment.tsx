@@ -1,3 +1,6 @@
+// Copyright (c) 2020-2022 myl7
+// SPDX-License-Identifier: Apache-2.0
+
 import { useEffect, useRef } from 'react'
 import { Card } from '@mui/material'
 import { useSelector } from 'react-redux'
