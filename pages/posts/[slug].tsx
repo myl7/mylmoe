@@ -1,44 +1,16 @@
 import 'highlight.js/styles/atom-one-dark.css'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { PostInfo } from '../../remark/post'
-import { CardContent, CardHeader, Chip, Divider } from '@mui/material'
-import Head from '../../components/head'
-import PostDate from '../../components/post/postDate'
-import Comment from '../../components/comment'
 import getPosts from '../../utils/getPosts'
-import { useRouter } from 'next/router'
+import PostTemplate from '../../components/post/postTemplate'
 
 const Post = (props: { post: PostInfo }) => {
   const { meta, html } = props.post
-  const { title, pubDate, updDate, excerpt, tags, path } = meta
-
-  const router = useRouter()
-
-  const handleGo = (tag: string) => () => router.push(`/tags/${tag}/`)
 
   return (
-    <>
-      <Head title={title} description={excerpt} path={path} />
-      <CardHeader
-        title={title}
-        titleTypographyProps={{ component: 'h1' }}
-        subheader={
-          <div>
-            <PostDate updDate={updDate} pubDate={pubDate}>
-              {excerpt}
-            </PostDate>
-            {tags.split(' ').map(tag => (
-              <Chip label={tag} key={tag} clickable onClick={handleGo(tag)} style={{ marginRight: '0.5em' }} />
-            ))}
-          </div>
-        }
-      />
-      <Divider />
-      <CardContent>
-        <div className="post-html" dangerouslySetInnerHTML={{ __html: html }} style={{ marginBottom: '1em' }} />
-        <Comment />
-      </CardContent>
-    </>
+    <PostTemplate meta={meta}>
+      <div className="post-html" dangerouslySetInnerHTML={{ __html: html }} />
+    </PostTemplate>
   )
 }
 
