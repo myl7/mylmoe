@@ -23,7 +23,7 @@ const Follow: FC<ButtonProps> = props => {
         aria-controls="follow-menu"
         aria-haspopup="true"
         onClick={handleClick}
-        startIcon={<AddAlertIcon color="secondary" />}
+        startIcon={<AddAlertIcon color="primary" />}
         {...props}
       >
         <Typography variant="subtitle1">Follow</Typography>
