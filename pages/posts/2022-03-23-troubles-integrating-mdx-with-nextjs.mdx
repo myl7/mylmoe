@@ -1,17 +1,66 @@
 {/* Copyright (c) 2020-2022 myl7 */}
-{/* SPDX-License-Identifier: Apache-2.0 */}
+{/* SPDX-License-Identifier: CC-BY-SA-4.0 */}
 
 import PostTemplate from '../../components/post/postTemplate'
 import parseMeta from '../../remark/parseMeta'
+import ExtLink from '../../components/links/extLink'
 
 export const meta = {
-  title: 'Troubles when integrating MDX with Next.js',
+  title: 'Troubles integrating MDX with Next.js',
   pubDate: '2022-03-23',
+  updDate: '2022-03-23',
+  excerpt: 'Solution to use remark/rehype plugins with JSX/TSX and use dynamic import to collect metadata from MDX posts. Remove rehype-raw when using MDX. Ignore CSS for esbuild.',
   tags: 'mdx nextjs esbuild',
 }
 
 <PostTemplate meta={parseMeta('2022-03-23-troubles-integrating-mdx-with-nextjs', meta)}>
 
-## TL;DR
+## Motivations
+
+If you just want to add some `*.mdx` files in `pages` folder of Next.js and use plain old Markdown in them (with some simple JSX components), then MDX should be so easy.
+Just follow the <ExtLink href="https://nextjs.org/docs/advanced-features/using-mdx">Next.js offical guide</ExtLink> and <ExtLink href="https://mdxjs.com/docs/getting-started/">MDX offical guide</ExtLink>, and check <ExtLink href="https://mdxjs.com/docs/troubleshooting-mdx/#problems-integrating-mdx">MDX offical troubleshooting</ExtLink> if there is a problem, and everything should be fine.
+Here what I want to talk about is the situation when more custumizations come in, and some wired and unclear bug occurs.
+
+## remark/rehype plugins JSX/TSX
+
+Even we got MDX, we still need to work with remark toolchains, since MDX is based on them.
+One bad message is remark/rehype plugins, with Next.js support for MDX, are passed in in `next.config.js`, where only JS and `require` are available.
+Since many remark/rehype plugins at the time I write the post are ESM-only, you need to rename `next.config.js` to `next.config.mjs` to use ES6 `import/export` in it, but that is not enough when it comes to our self-written **JSX/TSX** plugins.
+
+These JSX/TSX plugins can occur when we want to reuse React components, which should be usual requirement IMO.
+But Node can not recognize JSX/TSX when it is reading `next.config.mjs`.
+As a solution from the long-going issue <ExtLink href="https://github.com/vercel/next.js/issues/5318">vercel/next.js#5318</ExtLink>, we can transpile and bundle `next.config.ts` to `next.config.mjs` to avoid TS and JSX.
+Another point worthing noticing is to exclude installed packages from bundling, like setting `--external='./node_modules/*'` for esbuild.
+
+## Metadata collection
+
+To indexing the MDX posts, weither for post list or RSS, we need to retrieve the metadata from the MDX posts.
+Storing the metadata in the post MDX file should be the best solution other than storing them in a separate JSON/YAML file which causes cumbersome management.
+And MDX just provides the mechanism to `export` variables in MDX.
+
+The problem is how we can retrieve **ALL** metadata, and only only for Next.js, but also for some scripts like the one to generate RSS.
+One standard solution is to use dynamic import, with `webpackInclude: /\.mdx$/` to limit the source files, and `webpackMode: "eager"` to bundle them together.
+We can use it in Next.js as Next.js uses webpack, but since I use esbuild to bundle scripts, esbuild does not support dynamic import so far.
+Though there are <ExtLink href="https://github.com/evanw/esbuild/issues/700">some progress</ExtLink>, currently there is no solution, not to say I even need the support for webpack magic comments.
+In the end I have to write a script to generate a script which contains all static imports.
+Ugly but works.
+
+## rehype-raw wired error
+
+Let us `next dev` to do an integrated test.
+Ops, error comes: `Error: Cannot compile `mdxjsEsm` node`.
+What? How can we still meet the ESM problem as we have already used the `next.config.mjs`?
+
+After some heartbreaking debugging (basically because the long time consumed), I found out that the true problem is the rehype-raw plugin.
+Remove it, since we can inject JSX like HTML and do not require it any more, then things go fine.
+
+## Ignore CSS import for Node
+
+There some problems I met in the debugging procedure, but I am not sure if them will occur in the above right way.
+One of them is to ignore CSS import, because we need to use Node to run our scripts but node can not recognize CSS import and esbuild may bundle the CSS import into the JS output.
+To remove them the esbuild author provided <ExtLink href="https://github.com/evanw/esbuild/issues/599#issuecomment-745118158">a way</ExtLink>.
+
+But another problem is esbuild check `external` before its plugins, and if the CSS file is in `node_modules`, as we set `--external='./node_modules/*'`, the CSS import will be kept other than bundled as no content.
+To bypass it I created a file `a.css.ts` to wrap the CSS import and use the above way to ignore its content for esbuild.
 
 </PostTemplate>
