@@ -1,13 +1,15 @@
 // Copyright (c) 2020-2022 myl7
 // SPDX-License-Identifier: Apache-2.0
 
-import getPosts from '../utils/getPosts'
+import { getPosts } from '../utils/posts'
 import fs from 'fs'
 import path from 'path'
 
-const tags = Array.from(new Set(getPosts().flatMap(post => post.meta.tags.split(' '))))
+// @ts-ignore
+const tags = Array.from(new Set((await getPosts()).flatMap(post => post.meta.tags.split(' '))))
 const rel = tags.map(tag => {
-  const posts = getPosts().filter(post => post.meta.tags.split(' ').indexOf(tag) != -1)
+  // @ts-ignore
+  const posts = (await getPosts()).filter(post => post.meta.tags.split(' ').indexOf(tag) != -1)
   return [tag, posts.map(post => post.meta)]
 })
 const res = JSON.stringify(rel)

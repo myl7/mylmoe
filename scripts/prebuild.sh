@@ -6,10 +6,12 @@ set -euo pipefail
 
 mkdir -p data
 mkdir -p storage/images
-esbuild next.config.ts --bundle --platform=node --outfile=next.config.mjs --external:./node_modules/'*' --target=es2020 --format=esm --inject:scripts/misc/react-shim.ts
-esbuild scripts/rss.ts --bundle --platform=node --outfile=scripts/build/rss.mjs --external:./node_modules/'*' --target=es2020 --format=esm --inject:scripts/misc/react-shim.ts
-node scripts/build/rss.mjs
-esbuild scripts/sitemap.ts --bundle --platform=node --outfile=scripts/build/sitemap.mjs --external:./node_modules/'*' --target=es2020 --format=esm --inject:scripts/misc/react-shim.ts
-node scripts/build/sitemap.mjs
-esbuild scripts/tagrel.ts --bundle --platform=node --outfile=scripts/build/tagrel.mjs --external:./node_modules/'*' --target=es2020 --format=esm --inject:scripts/misc/react-shim.ts
-node scripts/build/tagrel.mjs
+node scripts/esbuild.mjs scripts/genGetMdxPostsViaStaticImport.ts scripts/build/genGetMdxPostsViaStaticImport.mjs
+node scripts/build/genGetMdxPostsViaStaticImport.mjs
+node scripts/esbuild.mjs next.config.ts next.config.mjs
+node scripts/esbuild.mjs scripts/rss.ts scripts/build/rss.mjs
+node --experimental-loader=@mdx-js/node-loader scripts/build/rss.mjs
+node scripts/esbuild.mjs scripts/sitemap.ts scripts/build/sitemap.mjs
+node --experimental-loader=@mdx-js/node-loader scripts/build/sitemap.mjs
+node scripts/esbuild.mjs scripts/tagrel.ts scripts/build/tagrel.mjs
+node --experimental-loader=@mdx-js/node-loader scripts/build/tagrel.mjs

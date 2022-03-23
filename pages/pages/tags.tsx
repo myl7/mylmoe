@@ -4,7 +4,7 @@
 import Head from '../../components/head'
 import { Box, Card, CardActionArea, CardContent, CardHeader, Divider, Grid } from '@mui/material'
 import { GetStaticProps } from 'next'
-import getPosts from '../../utils/getPosts'
+import { getPosts } from '../../utils/posts'
 import { useRouter } from 'next/router'
 import head from '../../content/head'
 import PostDate from '../../components/post/postDate'
@@ -43,15 +43,16 @@ const Tag = (props: { tagInfos: { tag: string; updDate: string; pubDate: string 
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = getPosts()
+  const posts = await getPosts()
   const tags = Array.from(new Set(posts.flatMap(post => post.meta.tags.split(' '))))
   tags.sort()
-  const tagInfos = tags.map(tag => {
-    const posts = getPosts().filter(post => post.meta.tags.split(' ').indexOf(tag) != -1)
+  const tagInfos = []
+  for (const tag of tags) {
+    const posts = (await getPosts()).filter(post => post.meta.tags.split(' ').indexOf(tag) != -1)
     const updDate = posts.map(post => post.meta.updDate).reduce((a, b) => (a > b ? a : b))
     const pubDate = posts.map(post => post.meta.pubDate).reduce((a, b) => (a > b ? a : b))
-    return { tag, updDate, pubDate }
-  })
+    tagInfos.push({ tag, updDate, pubDate })
+  }
   return { props: { tagInfos } }
 }
 

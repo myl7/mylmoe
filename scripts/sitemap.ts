@@ -2,14 +2,16 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import site from '../content/site'
-import getPosts from '../utils/getPosts'
+import { getPosts } from '../utils/posts'
 import fs from 'fs'
 import path from 'path'
 import friends from '../content/friends'
 
-const posts = getPosts()
+// @ts-ignore
+const posts = await getPosts()
 const postDate = posts.map(post => post.meta.updDate).reduce((a, b) => (a > b ? a : b))
-const pages = getPosts('pages')
+// @ts-ignore
+const pages = await getPosts('pages')
 
 const items = [
   { path: '/', date: postDate },

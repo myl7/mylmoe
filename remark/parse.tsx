@@ -14,8 +14,7 @@ import rehypeSlug from 'rehype-slug'
 import rehypeHighlight from 'rehype-highlight'
 import rehypeStringify from 'rehype-stringify'
 import yaml from 'js-yaml'
-import { PostInfo, PostFM, PostMeta } from './post'
-import dayjs from 'dayjs'
+import { PostInfo, RawMeta } from './post'
 import remarkExternalLinks from 'remark-external-links'
 import rehypeRaw from 'rehype-raw'
 import rehypeMuiLink from './rehypeMuiLink'
@@ -29,6 +28,7 @@ import site from '../content/site'
 import rehypeCcIcons from './rehypeCcIcons'
 import remarkDirective from 'remark-directive'
 import remarkDirectiveRehype from './remarkDirectiveRehype'
+import parseMeta from './parseMeta'
 
 const parse = (name: string, content: string, pathPrefix: string = '/posts/'): PostInfo => {
   name = name.substring(0, name.length - 3)
@@ -68,17 +68,8 @@ const parse = (name: string, content: string, pathPrefix: string = '/posts/'): P
     .use(rehypeStringify, { allowDangerousHtml: true })
     .processSync(content)
     .toString()
-  const fm = yaml.load(fmVal) as PostFM
-  const meta: PostMeta = {
-    slug: name,
-    title: fm.title,
-    pubDate: dayjs(fm.pubDate).format('YYYY-MM-DD'),
-    updDate: dayjs(fm.updDate ? fm.updDate : fm.pubDate).format('YYYY-MM-DD'),
-    excerpt: fm.excerpt ? fm.excerpt : '',
-    tags: fm.tags ? fm.tags : '',
-    wip: Boolean(fm.wip),
-    path: pathPrefix + name,
-  }
+  const fm = yaml.load(fmVal) as RawMeta
+  const meta = parseMeta(name, fm, pathPrefix)
   return {
     meta,
     html,

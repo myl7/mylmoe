@@ -36,15 +36,18 @@ const PostItem: FC<PostItemProps> = props => {
             <div>
               <PostDate updDate={updDate} pubDate={pubDate} />
               <div>
-                {tags.split(' ').map(tag => (
-                  <Chip
-                    label={tag}
-                    key={tag}
-                    clickable
-                    onClick={handleTagClick(tag)}
-                    style={{ marginRight: '0.5em' }}
-                  />
-                ))}
+                {tags
+                  .split(' ')
+                  .filter(Boolean)
+                  .map(tag => (
+                    <Chip
+                      label={tag}
+                      key={tag}
+                      clickable
+                      onClick={handleTagClick(tag)}
+                      style={{ marginRight: '0.5em' }}
+                    />
+                  ))}
               </div>
             </div>
           }

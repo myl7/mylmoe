@@ -1,7 +1,7 @@
 // Copyright (c) 2020-2022 myl7
 // SPDX-License-Identifier: Apache-2.0
 
-export interface PostFM {
+export interface RawMeta {
   title: string
   pubDate: string
   updDate?: string
@@ -23,5 +23,5 @@ export interface PostMeta {
 
 export interface PostInfo {
   meta: PostMeta
-  html: string
+  html?: string
 }

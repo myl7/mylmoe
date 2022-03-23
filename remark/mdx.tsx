@@ -37,7 +37,9 @@ export const remarkPlugins = [
 ]
 
 export const rehypePlugins = [
-  rehypeRaw,
+  // Causes Error: Cannot compile `mdxjsEsm` node
+  // Since there is alreasy MDX available, comment it
+  // rehypeRaw,
   rehypeKatex,
   rehypeSlug,
   [rehypeHighlight, { plainText: ['log'] }],

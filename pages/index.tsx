@@ -7,7 +7,7 @@ import PostItem from '../components/post/postItem'
 import { GetStaticProps } from 'next'
 import PostDate from '../components/post/postDate'
 import { PostInfo } from '../remark/post'
-import getPosts from '../utils/getPosts'
+import { getPosts } from '../utils/posts'
 import head from '../content/head'
 
 const Index = (props: { posts: PostInfo[] }) => {
@@ -46,7 +46,7 @@ const Index = (props: { posts: PostInfo[] }) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = getPosts()
+  const posts = await getPosts()
   posts.sort((a, b) =>
     a.meta.updDate == b.meta.updDate
       ? -a.meta.pubDate.localeCompare(b.meta.pubDate)

@@ -131,3 +131,4 @@ dist
 /storage/
 /next.config.js
 /next.config.mjs
+/utils/getMdxPostsViaStaticImport.ts
