@@ -9,7 +9,8 @@ export const meta = {
   title: 'Troubles integrating MDX with Next.js',
   pubDate: '2022-03-23',
   updDate: '2022-03-23',
-  excerpt: 'Solution to use remark/rehype plugins with JSX/TSX and use dynamic import to collect metadata from MDX posts. Remove rehype-raw when using MDX. Ignore CSS for esbuild.',
+  excerpt:
+    'Solution to use remark/rehype plugins with JSX/TSX and use dynamic import to collect metadata from MDX posts. Remove rehype-raw when using MDX. Ignore CSS for esbuild.',
   tags: 'mdx nextjs esbuild',
 }
 
@@ -48,7 +49,7 @@ Ugly but works.
 ## rehype-raw wired error
 
 Let us `next dev` to do an integrated test.
-Ops, error comes: ``Error: Cannot compile `mdxjsEsm` node``.
+Ops, error comes: `` Error: Cannot compile `mdxjsEsm` node ``.
 What? How can we still meet the ESM problem as we have already used the `next.config.mjs`?
 
 After some heartbreaking debugging (basically because the long time consumed), I found out that the true problem is the rehype-raw plugin.

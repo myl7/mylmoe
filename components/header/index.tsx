@@ -50,7 +50,9 @@ const Header = () => {
             <div style={{ flexGrow: 1 }} />
             <Search />
             <ThemeToggle />
-            <Typography variant="subtitle1" color="primary">Dark</Typography>
+            <Typography variant="subtitle1" color="primary">
+              Dark
+            </Typography>
             <Follow style={{ marginLeft: '0.5em', marginRight: '0.5em' }} />
             <Avatar
               role="button"
