@@ -35,6 +35,14 @@ const nextConfig: NextConfig = {
       },
     ]
   },
+  headers: async () => {
+    return [
+      {
+        source: '/.well-known/matrix/*',
+        headers: [{ key: 'Access-Control-Allow-Origin', value: '*' }],
+      },
+    ]
+  },
 }
 
 export default withMDX(nextConfig)
