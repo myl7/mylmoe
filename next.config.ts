@@ -38,7 +38,7 @@ const nextConfig: NextConfig = {
   headers: async () => {
     return [
       {
-        source: '/.well-known/matrix/*',
+        source: '/.well-known/matrix/(server|client)',
         headers: [{ key: 'Access-Control-Allow-Origin', value: '*' }],
       },
     ]
