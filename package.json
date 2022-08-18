@@ -1,0 +1,44 @@
+{
+  "name": "mylmoe",
+  "version": "0.5.0",
+  "description": "myl7's blog & utils",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/myl7/mylmoe.git"
+  },
+  "keywords": [
+    "blog",
+    "nextjs",
+    "react",
+    "markdown"
+  ],
+  "author": "myl7 <myl@myl.moe> (https://myl.moe)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/myl7/mylmoe/issues"
+  },
+  "homepage": "https://github.com/myl7/mylmoe#readme",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "format": "prettier --write '{components,pages}/**/*.{js,jsx,ts,tsx,json,md,mdx}'",
+    "format:check": "prettier --check '{components,pages}/**/*.{js,jsx,ts,tsx,json,md,mdx}'"
+  },
+  "dependencies": {
+    "next": "12.2.5",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "18.7.6",
+    "@types/react": "18.0.17",
+    "@types/react-dom": "18.0.6",
+    "eslint": "8.22.0",
+    "eslint-config-next": "12.2.5",
+    "eslint-config-prettier": "^8.5.0",
+    "prettier": "^2.7.1",
+    "typescript": "4.7.4"
+  }
+}
