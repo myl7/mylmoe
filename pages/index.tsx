@@ -3,8 +3,9 @@
 
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import { Box } from '@chakra-ui/react'
 import Footer from '../components/footer'
-import Header from '../components/header'
+import Header, { headerHeight } from '../components/header'
 
 const Home: NextPage = () => {
   return (
@@ -14,11 +15,11 @@ const Home: NextPage = () => {
         <meta name="description" content="myl7's blog & utils" />
       </Head>
       <Header />
-      <main>
+      <Box as="main" pt={headerHeight + 16} pb={16} px={4}>
         <h1>title</h1>
         <p>description</p>
         <div>content</div>
-      </main>
+      </Box>
       <Footer />
     </div>
   )

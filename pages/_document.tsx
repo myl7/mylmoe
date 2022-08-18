@@ -1,6 +1,7 @@
 // Copyright (C) 2022 myl7
 // SPDX-License-Identifier: Apache-2.0
 
+import { ColorModeScript } from '@chakra-ui/react'
 import { Html, Head, Main, NextScript } from 'next/document'
 
 export default function Document() {
@@ -14,6 +15,7 @@ export default function Document() {
         <link rel="manifest" href="/manifest.json" />
       </Head>
       <body>
+        <ColorModeScript />
         <Main />
         <NextScript />
       </body>

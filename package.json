@@ -23,13 +23,18 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write '{components,pages}/**/*.{js,jsx,ts,tsx,json,md,mdx}'",
-    "format:check": "prettier --check '{components,pages}/**/*.{js,jsx,ts,tsx,json,md,mdx}'"
+    "format": "prettier --write '{components,pages,utils}/**/*.{js,jsx,ts,tsx,json,md,mdx}'",
+    "format:check": "prettier --check '{components,pages,utils}/**/*.{js,jsx,ts,tsx,json,md,mdx}'"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.2.8",
+    "@emotion/react": "^11.10.0",
+    "@emotion/styled": "^11.10.0",
+    "framer-motion": "^6.5.1",
     "next": "12.2.5",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-icons": "^4.4.0"
   },
   "devDependencies": {
     "@types/node": "18.7.6",
