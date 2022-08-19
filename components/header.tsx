@@ -22,7 +22,6 @@ import {
   Text,
   Tooltip,
   useColorMode,
-  useColorModeValue,
 } from '@chakra-ui/react'
 import {
   MdDarkMode,
@@ -35,6 +34,7 @@ import {
   MdSearch,
   MdSubscriptions,
 } from 'react-icons/md'
+import colorHooks from '../utils/colors'
 
 export default function Header() {
   return <DesktopHeader />
@@ -44,8 +44,8 @@ export const headerHeight = 51
 
 function DesktopHeader() {
   const colors = {
-    lineColor: useColorModeValue('blackAlpha.800', 'whiteAlpha.800'),
-    paleLineColor: useColorModeValue('blackAlpha.700', 'whiteAlpha.700'),
+    textColor: colorHooks.useTextColor(),
+    paleTextColor: colorHooks.usePaleTextColor(),
   }
 
   const { colorMode, toggleColorMode } = useColorMode()
@@ -71,11 +71,11 @@ function DesktopHeader() {
   }
 
   return (
-    <Flex as="header" borderWidth={1.5} borderColor={colors.lineColor} px={1} py={2} position="fixed" w="100%">
+    <Flex as="header" borderWidth={1.5} borderColor={colors.textColor} px={1} py={2} position="fixed" w="100%">
       <HStack spacing={4}>
         {/* Title */}
         <Center pl={3}>
-          <Text fontSize="lg" fontWeight="bold" color={colors.lineColor}>
+          <Text fontSize="lg" fontWeight="bold" color={colors.textColor}>
             <Tooltip
               hasArrow
               placement="bottom-start"
@@ -89,7 +89,7 @@ function DesktopHeader() {
         </Center>
 
         {/* Home */}
-        <Button leftIcon={<MdHome />} size="sm" variant="outline" borderWidth={1.5} borderColor={colors.lineColor}>
+        <Button leftIcon={<MdHome />} size="sm" variant="outline" borderWidth={1.5} borderColor={colors.textColor}>
           <NextLink href="/" passHref>
             <Link>Home</Link>
           </NextLink>
@@ -100,20 +100,20 @@ function DesktopHeader() {
 
       <HStack justify="end" spacing={4}>
         {/* Search */}
-        <InputGroup size="sm" maxW={250} borderColor={colors.lineColor}>
+        <InputGroup size="sm" maxW={250} borderColor={colors.textColor}>
           <Input
             type="search"
             placeholder="Search..."
             borderRadius="md"
             borderWidth={1.5}
             ref={searchInputRef}
-            onKeyDown={(e) => (e.key == 'Enter' ? search() : null)}
-            _placeholder={{ color: colors.paleLineColor }}
+            onKeyDown={e => (e.key == 'Enter' ? search() : null)}
+            _placeholder={{ color: colors.paleTextColor }}
           />
-          <InputRightAddon borderRadius="md" borderWidth={1.5} borderColor={colors.lineColor}>
+          <InputRightAddon borderRadius="md" borderWidth={1.5} borderColor={colors.textColor}>
             <IconButton
               aria-label="Search"
-              borderColor={colors.lineColor}
+              borderColor={colors.textColor}
               icon={<MdSearch />}
               size="xs"
               variant="outline"
@@ -124,15 +124,15 @@ function DesktopHeader() {
         </InputGroup>
 
         {/* Color mode */}
-        <HStack borderWidth={1.5} borderColor={colors.lineColor} borderRadius="md" px={3} h={32.5}>
+        <HStack borderWidth={1.5} borderColor={colors.textColor} borderRadius="md" px={3} h={32.5}>
           <Center>
-            <Text fontSize="sm" fontWeight="bold" color={colors.lineColor}>
+            <Text fontSize="sm" fontWeight="bold" color={colors.textColor}>
               Color:
             </Text>
           </Center>
           <IconButton
             aria-label="Toggle color mode"
-            borderColor={colors.lineColor}
+            borderColor={colors.textColor}
             icon={colorMode == 'dark' ? <MdDarkMode /> : <MdLightMode />}
             size="xs"
             variant="outline"
@@ -141,7 +141,7 @@ function DesktopHeader() {
           />
           <IconButton
             aria-label="Reset color mode to system"
-            borderColor={colors.lineColor}
+            borderColor={colors.textColor}
             icon={<MdRefresh />}
             size="xs"
             variant="outline"
@@ -160,7 +160,7 @@ function DesktopHeader() {
                 size="sm"
                 variant="outline"
                 borderWidth={1.5}
-                borderColor={colors.lineColor}
+                borderColor={colors.textColor}
                 leftIcon={<MdSubscriptions />}
                 rightIcon={isOpen ? <MdExpandLess /> : <MdExpandMore />}
               >

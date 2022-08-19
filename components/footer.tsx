@@ -1,13 +1,14 @@
 // Copyright (C) 2022 myl7
 // SPDX-License-Identifier: Apache-2.0
 
-import { Box, Flex, HStack, Icon, Link, Spacer, useColorModeValue } from '@chakra-ui/react'
+import { Box, Flex, Icon, Link, Spacer } from '@chakra-ui/react'
 import { FaCreativeCommons, FaCreativeCommonsBy, FaCreativeCommonsSa } from 'react-icons/fa'
+import colorHooks from '../utils/colors'
 
 export default function Footer() {
   const colors = {
-    lineColor: useColorModeValue('blackAlpha.800', 'whiteAlpha.800'),
-    linkColor: useColorModeValue('blue.500', 'blue.300'),
+    textColor: colorHooks.useTextColor(),
+    linkColor: colorHooks.useLinkColor(),
   }
 
   return (
@@ -18,7 +19,7 @@ export default function Footer() {
       px={4}
       py={2}
       borderWidth={1.5}
-      borderColor={colors.lineColor}
+      borderColor={colors.textColor}
       w="100%"
     >
       <Box>Copyright (C) 2020, 2021, 2022 myl7</Box>
