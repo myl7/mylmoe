@@ -29,3 +29,7 @@ a {
     background: black;
   }
 }
+
+html {
+  scroll-padding-top: calc(51px);
+}

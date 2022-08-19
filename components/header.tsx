@@ -65,14 +65,14 @@ function DesktopHeader() {
     const query = searchInputRef.current?.value
     if (query) {
       window.location.href = getGoogleSiteSearchUrl(query)
-      // The following one will be blocked by Firefox
+      // The following one will be blocked by Firefox in searching via Enter
       // window.open(getGoogleSiteSearchUrl(query), '_blank')
     }
   }
 
   return (
     <Flex as="header" borderWidth={1.5} borderColor={colors.textColor} px={1} py={2} position="fixed" w="100%">
-      <HStack spacing={4}>
+      <HStack>
         {/* Title */}
         <Center pl={3}>
           <Text fontSize="lg" fontWeight="bold" color={colors.textColor}>
@@ -98,7 +98,7 @@ function DesktopHeader() {
 
       <Spacer />
 
-      <HStack justify="end" spacing={4}>
+      <HStack justify="end">
         {/* Search */}
         <InputGroup size="sm" maxW={250} borderColor={colors.textColor}>
           <Input
@@ -124,6 +124,7 @@ function DesktopHeader() {
         </InputGroup>
 
         {/* Color mode */}
+        {/* h={32.5} to match the heights of other header elments */}
         <HStack borderWidth={1.5} borderColor={colors.textColor} borderRadius="md" px={3} h={32.5}>
           <Center>
             <Text fontSize="sm" fontWeight="bold" color={colors.textColor}>
