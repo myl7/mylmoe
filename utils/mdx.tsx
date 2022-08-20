@@ -3,18 +3,14 @@
 
 import React from 'react'
 import Image from 'next/image'
-import { renderToStaticMarkup } from 'react-dom/server'
+import NextLink from 'next/link'
 import remarkGfm from 'remark-gfm'
 import remarkToc from 'remark-toc'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
 import rehypeSlug from 'rehype-slug'
 import rehypeHighlight from 'rehype-highlight'
-import rehypeAutolinkHeadings from 'rehype-autolink-headings'
-import rehypeExternalLinks from 'rehype-external-links'
-import { unified } from 'unified'
-import rehypeParse from 'rehype-parse'
-import { MdLink } from 'react-icons/md'
+import { MdLaunch, MdLink } from 'react-icons/md'
 import {
   Link,
   Text,
@@ -30,29 +26,19 @@ import {
   Th,
   Thead,
   Tr,
+  Icon,
 } from '@chakra-ui/react'
 import colorHooks from './colors'
-import ELinkSup from '../components/elinkSup'
 
 export const remarkPlugins = [remarkGfm, remarkToc, remarkMath]
 
 export const rehypePlugins = [
   rehypeKatex,
   rehypeSlug,
-  [rehypeHighlight, { subset: false }],
   [
-    rehypeAutolinkHeadings,
+    rehypeHighlight,
     {
-      // Except className, others are no-merging default values
-      properties: { className: 'hlink', ariaHidden: true, tabIndex: -1 },
-      content: react2hast(<MdLink style={{ display: 'inline-block', verticalAlign: 'middle' }} />),
-    },
-  ],
-  [
-    rehypeExternalLinks,
-    {
-      contentProperties: { className: 'elink' },
-      content: react2hast(<ELinkSup />),
+      subset: false, // No language auto-detection
     },
   ],
 ]
@@ -62,7 +48,18 @@ export const components = {
     const colors = {
       linkColor: colorHooks.useLinkColor(),
     }
-    return <Link textColor={colors.linkColor} {...props} />
+    if (props.href.startsWith('http')) {
+      // External link
+      const newProps = { ...props }
+      newProps.children = [newProps.children, <Icon as={MdLaunch} w={4} h={4} />]
+      return <Link textColor={colors.linkColor} isExternal {...newProps} />
+    } else {
+      return (
+        <NextLink href={props.href} passHref>
+          <Link textColor={colors.linkColor} {...props} />
+        </NextLink>
+      )
+    }
   },
   blockquote: (props: any) => {
     const colors = {
@@ -94,9 +91,15 @@ export const components = {
     />
   ),
   em: (props: any) => <Text as="em" {...props} />,
-  h2: (props: any) => <Heading as="h2" size="md" {...props} />,
-  h3: (props: any) => <Heading as="h3" size="sm" {...props} />,
-  h4: (props: any) => <Heading as="h4" size="xs" {...props} />,
+  h1: (_props: any) => {
+    // h1 will be set by other elements and should only be set once
+    throw new Error('h1 should not be used in post body')
+  },
+  h2: hx(2),
+  h3: hx(3),
+  h4: hx(4),
+  h5: hx(4),
+  h6: hx(4), // h5, h6 are set the same as h4 as fallback. They rarely occur.
   hr: Divider,
   img: Image,
   li: ListItem,
@@ -127,8 +130,28 @@ export const components = {
   samp: (props: any) => <Text as="samp" {...props} />,
 }
 
-function react2hast(node: React.ReactElement) {
-  const html = renderToStaticMarkup(node)
-  const tree = unified().use(rehypeParse, { fragment: true }).parse(html)
-  return tree.children[0]
+// For h2 - h4
+function hx(x: number) {
+  const elem = `h${x}`
+  const size = ['md', 'sm', 'xs'][x - 2]
+  return function (props: any) {
+    const colors = {
+      linkColor: colorHooks.useLinkColor(),
+    }
+    const newProps = { ...props }
+    newProps.children = [
+      <Link href={`#${props.id}`} textColor={colors.linkColor}>
+        <Icon as={MdLink} w={5} h={5} verticalAlign="top" mr={1} />
+      </Link>,
+      newProps.children,
+    ]
+    return <Heading as={elem} size={size} {...newProps} />
+  }
 }
+
+// Not used since no hastscript is required
+// function react2hast(node: React.ReactElement) {
+//   const html = renderToStaticMarkup(node)
+//   const tree = unified().use(rehypeParse, { fragment: true }).parse(html)
+//   return tree.children[0]
+// }

@@ -6,6 +6,7 @@ import { Helmet } from 'react-helmet'
 
 // Only use this in pages other than components
 // Using this with ReactDOMServer.renderToString and without Helmet.renderStatic causes memory leak
+// TODO: react-helmet should be replaced with react-helmet-async to work with high version React
 export default function HljsStyle() {
   const { colorMode } = useColorMode()
 
