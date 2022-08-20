@@ -3,10 +3,11 @@
 
 import { ColorModeScript } from '@chakra-ui/react'
 import { Html, Head, Main, NextScript } from 'next/document'
+import theme from '../utils/theme'
 
 export default function Document() {
   return (
-    <Html>
+    <Html lang="en">
       <Head>
         {/* Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -22,7 +23,7 @@ export default function Document() {
         <link rel="manifest" href="/manifest.json" />
       </Head>
       <body>
-        <ColorModeScript />
+        <ColorModeScript initialColorMode={theme.config.initialColorMode} />
         <Main />
         <NextScript />
       </body>

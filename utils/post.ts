@@ -20,4 +20,4 @@ export function getMeta(fm: Frontmatter) {
   return meta
 }
 
-const date2str = (date: string | Date) => (typeof date == 'string' ? date : date.toISOString())
+const date2str = (date: string | Date) => (typeof date == 'string' ? date : date.toISOString().replace(/T.+$/, ''))
