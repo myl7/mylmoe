@@ -51,8 +51,14 @@ export const components = {
     if (props.href.startsWith('http')) {
       // External link
       const newProps = { ...props }
-      newProps.children = [newProps.children, <Icon as={MdLaunch} w={4} h={4} />]
-      return <Link textColor={colors.linkColor} isExternal {...newProps} />
+      const children = newProps.children
+      delete newProps.children
+      return (
+        <Link textColor={colors.linkColor} isExternal {...newProps}>
+          {children}
+          <Icon as={MdLaunch} w={4} h={4} />
+        </Link>
+      )
     } else {
       return (
         <NextLink href={props.href} passHref>
@@ -139,13 +145,16 @@ function hx(x: number) {
       linkColor: colorHooks.useLinkColor(),
     }
     const newProps = { ...props }
-    newProps.children = [
-      <Link href={`#${props.id}`} textColor={colors.linkColor}>
-        <Icon as={MdLink} w={5} h={5} verticalAlign="top" mr={1} />
-      </Link>,
-      newProps.children,
-    ]
-    return <Heading as={elem} size={size} {...newProps} />
+    const children = newProps.children
+    delete newProps.children
+    return (
+      <Heading as={elem} size={size} {...newProps}>
+        <Link href={`#${props.id}`} textColor={colors.linkColor}>
+          <Icon as={MdLink} w={5} h={5} verticalAlign="top" mr={1} />
+        </Link>
+        {children}
+      </Heading>
+    )
   }
 }
 
