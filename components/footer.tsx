@@ -58,7 +58,7 @@ export default function Footer() {
       </Box>
       <Spacer />
       <Box>
-        Website favicon made by{' '}
+        The website favicon is made and authorized for the use by{' '}
         <Link textColor={colors.linkColor} href="https://www.freepik.com" title="Freepik">
           Freepik
           <ELinkSup />
