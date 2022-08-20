@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { useColorMode } from '@chakra-ui/react'
-import { Helmet } from 'react-helmet'
+import { Helmet } from 'react-helmet-async'
 
 // Only use this in pages other than components
 // Using this with ReactDOMServer.renderToString and without Helmet.renderStatic causes memory leak
