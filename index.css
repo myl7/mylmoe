@@ -3,12 +3,28 @@ Copyright (C) 2022 myl7
 SPDX-License-Identifier: Apache-2.0
 */
 
+/* Fonts */
+body {
+  font-family: Roboto, Helvetica, Tahoma, Arial, 'PingFang SC', 'Hiragino Sans GB', 'Heiti SC', 'Microsoft YaHei',
+    'WenQuanYi Micro Hei', sans-serif;
+}
+
+code {
+  font-family: 'DM Mono', monospace;
+}
+
+@font-face {
+  font-family: Han;
+  font-style: italic;
+  src: local('PingFang SC'), local('Hiragino Sans GB'), local('Heiti SC'), local('Microsoft YaHei'),
+    local('WenQuanYi Micro Hei');
+}
+
+/* create-next-app defaults */
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
-    Helvetica Neue, sans-serif;
 }
 
 a {
@@ -20,6 +36,7 @@ a {
   box-sizing: border-box;
 }
 
+/* Background dark mode */
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
@@ -30,6 +47,54 @@ a {
   }
 }
 
+/* Anchor in pages with header */
 html {
-  scroll-padding-top: calc(51px);
+  scroll-padding-top: 51px;
 }
+
+/* Post styles */
+/* Inline code */
+body.chakra-ui-light #post :not(pre) > code {
+  color: var(--chakra-colors-green-500);
+}
+body.chakra-ui-dark #post :not(pre) > code {
+  color: var(--chakra-colors-green-300);
+}
+
+/* Icons */
+#post a.hlink {
+  padding-right: 0.3rem;
+}
+
+/* Lists */
+#post ul {
+  padding-inline-start: 1rem;
+}
+
+/* Blockquote */
+#post blockquote {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  filter: contrast(0.5);
+}
+
+#post blockquote > p::before {
+  content: '> ';
+}
+
+/* Paragraph */
+/* There is an extra div gen by next-mdx-remote to avoid hydration mismatches during render */
+#post > div > * {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+#post > div > :not(h1, h2, h3, h4, h5, h6) {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+/* Code block */
+/*
+body.chakra-ui-light #post pre > code {}
+body.chakra-ui-dark #post pre > code {}
+*/

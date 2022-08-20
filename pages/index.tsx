@@ -15,7 +15,7 @@ const Home: NextPage = () => {
         <meta name="description" content="myl7's blog & utils" />
       </Head>
       <Header />
-      <Box as="main" pt={headerHeight + 16} pb={16} px={4}>
+      <Box as="main" pt={headerHeight + 4} pb={2} px={2}>
         <h1>title</h1>
         <p>description</p>
         <div>content</div>

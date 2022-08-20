@@ -71,7 +71,16 @@ function DesktopHeader() {
   }
 
   return (
-    <Flex as="header" borderWidth={1.5} borderColor={colors.textColor} px={1} py={2} position="fixed" w="100%">
+    <Flex
+      as="header"
+      borderWidth={1.5}
+      borderColor={colors.textColor}
+      px={1}
+      py={2}
+      position="fixed"
+      w="100%"
+      backgroundColor="var(--chakra-colors-chakra-body-bg)"
+    >
       <HStack>
         {/* Title */}
         <Center pl={3}>
@@ -89,11 +98,18 @@ function DesktopHeader() {
         </Center>
 
         {/* Home */}
-        <Button leftIcon={<MdHome />} size="sm" variant="outline" borderWidth={1.5} borderColor={colors.textColor}>
-          <NextLink href="/" passHref>
-            <Link>Home</Link>
-          </NextLink>
-        </Button>
+        <NextLink href="/" passHref>
+          <Button
+            as={Link}
+            leftIcon={<MdHome />}
+            size="sm"
+            variant="outline"
+            borderWidth={1.5}
+            borderColor={colors.textColor}
+          >
+            Home
+          </Button>
+        </NextLink>
       </HStack>
 
       <Spacer />
@@ -107,7 +123,7 @@ function DesktopHeader() {
             borderRadius="md"
             borderWidth={1.5}
             ref={searchInputRef}
-            onKeyDown={e => (e.key == 'Enter' ? search() : null)}
+            onKeyDown={(e) => (e.key == 'Enter' ? search() : null)}
             _placeholder={{ color: colors.paleTextColor }}
           />
           <InputRightAddon borderRadius="md" borderWidth={1.5} borderColor={colors.textColor}>

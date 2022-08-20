@@ -4,6 +4,7 @@
 import { Box, Flex, Icon, Link, Spacer } from '@chakra-ui/react'
 import { FaCreativeCommons, FaCreativeCommonsBy, FaCreativeCommonsSa } from 'react-icons/fa'
 import colorHooks from '../utils/colors'
+import ELinkSup from './elinkSup'
 
 const moeCode = '20210016'
 
@@ -19,74 +20,53 @@ export default function Footer() {
       <Box>Copyright (C) 2020, 2021, 2022 myl7</Box>
       <Box>
         <Box>
-          Posts are licensed under <Icon as={FaCreativeCommons} w={4} h={4} verticalAlign="text-bottom" />
+          The posts are licensed under <Icon as={FaCreativeCommons} w={4} h={4} verticalAlign="text-bottom" />
           <Icon as={FaCreativeCommonsBy} w={4} h={4} verticalAlign="text-bottom" />
           <Icon as={FaCreativeCommonsSa} w={4} h={4} verticalAlign="text-bottom" />{' '}
-          <Link
-            href="https://creativecommons.org/licenses/by-sa/4.0/"
-            rel="license noopener noreferrer"
-            target="_blank"
-            textColor={colors.linkColor}
-          >
-            <Box as="span">CC BY-SA 4.0</Box>
+          <Link href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license" textColor={colors.linkColor}>
+            CC BY-SA 4.0
+            <ELinkSup />
           </Link>{' '}
           by default unless otherwise explicitly stated.
         </Box>
         <Box>
-          Posts with different licenses will contain a section{' '}
-          <Box as="span" fontStyle="italic" backgroundColor={colors.highlightBackgroundColor}>
+          The posts with different licenses would contain a section named{' '}
+          <Box as="span" fontStyle="italic">
             License
           </Box>{' '}
           to indicate their respective licenses.
         </Box>
       </Box>
       <Box>
-        Website source code and raw post text/image files are available on{' '}
-        <Link
-          textColor={colors.linkColor}
-          href="https://github.com/myl7/mylmoe"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
+        The website source code and raw post text/image files are available on{' '}
+        <Link textColor={colors.linkColor} href="https://github.com/myl7/mylmoe">
           myl7/mylmoe
+          <ELinkSup />
         </Link>
       </Box>
       <Spacer />
       <Box>
-        <Link textColor={colors.linkColor} href="https://icp.gov.moe" rel="noopener noreferrer" target="_blank">
+        <Link textColor={colors.linkColor} href="https://icp.gov.moe">
           萌 ICP 备
+          <ELinkSup />
         </Link>{' '}
-        <Link
-          textColor={colors.linkColor}
-          href={`https://icp.gov.moe/?keyword=${moeCode}`}
-          rel="noopener noreferrer"
-          target="_blank"
-        >
+        <Link textColor={colors.linkColor} href={`https://icp.gov.moe/?keyword=${moeCode}`}>
           {moeCode}
+          <ELinkSup />
         </Link>{' '}
         号
       </Box>
       <Spacer />
       <Box>
         Website favicon made by{' '}
-        <Link
-          textColor={colors.linkColor}
-          href="https://www.freepik.com"
-          title="Freepik"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
+        <Link textColor={colors.linkColor} href="https://www.freepik.com" title="Freepik">
           Freepik
+          <ELinkSup />
         </Link>{' '}
         from{' '}
-        <Link
-          textColor={colors.linkColor}
-          href="https://www.flaticon.com/"
-          title="Flaticon"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
+        <Link textColor={colors.linkColor} href="https://www.flaticon.com/" title="Flaticon">
           flaticon.com
+          <ELinkSup />
         </Link>
       </Box>
     </Flex>
