@@ -12,22 +12,26 @@ import Footer from '../components/footer'
 import Header, { headerHeight } from '../components/header'
 import { components, rehypePlugins, remarkPlugins } from '../utils/mdx'
 import { getMeta, type Meta } from '../utils/post'
+import HljsStyle from '../components/hljsStyle'
 import type { Frontmatter } from '../posts'
 
 interface PostProps {
   mdx: any
   meta: Meta
+  ppath: string
 }
 
 const Post: NextPage<PostProps> = (props) => {
-  const { mdx, meta } = props
+  const { mdx, meta, ppath } = props
 
   return (
     <div>
       <Head>
         <title>{`${meta.title} | mylmoe: myl7's blog & utils`}</title>
-        {meta.abstract ? <meta name="description" content={meta.abstract} /> : ''}
+        {meta.abstract && <meta name="description" content={meta.abstract} />}
+        <link rel="canonical" href={'https://myl.moe' + ppath} />
       </Head>
+      <HljsStyle />
       <Header />
       <Box as="main" pt={headerHeight + 4} pb={2} px={2} id="post">
         <MDXRemote {...mdx} components={components} lazy />
@@ -53,7 +57,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps<PostProps> = async ({ params }) => {
-  const ppath = (params?.path as string).replace(/\/*$/, '')
+  const ppath = path.join('/', params?.path as string)
   const fpathBase = path.join(process.cwd(), 'posts', ppath)
   let text: string
   let ext = 'mdx'
@@ -68,7 +72,7 @@ export const getStaticProps: GetStaticProps<PostProps> = async ({ params }) => {
   // Frontmatter could not be parsed if containing Date object
   const meta = getMeta(mdx.frontmatter as any as Frontmatter)
   delete mdx.frontmatter
-  return { props: { mdx, meta } }
+  return { props: { mdx, meta, ppath } }
 }
 
 export default Post

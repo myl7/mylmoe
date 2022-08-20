@@ -80,6 +80,7 @@ function DesktopHeader() {
       position="fixed"
       w="100%"
       backgroundColor="var(--chakra-colors-chakra-body-bg)"
+      zIndex={100} // On top of all other elements
     >
       <HStack>
         {/* Title */}

@@ -13,6 +13,7 @@ const Home: NextPage = () => {
       <Head>
         <title>mylmoe</title>
         <meta name="description" content="myl7's blog & utils" />
+        <link rel="canonical" href="https://myl.moe" />
       </Head>
       <Header />
       <Box as="main" pt={headerHeight + 4} pb={2} px={2}>

@@ -41,6 +41,7 @@ a {
   html {
     color-scheme: dark;
   }
+
   body {
     color: white;
     background: black;
@@ -52,49 +53,19 @@ html {
   scroll-padding-top: 51px;
 }
 
-/* Post styles */
-/* Inline code */
-body.chakra-ui-light #post :not(pre) > code {
-  color: var(--chakra-colors-green-500);
-}
-body.chakra-ui-dark #post :not(pre) > code {
-  color: var(--chakra-colors-green-300);
-}
-
-/* Icons */
+/* Post heading link icons */
 #post a.hlink {
   padding-right: 0.3rem;
 }
 
-/* Lists */
-#post ul {
-  padding-inline-start: 1rem;
-}
-
-/* Blockquote */
-#post blockquote {
-  padding-left: 1rem;
-  padding-right: 1rem;
-  filter: contrast(0.5);
-}
-
-#post blockquote > p::before {
-  content: '> ';
-}
-
-/* Paragraph */
+/* Post blocks */
 /* There is an extra div gen by next-mdx-remote to avoid hydration mismatches during render */
 #post > div > * {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-#post > div > :not(h1, h2, h3, h4, h5, h6) {
-  padding-left: 2rem;
-  padding-right: 2rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 
-/* Code block */
-/*
-body.chakra-ui-light #post pre > code {}
-body.chakra-ui-dark #post pre > code {}
-*/
+#post > div > :not(h1, h2, h3, h4, h5, h6) {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
