@@ -56,13 +56,15 @@ export const getStaticProps: GetStaticProps<PostProps> = async ({ params }) => {
   const ppath = (params?.path as string).replace(/\/*$/, '')
   const fpathBase = path.join(process.cwd(), 'posts', ppath)
   let text: string
+  let ext = 'mdx'
   try {
-    text = (await fs.promises.readFile(fpathBase + '.mdx')).toString()
+    text = (await fs.promises.readFile(fpathBase + '.' + ext)).toString()
   } catch {
-    text = (await fs.promises.readFile(fpathBase + '.md')).toString()
+    ext = 'md'
+    text = (await fs.promises.readFile(fpathBase + '.' + ext)).toString()
   }
   // @ts-ignore For complicated plugin options
-  let mdx = await serialize(text, { mdxOptions: { remarkPlugins, rehypePlugins }, parseFrontmatter: true })
+  let mdx = await serialize(text, { mdxOptions: { remarkPlugins, rehypePlugins, format: ext }, parseFrontmatter: true })
   // Frontmatter could not be parsed if containing Date object
   const meta = getMeta(mdx.frontmatter as any as Frontmatter)
   delete mdx.frontmatter
