@@ -9,10 +9,10 @@ export default async function getFeed() {
   const feed = new Feed({
     title: 'mylmoe',
     description: "myl7's blog & utils",
-    id: 'https://myl7.moe',
-    link: 'https://myl7.moe',
+    id: 'https://myl.moe',
+    link: 'https://myl.moe',
     language: 'en',
-    favicon: 'https://myl7.moe/favicon.ico',
+    favicon: 'https://myl.moe/favicon.ico',
     copyright: 'Copyright (C) 2020, 2021, 2022 myl7',
     // At least 1 post is required
     updated: new Date(
@@ -34,8 +34,8 @@ export default async function getFeed() {
   metas.forEach(({ meta, ppath }) => {
     feed.addItem({
       title: meta.title,
-      id: 'https://myl7.moe/' + ppath,
-      link: 'https://myl7.moe/' + ppath,
+      id: 'https://myl.moe' + ppath,
+      link: 'https://myl.moe' + ppath,
       description: meta.abstract,
       author: [
         {

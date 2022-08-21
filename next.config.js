@@ -13,15 +13,24 @@ const nextConfig = {
     return [
       {
         source: '/rss.xml',
-        headers: [{ key: 'content-type', value: 'application/rss+xml' }],
+        headers: [
+          { key: 'content-type', value: 'application/rss+xml' },
+          { key: 'content-disposition', value: 'inline' },
+        ],
       },
       {
         source: '/atom.xml',
-        headers: [{ key: 'content-type', value: 'application/atom+xml' }],
+        headers: [
+          { key: 'content-type', value: 'application/atom+xml' },
+          { key: 'content-disposition', value: 'inline' },
+        ],
       },
       {
         source: '/sitemap.xml',
-        headers: [{ key: 'content-type', value: 'application/xml' }],
+        headers: [
+          { key: 'content-type', value: 'application/xml' },
+          { key: 'content-disposition', value: 'inline' },
+        ],
       },
     ]
   },

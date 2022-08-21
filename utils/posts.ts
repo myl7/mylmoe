@@ -45,7 +45,7 @@ export async function getMetasWithPPaths() {
   const metas = [] as { meta: Meta; ppath: string }[]
   for (const { ppath, ext } of ppaths) {
     const text = (await fs.promises.readFile(path.join(process.cwd(), 'posts', ppath + '.' + ext))).toString()
-    const fmTextM = text.match(/^```$([\s\S]+?)^```$/m)
+    const fmTextM = text.match(/^---$([\s\S]+?)^---$/m)
     if (!fmTextM) throw new Error('Frontmatter not found in ' + ppath.substring(1))
     const fmText = fmTextM[1]
     const fm = YAML.parse(fmText) as Frontmatter

@@ -6,7 +6,7 @@ import getFeed from '../../utils/feed'
 
 let ATOM = ''
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(_req: NextApiRequest, res: NextApiResponse) {
   if (ATOM == '') {
     ATOM = (await getFeed()).atom1()
   }

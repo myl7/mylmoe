@@ -6,7 +6,7 @@ import getFeed from '../../utils/feed'
 
 let RSS = ''
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(_req: NextApiRequest, res: NextApiResponse) {
   if (RSS == '') {
     RSS = (await getFeed()).rss2()
   }

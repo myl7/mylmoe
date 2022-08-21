@@ -2,7 +2,25 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import type { NextApiRequest, NextApiResponse } from 'next'
+import { SitemapStream, streamToPromise } from 'sitemap'
+import { getMetasWithPPaths } from '../../utils/posts'
 
-export default (req: NextApiRequest, res: NextApiResponse) => {
-  res.status(200).json({ name: 'John Doe' })
+let SITEMAP = ''
+
+export default async function handler(_req: NextApiRequest, res: NextApiResponse) {
+  if (SITEMAP == '') {
+    SITEMAP = await getSitemap()
+  }
+  res.status(200).send(SITEMAP)
+}
+
+async function getSitemap() {
+  const metas = await getMetasWithPPaths()
+  const smStream = new SitemapStream({ hostname: 'https://myl.moe' })
+  metas.forEach(({ ppath }) => {
+    smStream.write({ url: ppath })
+  })
+  smStream.end()
+  const sm = (await streamToPromise(smStream)).toString()
+  return sm
 }
