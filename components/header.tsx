@@ -181,6 +181,7 @@ function DesktopHeader() {
                 borderColor={colors.textColor}
                 leftIcon={<MdSubscriptions />}
                 rightIcon={isOpen ? <MdExpandLess /> : <MdExpandMore />}
+                minW="initial" // <MenuList> minW={0} will affect this so explicitly reset it
               >
                 Follow
               </MenuButton>
