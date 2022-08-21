@@ -9,7 +9,7 @@ import { serialize } from 'next-mdx-remote/serialize'
 import path from 'path/posix'
 import fs from 'fs'
 import Footer from '../components/footer'
-import Header, { headerHeight } from '../components/header'
+import Header from '../components/header'
 import { getMeta, type Meta } from '../utils/post'
 import colorHooks from '../utils/colors'
 import { rehypePlugins, remarkPlugins } from '../utils/mdx'
@@ -28,7 +28,7 @@ const Home: NextPage<IndexProps> = ({ pmetas }) => {
         <link rel="canonical" href="https://myl.moe" />
       </Head>
       <Header />
-      <VStack as="main" pt={headerHeight + 8} pb={2} px={2} alignItems="flex-start">
+      <VStack as="main" px={2} pb={2} alignItems="flex-start">
         {pmetas.map(PItem)}
       </VStack>
       <Footer />

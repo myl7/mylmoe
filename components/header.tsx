@@ -4,8 +4,10 @@
 import React from 'react'
 import NextLink from 'next/link'
 import {
+  Box,
   Button,
   Center,
+  Collapse,
   Flex,
   HStack,
   Icon,
@@ -21,7 +23,10 @@ import {
   Spacer,
   Text,
   Tooltip,
+  useBreakpointValue,
   useColorMode,
+  useDisclosure,
+  VStack,
 } from '@chakra-ui/react'
 import {
   MdDarkMode,
@@ -29,6 +34,7 @@ import {
   MdExpandMore,
   MdHome,
   MdLightMode,
+  MdMenu,
   MdRefresh,
   MdRssFeed,
   MdSearch,
@@ -37,10 +43,11 @@ import {
 import colorHooks from '../utils/colors'
 
 export default function Header() {
-  return <DesktopHeader />
+  const headerType = useBreakpointValue({ base: 'mobile', md: 'desktop' }, { fallback: 'mobile' }) as
+    | 'mobile'
+    | 'desktop'
+  return { mobile: <MobileHeader />, desktop: <DesktopHeader /> }[headerType]
 }
-
-export const headerHeight = 45
 
 function DesktopHeader() {
   const colors = {
@@ -71,133 +78,302 @@ function DesktopHeader() {
   }
 
   return (
-    <Flex
-      as="header"
-      borderWidth={1.5}
-      borderColor={colors.textColor}
-      px={1}
-      py={2}
-      position="fixed"
-      w="100%"
-      backgroundColor="var(--chakra-colors-chakra-body-bg)"
-      zIndex={100} // On top of all other elements
-    >
-      <HStack>
-        {/* Title */}
-        <Center pl={3}>
-          <Text fontSize="lg" fontWeight="bold" color={colors.textColor}>
-            <Tooltip
-              hasArrow
-              placement="bottom-start"
-              label="myl7's blog & utils"
-              fontWeight="bold"
-              closeOnClick={false}
-            >
-              mylmoe
-            </Tooltip>
-          </Text>
-        </Center>
+    <>
+      <Flex
+        as="header"
+        borderWidth="0 0 1.5px"
+        borderColor={colors.textColor}
+        px={1}
+        py={2}
+        position="fixed"
+        w="100%"
+        backgroundColor="var(--chakra-colors-chakra-body-bg)"
+        zIndex={100} // On top of all other elements
+        gap={1}
+      >
+        <HStack>
+          {/* Title */}
+          <Center pl={3}>
+            <Text fontSize="lg" fontWeight="bold" color={colors.textColor}>
+              <Tooltip
+                hasArrow
+                placement="bottom-start"
+                label="myl7's blog & utils"
+                fontWeight="bold"
+                closeOnClick={false}
+              >
+                <NextLink href="/" passHref>
+                  <Link>mylmoe</Link>
+                </NextLink>
+              </Tooltip>
+            </Text>
+          </Center>
 
-        {/* Home */}
-        <NextLink href="/" passHref>
-          <Button
-            as={Link}
-            leftIcon={<MdHome />}
-            size="sm"
-            variant="outline"
-            borderWidth={1.5}
-            borderColor={colors.textColor}
-          >
-            Home
-          </Button>
-        </NextLink>
-      </HStack>
-
-      <Spacer />
-
-      <HStack justify="end">
-        {/* Search */}
-        <InputGroup size="sm" maxW={250} borderColor={colors.textColor}>
-          <Input
-            type="search"
-            placeholder="Search..."
-            borderRadius="md"
-            borderWidth={1.5}
-            ref={searchInputRef}
-            onKeyDown={(e) => (e.key == 'Enter' ? search() : null)}
-            _placeholder={{ color: colors.paleTextColor }}
-          />
-          <InputRightAddon borderRadius="md" borderWidth={1.5} borderColor={colors.textColor}>
-            <IconButton
-              aria-label="Search"
+          {/* Home */}
+          <NextLink href="/" passHref>
+            <Button
+              as={Link}
+              leftIcon={<MdHome />}
+              size="sm"
+              variant="outline"
+              borderWidth={1.5}
               borderColor={colors.textColor}
-              icon={<MdSearch />}
+            >
+              Home
+            </Button>
+          </NextLink>
+        </HStack>
+
+        <Spacer />
+
+        <HStack justify="end">
+          {/* Search */}
+          <InputGroup size="sm" maxW={250} borderColor={colors.textColor}>
+            <Input
+              type="search"
+              placeholder="Search..."
+              borderRadius="md"
+              borderWidth={1.5}
+              ref={searchInputRef}
+              onKeyDown={(e) => (e.key == 'Enter' ? search() : null)}
+              _placeholder={{ color: colors.paleTextColor }}
+            />
+            <InputRightAddon borderRadius="md" borderWidth={1.5} borderColor={colors.textColor}>
+              <IconButton
+                aria-label="Search"
+                borderColor={colors.textColor}
+                icon={<MdSearch />}
+                size="xs"
+                variant="outline"
+                rounded="full"
+                onClick={() => search()}
+              />
+            </InputRightAddon>
+          </InputGroup>
+
+          {/* Color mode */}
+          <HStack borderWidth={1.5} borderColor={colors.textColor} borderRadius="md" px={3} py={0.5}>
+            <Center>
+              <Text fontSize="sm" fontWeight="bold" color={colors.textColor}>
+                Color:
+              </Text>
+            </Center>
+            <IconButton
+              aria-label="Toggle color mode"
+              borderColor={colors.textColor}
+              icon={colorMode == 'dark' ? <MdDarkMode /> : <MdLightMode />}
               size="xs"
               variant="outline"
               rounded="full"
-              onClick={() => search()}
+              onClick={toggleColorMode}
             />
-          </InputRightAddon>
-        </InputGroup>
+            <IconButton
+              aria-label="Reset color mode to system"
+              borderColor={colors.textColor}
+              icon={<MdRefresh />}
+              size="xs"
+              variant="outline"
+              rounded="full"
+              onClick={resetColorModeToSystem}
+            />
+          </HStack>
 
-        {/* Color mode */}
-        {/* h={32.5} to match the heights of other header elments */}
-        <HStack borderWidth={1.5} borderColor={colors.textColor} borderRadius="md" px={3} py={0.5}>
-          <Center>
-            <Text fontSize="sm" fontWeight="bold" color={colors.textColor}>
-              Color:
-            </Text>
-          </Center>
-          <IconButton
-            aria-label="Toggle color mode"
-            borderColor={colors.textColor}
-            icon={colorMode == 'dark' ? <MdDarkMode /> : <MdLightMode />}
-            size="xs"
-            variant="outline"
-            rounded="full"
-            onClick={toggleColorMode}
-          />
-          <IconButton
-            aria-label="Reset color mode to system"
-            borderColor={colors.textColor}
-            icon={<MdRefresh />}
-            size="xs"
-            variant="outline"
-            rounded="full"
-            onClick={resetColorModeToSystem}
-          />
-        </HStack>
-
-        {/* Follow */}
-        <Menu matchWidth>
-          {({ isOpen }) => (
-            <>
-              <MenuButton
-                isActive={isOpen}
-                as={Button}
-                size="sm"
-                variant="outline"
-                borderWidth={1.5}
-                borderColor={colors.textColor}
-                leftIcon={<MdSubscriptions />}
-                rightIcon={isOpen ? <MdExpandLess /> : <MdExpandMore />}
-                minW="initial" // <MenuList> minW={0} will affect this so explicitly reset it
-              >
-                Follow
-              </MenuButton>
-              {/* minW={0} to shrink menu items */}
-              <MenuList minW={0}>
-                <NextLink href="/rss.xml" passHref>
+          {/* Follow */}
+          <Menu matchWidth>
+            {({ isOpen }) => (
+              <>
+                <MenuButton
+                  isActive={isOpen}
+                  as={Button}
+                  size="sm"
+                  variant="outline"
+                  borderWidth={1.5}
+                  borderColor={colors.textColor}
+                  leftIcon={<MdSubscriptions />}
+                  rightIcon={isOpen ? <MdExpandLess /> : <MdExpandMore />}
+                  minW="initial" // <MenuList> minW={0} will affect this so explicitly reset it
+                >
+                  Follow
+                </MenuButton>
+                {/* minW={0} to shrink menu items */}
+                <MenuList minW={0}>
                   {/* Use <Icon> to forcibly set icon size, but cause menu item text unaligned */}
-                  <MenuItem as={Link} icon={<Icon as={MdRssFeed} w={4} h={4} />} h={8} fontWeight="bold" fontSize="xs">
+                  <MenuItem
+                    as={Link}
+                    href="/rss.xml"
+                    icon={<Icon as={MdRssFeed} w={4} h={4} />}
+                    h={8}
+                    fontWeight="bold"
+                    fontSize="xs"
+                  >
                     RSS
                   </MenuItem>
-                </NextLink>
-              </MenuList>
-            </>
-          )}
-        </Menu>
-      </HStack>
-    </Flex>
+                </MenuList>
+              </>
+            )}
+          </Menu>
+        </HStack>
+      </Flex>
+      <Box
+        // Placeholder to align post with header
+        h="50.5px"
+      />
+    </>
+  )
+}
+
+const MobileHeader = () => {
+  const colors = {
+    textColor: colorHooks.useTextColor(),
+    paleTextColor: colorHooks.usePaleTextColor(),
+  }
+
+  const { colorMode, toggleColorMode } = useColorMode()
+
+  const resetColorModeToSystem = () => localStorage.removeItem('chakra-ui-color-mode')
+
+  const searchInputRef = React.useRef<HTMLInputElement>(null)
+  const getGoogleSiteSearchUrl = (q: string) => {
+    const params = new URLSearchParams([
+      ['q', q],
+      ['as_sitesearch', window.location.origin],
+      ['ncr', '1'],
+    ])
+    return 'https://www.google.com/search?' + params.toString()
+  }
+  const search = () => {
+    const query = searchInputRef.current?.value
+    if (query) {
+      window.location.href = getGoogleSiteSearchUrl(query)
+      // The following one will be blocked by Firefox in searching via Enter
+      // window.open(getGoogleSiteSearchUrl(query), '_blank')
+    }
+  }
+
+  const { isOpen, onToggle } = useDisclosure()
+
+  return (
+    <>
+      <Flex
+        as="header"
+        borderWidth="0 0 1.5px"
+        borderColor={colors.textColor}
+        px={1}
+        py={2}
+        position="fixed"
+        w="100%"
+        backgroundColor="var(--chakra-colors-chakra-body-bg)"
+        zIndex={100} // On top of all other elements
+      >
+        <HStack>
+          {/* Title */}
+          <Center pl={3}>
+            <Text fontSize="lg" fontWeight="bold" color={colors.textColor}>
+              <NextLink href="/" passHref>
+                <Link>mylmoe</Link>
+              </NextLink>
+            </Text>
+          </Center>
+        </HStack>
+
+        <Spacer />
+
+        <HStack justify="end">
+          {/* Color mode */}
+          <HStack spacing={0}>
+            <IconButton
+              aria-label="Reset color mode to system"
+              borderColor={colors.textColor}
+              icon={<Icon as={MdRefresh} w={5} h={5} />}
+              size="sm"
+              variant="outline"
+              rounded="md"
+              onClick={resetColorModeToSystem}
+            />
+            <Center>-</Center>
+            <IconButton
+              aria-label="Toggle color mode"
+              borderColor={colors.textColor}
+              icon={<Icon as={colorMode == 'dark' ? MdDarkMode : MdLightMode} w={5} h={5} />}
+              size="sm"
+              variant="outline"
+              rounded="md"
+              onClick={toggleColorMode}
+            />
+          </HStack>
+
+          {/* Home */}
+          <NextLink href="/" passHref>
+            <IconButton
+              as={Link}
+              aria-label="Go home"
+              icon={<Icon as={MdHome} w={5} h={5} />}
+              size="sm"
+              variant="outline"
+              rounded="md"
+              borderColor={colors.textColor}
+            />
+          </NextLink>
+
+          {/* Menu */}
+          <IconButton
+            aria-label="Toggle menu"
+            icon={<Icon as={MdMenu} w={5} h={5} />}
+            size="sm"
+            variant="outline"
+            rounded="md"
+            borderColor={colors.textColor}
+            onClick={onToggle}
+          />
+        </HStack>
+      </Flex>
+      <Box h="50.5px" />
+      <Collapse in={isOpen} animateOpacity>
+        <VStack px={4} py={2} mt={-2}>
+          {/* Search */}
+          <InputGroup size="sm" w="100%" borderColor={colors.textColor}>
+            <Input
+              type="search"
+              placeholder="Search..."
+              borderRadius="md"
+              borderWidth={1.5}
+              ref={searchInputRef}
+              onKeyDown={(e) => (e.key == 'Enter' ? search() : null)}
+              _placeholder={{ color: colors.paleTextColor }}
+            />
+            <InputRightAddon borderRadius="md" borderWidth={1.5} borderColor={colors.textColor}>
+              <IconButton
+                aria-label="Search"
+                borderColor={colors.textColor}
+                icon={<MdSearch />}
+                size="xs"
+                variant="outline"
+                rounded="full"
+                onClick={() => search()}
+              />
+            </InputRightAddon>
+          </InputGroup>
+
+          <HStack justify="end" w="100%">
+            {/* Follow */}
+            <Center>
+              <Text fontSize="sm" fontWeight="bold" color={colors.textColor}>
+                Follow with
+              </Text>
+            </Center>
+            <IconButton
+              as={Link}
+              href="/rss.xml"
+              aria-label="RSS feed"
+              icon={<Icon as={MdRssFeed} w={5} h={5} />}
+              size="sm"
+              variant="outline"
+              rounded="md"
+              borderColor={colors.textColor}
+            />
+          </HStack>
+        </VStack>
+      </Collapse>
+    </>
   )
 }

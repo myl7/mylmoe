@@ -16,7 +16,15 @@ export default function Footer() {
   }
 
   return (
-    <Flex direction="column" as="footer" fontSize="sm" px={4} py={2} borderWidth={1.5} borderColor={colors.textColor}>
+    <Flex
+      direction="column"
+      as="footer"
+      fontSize="sm"
+      px={4}
+      py={2}
+      borderWidth="1.5px 0"
+      borderColor={colors.textColor}
+    >
       <Box>Copyright (C) 2020, 2021, 2022 myl7</Box>
       <Box>
         <Box>

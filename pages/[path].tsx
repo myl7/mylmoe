@@ -9,7 +9,7 @@ import { MDXRemote } from 'next-mdx-remote'
 import fs from 'fs'
 import path from 'path/posix'
 import Footer from '../components/footer'
-import Header, { headerHeight } from '../components/header'
+import Header from '../components/header'
 import { components, rehypePlugins, remarkPlugins } from '../utils/mdx'
 import { getMeta, type Meta } from '../utils/post'
 import HljsStyle from '../components/hljsStyle'
@@ -35,9 +35,8 @@ const Post: NextPage<PostProps> = (props) => {
       <Header />
       <Box
         as="main"
-        pt={headerHeight + 4}
-        pb={2}
         px={2}
+        pb={2}
         id="post"
         sx={{ '--post-block-mx': '21px' }} // For child non-heading block margin in index.css
         w="fit-content"
