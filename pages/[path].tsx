@@ -3,7 +3,7 @@
 
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
-import { Box } from '@chakra-ui/react'
+import { Box, Divider, Heading, HStack, Tag, Text } from '@chakra-ui/react'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
 import fs from 'fs'
@@ -43,6 +43,23 @@ const Post: NextPage<PostProps> = (props) => {
         w="fit-content"
         maxW="calc(100% - 2 * var(--post-block-mx))"
       >
+        <Box px={6}>
+          <Heading as="h1" size="md">
+            {meta.title}
+          </Heading>
+          <Text>{meta.abstract}</Text>
+          <Text fontSize="sm">
+            {meta.updatedDate == meta.createdDate
+              ? `Created & updated on ${meta.createdDate}.`
+              : `Created on ${meta.createdDate} & updated on ${meta.updatedDate}.`}
+          </Text>
+          <HStack>
+            {meta.tags.map((tag) => (
+              <Tag key={tag}>{tag}</Tag>
+            ))}
+          </HStack>
+        </Box>
+        <Divider />
         <MDXRemote {...mdx} components={components} lazy />
       </Box>
       <Footer />

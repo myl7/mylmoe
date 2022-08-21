@@ -66,7 +66,7 @@ html {
 }
 
 /* margin-left/right cause x overflow so post box should limit width to reserve hspace */
-#post > div > :not(h1, h2, h3, h4, h5, h6) {
+#post > div:nth-child(3) > :not(h1, h2, h3, h4, h5, h6) {
   margin-left: var(--post-block-mx);
   margin-right: var(--post-block-mx);
 }
