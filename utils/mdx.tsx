@@ -43,18 +43,28 @@ export const rehypePlugins = [
   ],
 ]
 
+const host = 'myl.moe'
+
 export const components = {
   a: (props: any) => {
     const colors = {
       linkColor: colorHooks.useLinkColor(),
     }
     if (props.href.startsWith('http')) {
+      const url = new URL(props.href)
+      if (url.host == host) {
+        return (
+          <NextLink href={props.href} passHref>
+            <Link textColor={colors.linkColor} {...props} />
+          </NextLink>
+        )
+      }
       // External link
       const newProps = { ...props }
       const children = newProps.children
       delete newProps.children
       return (
-        <Link textColor={colors.linkColor} isExternal {...newProps}>
+        <Link textColor={colors.linkColor} {...newProps}>
           {children}
           <Icon as={MdLaunch} w={4} h={4} />
         </Link>

@@ -31,12 +31,7 @@ export default function Footer() {
           The posts are licensed under <Icon as={FaCreativeCommons} w={4} h={4} verticalAlign="top" />
           <Icon as={FaCreativeCommonsBy} w={4} h={4} verticalAlign="top" />
           <Icon as={FaCreativeCommonsSa} w={4} h={4} verticalAlign="top" />{' '}
-          <Link
-            href="https://creativecommons.org/licenses/by-sa/4.0/"
-            rel="license"
-            textColor={colors.linkColor}
-            isExternal
-          >
+          <Link href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license" textColor={colors.linkColor}>
             CC BY-SA 4.0
             <Icon as={MdLaunch} w={3} h={3} />
           </Link>{' '}
@@ -52,18 +47,18 @@ export default function Footer() {
       </Box>
       <Box>
         The website source code and raw post text/image files are available on{' '}
-        <Link textColor={colors.linkColor} href="https://github.com/myl7/mylmoe" isExternal>
+        <Link textColor={colors.linkColor} href="https://github.com/myl7/mylmoe">
           myl7/mylmoe
           <Icon as={MdLaunch} w={3} h={3} />
         </Link>
       </Box>
       <Spacer />
       <Box>
-        <Link textColor={colors.linkColor} href="https://icp.gov.moe" isExternal>
+        <Link textColor={colors.linkColor} href="https://icp.gov.moe">
           萌ICP备
           <Icon as={MdLaunch} w={3} h={3} />
         </Link>{' '}
-        <Link textColor={colors.linkColor} href={`https://icp.gov.moe/?keyword=${moeCode}`} isExternal>
+        <Link textColor={colors.linkColor} href={`https://icp.gov.moe/?keyword=${moeCode}`}>
           {moeCode}
           <Icon as={MdLaunch} w={3} h={3} />
         </Link>{' '}
@@ -72,12 +67,12 @@ export default function Footer() {
       <Spacer />
       <Box>
         The website favicon is made and authorized for the use by{' '}
-        <Link textColor={colors.linkColor} href="https://www.freepik.com" title="Freepik" isExternal>
+        <Link textColor={colors.linkColor} href="https://www.freepik.com" title="Freepik">
           Freepik
           <Icon as={MdLaunch} w={3} h={3} />
         </Link>{' '}
         from{' '}
-        <Link textColor={colors.linkColor} href="https://www.flaticon.com/" title="Flaticon" isExternal>
+        <Link textColor={colors.linkColor} href="https://www.flaticon.com/" title="Flaticon">
           flaticon.com
           <Icon as={MdLaunch} w={3} h={3} />
         </Link>
