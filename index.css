@@ -50,7 +50,7 @@ a {
 
 /* Anchor in pages with header */
 html {
-  scroll-padding-top: 51px;
+  scroll-padding-top: calc(45px + 1rem);
 }
 
 /* Post heading link icons */
@@ -65,7 +65,8 @@ html {
   margin-bottom: 0.75rem;
 }
 
+/* margin-left/right cause x overflow so post box should limit width to reserve hspace */
 #post > div > :not(h1, h2, h3, h4, h5, h6) {
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
+  margin-left: var(--post-block-mx);
+  margin-right: var(--post-block-mx);
 }

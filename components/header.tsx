@@ -40,7 +40,7 @@ export default function Header() {
   return <DesktopHeader />
 }
 
-export const headerHeight = 51
+export const headerHeight = 45
 
 function DesktopHeader() {
   const colors = {
@@ -142,7 +142,7 @@ function DesktopHeader() {
 
         {/* Color mode */}
         {/* h={32.5} to match the heights of other header elments */}
-        <HStack borderWidth={1.5} borderColor={colors.textColor} borderRadius="md" px={3} h={32.5}>
+        <HStack borderWidth={1.5} borderColor={colors.textColor} borderRadius="md" px={3} py={0.5}>
           <Center>
             <Text fontSize="sm" fontWeight="bold" color={colors.textColor}>
               Color:

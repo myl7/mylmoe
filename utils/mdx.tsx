@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import React from 'react'
-import Image from 'next/image'
 import NextLink from 'next/link'
 import remarkGfm from 'remark-gfm'
 import remarkToc from 'remark-toc'
@@ -14,6 +13,7 @@ import { MdLaunch, MdLink } from 'react-icons/md'
 import {
   Link,
   Text,
+  Image,
   Heading,
   Divider,
   Code,
@@ -81,7 +81,7 @@ export const components = {
         borderLeftColor={colors.textColor}
         sx={{ filter: 'contrast(0.75)' }}
         // Exclude Code monospace font family config to reuse its styles
-        fontFamily="unset"
+        fontFamily="initial"
         {...props}
       />
     )
@@ -118,10 +118,10 @@ export const components = {
   // input
   // section
   sup: (props: any) => <Text as="sup" {...props} />,
-  table: Table,
+  table: (props: any) => <Table w="fit-content" {...props} />,
   tbody: Tbody,
   td: Td,
-  th: Th,
+  th: (props: any) => <Th fontSize="md" textTransform="initial" {...props} />,
   thead: Thead,
   tr: Tr,
   sub: (props: any) => <Text as="sub" {...props} />,
@@ -138,8 +138,6 @@ export const components = {
 
 // For h2 - h4
 function hx(x: number) {
-  const elem = `h${x}`
-  const size = ['md', 'sm', 'xs'][x - 2]
   return function (props: any) {
     const colors = {
       linkColor: colorHooks.useLinkColor(),
@@ -148,9 +146,9 @@ function hx(x: number) {
     const children = newProps.children
     delete newProps.children
     return (
-      <Heading as={elem} size={size} {...newProps}>
+      <Heading as={`h${x}`} size={['md', 'sm', 'xs'][x - 2]} {...newProps} pl={x - 2}>
         <Link href={`#${props.id}`} textColor={colors.linkColor}>
-          <Icon as={MdLink} w={5} h={5} verticalAlign="top" mr={1} />
+          <Icon as={MdLink} w={7 - x} h={7 - x} verticalAlign="top" mr={1} />
         </Link>
         {children}
       </Heading>

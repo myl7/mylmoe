@@ -33,7 +33,16 @@ const Post: NextPage<PostProps> = (props) => {
       </Head>
       <HljsStyle />
       <Header />
-      <Box as="main" pt={headerHeight + 4} pb={2} px={2} id="post">
+      <Box
+        as="main"
+        pt={headerHeight + 4}
+        pb={2}
+        px={2}
+        id="post"
+        sx={{ '--post-block-mx': '21px' }} // For child non-heading block margin in index.css
+        w="fit-content"
+        maxW="calc(100% - 2 * var(--post-block-mx))"
+      >
         <MDXRemote {...mdx} components={components} lazy />
       </Box>
       <Footer />

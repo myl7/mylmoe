@@ -52,7 +52,7 @@ export default function Footer() {
       <Spacer />
       <Box>
         <Link textColor={colors.linkColor} href="https://icp.gov.moe" isExternal>
-          萌 ICP 备
+          萌ICP备
           <Icon as={MdLaunch} w={3} h={3} />
         </Link>{' '}
         <Link textColor={colors.linkColor} href={`https://icp.gov.moe/?keyword=${moeCode}`} isExternal>
