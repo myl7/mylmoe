@@ -57,6 +57,7 @@ function DesktopHeader() {
 
   const { colorMode, toggleColorMode } = useColorMode()
 
+  // TODO: Toast notification
   const resetColorModeToSystem = () => localStorage.removeItem('chakra-ui-color-mode')
 
   const searchInputRef = React.useRef<HTMLInputElement>(null)
@@ -179,7 +180,7 @@ function DesktopHeader() {
           </HStack>
 
           {/* Follow */}
-          <Menu matchWidth>
+          <Menu>
             {({ isOpen }) => (
               <>
                 <MenuButton
@@ -195,9 +196,7 @@ function DesktopHeader() {
                 >
                   Follow
                 </MenuButton>
-                {/* minW={0} to shrink menu items */}
-                <MenuList minW={0}>
-                  {/* Use <Icon> to forcibly set icon size, but cause menu item text unaligned */}
+                <MenuList>
                   <MenuItem
                     as={Link}
                     href="/rss.xml"
@@ -206,7 +205,17 @@ function DesktopHeader() {
                     fontWeight="bold"
                     fontSize="xs"
                   >
-                    RSS
+                    RSS feed
+                  </MenuItem>
+                  <MenuItem
+                    as={Link}
+                    href="/atom.xml"
+                    icon={<Icon as={MdRssFeed} w={4} h={4} />}
+                    h={8}
+                    fontWeight="bold"
+                    fontSize="xs"
+                  >
+                    Atom feed
                   </MenuItem>
                 </MenuList>
               </>
@@ -357,20 +366,44 @@ const MobileHeader = () => {
           <HStack justify="end" w="100%">
             {/* Follow */}
             <Center>
-              <Text fontSize="sm" fontWeight="bold" color={colors.textColor}>
+              <Text fontSize="sm" fontWeight="bold">
                 Follow with
               </Text>
             </Center>
-            <IconButton
-              as={Link}
-              href="/rss.xml"
-              aria-label="RSS feed"
-              icon={<Icon as={MdRssFeed} w={5} h={5} />}
-              size="sm"
-              variant="outline"
-              rounded="md"
-              borderColor={colors.textColor}
-            />
+            <VStack spacing={-1}>
+              <Center>
+                <Text fontSize="xs" fontWeight="bold">
+                  RSS
+                </Text>
+              </Center>
+              <IconButton
+                as={Link}
+                href="/rss.xml"
+                aria-label="RSS feed"
+                icon={<Icon as={MdRssFeed} w={5} h={5} />}
+                size="xs"
+                variant="outline"
+                rounded="md"
+                borderColor={colors.textColor}
+              />
+            </VStack>
+            <VStack spacing={-1}>
+              <Center>
+                <Text fontSize="xs" fontWeight="bold">
+                  Atom
+                </Text>
+              </Center>
+              <IconButton
+                as={Link}
+                href="/atom.xml"
+                aria-label="Atom feed"
+                icon={<Icon as={MdRssFeed} w={5} h={5} />}
+                size="xs"
+                variant="outline"
+                rounded="md"
+                borderColor={colors.textColor}
+              />
+            </VStack>
           </HStack>
         </VStack>
       </Collapse>
