@@ -43,8 +43,6 @@ export const rehypePlugins = [
   ],
 ]
 
-const host = 'myl.moe'
-
 export const components = {
   a: (props: any) => {
     const colors = {
@@ -52,7 +50,7 @@ export const components = {
     }
     if (props.href.startsWith('http')) {
       const url = new URL(props.href)
-      if (url.host == host) {
+      if (url.host == 'myl.moe') {
         return (
           <NextLink href={props.href} passHref>
             <Link textColor={colors.linkColor} {...props} />

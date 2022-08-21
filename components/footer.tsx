@@ -6,8 +6,6 @@ import { FaCreativeCommons, FaCreativeCommonsBy, FaCreativeCommonsSa } from 'rea
 import { MdLaunch } from 'react-icons/md'
 import colorHooks from '../utils/colors'
 
-const moeCode = '20210016'
-
 export default function Footer() {
   const colors = {
     textColor: colorHooks.useTextColor(),
@@ -58,8 +56,8 @@ export default function Footer() {
           萌ICP备
           <Icon as={MdLaunch} w={3} h={3} />
         </Link>{' '}
-        <Link textColor={colors.linkColor} href={`https://icp.gov.moe/?keyword=${moeCode}`}>
-          {moeCode}
+        <Link textColor={colors.linkColor} href="https://icp.gov.moe/?keyword=20210016">
+          20210016
           <Icon as={MdLaunch} w={3} h={3} />
         </Link>{' '}
         号

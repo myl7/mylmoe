@@ -11,7 +11,7 @@ import path from 'path'
 import Footer from '../components/footer'
 import Header from '../components/header'
 import { components, rehypePlugins, remarkPlugins } from '../utils/mdx'
-import { getMeta, type Meta } from '../utils/post'
+import { getMeta, getPPathsWithExts, type Meta } from '../utils/posts'
 import HljsStyle from '../components/hljsStyle'
 import type { Frontmatter } from '../posts'
 
@@ -67,17 +67,7 @@ const Post: NextPage<PostProps> = (props) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const dpath = path.join(process.cwd(), 'posts')
-  const pslugs = (await fs.promises.readdir(dpath)).flatMap((p) => {
-    if (p.endsWith('.mdx')) {
-      return [p.slice(0, -'.mdx'.length)]
-    } else if (p.endsWith('.md')) {
-      return [p.slice(0, -'.md'.length)]
-    } else {
-      return []
-    }
-  })
-  const ppaths = pslugs.map((p) => path.join('/', p))
+  const ppaths = (await getPPathsWithExts()).map(({ ppath }) => ppath)
   return { paths: ppaths, fallback: false }
 }
 

@@ -10,6 +10,7 @@ specifiers:
   eslint: 8.22.0
   eslint-config-next: 12.2.5
   eslint-config-prettier: ^8.5.0
+  feed: ^4.2.2
   framer-motion: ^6.5.1
   next: 12.2.5
   next-mdx-remote: ^4.1.0
@@ -25,17 +26,20 @@ specifiers:
   remark-math: ^5.1.1
   remark-toc: ^8.0.1
   typescript: 4.7.4
+  yaml: ^2.1.1
 
 dependencies:
   '@chakra-ui/react': 2.2.8_4oe3egbbnrct5gzkv6tybil42y
   '@emotion/react': 11.10.0_msmmgljd7hl2w2irtggflhmema
   '@emotion/styled': 11.10.0_5sec57kzpgkzooe4crua5kfcly
+  feed: 4.2.2
   framer-motion: 6.5.1_biqbaboplfbrettd7655fr4n2y
   next: 12.2.5_twoewwu6sg7cdf3ao6njtbftne
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-helmet-async: 1.3.0_biqbaboplfbrettd7655fr4n2y
   react-icons: 4.4.0_react@18.2.0
+  yaml: 2.1.1
 
 devDependencies:
   '@types/node': 18.7.6
@@ -2612,6 +2616,13 @@ packages:
       format: 0.2.2
     dev: true
 
+  /feed/4.2.2:
+    resolution: {integrity: sha512-u5/sxGfiMfZNtJ3OvQpXcvotFpYkL0n9u9mM2vkui2nGo8b4wvDkJ8gAkYqbA8QpGyFCv3RK0Z+Iv+9veCS9bQ==}
+    engines: {node: '>=0.4.0'}
+    dependencies:
+      xml-js: 1.6.11
+    dev: false
+
   /file-entry-cache/6.0.1:
     resolution: {integrity: sha512-7Gps/XWymbLk2QLYK4NzpMOrYjMhdIxXuIvy2QBsLE6ljuodKvdkWs/cpyJJ3CVIVpH0Oi1Hvg1ovbMzLdFBBg==}
     engines: {node: ^10.12.0 || >=12.0.0}
@@ -4429,6 +4440,10 @@ packages:
     resolution: {integrity: sha512-Gd2UZBJDkXlY7GbJxfsE8/nvKkUEU1G38c1siN6QP6a9PT9MmHB8GnpscSmMJSoF8LOIrt8ud/wPtojys4G6+g==}
     dev: false
 
+  /sax/1.2.4:
+    resolution: {integrity: sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==}
+    dev: false
+
   /scheduler/0.23.0:
     resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==}
     dependencies:
@@ -4905,6 +4920,13 @@ packages:
     resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==}
     dev: true
 
+  /xml-js/1.6.11:
+    resolution: {integrity: sha512-7rVi2KMfwfWFl+GpPg6m80IVMWXLRjO+PxTq7V2CDhoGak0wzYzFgUY2m4XJ47OGdXd8eLE8EmwfAmdjw7lC1g==}
+    hasBin: true
+    dependencies:
+      sax: 1.2.4
+    dev: false
+
   /yallist/4.0.0:
     resolution: {integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==}
     dev: true
@@ -4912,6 +4934,11 @@ packages:
   /yaml/1.10.2:
     resolution: {integrity: sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==}
     engines: {node: '>= 6'}
+    dev: false
+
+  /yaml/2.1.1:
+    resolution: {integrity: sha512-o96x3OPo8GjWeSLF+wOAbrPfhFOGY0W00GNaxCDv+9hkcDJEnev1yh8S7pgHF0ik6zc8sQLuL8hjHjJULZp8bw==}
+    engines: {node: '>= 14'}
     dev: false
 
   /yocto-queue/0.1.0:

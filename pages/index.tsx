@@ -5,21 +5,16 @@ import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import NextLink from 'next/link'
 import { Box, Heading, HStack, Tag, Text, VStack, Link } from '@chakra-ui/react'
-import { serialize } from 'next-mdx-remote/serialize'
-import path from 'path'
-import fs from 'fs'
 import Footer from '../components/footer'
 import Header from '../components/header'
-import { getMeta, type Meta } from '../utils/post'
+import { getMetasWithPPaths, type Meta } from '../utils/posts'
 import colorHooks from '../utils/colors'
-import { rehypePlugins, remarkPlugins } from '../utils/mdx'
-import type { Frontmatter } from '../posts'
 
 interface IndexProps {
-  pmetas: { meta: Meta; ppath: string }[]
+  metas: { meta: Meta; ppath: string }[]
 }
 
-const Home: NextPage<IndexProps> = ({ pmetas }) => {
+const Home: NextPage<IndexProps> = ({ metas }) => {
   return (
     <div>
       <Head>
@@ -29,14 +24,14 @@ const Home: NextPage<IndexProps> = ({ pmetas }) => {
       </Head>
       <Header />
       <VStack as="main" px={2} pb={2} alignItems="flex-start">
-        {pmetas.map(PItem)}
+        {metas.map(PItem)}
       </VStack>
       <Footer />
     </div>
   )
 }
 
-type PItemProps = IndexProps['pmetas'][number]
+type PItemProps = IndexProps['metas'][number]
 
 function PItem(props: PItemProps) {
   const colors = {
@@ -81,38 +76,8 @@ function PItem(props: PItemProps) {
 }
 
 export const getStaticProps: GetStaticProps<IndexProps> = async () => {
-  const dpath = path.join(process.cwd(), 'posts')
-  const pslugs = (await fs.promises.readdir(dpath)).flatMap((p) => {
-    if (p.endsWith('.mdx')) {
-      return [p.slice(0, -'.mdx'.length)]
-    } else if (p.endsWith('.md')) {
-      return [p.slice(0, -'.md'.length)]
-    } else {
-      return []
-    }
-  })
-  const ppaths = pslugs.map((p) => path.join('/', p))
-
-  const pmetas = [] as { meta: Meta; ppath: string }[]
-  for (const ppath of ppaths) {
-    const fpathBase = path.join(process.cwd(), 'posts', ppath)
-    let text: string
-    let ext = 'mdx'
-    try {
-      text = (await fs.promises.readFile(fpathBase + '.' + ext)).toString()
-    } catch {
-      ext = 'md'
-      text = (await fs.promises.readFile(fpathBase + '.' + ext)).toString()
-    }
-    const mdx = await serialize(text, {
-      // @ts-ignore
-      mdxOptions: { remarkPlugins, rehypePlugins, format: ext },
-      parseFrontmatter: true,
-    })
-    const meta = getMeta(mdx.frontmatter as any as Frontmatter)
-    pmetas.push({ meta, ppath })
-  }
-  return { props: { pmetas } }
+  const metas = await getMetasWithPPaths()
+  return { props: { metas } }
 }
 
 export default Home
