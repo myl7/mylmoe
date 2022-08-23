@@ -4,6 +4,8 @@
 import React from 'react'
 import NextLink from 'next/link'
 import remarkGfm from 'remark-gfm'
+import remarkDirective from 'remark-directive'
+import remarkDirectiveRehype from 'remark-directive-rehype'
 import remarkToc from 'remark-toc'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
@@ -31,7 +33,7 @@ import {
 } from '@chakra-ui/react'
 import colorHooks from './colors'
 
-export const remarkPlugins = [remarkGfm, remarkToc, remarkMath]
+export const remarkPlugins = [remarkGfm, remarkDirective, remarkDirectiveRehype, remarkToc, remarkMath]
 
 export const rehypePlugins = [
   rehypeKatex,
@@ -164,10 +166,3 @@ function hx(x: number) {
     )
   }
 }
-
-// Not used since no hastscript is required
-// function react2hast(node: React.ReactElement) {
-//   const html = renderToStaticMarkup(node)
-//   const tree = unified().use(rehypeParse, { fragment: true }).parse(html)
-//   return tree.children[0]
-// }

@@ -3,7 +3,8 @@
 
 import path from 'path'
 import fs from 'fs'
-import YAML from 'yaml'
+import { VFile } from 'vfile'
+import { matter } from 'vfile-matter'
 import type { Frontmatter } from '../posts'
 
 export type Meta = Omit<Required<Frontmatter>, 'tags'> & { tags: string[] }
@@ -45,12 +46,16 @@ export async function getMetasWithPPaths() {
   const metas = [] as { meta: Meta; ppath: string }[]
   for (const { ppath, ext } of ppaths) {
     const text = (await fs.promises.readFile(path.join(process.cwd(), 'posts', ppath + '.' + ext))).toString()
-    const fmTextM = text.match(/^---$([\s\S]+?)^---$/m)
-    if (!fmTextM) throw new Error('Frontmatter not found in ' + ppath.substring(1))
-    const fmText = fmTextM[1]
-    const fm = YAML.parse(fmText) as Frontmatter
+    const fm = getFM(text)
     const meta = getMeta(fm)
     metas.push({ meta, ppath })
   }
   return metas
+}
+
+// Get frontmatter like next-mdx-remote does
+function getFM(text: string) {
+  const vf = new VFile({ value: text })
+  matter(vf, { strip: true })
+  return vf.data.matter as Frontmatter
 }
