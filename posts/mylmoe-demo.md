@@ -49,10 +49,26 @@ Auto-generated TOC of the headings and styles of headings except h4 can be found
 ```c
 printf("Hello, world!");
 ```
+
+```
+printf("Hello, world!");
+```
+
+```
+
+```
 ````
 
 ```c
 printf("Hello, world!");
+```
+
+```
+printf("Hello, world!");
+```
+
+```
+
 ```
 
 ### Paragraphs

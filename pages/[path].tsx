@@ -3,16 +3,16 @@
 
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
-import { Box, Divider, Heading, HStack, Tag, Text } from '@chakra-ui/react'
+import { Box, Divider, Heading, HStack, Tag, Text, useColorMode } from '@chakra-ui/react'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
+import { Helmet } from 'react-helmet-async'
 import fs from 'fs'
 import path from 'path'
 import Footer from '../components/footer'
 import Header from '../components/header'
 import { components, rehypePlugins, remarkPlugins } from '../utils/mdx'
 import { getMeta, getPPathsWithExts, type Meta } from '../utils/posts'
-import HljsStyle from '../components/hljsStyle'
 import type { Frontmatter } from '../posts'
 
 interface PostProps {
@@ -24,6 +24,8 @@ interface PostProps {
 const Post: NextPage<PostProps> = (props) => {
   const { mdx, meta, ppath } = props
 
+  const { colorMode } = useColorMode()
+
   return (
     <div>
       <Head>
@@ -31,7 +33,25 @@ const Post: NextPage<PostProps> = (props) => {
         {meta.abstract && <meta name="description" content={meta.abstract} />}
         <link rel="canonical" href={'https://myl.moe' + ppath} />
       </Head>
-      <HljsStyle />
+      <Helmet>
+        {colorMode == 'light' ? (
+          <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/atom-one-light.min.css"
+            integrity="sha512-o5v54Kh5PH0dgnf9ei0L+vMRsbm5fvIvnR/XkrZZjN4mqdaeH7PW66tumBoQVIaKNVrLCZiBEfHzRY4JJSMK/Q=="
+            crossOrigin="anonymous"
+            referrerPolicy="no-referrer"
+          />
+        ) : (
+          <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/atom-one-dark.min.css"
+            integrity="sha512-Jk4AqjWsdSzSWCSuQTfYRIF84Rq/eV0G2+tu07byYwHcbTGfdmLrHjUSwvzp5HvbiqK4ibmNwdcG49Y5RGYPTg=="
+            crossOrigin="anonymous"
+            referrerPolicy="no-referrer"
+          />
+        )}
+      </Helmet>
       <Header />
       <Box
         as="main"

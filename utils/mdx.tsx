@@ -11,7 +11,7 @@ import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
 import rehypeSlug from 'rehype-slug'
 import rehypeHighlight from 'rehype-highlight'
-import { MdLaunch, MdLink } from 'react-icons/md'
+import { MdContentCopy, MdDone, MdLaunch, MdLink } from 'react-icons/md'
 import {
   Link,
   Text,
@@ -30,10 +30,22 @@ import {
   Tr,
   Icon,
   Box,
+  IconButton,
+  VStack,
+  Tag,
+  useClipboard,
 } from '@chakra-ui/react'
+import remarkCodeAsProp from './remarkCodeAsProp'
 import colorHooks from './colors'
 
-export const remarkPlugins = [remarkGfm, remarkDirective, remarkDirectiveRehype, remarkToc, remarkMath]
+export const remarkPlugins = [
+  remarkGfm,
+  remarkDirective,
+  remarkDirectiveRehype,
+  remarkToc,
+  remarkMath,
+  remarkCodeAsProp, // Save code content to data-code prop
+]
 
 export const rehypePlugins = [
   rehypeKatex,
@@ -41,7 +53,7 @@ export const rehypePlugins = [
   [
     rehypeHighlight,
     {
-      subset: false, // No language auto-detection
+      subset: [], // No language auto-detection but still add hljs class
     },
   ],
 ]
@@ -95,10 +107,43 @@ export const components = {
       />
     )
   },
-  // TODO: Show language, line numbers, copy to clipboard
+  // TODO: line numbers
   code: (props: any) => {
-    const { isInPre, ...rest } = props
-    return isInPre ? <Code px={4} py={2} borderRadius="md" {...rest} /> : <Code {...rest} />
+    const { isInPre, children, className, 'data-code': dataCode, ...rest } = props
+
+    const lang = className
+      ? (className as string)
+          .split(' ')
+          .find((cls) => cls.startsWith('language-'))
+          ?.substring('language-'.length) ?? ''
+      : ''
+
+    const { hasCopied, onCopy } = useClipboard(dataCode)
+
+    return isInPre ? (
+      children ? (
+        <>
+          <VStack float="right" pl={1} spacing={0.5} alignItems="flex-start">
+            {lang && <Tag size="sm">{lang}</Tag>}
+            <IconButton
+              aria-label="Copy the code block to clipboard"
+              icon={<Icon as={hasCopied ? MdDone : MdContentCopy} w={3} h={3} />}
+              size="xs"
+              rounded="full"
+              float="right"
+              onClick={onCopy}
+            />
+          </VStack>
+          <Code px={4} py={2} borderRadius="md" {...rest}>
+            {children}
+          </Code>
+        </>
+      ) : (
+        <Code px={4} py={2} borderRadius="md" {...rest} />
+      )
+    ) : (
+      <Code {...rest} />
+    )
   },
   em: (props: any) => <Text as="em" {...props} />,
   h1: (_props: any) => {
