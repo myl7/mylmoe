@@ -1,3 +1,9 @@
+// Copyright (C) 2022 myl7
+// SPDX-License-Identifier: Apache-2.0
+
+// remark/rehype plugins are widely used in no-ts envs (e.g. Next.js config)
+// Use js to avoid extra compilation
+
 import { visit } from 'unist-util-visit'
 
 export default function remarkCodeAsProp() {
