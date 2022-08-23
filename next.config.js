@@ -32,6 +32,20 @@ const nextConfig = {
           { key: 'content-disposition', value: 'inline' },
         ],
       },
+      {
+        source: '/.well-known/matrix/server',
+        headers: [
+          { key: 'content-type', value: 'application/json' },
+          { key: 'content-disposition', value: 'inline' },
+        ],
+      },
+      {
+        source: '/.well-known/matrix/client',
+        headers: [
+          { key: 'content-type', value: 'application/json' },
+          { key: 'content-disposition', value: 'inline' },
+        ],
+      },
     ]
   },
 }
