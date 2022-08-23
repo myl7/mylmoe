@@ -8,6 +8,7 @@ import remarkDirective from 'remark-directive'
 import remarkDirectiveRehype from 'remark-directive-rehype'
 import remarkToc from 'remark-toc'
 import remarkMath from 'remark-math'
+import rehypeRaw from 'rehype-raw'
 import rehypeKatex from 'rehype-katex'
 import rehypeSlug from 'rehype-slug'
 import rehypeHighlight from 'rehype-highlight'
@@ -38,6 +39,10 @@ import {
 import remarkCodeAsProp from './remarkCodeAsProp'
 import colorHooks from './colors'
 
+// Node types that have to be passed through from `mdx`, which is from `mdast-util-mdx`
+// Copy here other than import to avoid huge new dependencies
+const mdxNodeTypes = ['mdxFlowExpression', 'mdxJsxFlowElement', 'mdxJsxTextElement', 'mdxTextExpression', 'mdxjsEsm']
+
 export const remarkPlugins = [
   remarkGfm,
   remarkDirective,
@@ -48,6 +53,7 @@ export const remarkPlugins = [
 ]
 
 export const rehypePlugins = [
+  [rehypeRaw, { passThrough: mdxNodeTypes }],
   rehypeKatex,
   rehypeSlug,
   [

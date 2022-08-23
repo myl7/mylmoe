@@ -21,6 +21,7 @@ specifiers:
   react-icons: ^4.4.0
   rehype-highlight: ^5.0.2
   rehype-katex: ^6.0.2
+  rehype-raw: ^6.1.1
   rehype-slug: ^5.0.1
   remark-directive: ^2.0.1
   remark-directive-rehype: ^0.4.0
@@ -56,6 +57,7 @@ devDependencies:
   prettier: 2.7.1
   rehype-highlight: 5.0.2
   rehype-katex: 6.0.2
+  rehype-raw: 6.1.1
   rehype-slug: 5.0.1
   remark-directive: 2.0.1
   remark-directive-rehype: 0.4.0
@@ -2881,6 +2883,18 @@ packages:
     dependencies:
       function-bind: 1.1.1
 
+  /hast-to-hyperscript/10.0.1:
+    resolution: {integrity: sha512-dhIVGoKCQVewFi+vz3Vt567E4ejMppS1haBRL6TEmeLeJVB1i/FJIIg/e6s1Bwn0g5qtYojHEKvyGA+OZuyifw==}
+    dependencies:
+      '@types/unist': 2.0.6
+      comma-separated-tokens: 2.0.2
+      property-information: 6.1.1
+      space-separated-tokens: 2.0.1
+      style-to-object: 0.3.0
+      unist-util-is: 5.1.1
+      web-namespaces: 2.0.1
+    dev: true
+
   /hast-util-from-parse5/7.1.0:
     resolution: {integrity: sha512-m8yhANIAccpU4K6+121KpPP55sSl9/samzQSQGpb0mTExcNh2WlvjtMwSWFhg6uqD4Rr6Nfa8N6TMypQM51rzQ==}
     dependencies:
@@ -2917,6 +2931,22 @@ packages:
       '@types/hast': 2.3.4
     dev: true
 
+  /hast-util-raw/7.2.2:
+    resolution: {integrity: sha512-0x3BhhdlBcqRIKyc095lBSDvmQNMY3Eulj2PLsT5XCyKYrxssI5yr3P4Kv/PBo1s/DMkZy2voGkMXECnFCZRLQ==}
+    dependencies:
+      '@types/hast': 2.3.4
+      '@types/parse5': 6.0.3
+      hast-util-from-parse5: 7.1.0
+      hast-util-to-parse5: 7.0.0
+      html-void-elements: 2.0.1
+      parse5: 6.0.1
+      unist-util-position: 4.0.3
+      unist-util-visit: 4.1.0
+      vfile: 5.3.4
+      web-namespaces: 2.0.1
+      zwitch: 2.0.2
+    dev: true
+
   /hast-util-to-estree/2.1.0:
     resolution: {integrity: sha512-Vwch1etMRmm89xGgz+voWXvVHba2iiMdGMKmaMfYt35rbVtFDq8JNwwAIvi8zHMkO6Gvqo9oTMwJTmzVRfXh4g==}
     dependencies:
@@ -2937,6 +2967,17 @@ packages:
       zwitch: 2.0.2
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /hast-util-to-parse5/7.0.0:
+    resolution: {integrity: sha512-YHiS6aTaZ3N0Q3nxaY/Tj98D6kM8QX5Q8xqgg8G45zR7PvWnPGPP0vcKCgb/moIydEJ/QWczVrX0JODCVeoV7A==}
+    dependencies:
+      '@types/hast': 2.3.4
+      '@types/parse5': 6.0.3
+      hast-to-hyperscript: 10.0.1
+      property-information: 6.1.1
+      web-namespaces: 2.0.1
+      zwitch: 2.0.2
     dev: true
 
   /hast-util-to-string/2.0.0:
@@ -2981,6 +3022,10 @@ packages:
     dependencies:
       react-is: 16.13.1
     dev: false
+
+  /html-void-elements/2.0.1:
+    resolution: {integrity: sha512-0quDb7s97CfemeJAnW9wC0hw78MtW7NU3hqtCD75g2vFlDLt36llsYD7uB7SUzojLMP24N5IatXf7ylGXiGG9A==}
+    dev: true
 
   /ignore/5.2.0:
     resolution: {integrity: sha512-CmxgYGiEPCLhfLnpPp1MoRmifwEIOgjcHXxOBjv7mY96c+eWScsOP9c112ZyLdWHi0FxHjI+4uVhKYp/gcdRmQ==}
@@ -4363,6 +4408,14 @@ packages:
       '@types/hast': 2.3.4
       hast-util-from-parse5: 7.1.0
       parse5: 6.0.1
+      unified: 10.1.2
+    dev: true
+
+  /rehype-raw/6.1.1:
+    resolution: {integrity: sha512-d6AKtisSRtDRX4aSPsJGTfnzrX2ZkHQLE5kiUuGOeEoLpbEulFF4hj0mLPbsa+7vmguDKOVVEQdHKDSwoaIDsQ==}
+    dependencies:
+      '@types/hast': 2.3.4
+      hast-util-raw: 7.2.2
       unified: 10.1.2
     dev: true
 

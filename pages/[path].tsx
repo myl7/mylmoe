@@ -104,7 +104,7 @@ export const getStaticProps: GetStaticProps<PostProps> = async ({ params }) => {
   }
   // @ts-ignore For complicated plugin options
   let mdx = await serialize(text, { mdxOptions: { remarkPlugins, rehypePlugins, format: ext }, parseFrontmatter: true })
-  // Frontmatter could not be parsed if containing Date object
+  // Meta could not be serialized if containing Date object
   const meta = getMeta(mdx.frontmatter as any as Frontmatter)
   delete mdx.frontmatter
   return { props: { mdx, meta, ppath } }

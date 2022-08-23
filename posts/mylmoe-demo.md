@@ -1,6 +1,7 @@
 ---
 title: 'Demo of mylmoe: self-written frontend blog system'
 createdDate: 2022-08-21
+updatedDate: 2022-08-23
 abstract: mylmoe v0.5 is released now after the 5th refactoring/rewriting. The post shows demos of various supported Markdown syntax/features/extensions.
 tags: demo markdown mdx gfm mylmoe
 ---
@@ -190,5 +191,48 @@ If you are writting a MDX post, use MDX comments:
 
 ### HTML blocks/inlines
 
-Notice that HTML block/inline in Markdown posts are NOT supported.
-To use these HTML stuff, switch to MDX posts which have builtin support.
+```md
+<a href="https://github.com/myl7/mylmoe" title="title">link</a>
+<button onclick="alert(1)">Do NOT click me!</button>
+
+<div style="display: flex; gap: 30px">
+<div>
+
+- unordered list
+  - list
+    - list
+
+</div>
+<div>
+
+1. ordered list
+2. list
+3. list
+
+</div>
+</div>
+```
+
+<a href="https://github.com/myl7/mylmoe" title="title">link</a>
+<button onclick="alert(1)">Do NOT click me!</button>
+
+<div style="display: flex; gap: 30px">
+<div>
+
+- unordered list
+  - list
+    - list
+
+</div>
+<div>
+
+1. ordered list
+2. list
+3. list
+
+</div>
+</div>
+
+Notice that `onclick="alert(1)"` would not work.
+`"alert(1)"` would be parsed to a string and passed to **React** `onClick` event handler, causing no effects.
+Additionally an error would be raised in Next.js development mode.
