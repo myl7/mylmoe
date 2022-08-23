@@ -27,6 +27,7 @@ import {
   Thead,
   Tr,
   Icon,
+  Box,
 } from '@chakra-ui/react'
 import colorHooks from './colors'
 
@@ -58,11 +59,9 @@ export const components = {
         )
       }
       // External link
-      const newProps = { ...props }
-      const children = newProps.children
-      delete newProps.children
+      const { children, ...rest } = props
       return (
-        <Link textColor={colors.linkColor} {...newProps}>
+        <Link textColor={colors.linkColor} {...rest}>
           {children}
           <Icon as={MdLaunch} w={4} h={4} />
         </Link>
@@ -94,16 +93,11 @@ export const components = {
       />
     )
   },
-  // TODO: Highlight according to color mode
-  code: (props: any) => (
-    <Code
-      w="fit-content"
-      sx={{
-        'pre > &': { paddingLeft: 4, paddingRight: 4, paddingTop: 2, paddingBottom: 2, borderRadius: 'md' },
-      }}
-      {...props}
-    />
-  ),
+  // TODO: Show language, line numbers, copy to clipboard
+  code: (props: any) => {
+    const { isInPre, ...rest } = props
+    return isInPre ? <Code px={4} py={2} borderRadius="md" {...rest} /> : <Code {...rest} />
+  },
   em: (props: any) => <Text as="em" {...props} />,
   h1: (_props: any) => {
     // h1 will be set by other elements and should only be set once
@@ -119,7 +113,16 @@ export const components = {
   li: ListItem,
   ol: OrderedList,
   p: Text,
-  // pre
+  pre: (props: any) => {
+    const { children, ...rest } = props
+    return (
+      <Box as="pre" w="fit-content" {...rest}>
+        {React.Children.map(children as React.ReactNode, (child) =>
+          React.isValidElement(child) ? React.cloneElement(child, { isInPre: true }) : child
+        )}
+      </Box>
+    )
+  },
   strong: (props: any) => <Text as="strong" {...props} />,
   ul: UnorderedList,
   del: (props: any) => <Text as="del" {...props} />,
@@ -150,11 +153,9 @@ function hx(x: number) {
     const colors = {
       linkColor: colorHooks.useLinkColor(),
     }
-    const newProps = { ...props }
-    const children = newProps.children
-    delete newProps.children
+    const { children, ...rest } = props
     return (
-      <Heading as={`h${x}`} size={['md', 'sm', 'xs'][x - 2]} {...newProps} pl={x - 2}>
+      <Heading as={`h${x}`} size={['md', 'sm', 'xs'][x - 2]} {...rest} pl={x - 2}>
         <Link href={`#${props.id}`} textColor={colors.linkColor}>
           <Icon as={MdLink} w={7 - x} h={7 - x} verticalAlign="top" mr={1} />
         </Link>
