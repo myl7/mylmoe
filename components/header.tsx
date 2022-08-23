@@ -22,7 +22,6 @@ import {
   MenuList,
   Spacer,
   Text,
-  Tooltip,
   useBreakpointValue,
   useColorMode,
   useDisclosure,
@@ -61,14 +60,6 @@ function DesktopHeader() {
   const resetColorModeToSystem = () => localStorage.removeItem('chakra-ui-color-mode')
 
   const searchInputRef = React.useRef<HTMLInputElement>(null)
-  const getGoogleSiteSearchUrl = (q: string) => {
-    const params = new URLSearchParams([
-      ['q', q],
-      ['as_sitesearch', window.location.origin],
-      ['ncr', '1'],
-    ])
-    return 'https://www.google.com/search?' + params.toString()
-  }
   const search = () => {
     const query = searchInputRef.current?.value
     if (query) {
@@ -96,20 +87,11 @@ function DesktopHeader() {
           {/* Title */}
           <Center pl={3}>
             <Text fontSize="lg" fontWeight="bold" color={colors.textColor}>
-              <Tooltip
-                hasArrow
-                placement="bottom-start"
-                label="myl7's blog & utils"
-                fontWeight="bold"
-                closeOnClick={false}
-              >
-                <NextLink href="/" passHref>
-                  <Link>mylmoe</Link>
-                </NextLink>
-              </Tooltip>
+              <NextLink href="/" passHref>
+                <Link>mylmoe</Link>
+              </NextLink>
             </Text>
           </Center>
-
           {/* Home */}
           <NextLink href="/" passHref>
             <Button
@@ -242,20 +224,10 @@ const MobileHeader = () => {
   const resetColorModeToSystem = () => localStorage.removeItem('chakra-ui-color-mode')
 
   const searchInputRef = React.useRef<HTMLInputElement>(null)
-  const getGoogleSiteSearchUrl = (q: string) => {
-    const params = new URLSearchParams([
-      ['q', q],
-      ['as_sitesearch', window.location.origin],
-      ['ncr', '1'],
-    ])
-    return 'https://www.google.com/search?' + params.toString()
-  }
   const search = () => {
     const query = searchInputRef.current?.value
     if (query) {
       window.location.href = getGoogleSiteSearchUrl(query)
-      // The following one will be blocked by Firefox in searching via Enter
-      // window.open(getGoogleSiteSearchUrl(query), '_blank')
     }
   }
 
@@ -409,4 +381,13 @@ const MobileHeader = () => {
       </Collapse>
     </>
   )
+}
+
+function getGoogleSiteSearchUrl(q: string) {
+  const params = new URLSearchParams([
+    ['q', q],
+    ['as_sitesearch', window.location.origin],
+    ['ncr', '1'],
+  ])
+  return 'https://www.google.com/search?' + params.toString()
 }
