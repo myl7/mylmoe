@@ -66,33 +66,33 @@ export const rehypePlugins = [
 
 export const components = {
   a: (props: any) => {
+    const { href, children, ...rest }: { href: string; children: React.ReactNode } = props
     const colors = {
       linkColor: colorHooks.useLinkColor(),
     }
-    if (props.href.startsWith('http')) {
-      const url = new URL(props.href)
-      if (url.host == 'myl.moe') {
-        return (
-          <NextLink href={props.href} passHref>
-            <Link textColor={colors.linkColor} {...props} />
-          </NextLink>
-        )
-      }
-      // External link
-      const { children, ...rest } = props
-      return (
+
+    let isExternal = false
+    if (href.startsWith('http')) {
+      try {
+        const url = new URL(href)
+        if (url.host != 'myl.moe') {
+          return true
+        }
+      } catch (e) {}
+    }
+
+    return isExternal ? (
+      <Link textColor={colors.linkColor} {...rest}>
+        {children}
+        <Icon as={MdLaunch} w={4} h={4} />
+      </Link>
+    ) : (
+      <NextLink href={href} passHref>
         <Link textColor={colors.linkColor} {...rest}>
           {children}
-          <Icon as={MdLaunch} w={4} h={4} />
         </Link>
-      )
-    } else {
-      return (
-        <NextLink href={props.href} passHref>
-          <Link textColor={colors.linkColor} {...props} />
-        </NextLink>
-      )
-    }
+      </NextLink>
+    )
   },
   blockquote: (props: any) => {
     const colors = {
@@ -113,44 +113,7 @@ export const components = {
       />
     )
   },
-  // TODO: line numbers
-  code: (props: any) => {
-    const { isInPre, children, className, 'data-code': dataCode, ...rest } = props
-
-    const lang = className
-      ? (className as string)
-          .split(' ')
-          .find((cls) => cls.startsWith('language-'))
-          ?.substring('language-'.length) ?? ''
-      : ''
-
-    const { hasCopied, onCopy } = useClipboard(dataCode)
-
-    return isInPre ? (
-      children ? (
-        <>
-          <VStack float="right" pl={1} spacing={0.5} alignItems="flex-start">
-            {lang && <Tag size="sm">{lang}</Tag>}
-            <IconButton
-              aria-label="Copy the code block to clipboard"
-              icon={<Icon as={hasCopied ? MdDone : MdContentCopy} w={3} h={3} />}
-              size="xs"
-              rounded="full"
-              float="right"
-              onClick={onCopy}
-            />
-          </VStack>
-          <Code px={4} py={2} borderRadius="md" {...rest}>
-            {children}
-          </Code>
-        </>
-      ) : (
-        <Code px={4} py={2} borderRadius="md" {...rest} />
-      )
-    ) : (
-      <Code {...rest} />
-    )
-  },
+  code: ({ isInPre, ...rest }: { isInPre: boolean }) => (isInPre ? <CodeBlock {...rest} /> : <Code {...rest} />),
   em: (props: any) => <Text as="em" {...props} />,
   h1: (_props: any) => {
     // h1 will be set by other elements and should only be set once
@@ -166,16 +129,13 @@ export const components = {
   li: ListItem,
   ol: OrderedList,
   p: Text,
-  pre: (props: any) => {
-    const { children, ...rest } = props
-    return (
-      <Box as="pre" w="fit-content" {...rest}>
-        {React.Children.map(children as React.ReactNode, (child) =>
-          React.isValidElement(child) ? React.cloneElement(child, { isInPre: true }) : child
-        )}
-      </Box>
-    )
-  },
+  pre: ({ children, ...rest }: { children: React.ReactNode }) => (
+    <Box as="pre" w="fit-content" {...rest}>
+      {React.Children.map(children, (child) =>
+        React.isValidElement(child) ? React.cloneElement(child, { isInPre: true }) : child
+      )}
+    </Box>
+  ),
   strong: (props: any) => <Text as="strong" {...props} />,
   ul: UnorderedList,
   del: (props: any) => <Text as="del" {...props} />,
@@ -198,6 +158,41 @@ export const components = {
   mark: (props: any) => <Text as="mark" {...props} />,
   s: (props: any) => <Text as="s" {...props} />,
   samp: (props: any) => <Text as="samp" {...props} />,
+}
+
+// TODO: line numbers
+function CodeBlock(props: any) {
+  const { children, className, 'data-code': dataCode, ...rest } = props
+
+  const lang = className
+    ? (className as string)
+        .split(' ')
+        .find((cls) => cls.startsWith('language-'))
+        ?.substring('language-'.length) ?? ''
+    : ''
+
+  const { hasCopied, onCopy } = useClipboard(dataCode)
+
+  return children ? (
+    <>
+      <VStack float="right" pl={1} spacing={0.5} alignItems="flex-start">
+        {lang && <Tag size="sm">{lang}</Tag>}
+        <IconButton
+          aria-label="Copy the code block to clipboard"
+          icon={<Icon as={hasCopied ? MdDone : MdContentCopy} w={3} h={3} />}
+          size="xs"
+          rounded="full"
+          float="right"
+          onClick={onCopy}
+        />
+      </VStack>
+      <Code px={4} py={2} borderRadius="md" {...rest}>
+        {children}
+      </Code>
+    </>
+  ) : (
+    <Code px={4} py={2} borderRadius="md" {...rest} />
+  )
 }
 
 // For h2 - h4
