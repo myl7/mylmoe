@@ -76,13 +76,13 @@ export const components = {
       try {
         const url = new URL(href)
         if (url.host != 'myl.moe') {
-          return true
+          isExternal = true
         }
       } catch (e) {}
     }
 
     return isExternal ? (
-      <Link textColor={colors.linkColor} {...rest}>
+      <Link textColor={colors.linkColor} href={href} {...rest}>
         {children}
         <Icon as={MdLaunch} w={4} h={4} />
       </Link>
