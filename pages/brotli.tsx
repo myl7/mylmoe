@@ -1,7 +1,7 @@
 // Copyright (C) 2022 myl7
 // SPDX-License-Identifier: Apache-2.0
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import {
@@ -17,6 +17,7 @@ import {
   Link,
   Input,
   IconButton,
+  Checkbox,
 } from '@chakra-ui/react'
 import { MdArrowForwardIos, MdDone, MdLaunch, MdOutlineFileDownload, MdRefresh } from 'react-icons/md'
 import Footer from '../components/footer'
@@ -27,6 +28,25 @@ const Brotli: NextPage = () => {
   // Before loading encoder, `brotli-dec-wasm` which has smaller size would be used for decoding
   // After loading encoder, `brotli-wasm` would be used for both encoding and decoding
   const [encLoaded, setEncLoaded] = React.useState(false)
+
+  const autoLoadEncKey = 'mylmoe-brotli-dec-load-by-default'
+  // Compared to `autoLoadEnc`, this one is only loaded once when the page is loaded
+  // This meams toggling autoLoadEnc checkbox will not trigger a loading of enc immediately
+  const [autoLoadEncInit, setAutoLoadEncInit] = React.useState(false)
+  const [autoLoadEnc, setAutoLoadEnc] = React.useState(false)
+  useEffect(() => {
+    const val = !!localStorage.getItem(autoLoadEncKey)
+    setAutoLoadEncInit(val)
+    setAutoLoadEnc(val)
+  }, [setAutoLoadEncInit, setAutoLoadEnc])
+  const saveAutoLoadEnc = (val: boolean) => {
+    if (val) {
+      localStorage.setItem(autoLoadEncKey, '1')
+    } else {
+      localStorage.removeItem(autoLoadEncKey)
+    }
+    setAutoLoadEnc(val)
+  }
 
   return (
     <div>
@@ -60,10 +80,13 @@ const Brotli: NextPage = () => {
         </VStack>
         <Divider />
         <VStack w="100%" spacing={4} py={2}>
-          <EncDecPanel op="dec" encLoaded={encLoaded} setEncLoaded={setEncLoaded} />
+          <EncDecPanel op="dec" encLoaded={encLoaded} />
           <Divider />
-          <EncDecPanel op="enc" encLoaded={encLoaded} setEncLoaded={setEncLoaded} />
+          <EncDecPanel op="enc" encLoaded={encLoaded} setEncLoaded={setEncLoaded} autoLoadEnc={autoLoadEncInit} />
         </VStack>
+        <Checkbox isChecked={autoLoadEnc} onChange={(e) => saveAutoLoadEnc(e.target.checked)}>
+          Load encoder by default
+        </Checkbox>
       </VStack>
       <Footer />
     </div>
@@ -73,7 +96,8 @@ const Brotli: NextPage = () => {
 interface EncDecPanelProps {
   op: 'enc' | 'dec'
   encLoaded: boolean
-  setEncLoaded: React.Dispatch<React.SetStateAction<boolean>>
+  setEncLoaded?: React.Dispatch<React.SetStateAction<boolean>>
+  autoLoadEnc?: boolean
 }
 
 const MAX_TEXT_OUTPUT_LEN = 1000
@@ -85,7 +109,7 @@ function EncDecPanel(props: EncDecPanelProps) {
     linkColor: colorHooks.useLinkColor(),
   }
 
-  const { op, encLoaded, setEncLoaded } = props
+  const { op, encLoaded, setEncLoaded, autoLoadEnc } = props
   const opNameLower = op == 'dec' ? 'decode' : 'encode'
   const opNameCapitalized = op == 'dec' ? 'Decode' : 'Encode'
 
@@ -150,8 +174,15 @@ function EncDecPanel(props: EncDecPanelProps) {
   const loadEnc = async () => {
     setLoading(true)
     await import('brotli-wasm')
-    setEncLoaded(true)
+    setEncLoaded!(true) // loadEnc is not triggerred in dec panel
   }
+
+  const loadRef = React.useRef<HTMLButtonElement>(null)
+  useEffect(() => {
+    if (op == 'enc' && autoLoadEnc && !loaded && loadRef.current) {
+      loadRef.current.click()
+    }
+  }, [op, autoLoadEnc, loadRef])
 
   return (
     <VStack w="100%" alignItems="flex-start" spacing={3}>
@@ -210,6 +241,7 @@ function EncDecPanel(props: EncDecPanelProps) {
             loadingText="Loading"
             leftIcon={<Icon as={loaded ? MdDone : MdOutlineFileDownload} />}
             onClick={loadEnc}
+            ref={loadRef}
           >
             {loaded ? 'Loaded' : 'To load'}
           </Button>
