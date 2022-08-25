@@ -176,13 +176,19 @@ function CodeBlock(props: any) {
   return children ? (
     <>
       <VStack float="right" pl={1} spacing={0.5} alignItems="flex-start">
-        {lang && <Tag size="sm">{lang}</Tag>}
+        {lang && (
+          <Tag size="sm" zIndex={10} filter="contrast(0.8)">
+            {lang}
+          </Tag>
+        )}
         <IconButton
           aria-label="Copy the code block to clipboard"
           icon={<Icon as={hasCopied ? MdDone : MdContentCopy} w={3} h={3} />}
           size="xs"
           rounded="full"
           float="right"
+          zIndex={10} // Ensure the lang tag and copy icon are above the code block
+          filter="contrast(0.8)"
           onClick={onCopy}
         />
       </VStack>
