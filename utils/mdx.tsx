@@ -192,7 +192,26 @@ function CodeBlock(props: any) {
           onClick={onCopy}
         />
       </VStack>
-      <Code px={4} py={2} borderRadius="md" maxW="120ch" overflow="auto" {...rest}>
+      <Code
+        px={4}
+        py={2}
+        borderRadius="md"
+        maxW="120ch"
+        overflow="auto"
+        contentEditable
+        onCut={(e) => e.preventDefault()}
+        onPaste={(e) => e.preventDefault()}
+        onKeyDown={(e) =>
+          e.metaKey ||
+          e.ctrlKey ||
+          e.shiftKey ||
+          e.altKey ||
+          ['ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'End', 'Home', 'PageDown', 'PageUp'].includes(e.key) ||
+          e.preventDefault()
+        }
+        spellCheck={false}
+        {...rest}
+      >
         {children}
       </Code>
     </>
