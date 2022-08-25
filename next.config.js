@@ -7,6 +7,7 @@ const nextConfig = {
       { source: '/rss.xml', destination: '/api/rss' },
       { source: '/atom.xml', destination: '/api/atom' },
       { source: '/sitemap.xml', destination: '/api/sitemap' },
+      { source: '/u/:slug', destination: '/api/url/:slug' },
     ]
   },
   async redirects() {
