@@ -1,8 +1,8 @@
 ---
 title: 'Demo of mylmoe: self-written frontend blog system'
 createdDate: 2022-08-21
-updatedDate: 2022-08-23
-abstract: mylmoe v0.5 is released now after the 5th refactoring/rewriting. The post shows demos of various supported Markdown syntax/features/extensions.
+updatedDate: 2022-08-25
+abstract: mylmoe v0.5 (which is what you are viewing) is released now after the 5th refactoring/rewriting. The post shows demos of various supported Markdown syntax/features/extensions.
 tags: demo markdown mdx gfm mylmoe
 ---
 
@@ -190,7 +190,7 @@ If you are writting a MDX post, use MDX comments:
 {/* comment */}
 ```
 
-### HTML blocks/inlines
+### HTML inlines/blocks
 
 ```md
 <a href="https://github.com/myl7/mylmoe" title="title">link</a>
@@ -237,3 +237,27 @@ If you are writting a MDX post, use MDX comments:
 Notice that `onclick="alert(1)"` would not work.
 `"alert(1)"` would be parsed to a string and passed to **React** `onClick` event handler, causing no effects.
 Additionally an error would be raised in Next.js development mode.
+
+### LaTeX math inlines/blocks
+
+```md
+$x = \frac{-b\plusmn\sqrt{b^2-4ac}}{2a}$
+
+$$
+x_1 = -\frac{b}{3a} + \sqrt[3]{\frac{bc}{6a^2} - \frac{b^3}{27a^3} - \frac{d}{2a} + \sqrt{\Delta}} + \sqrt[3]{\frac{bc}{6a^2} - \frac{b^3}{27a^2} - \frac{d}{2a} - \sqrt{(\frac{bc}{6a^2} - \frac{b^3}{27a^3} - \frac{d}{2a})^2 + (\frac{c}{3a} - \frac{b^2}{9a^2})}}
+$$
+
+$$
+\Delta = (\frac{bc}{6a^2} - \frac{b^3}{27a^3} - \frac{d}{2a})^2 + (\frac{c}{3a} - \frac{b^2}{9a^2})^3
+$$
+```
+
+$x = \frac{-b\plusmn\sqrt{b^2-4ac}}{2a}$
+
+$$
+x_1 = -\frac{b}{3a} + \sqrt[3]{\frac{bc}{6a^2} - \frac{b^3}{27a^3} - \frac{d}{2a} + \sqrt{\Delta}} + \sqrt[3]{\frac{bc}{6a^2} - \frac{b^3}{27a^2} - \frac{d}{2a} - \sqrt{(\frac{bc}{6a^2} - \frac{b^3}{27a^3} - \frac{d}{2a})^2 + (\frac{c}{3a} - \frac{b^2}{9a^2})}}
+$$
+
+$$
+\Delta = (\frac{bc}{6a^2} - \frac{b^3}{27a^3} - \frac{d}{2a})^2 + (\frac{c}{3a} - \frac{b^2}{9a^2})^3
+$$

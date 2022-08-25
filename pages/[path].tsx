@@ -32,6 +32,13 @@ const Post: NextPage<PostProps> = (props) => {
         <title>{`${meta.title} | mylmoe: myl7's blog & utils`}</title>
         {meta.abstract && <meta name="description" content={meta.abstract} />}
         <link rel="canonical" href={'https://myl.moe' + ppath} />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.0/katex.min.css"
+          integrity="sha512-Yfxo7zXGaQYyzWNxz8r4s8axNfG4jS3dips8p2HA/wNWmuapakkQiki+/XA3o3Ol+i8WI03cRJVDDUElEtED6g=="
+          crossOrigin="anonymous"
+          referrerPolicy="no-referrer"
+        />
       </Head>
       <Helmet>
         {colorMode == 'light' ? (

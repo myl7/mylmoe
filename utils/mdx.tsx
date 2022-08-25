@@ -186,7 +186,7 @@ function CodeBlock(props: any) {
           onClick={onCopy}
         />
       </VStack>
-      <Code px={4} py={2} borderRadius="md" {...rest}>
+      <Code px={4} py={2} borderRadius="md" maxW="120ch" overflow="auto" {...rest}>
         {children}
       </Code>
     </>
