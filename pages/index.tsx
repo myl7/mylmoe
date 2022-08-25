@@ -4,7 +4,22 @@
 import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import NextLink from 'next/link'
-import { Box, Heading, HStack, Tag, Text, VStack, Link } from '@chakra-ui/react'
+import {
+  Box,
+  Heading,
+  HStack,
+  Tag,
+  Text,
+  VStack,
+  Link,
+  Divider,
+  TabList,
+  Tabs,
+  TabPanels,
+  TabPanel,
+  Tab,
+  useBreakpointValue,
+} from '@chakra-ui/react'
 import Footer from '../components/footer'
 import Header from '../components/header'
 import { getMetasWithPPaths, type Meta } from '../utils/posts'
@@ -15,6 +30,14 @@ interface IndexProps {
 }
 
 const Home: NextPage<IndexProps> = ({ metas }) => {
+  const colors = {
+    textColor: colorHooks.useTextColor(),
+  }
+
+  const screenType = useBreakpointValue({ base: 'mobile', md: 'desktop' }, { fallback: 'mobile' }) as
+    | 'mobile'
+    | 'desktop'
+
   return (
     <div>
       <Head>
@@ -23,8 +46,55 @@ const Home: NextPage<IndexProps> = ({ metas }) => {
         <link rel="canonical" href="https://myl.moe" />
       </Head>
       <Header />
-      <VStack as="main" px={2} pb={2} alignItems="flex-start">
-        {metas.map(PItem)}
+      <VStack as="main" px={2} alignItems={screenType == 'desktop' ? 'flex-start' : 'center'}>
+        <Box px={4} pt={2} pb={1}>
+          <Heading as="h1" size="md">
+            Welcome to mylmoe: myl7's blog & utils!
+          </Heading>
+        </Box>
+        <Divider />
+        <Tabs px={4}>
+          <TabList>
+            <Tab>
+              <Heading size="sm">Posts</Heading>
+            </Tab>
+            <Tab>
+              <Heading size="sm">Utils</Heading>
+            </Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel>
+              <VStack spacing={2}>{metas.map(PItem)}</VStack>
+            </TabPanel>
+            <TabPanel>
+              <VStack spacing={2}>
+                <Box
+                  id="brotli"
+                  as="article"
+                  borderRadius="md"
+                  borderWidth={1.5}
+                  borderColor={colors.textColor}
+                  px={4}
+                  py={2}
+                >
+                  <Heading as="h2" size="md">
+                    <NextLink href="/brotli" passHref>
+                      <Link>Brotli encode/decode tool</Link>
+                    </NextLink>
+                  </Heading>
+                  <Text>
+                    <NextLink href="/brotli" passHref>
+                      <Link>
+                        Encode/decode (a.k.a. compress/decompress) data in Brotli format locally in browser. All
+                        processing is literally done locally with WebAssembly to keep data safe.
+                      </Link>
+                    </NextLink>
+                  </Text>
+                </Box>
+              </VStack>
+            </TabPanel>
+          </TabPanels>
+        </Tabs>
       </VStack>
       <Footer />
     </div>

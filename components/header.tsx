@@ -8,6 +8,7 @@ import {
   Button,
   Center,
   Collapse,
+  Divider,
   Flex,
   HStack,
   Icon,
@@ -42,10 +43,10 @@ import {
 import colorHooks from '../utils/colors'
 
 export default function Header() {
-  const headerType = useBreakpointValue({ base: 'mobile', md: 'desktop' }, { fallback: 'mobile' }) as
+  const screenType = useBreakpointValue({ base: 'mobile', md: 'desktop' }, { fallback: 'mobile' }) as
     | 'mobile'
     | 'desktop'
-  return { mobile: <MobileHeader />, desktop: <DesktopHeader /> }[headerType]
+  return { mobile: <MobileHeader />, desktop: <DesktopHeader /> }[screenType]
 }
 
 function DesktopHeader() {
@@ -377,6 +378,7 @@ const MobileHeader = () => {
               />
             </VStack>
           </HStack>
+          <Divider />
         </VStack>
       </Collapse>
     </>
