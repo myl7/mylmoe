@@ -26,14 +26,11 @@ import { getMetasWithPPaths, type Meta } from '../utils/posts'
 import colorHooks from '../utils/colors'
 
 interface IndexProps {
-  metas: { meta: Meta; ppath: string }[]
+  metas: { [category: string]: { meta: Meta; ppath: string }[] }
 }
 
 const Home: NextPage<IndexProps> = ({ metas }) => {
-  const colors = {
-    textColor: colorHooks.useTextColor(),
-  }
-
+  const { postMetas, miscMetas } = metas
   const screenType = useBreakpointValue({ base: 'mobile', md: 'desktop' }, { fallback: 'mobile' }) as
     | 'mobile'
     | 'desktop'
@@ -61,37 +58,26 @@ const Home: NextPage<IndexProps> = ({ metas }) => {
             <Tab>
               <Heading size="sm">Utils</Heading>
             </Tab>
+            <Tab>
+              <Heading size="sm">Misc</Heading>
+            </Tab>
           </TabList>
           <TabPanels>
             <TabPanel>
-              <VStack spacing={2}>{metas.map(PItem)}</VStack>
+              <VStack spacing={2}>{postMetas.map(PItem)}</VStack>
             </TabPanel>
             <TabPanel>
               <VStack spacing={2}>
-                <Box
-                  id="brotli"
-                  as="article"
-                  borderRadius="md"
-                  borderWidth={1.5}
-                  borderColor={colors.textColor}
-                  px={4}
-                  py={2}
-                >
-                  <Heading as="h2" size="md">
-                    <NextLink href="/brotli" passHref>
-                      <Link>Brotli encode/decode tool</Link>
-                    </NextLink>
-                  </Heading>
-                  <Text>
-                    <NextLink href="/brotli" passHref>
-                      <Link>
-                        Encode/decode (a.k.a. compress/decompress) data in Brotli format locally in browser. All
-                        processing is literally done locally with WebAssembly to keep data safe.
-                      </Link>
-                    </NextLink>
-                  </Text>
-                </Box>
+                <Item
+                  slug="brotli"
+                  title="Brotli encode/decode tool"
+                  abstract="Encode/decode (a.k.a. compress/decompress) data in Brotli format locally in browser. All processing is literally done locally with WebAssembly to keep data safe."
+                  ppath="/brotli"
+                />
               </VStack>
+            </TabPanel>
+            <TabPanel>
+              <VStack spacing={2}>{miscMetas.map(PItem)}</VStack>
             </TabPanel>
           </TabPanels>
         </Tabs>
@@ -101,19 +87,52 @@ const Home: NextPage<IndexProps> = ({ metas }) => {
   )
 }
 
-type PItemProps = IndexProps['metas'][number]
+interface PItemProps {
+  meta: Meta
+  ppath: string
+}
 
 function PItem(props: PItemProps) {
-  const colors = {
-    textColor: colorHooks.useTextColor(),
-  }
   const { meta, ppath } = props
   const pslug = ppath.substring(1)
 
   return (
+    <Item slug={pslug} title={meta.title} abstract={meta.abstract} ppath={ppath}>
+      <Text fontSize="sm">
+        {meta.updatedDate == meta.createdDate
+          ? `Created & updated on ${meta.createdDate}.`
+          : `Created on ${meta.createdDate} & updated on ${meta.updatedDate}.`}
+      </Text>
+      {meta.tags.length > 0 && (
+        <HStack>
+          {meta.tags.map((tag) => (
+            <Tag key={tag}>{tag}</Tag>
+          ))}
+        </HStack>
+      )}
+    </Item>
+  )
+}
+
+interface ItemProps {
+  slug: string
+  title: string
+  abstract: string
+  ppath: string
+  children?: React.ReactNode
+}
+
+function Item(props: ItemProps) {
+  const colors = {
+    textColor: colorHooks.useTextColor(),
+  }
+
+  const { slug, title, abstract, ppath, children } = props
+
+  return (
     <Box
-      key={pslug}
-      id={pslug}
+      id={slug}
+      key={slug}
       as="article"
       borderRadius="md"
       borderWidth={1.5}
@@ -123,30 +142,24 @@ function PItem(props: PItemProps) {
     >
       <Heading as="h2" size="md">
         <NextLink href={ppath} passHref>
-          <Link>{meta.title}</Link>
+          <Link>{title}</Link>
         </NextLink>
       </Heading>
       <Text>
         <NextLink href={ppath} passHref>
-          <Link>{meta.abstract}</Link>
+          <Link>{abstract}</Link>
         </NextLink>
       </Text>
-      <Text fontSize="sm">
-        {meta.updatedDate == meta.createdDate
-          ? `Created & updated on ${meta.createdDate}.`
-          : `Created on ${meta.createdDate} & updated on ${meta.updatedDate}.`}
-      </Text>
-      <HStack>
-        {meta.tags.map((tag) => (
-          <Tag key={tag}>{tag}</Tag>
-        ))}
-      </HStack>
+      {children}
     </Box>
   )
 }
 
 export const getStaticProps: GetStaticProps<IndexProps> = async () => {
-  const metas = await getMetasWithPPaths()
+  const metas = {
+    postMetas: await getMetasWithPPaths(),
+    miscMetas: await getMetasWithPPaths(['misc']),
+  }
   return { props: { metas } }
 }
 

@@ -6,7 +6,8 @@ export interface Frontmatter {
   abstract?: string
   createdDate: string | Date
   updatedDate?: string | Date
-  tags?: string
+  tags?: string | string[]
   // Prepare for i18n, currently unused
   lang?: string
+  categories?: string | string[]
 }

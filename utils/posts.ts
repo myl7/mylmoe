@@ -7,7 +7,7 @@ import { VFile } from 'vfile'
 import { matter } from 'vfile-matter'
 import type { Frontmatter } from '../posts'
 
-export type Meta = Omit<Required<Frontmatter>, 'tags'> & { tags: string[] }
+export type Meta = Omit<Required<Frontmatter>, 'tags' | 'categories'> & { tags: string[]; categories: string[] }
 
 export function getMeta(fm: Frontmatter) {
   const meta: Meta = {
@@ -15,8 +15,13 @@ export function getMeta(fm: Frontmatter) {
     abstract: fm.abstract ?? '',
     createdDate: date2str(fm.createdDate),
     updatedDate: fm.updatedDate ? date2str(fm.updatedDate) : date2str(fm.createdDate),
-    tags: fm.tags ? fm.tags.split(' ') : [],
-    lang: fm.lang ?? 'en',
+    tags: fm.tags ? (typeof fm.tags == 'string' ? fm.tags.split(' ') : fm.tags) : [],
+    lang: fm.lang || 'en',
+    categories: fm.categories
+      ? typeof fm.categories == 'string'
+        ? fm.categories.split(' ')
+        : fm.categories
+      : ['post'],
   }
   // Validate
   if (!meta.title) throw new Error('title is required in post frontmatter')
@@ -41,14 +46,16 @@ export async function getPPathsWithExts() {
   return ppaths
 }
 
-export async function getMetasWithPPaths() {
+export async function getMetasWithPPaths(categories: string[] = ['post']) {
   const ppaths = await getPPathsWithExts()
   const metas = [] as { meta: Meta; ppath: string }[]
   for (const { ppath, ext } of ppaths) {
     const text = (await fs.promises.readFile(path.join(process.cwd(), 'posts', ppath + '.' + ext))).toString()
     const fm = getFM(text)
     const meta = getMeta(fm)
-    metas.push({ meta, ppath })
+    if (!categories.some((c) => !meta.categories.includes(c))) {
+      metas.push({ meta, ppath })
+    }
   }
   return metas
 }
