@@ -18,6 +18,7 @@ import {
   Input,
   IconButton,
   Checkbox,
+  useBreakpointValue,
 } from '@chakra-ui/react'
 import { MdArrowForwardIos, MdDone, MdLaunch, MdOutlineFileDownload, MdRefresh } from 'react-icons/md'
 import Footer from '../components/footer'
@@ -79,12 +80,12 @@ const Brotli: NextPage = () => {
           </Text>
         </VStack>
         <Divider />
-        <VStack w="100%" spacing={4} py={2}>
+        <VStack w="100%" spacing={6} py={2}>
           <EncDecPanel op="dec" encLoaded={encLoaded} />
           <Divider />
           <EncDecPanel op="enc" encLoaded={encLoaded} setEncLoaded={setEncLoaded} autoLoadEnc={autoLoadEncInit} />
         </VStack>
-        <Checkbox isChecked={autoLoadEnc} onChange={(e) => saveAutoLoadEnc(e.target.checked)}>
+        <Checkbox isChecked={autoLoadEnc} onChange={(e) => saveAutoLoadEnc(e.target.checked)} pt={2}>
           Load encoder by default
         </Checkbox>
       </VStack>
@@ -108,6 +109,10 @@ function EncDecPanel(props: EncDecPanelProps) {
     paleTextColor: colorHooks.usePaleTextColor(),
     linkColor: colorHooks.useLinkColor(),
   }
+
+  const screenType = useBreakpointValue({ base: 'mobile', md: 'desktop' }, { fallback: 'mobile' }) as
+    | 'mobile'
+    | 'desktop'
 
   const { op, encLoaded, setEncLoaded, autoLoadEnc } = props
   const opNameLower = op == 'dec' ? 'decode' : 'encode'
@@ -211,7 +216,7 @@ function EncDecPanel(props: EncDecPanelProps) {
           localStorage).
         </Text>
       )}
-      <Flex w="100%" maxW="1500px" gap="5%">
+      <Flex w="100%" maxW="1500px" gap="5%" wrap={screenType == 'desktop' ? 'nowrap' : 'wrap'}>
         <VStack alignItems="flex-start" spacing={2} w="50%">
           <VStack alignItems="flex-start" spacing={0} w="100%">
             <Text>{`Data to be ${opNameLower}d:`}</Text>
