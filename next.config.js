@@ -9,6 +9,15 @@ const nextConfig = {
       { source: '/sitemap.xml', destination: '/api/sitemap' },
     ]
   },
+  async redirects() {
+    return [
+      // Be compatible with old links
+      // Comment some of them since some pages have not been migrated yet or would not
+      // { source: '/posts/:slug', destination: '/:slug', permanent: true },
+      // { source: '/pages/:slug(dn42|about|friends|privacy-policy|tags|cv)', destination: '/:slug', permanent: true },
+      { source: '/utils/brotli', destination: '/brotli', permanent: true },
+    ]
+  },
   async headers() {
     return [
       {
@@ -37,6 +46,7 @@ const nextConfig = {
         headers: [
           { key: 'content-type', value: 'application/json' },
           { key: 'content-disposition', value: 'inline' },
+          { key: 'access-control-allow-origin', value: '*' },
         ],
       },
       {
@@ -44,9 +54,17 @@ const nextConfig = {
         headers: [
           { key: 'content-type', value: 'application/json' },
           { key: 'content-disposition', value: 'inline' },
+          { key: 'access-control-allow-origin', value: '*' },
         ],
       },
     ]
+  },
+  webpack: (config) => {
+    config.experiments = {
+      ...config.experiments,
+      asyncWebAssembly: true,
+    }
+    return config
   },
 }
 
