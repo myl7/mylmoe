@@ -7,7 +7,15 @@ import { VFile } from 'vfile'
 import { matter } from 'vfile-matter'
 import type { Frontmatter } from '../posts'
 
-export type Meta = Omit<Required<Frontmatter>, 'tags' | 'categories'> & { tags: string[]; categories: string[] }
+export interface Meta {
+  title: string
+  abstract: string
+  createdDate: string
+  updatedDate: string
+  tags: string[]
+  lang: string
+  categories: string[]
+}
 
 export function getMeta(fm: Frontmatter) {
   const meta: Meta = {
@@ -57,7 +65,8 @@ export async function getMetasWithPPaths(categories: string[] = ['post']) {
       metas.push({ meta, ppath })
     }
   }
-  return metas
+  const sortedMetas = metas.sort((a, b) => -a.meta.updatedDate.localeCompare(b.meta.updatedDate))
+  return sortedMetas
 }
 
 // Get frontmatter like next-mdx-remote does

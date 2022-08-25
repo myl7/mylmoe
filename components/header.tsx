@@ -186,7 +186,7 @@ function DesktopHeader() {
                     icon={<Icon as={MdRssFeed} w={4} h={4} />}
                     h={8}
                     fontWeight="bold"
-                    fontSize="xs"
+                    fontSize="sm"
                   >
                     RSS feed
                   </MenuItem>
@@ -196,7 +196,7 @@ function DesktopHeader() {
                     icon={<Icon as={MdRssFeed} w={4} h={4} />}
                     h={8}
                     fontWeight="bold"
-                    fontSize="xs"
+                    fontSize="sm"
                   >
                     Atom feed
                   </MenuItem>
