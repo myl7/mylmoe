@@ -19,6 +19,7 @@ The following remark/rehype plugins are used to enhance Markdown/MDX:
 - rehype-highlight: Highlight code blocks with [highlight.js](https://github.com/highlightjs/highlight.js)
 - remark-math + rehype-katex: LaTeX math (inline/block) support with [KaTeX](https://github.com/KaTeX/KaTeX)
 - rehype-slug + remark-toc: Heading links and auto-generated TOC
+- remark-directive + remark-directive-rehype: Preparation for custom elements
 
 ## Demos
 
