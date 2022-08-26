@@ -15,11 +15,13 @@ export default async function handler(_req: NextApiRequest, res: NextApiResponse
 }
 
 async function getSitemap() {
-  const metas = await getMetasWithPPaths()
+  const metas = await getMetasWithPPaths([])
   const smStream = new SitemapStream({ hostname: 'https://myl.moe' })
   metas.forEach(({ ppath }) => {
     smStream.write({ url: ppath })
   })
+  // Extra pages in /pages folder
+  smStream.write({ url: '/brotli' })
   smStream.end()
   const sm = (await streamToPromise(smStream)).toString()
   return sm
