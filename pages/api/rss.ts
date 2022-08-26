@@ -1,14 +1,17 @@
 // Copyright (C) 2022 myl7
 // SPDX-License-Identifier: Apache-2.0
 
-import type { NextApiRequest, NextApiResponse } from 'next'
 import getFeed from '../../utils/feed'
 
 let RSS = ''
 
-export default async function handler(_req: NextApiRequest, res: NextApiResponse) {
+export const config = {
+  runtime: 'experimental-edge',
+}
+
+export default async function handler() {
   if (RSS == '') {
     RSS = (await getFeed()).rss2()
   }
-  res.status(200).send(RSS)
+  return new Response(RSS, { status: 200 })
 }

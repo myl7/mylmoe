@@ -1,5 +1,10 @@
+const path = require('path')
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    runtime: 'experimental-edge',
+  },
   reactStrictMode: true,
   swcMinify: true,
   async rewrites() {
@@ -64,6 +69,21 @@ const nextConfig = {
     config.experiments = {
       ...config.experiments,
       asyncWebAssembly: true,
+    }
+    config.module.rules.push(
+      {
+        test: /dir\.[jt]sx?$/,
+        use: { loader: path.resolve('utils/dirLoader.js'), options: { include: /\.mdx?$/ } },
+        type: 'javascript/auto',
+      },
+      {
+        test: /\.mdx?$/,
+        type: 'asset/source',
+      }
+    )
+    config.resolve.fallback = {
+      ...config.resolve.fallback,
+      stream: require.resolve('stream-browserify'),
     }
     return config
   },

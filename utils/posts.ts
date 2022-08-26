@@ -1,11 +1,10 @@
 // Copyright (C) 2022 myl7
 // SPDX-License-Identifier: Apache-2.0
 
-import path from 'path'
-import fs from 'fs'
 import { VFile } from 'vfile'
 import { matter } from 'vfile-matter'
 import type { Frontmatter } from '../posts'
+import postMap from '../posts/dir'
 
 export interface Meta {
   title: string
@@ -40,8 +39,7 @@ export function getMeta(fm: Frontmatter) {
 const date2str = (date: string | Date) => (typeof date == 'string' ? date : date.toISOString().replace(/T.+$/, ''))
 
 export async function getPPathsWithExts() {
-  const dpath = path.join(process.cwd(), 'posts')
-  const pslugs = (await fs.promises.readdir(dpath)).flatMap((p) => {
+  const pslugs = Object.keys(postMap).flatMap((p) => {
     if (p.endsWith('.mdx')) {
       return [{ pslug: p.slice(0, -'.mdx'.length), ext: 'mdx' }]
     } else if (p.endsWith('.md')) {
@@ -50,7 +48,8 @@ export async function getPPathsWithExts() {
       return []
     }
   })
-  const ppaths = pslugs.map(({ pslug, ext }) => ({ ppath: path.join('/', pslug), ext }))
+  // '/' + pslug is safe since we control all post files
+  const ppaths = pslugs.map(({ pslug, ext }) => ({ ppath: '/' + pslug, ext }))
   return ppaths
 }
 
@@ -58,7 +57,7 @@ export async function getMetasWithPPaths(categories: string[] = ['post']) {
   const ppaths = await getPPathsWithExts()
   const metas = [] as { meta: Meta; ppath: string }[]
   for (const { ppath, ext } of ppaths) {
-    const text = (await fs.promises.readFile(path.join(process.cwd(), 'posts', ppath + '.' + ext))).toString()
+    const text = postMap[ppath.substring(1) + '.' + ext]
     const fm = getFM(text)
     const meta = getMeta(fm)
     if (!categories.some((c) => !meta.categories.includes(c))) {

@@ -7,6 +7,7 @@ import { Box, Divider, Heading, HStack, Tag, Text, useColorMode } from '@chakra-
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
 import { Helmet } from 'react-helmet-async'
+// fs and path are only used in SSG
 import fs from 'fs'
 import path from 'path'
 import Footer from '../components/footer'
