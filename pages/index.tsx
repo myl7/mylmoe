@@ -46,7 +46,7 @@ const Home: NextPage<IndexProps> = ({ metas }) => {
       <VStack as="main" px={2} alignItems={screenType == 'desktop' ? 'flex-start' : 'center'}>
         <Box px={4} pt={2} pb={1}>
           <Heading as="h1" size="md">
-            Welcome to mylmoe: myl7's blog & utils!
+            {"Welcome to mylmoe: myl7's blog & utils!"}
           </Heading>
         </Box>
         <Divider />

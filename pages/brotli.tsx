@@ -187,7 +187,7 @@ function EncDecPanel(props: EncDecPanelProps) {
     if (op == 'enc' && autoLoadEnc && !loaded && loadRef.current) {
       loadRef.current.click()
     }
-  }, [op, autoLoadEnc, loadRef])
+  }, [op, autoLoadEnc, loaded])
 
   return (
     <VStack w="100%" alignItems="flex-start" spacing={3}>
