@@ -65,7 +65,7 @@ const nextConfig = {
       },
     ]
   },
-  webpack: (config) => {
+  webpack: (config, { isServer, nextRuntime }) => {
     config.experiments = {
       ...config.experiments,
       asyncWebAssembly: true,
@@ -81,9 +81,11 @@ const nextConfig = {
         type: 'asset/source',
       }
     )
-    config.resolve.fallback = {
-      ...config.resolve.fallback,
-      stream: require.resolve('stream-browserify'),
+    if (isServer && nextRuntime == 'edge') {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        stream: require.resolve('stream-browserify'),
+      }
     }
     return config
   },

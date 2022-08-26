@@ -7,7 +7,7 @@ import { Box, Divider, Heading, HStack, Tag, Text, useColorMode } from '@chakra-
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
 import { Helmet } from 'react-helmet-async'
-// fs and path are only used in SSG
+// These node modules are only used in SSG
 import fs from 'fs'
 import path from 'path'
 import Footer from '../components/footer'
@@ -17,7 +17,7 @@ import { getMeta, getPPathsWithExts, type Meta } from '../utils/posts'
 import type { Frontmatter } from '../posts'
 
 interface PostProps {
-  mdx: any
+  mdx: { compiledSource: string; scope?: any }
   meta: Meta
   ppath: string
 }
@@ -33,13 +33,6 @@ const Post: NextPage<PostProps> = (props) => {
         <title>{meta.title}</title>
         {meta.abstract && <meta name="description" content={meta.abstract} />}
         <link rel="canonical" href={'https://myl.moe' + ppath} />
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.0/katex.min.css"
-          integrity="sha512-Yfxo7zXGaQYyzWNxz8r4s8axNfG4jS3dips8p2HA/wNWmuapakkQiki+/XA3o3Ol+i8WI03cRJVDDUElEtED6g=="
-          crossOrigin="anonymous"
-          referrerPolicy="no-referrer"
-        />
       </Head>
       <Helmet>
         {colorMode == 'light' ? (
@@ -87,6 +80,8 @@ const Post: NextPage<PostProps> = (props) => {
           </HStack>
         </Box>
         <Divider />
+        {/* Error due to isInPre attr, but we can ensure it is always passed from pre to code */}
+        {/* @ts-ignore */}
         <MDXRemote {...mdx} components={components} lazy />
       </Box>
       <Footer />
@@ -114,7 +109,7 @@ export const getStaticProps: GetStaticProps<PostProps> = async ({ params }) => {
   let mdx = await serialize(text, { mdxOptions: { remarkPlugins, rehypePlugins, format: ext }, parseFrontmatter: true })
   // Meta could not be serialized if containing Date object
   const meta = getMeta(mdx.frontmatter as any as Frontmatter)
-  delete mdx.frontmatter
+  mdx = { compiledSource: mdx.compiledSource, scope: mdx.scope }
   return { props: { mdx, meta, ppath } }
 }
 

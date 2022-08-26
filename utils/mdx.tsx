@@ -210,6 +210,7 @@ function CodeBlock(props: any) {
           e.preventDefault()
         }
         spellCheck={false}
+        suppressContentEditableWarning={true}
         {...rest}
       >
         {children}

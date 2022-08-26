@@ -39,7 +39,7 @@ const Home: NextPage<IndexProps> = ({ metas }) => {
         <link rel="canonical" href="https://myl.moe" />
       </Head>
       <Header />
-      <VStack as="main" px={2}>
+      <VStack as="main" px={2} alignItems={{ base: 'center', md: 'flex-start' }}>
         <Box px={4} pt={2} pb={1}>
           <Heading as="h1" size="md">
             {"Welcome to mylmoe: myl7's blog & utils!"}
@@ -93,7 +93,7 @@ function PItem(props: PItemProps) {
   const pslug = ppath.substring(1)
 
   return (
-    <Item slug={pslug} title={meta.title} abstract={meta.abstract} ppath={ppath}>
+    <Item slug={pslug} key={pslug} title={meta.title} abstract={meta.abstract} ppath={ppath}>
       <Text fontSize="sm">
         {meta.updatedDate == meta.createdDate
           ? `Created & updated on ${meta.createdDate}.`
