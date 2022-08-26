@@ -18,7 +18,6 @@ import {
   TabPanels,
   TabPanel,
   Tab,
-  useBreakpointValue,
 } from '@chakra-ui/react'
 import Footer from '../components/footer'
 import Header from '../components/header'
@@ -31,9 +30,6 @@ interface IndexProps {
 
 const Home: NextPage<IndexProps> = ({ metas }) => {
   const { postMetas, miscMetas } = metas
-  const screenType = useBreakpointValue({ base: 'mobile', md: 'desktop' }, { fallback: 'mobile' }) as
-    | 'mobile'
-    | 'desktop'
 
   return (
     <div>
@@ -43,7 +39,7 @@ const Home: NextPage<IndexProps> = ({ metas }) => {
         <link rel="canonical" href="https://myl.moe" />
       </Head>
       <Header />
-      <VStack as="main" px={2} alignItems={screenType == 'desktop' ? 'flex-start' : 'center'}>
+      <VStack as="main" px={2}>
         <Box px={4} pt={2} pb={1}>
           <Heading as="h1" size="md">
             {"Welcome to mylmoe: myl7's blog & utils!"}

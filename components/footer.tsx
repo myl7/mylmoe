@@ -1,7 +1,7 @@
 // Copyright (C) 2022 myl7
 // SPDX-License-Identifier: Apache-2.0
 
-import { Box, Flex, Icon, Link, Spacer } from '@chakra-ui/react'
+import { Box, chakra, Flex, Icon, Link, Spacer } from '@chakra-ui/react'
 import { FaCreativeCommons, FaCreativeCommonsBy, FaCreativeCommonsSa } from 'react-icons/fa'
 import { MdLaunch } from 'react-icons/md'
 import colorHooks from '../utils/colors'
@@ -37,10 +37,7 @@ export default function Footer() {
         </Box>
         <Box>
           The posts with different licenses would contain a section named{' '}
-          <Box as="span" fontStyle="italic">
-            License
-          </Box>{' '}
-          to indicate their respective licenses.
+          <chakra.span fontStyle="italic">License</chakra.span> to indicate their respective licenses.
         </Box>
       </Box>
       <Box>

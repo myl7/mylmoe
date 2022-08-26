@@ -18,7 +18,6 @@ import {
   Input,
   IconButton,
   Checkbox,
-  useBreakpointValue,
 } from '@chakra-ui/react'
 import { MdArrowForwardIos, MdDone, MdLaunch, MdOutlineFileDownload, MdRefresh } from 'react-icons/md'
 import Footer from '../components/footer'
@@ -109,10 +108,6 @@ function EncDecPanel(props: EncDecPanelProps) {
     paleTextColor: colorHooks.usePaleTextColor(),
     linkColor: colorHooks.useLinkColor(),
   }
-
-  const screenType = useBreakpointValue({ base: 'mobile', md: 'desktop' }, { fallback: 'mobile' }) as
-    | 'mobile'
-    | 'desktop'
 
   const { op, encLoaded, setEncLoaded, autoLoadEnc } = props
   const opNameLower = op == 'dec' ? 'decode' : 'encode'
@@ -216,7 +211,7 @@ function EncDecPanel(props: EncDecPanelProps) {
           localStorage).
         </Text>
       )}
-      <Flex w="100%" maxW="1500px" gap="5%" wrap={screenType == 'desktop' ? 'nowrap' : 'wrap'}>
+      <Flex w="100%" maxW="1500px" gap="5%" wrap={{ base: 'wrap', md: 'nowrap' }}>
         <VStack alignItems="flex-start" spacing={2} w="50%">
           <VStack alignItems="flex-start" spacing={0} w="100%">
             <Text>{`Data to be ${opNameLower}d:`}</Text>

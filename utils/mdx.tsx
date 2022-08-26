@@ -30,11 +30,11 @@ import {
   Thead,
   Tr,
   Icon,
-  Box,
   IconButton,
   VStack,
   Tag,
   useClipboard,
+  chakra,
 } from '@chakra-ui/react'
 import remarkCodeAsProp from './remarkCodeAsProp'
 import colorHooks from './colors'
@@ -130,11 +130,11 @@ export const components = {
   ol: OrderedList,
   p: Text,
   pre: ({ children, ...rest }: { children: React.ReactNode }) => (
-    <Box as="pre" w="fit-content" {...rest}>
+    <chakra.pre w="fit-content" {...rest}>
       {React.Children.map(children, (child) =>
         React.isValidElement(child) ? React.cloneElement(child, { isInPre: true }) : child
       )}
-    </Box>
+    </chakra.pre>
   ),
   strong: (props: any) => <Text as="strong" {...props} />,
   ul: UnorderedList,
@@ -177,7 +177,7 @@ function CodeBlock(props: any) {
     <>
       <VStack float="right" pl={1} spacing={0.5} alignItems="flex-start">
         {lang && (
-          <Tag size="sm" zIndex={10} filter="contrast(0.8)">
+          <Tag size="sm" zIndex="docked" filter="contrast(0.8)">
             {lang}
           </Tag>
         )}
@@ -187,7 +187,7 @@ function CodeBlock(props: any) {
           size="xs"
           rounded="full"
           float="right"
-          zIndex={10} // Ensure the lang tag and copy icon are above the code block
+          zIndex="docked"
           filter="contrast(0.8)"
           onClick={onCopy}
         />

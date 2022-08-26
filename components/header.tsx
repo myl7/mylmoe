@@ -43,10 +43,10 @@ import {
 import colorHooks from '../utils/colors'
 
 export default function Header() {
-  const screenType = useBreakpointValue({ base: 'mobile', md: 'desktop' }, { fallback: 'mobile' }) as
+  const headerType = useBreakpointValue({ base: 'mobile', md: 'desktop' }, { fallback: 'mobile' }) as
     | 'mobile'
     | 'desktop'
-  return { mobile: <MobileHeader />, desktop: <DesktopHeader /> }[screenType]
+  return { mobile: <MobileHeader />, desktop: <DesktopHeader /> }[headerType]
 }
 
 function DesktopHeader() {
@@ -81,7 +81,7 @@ function DesktopHeader() {
         position="fixed"
         w="100%"
         backgroundColor="var(--chakra-colors-chakra-body-bg)"
-        zIndex={100} // On top of all other elements
+        zIndex="banner"
         gap={1}
       >
         <HStack>
@@ -246,7 +246,7 @@ const MobileHeader = () => {
         position="fixed"
         w="100%"
         backgroundColor="var(--chakra-colors-chakra-body-bg)"
-        zIndex={100} // On top of all other elements
+        zIndex="banner"
       >
         <HStack>
           {/* Title */}
