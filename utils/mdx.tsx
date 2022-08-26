@@ -106,7 +106,7 @@ export const components = {
         borderRadius="md"
         borderLeftWidth={5}
         borderLeftColor={colors.textColor}
-        sx={{ filter: 'contrast(0.75)' }}
+        filter="contrast(0.75)"
         // Exclude Code monospace font family config to reuse its styles
         fontFamily="initial"
         {...props}
