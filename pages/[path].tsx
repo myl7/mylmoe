@@ -29,7 +29,7 @@ const Post: NextPage<PostProps> = (props) => {
   return (
     <div>
       <Head>
-        <title>{`${meta.title} | mylmoe: myl7's blog & utils`}</title>
+        <title>{meta.title}</title>
         {meta.abstract && <meta name="description" content={meta.abstract} />}
         <link rel="canonical" href={'https://myl.moe' + ppath} />
         <link
