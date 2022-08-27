@@ -31,10 +31,10 @@ import {
   Tr,
   Icon,
   IconButton,
-  VStack,
   Tag,
   useClipboard,
   chakra,
+  HStack,
 } from '@chakra-ui/react'
 import remarkCodeAsProp from './remarkCodeAsProp'
 import colorHooks from './colors'
@@ -114,7 +114,7 @@ export const components = {
     )
   },
   code: ({ isInPre, ...rest }: { isInPre: boolean }) => (isInPre ? <CodeBlock {...rest} /> : <Code {...rest} />),
-  em: (props: any) => <Text as="em" {...props} />,
+  em: (props: any) => <chakra.em {...props} />,
   h1: (_props: any) => {
     // h1 will be set by other elements and should only be set once
     throw new Error('h1 should not be used in post body')
@@ -130,34 +130,45 @@ export const components = {
   ol: OrderedList,
   p: Text,
   pre: ({ children, ...rest }: { children: React.ReactNode }) => (
-    <chakra.pre w="fit-content" {...rest}>
+    <chakra.pre w="fit-content(100%)" {...rest}>
       {React.Children.map(children, (child) =>
         React.isValidElement(child) ? React.cloneElement(child, { isInPre: true }) : child
       )}
     </chakra.pre>
   ),
-  strong: (props: any) => <Text as="strong" {...props} />,
+  strong: (props: any) => <chakra.strong {...props} />,
   ul: UnorderedList,
-  del: (props: any) => <Text as="del" {...props} />,
+  del: (props: any) => <chakra.del {...props} />,
   // input
   // section
-  sup: (props: any) => <Text as="sup" {...props} />,
-  table: (props: any) => <Table w="fit-content" {...props} />,
+  sup: (props: any) => <chakra.sup {...props} />,
+  table: (props: any) => <Table w="fit-content(100%)" {...props} />,
   tbody: Tbody,
   td: Td,
   th: (props: any) => <Th fontSize="md" textTransform="initial" {...props} />,
   thead: Thead,
   tr: Tr,
-  sub: (props: any) => <Text as="sub" {...props} />,
-  i: (props: any) => <Text as="i" {...props} />,
-  u: (props: any) => <Text as="u" {...props} />,
-  abbr: (props: any) => <Text as="abbr" {...props} />,
-  cite: (props: any) => <Text as="cite" {...props} />,
-  ins: (props: any) => <Text as="ins" {...props} />,
-  kbd: (props: any) => <Text as="kbd" {...props} />,
-  mark: (props: any) => <Text as="mark" {...props} />,
-  s: (props: any) => <Text as="s" {...props} />,
-  samp: (props: any) => <Text as="samp" {...props} />,
+  sub: (props: any) => <chakra.sub {...props} />,
+  i: (props: any) => <chakra.i as="i" {...props} />,
+  u: (props: any) => <chakra.u {...props} />,
+  abbr: (props: any) => <chakra.abbr {...props} />,
+  cite: (props: any) => <chakra.cite {...props} />,
+  ins: (props: any) => <chakra.ins {...props} />,
+  kbd: (props: any) => <chakra.kbd {...props} />,
+  mark: (props: any) => <chakra.mark {...props} />,
+  s: (props: any) => <chakra.s {...props} />,
+  samp: (props: any) => <chakra.samp {...props} />,
+  div: (props: any) => {
+    const { className }: { className?: string } = props
+    const classes = className?.split(' ') || []
+    if (classes.includes('math')) {
+      return (
+        <chakra.div px={2} w="fit-content(100%)" overflow="scroll" borderWidth={1.5} borderRadius="md" {...props} />
+      )
+    } else {
+      return <chakra.div w="fit-content(100%)" {...props} />
+    }
+  },
 }
 
 // TODO: line numbers
@@ -175,9 +186,9 @@ function CodeBlock(props: any) {
 
   return children ? (
     <>
-      <VStack float="right" pl={1} spacing={0.5} alignItems="flex-start">
+      <HStack justifyContent="flex-end" alignItems="flex-end" spacing={0.5} pb={0.5}>
         {lang && (
-          <Tag size="sm" zIndex="docked" filter="contrast(0.8)">
+          <Tag size="sm" filter="contrast(0.8)">
             {lang}
           </Tag>
         )}
@@ -185,17 +196,16 @@ function CodeBlock(props: any) {
           aria-label="Copy the code block to clipboard"
           icon={<Icon as={hasCopied ? MdDone : MdContentCopy} w={3} h={3} />}
           size="xs"
-          rounded="full"
-          float="right"
-          zIndex="docked"
+          rounded="md"
           filter="contrast(0.8)"
           onClick={onCopy}
         />
-      </VStack>
+      </HStack>
       <Code
         px={4}
         py={2}
         borderRadius="md"
+        w="100%"
         maxW="120ch"
         overflow="auto"
         contentEditable
