@@ -7,7 +7,6 @@ import NextLink from 'next/link'
 import {
   Box,
   Heading,
-  HStack,
   Tag,
   Text,
   VStack,
@@ -18,6 +17,7 @@ import {
   TabPanels,
   TabPanel,
   Tab,
+  Flex,
 } from '@chakra-ui/react'
 import Footer from '../components/footer'
 import Header from '../components/header'
@@ -100,11 +100,11 @@ function PItem(props: PItemProps) {
           : `Created on ${meta.createdDate} & updated on ${meta.updatedDate}.`}
       </Text>
       {meta.tags.length > 0 && (
-        <HStack>
+        <Flex gap={1} flexWrap="wrap">
           {meta.tags.map((tag) => (
             <Tag key={tag}>{tag}</Tag>
           ))}
-        </HStack>
+        </Flex>
       )}
     </Item>
   )
