@@ -1,5 +1,7 @@
 const path = require('path')
 
+const withBundleAnalyzer = process.env.ANALYZE === '1' ? require('@next/bundle-analyzer')({ enabled: true }) : (c) => c
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
@@ -92,4 +94,4 @@ const nextConfig = {
   },
 }
 
-module.exports = nextConfig
+module.exports = withBundleAnalyzer(nextConfig)

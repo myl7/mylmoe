@@ -3,15 +3,6 @@
 
 import React from 'react'
 import NextLink from 'next/link'
-import remarkGfm from 'remark-gfm'
-import remarkDirective from 'remark-directive'
-import remarkDirectiveRehype from 'remark-directive-rehype'
-import remarkToc from 'remark-toc'
-import remarkMath from 'remark-math'
-import rehypeRaw from 'rehype-raw'
-import rehypeKatex from 'rehype-katex'
-import rehypeSlug from 'rehype-slug'
-import rehypeHighlight from 'rehype-highlight'
 import { MdContentCopy, MdDone, MdLaunch, MdLink } from 'react-icons/md'
 import {
   Link,
@@ -36,33 +27,7 @@ import {
   chakra,
   HStack,
 } from '@chakra-ui/react'
-import remarkCodeAsProp from './remarkCodeAsProp'
-import colorHooks from './colors'
-
-// Node types that have to be passed through from `mdx`, which is from `mdast-util-mdx`
-// Copy here other than import to avoid huge new dependencies
-const mdxNodeTypes = ['mdxFlowExpression', 'mdxJsxFlowElement', 'mdxJsxTextElement', 'mdxTextExpression', 'mdxjsEsm']
-
-export const remarkPlugins = [
-  remarkGfm,
-  remarkDirective,
-  remarkDirectiveRehype,
-  remarkToc,
-  remarkMath,
-  remarkCodeAsProp, // Save code content to data-code prop
-]
-
-export const rehypePlugins = [
-  [rehypeRaw, { passThrough: mdxNodeTypes }],
-  rehypeKatex,
-  rehypeSlug,
-  [
-    rehypeHighlight,
-    {
-      subset: [], // No language auto-detection but still add hljs class
-    },
-  ],
-]
+import colorHooks from '../colors'
 
 export const components = {
   a: (props: any) => {
