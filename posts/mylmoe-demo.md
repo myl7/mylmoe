@@ -1,7 +1,7 @@
 ---
 title: 'Demo of mylmoe: self-written frontend blog system'
 createdDate: 2022-08-21
-updatedDate: 2022-08-25
+updatedDate: 2022-08-28
 abstract: mylmoe v0.5 (which is what you are viewing) is released now after the 5th refactoring/rewriting. The post shows demos of various supported Markdown syntax/features/extensions.
 tags: demo markdown mdx gfm mylmoe
 ---
@@ -173,11 +173,11 @@ With Link reference definitions
 
 ![](data:image/png;base64,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)
 
-Notice that images are reset to become block elements by default other than inline elements
+Notice that images are CSS-reset to become block elements by default other than inline elements
 
 ### Comments
 
-Since highlight.js has no MDX support, Markdown/HTML comments can be used for Markdown posts:
+Markdown/HTML comments can be used for Markdown posts:
 
 ```md
 <!-- comment -->
@@ -190,11 +190,13 @@ If you are writting a MDX post, use MDX comments:
 {/* comment */}
 ```
 
+Since highlight.js has no MDX support, here the code block for MDX is using JSX as the language
+
 ### HTML inlines/blocks
 
 ```md
 <a href="https://github.com/myl7/mylmoe" title="title">link</a>
-<button onclick="alert(1)">Do NOT click me!</button>
+<button onclick="alert(1)" style="border-width: 1px">Do NOT click me!</button>
 
 <div style="display: flex; gap: 30px">
 <div>
@@ -215,7 +217,7 @@ If you are writting a MDX post, use MDX comments:
 ```
 
 <a href="https://github.com/myl7/mylmoe" title="title">link</a>
-<button onclick="alert(1)">Do NOT click me!</button>
+<button onclick="alert(1)" style="border-width: 1px">Do NOT click me!</button>
 
 <div style="display: flex; gap: 30px">
 <div>
@@ -235,7 +237,7 @@ If you are writting a MDX post, use MDX comments:
 </div>
 
 Notice that `onclick="alert(1)"` would not work.
-`"alert(1)"` would be parsed to a string and passed to **React** `onClick` event handler, causing no effects.
+`"alert(1)"` would be parsed as a string and passed to **React** `onClick` event handler, causing no effects.
 Additionally an error would be raised in Next.js development mode.
 
 ### LaTeX math inlines/blocks
@@ -261,3 +263,8 @@ $$
 $$
 \Delta = (\frac{bc}{6a^2} - \frac{b^3}{27a^3} - \frac{d}{2a})^2 + (\frac{c}{3a} - \frac{b^2}{9a^2})^3
 $$
+
+### MDX deviations
+
+MDX is slightly different from both Markdown and JSX in the corresponding parts.
+Refer to the [Deviations from Markdown](https://github.com/micromark/mdx-state-machine#72-deviations-from-markdown) and [Deviations from JSX](https://github.com/micromark/mdx-state-machine#73-deviations-from-jsx) sections for details.

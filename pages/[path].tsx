@@ -58,12 +58,13 @@ const Post: NextPage<PostProps> = (props) => {
         as="main"
         px={2}
         pb={2}
-        id="post"
-        sx={{ '--post-block-mx': '21px' }} // For child non-heading block margin in index.css
-        w="fit-content"
-        maxW="calc(100% - 2 * var(--post-block-mx))"
+        w="100%"
+        sx={{
+          '--post-block-my': '12px', // For all children margin-top/bottom in index.css. Same as my of post title below.
+          '--post-block-ml': '21px', // For post body non-heading block margin-left in index.css
+        }}
       >
-        <Box px={6}>
+        <Box px={6} my="12px">
           <Heading as="h1" size="md">
             {meta.title}
           </Heading>
@@ -80,9 +81,11 @@ const Post: NextPage<PostProps> = (props) => {
           </HStack>
         </Box>
         <Divider />
-        {/* Error due to isInPre attr, but we can ensure it is always passed from pre to code */}
-        {/* @ts-ignore */}
-        <MDXRemote {...mdx} components={components} lazy />
+        <Box id="post-body" w="100%" maxW="calc(100% - 1 * var(--post-block-ml))">
+          {/* Error due to isInPre attr, but we can ensure it is always passed from pre to code */}
+          {/* @ts-ignore */}
+          <MDXRemote {...mdx} components={components} lazy />
+        </Box>
       </Box>
       <Footer />
     </div>

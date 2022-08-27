@@ -46,7 +46,7 @@ const Home: NextPage<IndexProps> = ({ metas }) => {
           </Heading>
         </Box>
         <Divider />
-        <Tabs px={4}>
+        <Tabs px={4} w="100%">
           <TabList>
             <Tab>
               <Heading size="sm">Posts</Heading>
@@ -135,6 +135,7 @@ function Item(props: ItemProps) {
       borderColor={colors.textColor}
       px={4}
       py={2}
+      w="100%"
     >
       <Heading as="h2" size="md">
         <NextLink href={ppath} passHref>

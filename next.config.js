@@ -22,6 +22,7 @@ const nextConfig = {
       // { source: '/posts/:slug', destination: '/:slug', permanent: true },
       // { source: '/pages/:slug(dn42|about|friends|privacy-policy|tags|cv)', destination: '/:slug', permanent: true },
       { source: '/utils/brotli', destination: '/brotli', permanent: true },
+      { source: '/privacy-policy', destination: '/privacy-policy-of-us', permanent: true },
     ]
   },
   async headers() {
@@ -81,7 +82,7 @@ const nextConfig = {
         type: 'asset/source',
       }
     )
-    if (isServer && nextRuntime == 'edge') {
+    if (isServer && nextRuntime === 'edge') {
       config.resolve.fallback = {
         ...config.resolve.fallback,
         stream: require.resolve('stream-browserify'),

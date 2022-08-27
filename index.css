@@ -54,19 +54,18 @@ html {
 }
 
 /* Post heading link icons */
-#post a.hlink {
+#post-body a.hlink {
   padding-right: 0.3rem;
 }
 
 /* Post blocks */
 /* There is an extra div gen by next-mdx-remote to avoid hydration mismatches during render */
-#post > div > * {
-  margin-top: 0.75rem;
-  margin-bottom: 0.75rem;
+#post-body > div > * {
+  margin-top: var(--post-block-my);
+  margin-bottom: var(--post-block-my);
 }
 
-/* margin-left/right cause x overflow so post box should limit width to reserve hspace */
-#post > div:nth-child(3) > :not(h1, h2, h3, h4, h5, h6) {
-  margin-left: var(--post-block-mx);
-  margin-right: var(--post-block-mx);
+/* margin-left cause x overflow so post box should limit width to reserve hspace */
+#post-body > div > :not(h1, h2, h3, h4, h5, h6) {
+  margin-left: var(--post-block-ml);
 }
