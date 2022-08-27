@@ -3,7 +3,7 @@
 
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
-import { Box, Divider, Heading, HStack, Tag, Text, useColorMode } from '@chakra-ui/react'
+import { Box, Divider, Heading, HStack, Tag, Text, useColorMode, VStack } from '@chakra-ui/react'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
 import { Helmet } from 'react-helmet-async'
@@ -64,7 +64,7 @@ const Post: NextPage<PostProps> = (props) => {
           '--post-block-ml': '21px', // For post body non-heading block margin-left in index.css
         }}
       >
-        <Box px={6} my="12px">
+        <VStack px={6} my="12px" spacing={2} alignItems="flex-start">
           <Heading as="h1" size="md">
             {meta.title}
           </Heading>
@@ -79,7 +79,7 @@ const Post: NextPage<PostProps> = (props) => {
               <Tag key={tag}>{tag}</Tag>
             ))}
           </HStack>
-        </Box>
+        </VStack>
         <Divider />
         <Box id="post-body" w="100%" maxW="calc(100% - 1 * var(--post-block-ml))">
           {/* Error due to isInPre attr, but we can ensure it is always passed from pre to code */}
