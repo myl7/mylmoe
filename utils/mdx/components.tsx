@@ -26,6 +26,7 @@ import {
   useClipboard,
   chakra,
   HStack,
+  VStack,
 } from '@chakra-ui/react'
 import colorHooks from '../colors'
 
@@ -127,9 +128,7 @@ export const components = {
     const { className }: { className?: string } = props
     const classes = className?.split(' ') || []
     if (classes.includes('math')) {
-      return (
-        <chakra.div px={2} w="fit-content(100%)" overflow="scroll" borderWidth={1.5} borderRadius="md" {...props} />
-      )
+      return <chakra.div px={2} w="fit-content(100%)" overflowX="auto" borderWidth={1.5} borderRadius="md" {...props} />
     } else {
       return <chakra.div w="fit-content(100%)" {...props} />
     }
@@ -150,8 +149,8 @@ function CodeBlock(props: any) {
   const { hasCopied, onCopy } = useClipboard(dataCode)
 
   return children ? (
-    <>
-      <HStack justifyContent="flex-end" alignItems="flex-end" spacing={0.5} pb={0.5}>
+    <VStack alignItems="flex-start" spacing={0} maxW="fit-content">
+      <HStack justifyContent="flex-end" alignItems="flex-end" spacing={0.5} pb={0.5} w="100%">
         {lang && (
           <Tag size="sm" filter="contrast(0.8)">
             {lang}
@@ -172,7 +171,7 @@ function CodeBlock(props: any) {
         borderRadius="md"
         w="100%"
         maxW="120ch"
-        overflow="auto"
+        overflowX="auto"
         contentEditable
         onCut={(e) => e.preventDefault()}
         onPaste={(e) => e.preventDefault()}
@@ -190,7 +189,7 @@ function CodeBlock(props: any) {
       >
         {children}
       </Code>
-    </>
+    </VStack>
   ) : (
     <Code px={4} py={2} borderRadius="md" {...rest} />
   )

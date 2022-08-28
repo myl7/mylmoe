@@ -56,6 +56,10 @@ printf("Hello, world!");
 printf("Hello, world!");
 ```
 
+```c
+;
+```
+
 ```
 
 ```
@@ -67,6 +71,10 @@ printf("Hello, world!");
 
 ```
 printf("Hello, world!");
+```
+
+```c
+;
 ```
 
 ```
