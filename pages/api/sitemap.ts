@@ -2,27 +2,26 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { SitemapStream, streamToPromise } from 'sitemap'
 import { getMetasWithPPaths } from '../../utils/posts'
 
 let SITEMAP = ''
 
-export default async function handler(_req: NextApiRequest, res: NextApiResponse) {
+export const config = {
+  runtime: 'experimental-edge',
+}
+
+export default async function handler() {
   if (SITEMAP == '') {
     SITEMAP = await getSitemap()
   }
-  res.status(200).send(SITEMAP)
+  return new Response(SITEMAP, { status: 200 })
 }
 
 async function getSitemap() {
-  const metas = await getMetasWithPPaths([])
-  const smStream = new SitemapStream({ hostname: 'https://myl.moe' })
-  metas.forEach(({ ppath }) => {
-    smStream.write({ url: ppath })
-  })
+  const origin = 'https://myl.moe'
+  const urls = (await getMetasWithPPaths([])).map(({ ppath }) => origin + ppath)
   // Extra pages in /pages folder
-  smStream.write({ url: '/brotli' })
-  smStream.end()
-  const sm = (await streamToPromise(smStream)).toString()
+  urls.push(...[origin + '/brotli'])
+  const sm = urls.map((url) => url + '\n').join('') + '\n'
   return sm
 }

@@ -13,7 +13,7 @@ const nextConfig = {
     return [
       { source: '/rss.xml', destination: '/api/rss' },
       { source: '/atom.xml', destination: '/api/atom' },
-      { source: '/sitemap.xml', destination: '/api/sitemap' },
+      { source: '/sitemap.txt', destination: '/api/sitemap' },
       { source: '/u/:slug', destination: '/api/url/:slug' },
     ]
   },
@@ -25,6 +25,7 @@ const nextConfig = {
       // { source: '/pages/:slug(dn42|about|friends|privacy-policy|tags|cv)', destination: '/:slug', permanent: true },
       { source: '/utils/brotli', destination: '/brotli', permanent: true },
       { source: '/privacy-policy', destination: '/privacy-policy-of-us', permanent: true },
+      { source: '/sitemap.xml', destination: '/sitemap.txt', permanent: false },
     ]
   },
   async headers() {
@@ -47,12 +48,8 @@ const nextConfig = {
         ],
       },
       {
-        source: '/sitemap.xml',
-        headers: [
-          { key: 'content-type', value: 'application/xml' },
-          { key: 'content-disposition', value: 'inline' },
-          { key: 'cache-control', value: 'public, max-age=0, must-revalidate, s-maxage=2678400' },
-        ],
+        source: '/sitemap.txt',
+        headers: [{ key: 'cache-control', value: 'public, max-age=0, must-revalidate, s-maxage=2678400' }],
       },
       {
         source: '/.well-known/matrix/server',
