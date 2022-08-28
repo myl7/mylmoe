@@ -3,7 +3,6 @@ title: 'Hacks for MDX/Markdown in Next.js: implementation in mylmoe'
 createdDate: 2022-08-28
 abstract: The post shows some hacks used in mylmoe v0.5 to leverage MDX/Markdown for writing posts with next-mdx-remote, including custom remark plugins and webpack loaders.
 tags: mdx markdown nextjs ssg edge-runtime remark-plugin remark webpack-loader webpack mylmoe
-categories: draft
 ---
 
 <!-- Copyright (C) 2022 myl7 -->
@@ -30,9 +29,11 @@ Just use [vfile-matter](https://github.com/vfile/vfile-matter) on your own to fi
 
 ## Raw HTML
 
-Though MDX declares you can use raw HTML in MDX/Markdown, neither setting format to `md` nor to `mdx` can have raw HTML properly parsed.
-The workaround is in [this discussion](https://github.com/orgs/mdx-js/discussions/2023#discussioncomment-2649772), to pass option `passThrough: nodeTypes` to rehype-raw.
-`nodeTypes` can be found in [this line](https://github.com/mdx-js/mdx/blob/996771aeb5302cb9d081f38e23bd06411e6bc03e/packages/mdx/lib/node-types.js#L5).
+Though MDX declares you can use raw HTML in Markdown input, setting format to `md` can not have raw HTML properly parsed.
+You can just switch to MDX input to resolve it, but that may require some manual changes as MDX is not a superset of Markdown.
+An example is comments, which are `<!-- a -->` in Markdown but `{/* a */}` in MDX.
+To use Markdown input with raw HTML, the workaround is in [this discussion](https://github.com/orgs/mdx-js/discussions/2023#discussioncomment-2649772), which is to pass option `passThrough: nodeTypes` to rehype-raw.
+`nodeTypes` can be found in [this file](https://github.com/mdx-js/mdx/blob/996771aeb5302cb9d081f38e23bd06411e6bc03e/packages/mdx/lib/node-types.js).
 Since it is exported, you can either add @mdx-js/mdx as a dependency to import it or copy the definition to your code.
 
 ## Copy code block content
@@ -40,7 +41,7 @@ Since it is exported, you can either add @mdx-js/mdx as a dependency to import i
 With plugin rehype-highlight, code blocks are highlighted so there are `<span>` in `<pre><code>`.
 If you want to add a button to copy the code block content, the original code text is unavailable.
 Do not regenerate code text from the children of `<pre><code>`.
-You can create a remark plugin (also available in [this line](https://github.com/myl7/mylmoe/blob/9f42d255869e7b96877f37a9ce5f127612528c5c/utils/remarkCodeAsProp.js#L9)):
+You can create a remark plugin (also available in [this file](https://github.com/myl7/mylmoe/blob/9f42d255869e7b96877f37a9ce5f127612528c5c/utils/remarkCodeAsProp.js)):
 
 ```js
 // Copyright (C) 2022 myl7
@@ -76,7 +77,7 @@ Pages with only `getStaticProps` should be still fine, but API routes for like R
 
 An easy-to-think solution is to embed the post content to the server bundle.
 But there will be many posts in a folder and without other helpers we need to manually import all MDX/Markdown posts.
-To resolve it, we can create a webpack loader to import all files in a folder as a map (also available in [this line](https://github.com/myl7/mylmoe/blob/9f42d255869e7b96877f37a9ce5f127612528c5c/utils/dirLoader.js#L10)):
+To resolve it, we can create a webpack loader to import all files in a folder as a map (also available in [this file](https://github.com/myl7/mylmoe/blob/9f42d255869e7b96877f37a9ce5f127612528c5c/utils/dirLoader.js)):
 
 ```js
 // Copyright (C) 2022 myl7
@@ -125,6 +126,34 @@ const posts = {} as { [fname: string]: string }
 export default posts
 ```
 
+## Color mode switching for code highlighting
+
+When using rehype-highlight to highlight code blocks, you need to manually include highlight.js CSS to add themes.
+Some highlight.js themes are for different color modes, and you may want to change highlight.js themes according to the color mode.
+
+But wrapping the `<link>` component in Next.js `next/head` `<Head>` with a condition check will not work.
+Morever a warning will be raised from Next.js:
+
+```
+Do not add stylesheets using next/head (see <link rel="stylesheet"> tag with href="..."). Use Document instead.
+See more info here: https://nextjs.org/docs/messages/no-stylesheets-in-head-component
+```
+
+Which tells you to move the `<link>` to `Document`.
+But putting it into `Document` will still not work.
+Loaded CSS will not change according to current color mode.
+This is beacause `next/head` `<Head>` uses side effects to add tags to head and can not cancel it.
+To fulfill the requirement, instead use the raw `<Helmet>` (better from `react-helmet-async` other than `react-helmet`).
+An example is available in [this line](https://github.com/myl7/mylmoe/blob/9f42d255869e7b96877f37a9ce5f127612528c5c/pages/%5Bpath%5D.tsx#L39).
+As for this method I am not sure if it will work bad as the `<Head>` warning says, but the worst case should be that only one of the themes for different color modes is loaded.
+That is not perfect, but can be recognized as a pretty fine fallback, and keep the shown content still.
+
+## Differ inline code with code blocks
+
+next-mdx-remote, while emitting HTML-like AST, give inline code with `<code>` only and code blocks with `<pre><code>`.
+To differ the two situation in custom `<code>` components, you can use `React。cloneElement` to recreate children in `<pre>` to pass a special property like `isInPre: true` to indicate the children that they are in a `<pre>`.
+An example is available in [this line](https://github.com/myl7/mylmoe/blob/9f42d255869e7b96877f37a9ce5f127612528c5c/utils/mdx/components.tsx#L101).
+
 ## Reuse Next.js `<Image>`
 
 **TODO**: The section has not been completed or even implemented.
@@ -132,7 +161,16 @@ The basic idea is to filter all images in the posts and generated corresponding 
 Then import it and use the result in next-mdx-remote `<MDXRemote>` with `scope` property.
 A custom rehype plugin is required to turn `src` attribute from a literal string to a variable.
 
-## Caveats
+## Separate components and plugins of next-mdx-remote
 
-Inheritted from next-mdx-remote, some MDX syntax is not supported.
-Refer to [next-mdx-remote _Caveats_](https://github.com/hashicorp/next-mdx-remote#caveats) for details.
+This is more like a caveat:
+You may have heard that Next.js can strip server dependencies from client bundle, as long as you only use them in `getStaticProps` or other data fetching hooks.
+But it actually seems to work on module level.
+I am not so familiar with Next.js bundling methods, but at least for this situation:
+If you imported a and b from one module, and used a for client and b for server only, then Next.js will (happily) bundle b into client bundle.
+
+When it comes with next-mdx-remote, it exports `serialize` for server and `<MDXRemote>` for client.
+If you are careful enough, you may notice that `serialize` is from `next-mdx-remote/serialize` but `<MDXRemote>` is from `next-mdx-remote`, which are different and may serve as an example.
+As for your code, you may want to provide `remarkPlugins` and `rehypePlugins` for `serialize` and `components` for `<MDXRemote>`.
+The point is that you need to make sure `remarkPlugins`/`rehypePlugins` and `components` are not in the same module, otherwise some remark/rehype plugin code will be falsely bundled into client bundle.
+An example is available in [this folder](https://github.com/myl7/mylmoe/tree/9f42d255869e7b96877f37a9ce5f127612528c5c/utils/mdx).

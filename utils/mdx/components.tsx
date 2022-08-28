@@ -79,7 +79,15 @@ export const components = {
       />
     )
   },
-  code: ({ isInPre, ...rest }: { isInPre: boolean }) => (isInPre ? <CodeBlock {...rest} /> : <Code {...rest} />),
+  code: ({ isInPre, ...rest }: { isInPre: boolean }) =>
+    isInPre ? (
+      <CodeBlock {...rest} />
+    ) : (
+      <Code
+        textDecoration="inherit" // For inline code in links
+        {...rest}
+      />
+    ),
   em: (props: any) => <chakra.em {...props} />,
   h1: (_props: any) => {
     // h1 will be set by other elements and should only be set once
