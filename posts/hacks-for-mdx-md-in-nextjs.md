@@ -104,6 +104,9 @@ module.exports = function () {
     const fnames = allFnames.filter((fname) =>
       include ? include.some((pattern) => fname.match(pattern)) : !exclude.some((pattern) => fname.match(pattern))
     )
+    // Add the folder and selected files to dependencies
+    this.addContextDependency(dpath)
+    fnames.forEach((fname) => this.addDependency(path.join(dpath, fname)))
     const fpaths = fnames.map((fname) => path.join(dpath, fname))
     let src = fpaths.map((fpath, i) => `import p${i} from '${fpath}';`).join('\n') + '\n'
     src += 'const map = {\n' + fnames.map((fname, i) => `  '${fname}': p${i},`).join('\n') + '\n};\n'
