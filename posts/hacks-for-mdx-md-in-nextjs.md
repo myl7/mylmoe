@@ -154,7 +154,7 @@ That is not perfect, but can be recognized as a pretty fine fallback, and keep t
 ## Differ inline code with code blocks
 
 next-mdx-remote, while emitting HTML-like AST, give inline code with `<code>` only and code blocks with `<pre><code>`.
-To differ the two situation in custom `<code>` components, you can use `React。cloneElement` to recreate children in `<pre>` to pass a special property like `isInPre: true` to indicate the children that they are in a `<pre>`.
+To differ the two situation in custom `<code>` components, you can use `React.cloneElement` to recreate children in `<pre>` to pass a special property like `isInPre: true` to indicate the children that they are in a `<pre>`.
 An example is available in [this line](https://github.com/myl7/mylmoe/blob/9f42d255869e7b96877f37a9ce5f127612528c5c/utils/mdx/components.tsx#L101).
 
 ## Reuse Next.js `<Image>`
