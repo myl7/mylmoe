@@ -20,7 +20,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     res.status(404).send('Not found')
     return
   }
-  res.redirect(301, target)
+  res.redirect(308, target)
 }
 
 // Required interface for KV to serve in the module

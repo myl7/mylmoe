@@ -34,6 +34,8 @@ const nextConfig = {
         headers: [
           { key: 'content-type', value: 'application/rss+xml' },
           { key: 'content-disposition', value: 'inline' },
+          // 2678400 is the default cache age of Vercel for static files
+          { key: 'cache-control', value: 'public, max-age=0, must-revalidate, s-maxage=2678400' },
         ],
       },
       {
@@ -41,6 +43,7 @@ const nextConfig = {
         headers: [
           { key: 'content-type', value: 'application/atom+xml' },
           { key: 'content-disposition', value: 'inline' },
+          { key: 'cache-control', value: 'public, max-age=0, must-revalidate, s-maxage=2678400' },
         ],
       },
       {
@@ -48,6 +51,7 @@ const nextConfig = {
         headers: [
           { key: 'content-type', value: 'application/xml' },
           { key: 'content-disposition', value: 'inline' },
+          { key: 'cache-control', value: 'public, max-age=0, must-revalidate, s-maxage=2678400' },
         ],
       },
       {
