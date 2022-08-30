@@ -26,6 +26,7 @@ import {
   useBreakpointValue,
   useColorMode,
   useDisclosure,
+  useToast,
   VStack,
 } from '@chakra-ui/react'
 import {
@@ -57,7 +58,8 @@ function DesktopHeader() {
 
   const { colorMode, toggleColorMode } = useColorMode()
 
-  // TODO: Toast notification
+  const toast = useToast()
+
   const resetColorModeToSystem = () => localStorage.removeItem('chakra-ui-color-mode')
 
   const searchInputRef = React.useRef<HTMLInputElement>(null)
@@ -159,7 +161,15 @@ function DesktopHeader() {
               size="xs"
               variant="outline"
               rounded="full"
-              onClick={resetColorModeToSystem}
+              onClick={() => {
+                resetColorModeToSystem()
+                toast({
+                  title: 'Color mode',
+                  description: 'has been reset to follow system perference.',
+                  status: 'success',
+                  isClosable: true,
+                })
+              }}
             />
           </HStack>
 
@@ -223,6 +233,8 @@ const MobileHeader = () => {
 
   const { colorMode, toggleColorMode } = useColorMode()
 
+  const toast = useToast()
+
   const resetColorModeToSystem = () => localStorage.removeItem('chakra-ui-color-mode')
 
   const searchInputRef = React.useRef<HTMLInputElement>(null)
@@ -271,7 +283,15 @@ const MobileHeader = () => {
               size="sm"
               variant="outline"
               rounded="md"
-              onClick={resetColorModeToSystem}
+              onClick={() => {
+                resetColorModeToSystem()
+                toast({
+                  title: 'Color mode',
+                  description: 'has been reset to follow system perference.',
+                  status: 'success',
+                  isClosable: true,
+                })
+              }}
             />
             <Center>-</Center>
             <IconButton
