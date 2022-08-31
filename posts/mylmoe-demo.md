@@ -191,6 +191,10 @@ Support both inline/remote images and local images.
 
 <img src="/images/pixiv_86286793_p0.jpg" alt="absolute path, HTML-style" />
 
+_License notice_: The above (2 the same) image is **NOT** licensed under the default license. **ALL RIGHTS ARE RESERVED.** The image is downloaded by us from https://www.pixiv.net/artworks/86286793 on Pixiv on 2022-09-01, made and owned by MISSILE228. Here we used with permission according to [their Pixiv description](https://www.pixiv.net/users/429077):
+
+> 作品に関しては、「他作品等への提供物ではないもの・オリジナル作品」は転載（SNS や掲示板への掲載等）を許可します（趣味イラストなど）（常識的な範囲内での転載行為は許可してるので、メッセージでのご連絡などは無くても大丈夫です）
+
 Notice that images are CSS-reset to become block elements by default other than inline elements
 
 ### Comments
