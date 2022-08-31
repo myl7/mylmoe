@@ -64,7 +64,13 @@ export async function getMetasWithPPaths(categories: string[] = ['post']) {
       metas.push({ meta, ppath })
     }
   }
-  const sortedMetas = metas.sort((a, b) => -a.meta.updatedDate.localeCompare(b.meta.updatedDate))
+  const sortedMetas = metas.sort((a, b) => {
+    const updatedComp = -a.meta.updatedDate.localeCompare(b.meta.updatedDate)
+    if (updatedComp != 0) return updatedComp
+    const createdComp = -a.meta.createdDate.localeCompare(b.meta.createdDate)
+    if (createdComp != 0) return createdComp
+    return a.ppath.localeCompare(b.ppath)
+  })
   return sortedMetas
 }
 
