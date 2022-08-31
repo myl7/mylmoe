@@ -3,6 +3,7 @@
 
 import React from 'react'
 import NextLink from 'next/link'
+import NextImage from 'next/future/image'
 import { MdContentCopy, MdDone, MdLaunch, MdLink } from 'react-icons/md'
 import {
   Link,
@@ -29,6 +30,7 @@ import {
   VStack,
 } from '@chakra-ui/react'
 import colorHooks from '../colors'
+import ImageMapContext from '../../components/imageMapContext'
 
 export const components = {
   a: (props: any) => {
@@ -99,7 +101,15 @@ export const components = {
   h5: hx(4),
   h6: hx(4), // h5, h6 are set the same as h4 as fallback. They rarely occur.
   hr: Divider,
-  img: Image,
+  img: (props: any) => {
+    const { src, ...rest } = props
+    const imageMap = React.useContext(ImageMapContext)
+    if (imageMap[src]) {
+      return <NextImage src={imageMap[src]} {...rest} />
+    } else {
+      return <Image {...props} />
+    }
+  },
   li: ListItem,
   ol: OrderedList,
   p: Text,

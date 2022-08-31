@@ -6,6 +6,7 @@ const withBundleAnalyzer = process.env.ANALYZE === '1' ? require('@next/bundle-a
 const nextConfig = {
   experimental: {
     runtime: 'experimental-edge',
+    images: { allowFutureImage: true },
   },
   reactStrictMode: true,
   swcMinify: true,
@@ -77,9 +78,15 @@ const nextConfig = {
     config.module.rules.push(
       {
         test: /_dir\.[jt]sx?$/,
-        use: { loader: path.resolve('utils/dirLoader.js'), options: { include: /\.mdx?$/ } },
+        use: { loader: path.resolve('utils/webpack/dirLoader.js'), options: { include: /\.mdx?$/ } },
         type: 'javascript/auto',
       },
+      // DEPRECATED: This loader configuration, even run before Next.js loaders, can still not work fully fine.
+      // {
+      //   test: /_images\.[jt]sx?$/,
+      //   use: path.resolve('utils/webpack/collectedImageLoader.js'),
+      //   type: 'javascript/auto',
+      // },
       {
         test: /\.mdx?$/,
         type: 'asset/source',

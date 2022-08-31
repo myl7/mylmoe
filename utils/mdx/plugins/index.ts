@@ -10,7 +10,8 @@ import rehypeRaw from 'rehype-raw'
 import rehypeKatex from 'rehype-katex'
 import rehypeSlug from 'rehype-slug'
 import rehypeHighlight from 'rehype-highlight'
-import remarkCodeAsProp from '../remarkCodeAsProp'
+import remarkCodeAsProp from './remarkCodeAsProp'
+import rehypeRelativeImage from './rehypeRelativeImage.mjs'
 
 // Node types that have to be passed through from `mdx`, which is from `mdast-util-mdx`
 // Copy here other than import to avoid huge new dependencies
@@ -35,4 +36,5 @@ export const rehypePlugins = [
       subset: [], // No language auto-detection but still add hljs class
     },
   ],
+  rehypeRelativeImage,
 ]
