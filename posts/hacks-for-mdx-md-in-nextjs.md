@@ -1,6 +1,7 @@
 ---
 title: 'Hacks for MDX/Markdown in Next.js: implementation in mylmoe'
 createdDate: 2022-08-28
+updatedDate: 2022-08-31
 abstract: The post shows some hacks used in mylmoe v0.5 to leverage MDX/Markdown for writing posts with next-mdx-remote, including custom remark plugins and webpack loaders.
 tags: mdx markdown nextjs ssg edge-runtime remark-plugin remark webpack-loader webpack mylmoe
 ---
@@ -177,3 +178,4 @@ If you are careful enough, you may notice that `serialize` is from `next-mdx-rem
 As for your code, you may want to provide `remarkPlugins` and `rehypePlugins` for `serialize` and `components` for `<MDXRemote>`.
 The point is that you need to make sure `remarkPlugins`/`rehypePlugins` and `components` are not in the same module, otherwise some remark/rehype plugin code will be falsely bundled into client bundle.
 An example is available in [this folder](https://github.com/myl7/mylmoe/tree/9f42d255869e7b96877f37a9ce5f127612528c5c/utils/mdx).
+[An `IMPORTANT` notice about this](https://github.com/hashicorp/next-mdx-remote#:~:text=IMPORTANT%3A%20Be%20very,filing%20an%20issue.) is also available in next-mdx-remote README.
