@@ -25,6 +25,7 @@ const nextConfig = {
       // { source: '/posts/:slug', destination: '/:slug', permanent: true },
       // { source: '/pages/:slug(dn42|about|friends|privacy-policy|tags|cv)', destination: '/:slug', permanent: true },
       { source: '/utils/brotli', destination: '/brotli', permanent: true },
+      { source: '/pages/privacy-policy', destination: '/privacy-policy-of-us', permanent: true },
       { source: '/privacy-policy', destination: '/privacy-policy-of-us', permanent: true },
       { source: '/sitemap.xml', destination: '/sitemap.txt', permanent: false },
     ]
