@@ -117,8 +117,18 @@ module.exports = function () {
 }
 ```
 
-Then put a file named `dir.ts` into the post folder.
-Though the content of `dir.ts` has no effect, you can still export corresponding types to mock TypeScript and IDE like (also available in [this file](https://github.com/myl7/mylmoe/blob/9f42d255869e7b96877f37a9ce5f127612528c5c/posts/dir.ts)):
+Then add a webpack loader configuration for it (also available in [this line](https://github.com/myl7/mylmoe/blob/9f42d255869e7b96877f37a9ce5f127612528c5c/next.config.js#L82)):
+
+```js
+{
+  test: /_dir\.[jt]sx?$/,
+  use: { loader: path.resolve('utils/dirLoader.js'), options: { include: /\.mdx?$/ } },
+  type: 'javascript/auto',
+}
+```
+
+Finally put a file named `_dir.ts` into the post folder.
+Though the content of `_dir.ts` has no effect, you can still export corresponding types to mock TypeScript and IDE like (also available in [this file](https://github.com/myl7/mylmoe/blob/9f42d255869e7b96877f37a9ce5f127612528c5c/posts/dir.ts)):
 
 ```ts
 // These files named /dir\.[jt]sx?$/ will be matched and processed by dirLoader

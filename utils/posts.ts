@@ -4,7 +4,7 @@
 import { VFile } from 'vfile'
 import { matter } from 'vfile-matter'
 import type { Frontmatter } from '../posts'
-import postMap from '../posts/dir'
+import postMap from '../posts/_dir'
 
 export interface Meta {
   title: string

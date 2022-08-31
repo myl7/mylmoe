@@ -76,7 +76,7 @@ const nextConfig = {
     }
     config.module.rules.push(
       {
-        test: /dir\.[jt]sx?$/,
+        test: /_dir\.[jt]sx?$/,
         use: { loader: path.resolve('utils/dirLoader.js'), options: { include: /\.mdx?$/ } },
         type: 'javascript/auto',
       },
