@@ -77,6 +77,7 @@ export const components = {
         as="blockquote"
         px={4}
         py={2}
+        my={2}
         borderRadius="md"
         borderLeftWidth={5}
         borderLeftColor={colors.textColor}
@@ -117,22 +118,22 @@ export const components = {
     }
   },
   li: ListItem,
-  ol: OrderedList,
-  p: Text,
+  ol: (props: any) => <OrderedList my={2} {...props} />,
+  p: (props: any) => <Text my={2} {...props} />,
   pre: ({ children, ...rest }: { children: React.ReactNode }) => (
-    <chakra.pre w="fit-content(100%)" {...rest}>
+    <chakra.pre {...rest}>
       {React.Children.map(children, (child) =>
         React.isValidElement(child) ? React.cloneElement(child, { isInPre: true }) : child
       )}
     </chakra.pre>
   ),
   strong: (props: any) => <chakra.strong {...props} />,
-  ul: UnorderedList,
+  ul: (props: any) => <UnorderedList my={2} {...props} />,
   del: (props: any) => <chakra.del {...props} />,
   // input
   // section
   sup: (props: any) => <chakra.sup {...props} />,
-  table: (props: any) => <Table w="fit-content(100%)" {...props} />,
+  table: (props: any) => <Table my={2} w="fit-content(100%)" {...props} />,
   tbody: Tbody,
   td: Td,
   th: (props: any) => <Th fontSize="md" textTransform="initial" {...props} />,
@@ -152,9 +153,9 @@ export const components = {
     const { className }: { className?: string } = props
     const classes = className?.split(' ') || []
     if (classes.includes('math')) {
-      return <chakra.div px={2} w="fit-content(100%)" overflowX="auto" borderWidth={1.5} borderRadius="md" {...props} />
+      return <chakra.div my={2} px={2} overflowX="auto" borderWidth={1.5} borderRadius="md" {...props} />
     } else {
-      return <chakra.div w="fit-content(100%)" {...props} />
+      return <chakra.div {...props} />
     }
   },
   details: (props: any) => {
@@ -168,7 +169,7 @@ export const components = {
         )[0] ?? {}
     arrChildren[i] = ''
     return (
-      <Accordion {...rest} allowToggle>
+      <Accordion my={2} {...rest} allowToggle>
         <AccordionItem>
           {summary}
           <AccordionPanel>{arrChildren}</AccordionPanel>
@@ -203,8 +204,8 @@ function CodeBlock(props: any) {
   const { hasCopied, onCopy } = useClipboard(dataCode)
 
   return children ? (
-    <VStack alignItems="flex-start" spacing={0} maxW="fit-content">
-      <HStack justifyContent="flex-end" alignItems="flex-end" spacing={0.5} pb={0.5} w="100%">
+    <VStack my={2} alignItems="flex-start" spacing={0}>
+      <HStack alignItems="stretch" spacing={1} pb={1}>
         {lang && (
           <Tag size="sm" filter="contrast(0.8)">
             {lang}
@@ -224,7 +225,6 @@ function CodeBlock(props: any) {
         py={2}
         borderRadius="md"
         w="100%"
-        maxW="120ch"
         overflowX="auto"
         contentEditable
         onCut={(e) => e.preventDefault()}
@@ -257,7 +257,7 @@ function hx(x: number) {
     }
     const { children, ...rest } = props
     return (
-      <Heading as={`h${x}`} size={['md', 'sm', 'xs'][x - 2]} {...rest} pl={x - 2}>
+      <Heading my={2} as={`h${x}`} size={['md', 'sm', 'xs'][x - 2]} {...rest} pl={x - 2}>
         <Link href={`#${props.id}`} textColor={colors.linkColor}>
           <Icon as={MdLink} w={7 - x} h={7 - x} verticalAlign="top" mr={1} />
         </Link>

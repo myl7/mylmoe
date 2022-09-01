@@ -57,16 +57,7 @@ const Post: NextPage<PostProps> = (props) => {
         )}
       </Helmet>
       <Header />
-      <Box
-        as="main"
-        px={2}
-        pb={2}
-        w="100%"
-        sx={{
-          '--post-block-my': '12px', // For all children margin-top/bottom in index.css. Same as my of post title below.
-          '--post-block-ml': '21px', // For post body non-heading block margin-left in index.css
-        }}
-      >
+      <Box as="main" px={2} pb={2} w="100%">
         <VStack px={6} my="12px" spacing={2} alignItems="flex-start">
           <Heading as="h1" size="md">
             {meta.title}
@@ -84,7 +75,7 @@ const Post: NextPage<PostProps> = (props) => {
           </Flex>
         </VStack>
         <Divider />
-        <Box id="post-body" w="100%" maxW="calc(100% - 1 * var(--post-block-ml))">
+        <Box id="post-body" w="100%" px={{ base: 2, md: 8 }}>
           <ImageMapContext.Provider value={imageMap}>
             {/* Error due to isInPre attr, but we can ensure it is always passed from pre to code */}
             {/* @ts-ignore */}
