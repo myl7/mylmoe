@@ -226,19 +226,20 @@ function CodeBlock(props: any) {
         borderRadius="md"
         w="100%"
         overflowX="auto"
-        contentEditable
-        onCut={(e) => e.preventDefault()}
-        onPaste={(e) => e.preventDefault()}
-        onKeyDown={(e) =>
-          e.metaKey ||
-          e.ctrlKey ||
-          e.shiftKey ||
-          e.altKey ||
-          ['ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'End', 'Home', 'PageDown', 'PageUp'].includes(e.key) ||
-          e.preventDefault()
-        }
-        spellCheck={false}
-        suppressContentEditableWarning
+        // These break Tab focus toggling
+        // contentEditable
+        // onCut={(e) => e.preventDefault()}
+        // onPaste={(e) => e.preventDefault()}
+        // onKeyDown={(e) =>
+        //   e.metaKey ||
+        //   e.ctrlKey ||
+        //   e.shiftKey ||
+        //   e.altKey ||
+        //   ['ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'End', 'Home', 'PageDown', 'PageUp'].includes(e.key) ||
+        //   e.preventDefault()
+        // }
+        // spellCheck={false}
+        // suppressContentEditableWarning
         {...rest}
       >
         {children}
