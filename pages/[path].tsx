@@ -1,6 +1,7 @@
 // Copyright (C) 2022 myl7
 // SPDX-License-Identifier: Apache-2.0
 
+import React from 'react'
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import dynamic from 'next/dynamic'
@@ -120,6 +121,22 @@ export default Post
 const CommentsNoSSR = dynamic(
   async () =>
     function Comments() {
+      const { colorMode } = useColorMode()
+      React.useEffect(() => {
+        const iframe = document.querySelector<HTMLIFrameElement>('iframe.giscus-frame')
+        if (!iframe) return
+        iframe.contentWindow?.postMessage(
+          {
+            giscus: {
+              setConfig: {
+                theme: colorMode,
+              },
+            },
+          },
+          'https://giscus.app'
+        )
+      }, [colorMode])
+
       return (
         <>
           <div className="giscus" />
@@ -135,7 +152,7 @@ const CommentsNoSSR = dynamic(
               data-reactions-enabled="1"
               data-emit-metadata="0"
               data-input-position="top"
-              data-theme="preferred_color_scheme"
+              data-theme={colorMode}
               data-lang="en"
               crossOrigin="anonymous"
               async
