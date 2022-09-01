@@ -120,8 +120,7 @@ export default Post
 const Comments = dynamic(
   async () => () =>
     (
-      <>
-        <div className="giscus" />
+      <div className="giscus">
         <Head>
           <script
             src="https://giscus.app/client.js"
@@ -140,7 +139,7 @@ const Comments = dynamic(
             async
           />
         </Head>
-      </>
+      </div>
     ),
   { ssr: false }
 )
