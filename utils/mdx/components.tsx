@@ -28,6 +28,12 @@ import {
   chakra,
   HStack,
   VStack,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  Box,
+  AccordionIcon,
+  AccordionPanel,
 } from '@chakra-ui/react'
 import colorHooks from '../colors'
 import ImageMapContext from '../../components/imageMapContext'
@@ -150,6 +156,36 @@ export const components = {
     } else {
       return <chakra.div w="fit-content(100%)" {...props} />
     }
+  },
+  details: (props: any) => {
+    const { children, ...rest }: { children: React.ReactNode } = props
+    const arrChildren = React.Children.toArray(children)
+    const { child: summary, i } =
+      arrChildren
+        .map((child, i) => ({ child, i }))
+        .filter(
+          ({ child }) => React.isValidElement(child) && typeof child.type != 'string' && child.type.name == 'summary'
+        )[0] ?? {}
+    arrChildren[i] = ''
+    return (
+      <Accordion {...rest} allowToggle>
+        <AccordionItem>
+          {summary}
+          <AccordionPanel>{arrChildren}</AccordionPanel>
+        </AccordionItem>
+      </Accordion>
+    )
+  },
+  summary: (props: any) => {
+    const { children, ...rest }: { children: React.ReactNode } = props
+    return (
+      <AccordionButton {...rest}>
+        <Box flex="1" textAlign="left">
+          {children}
+        </Box>
+        <AccordionIcon />
+      </AccordionButton>
+    )
   },
 }
 
