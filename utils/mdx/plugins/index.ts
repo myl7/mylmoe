@@ -12,6 +12,7 @@ import rehypeSlug from 'rehype-slug'
 import rehypeHighlight from 'rehype-highlight'
 import remarkCodeAsProp from './remarkCodeAsProp'
 import rehypeRelativeImage from './rehypeRelativeImage.mjs'
+import rehypeWrapImage from './rehypeWrapImage'
 
 // Node types that have to be passed through from `mdx`, which is from `mdast-util-mdx`
 // Copy here other than import to avoid huge new dependencies
@@ -37,4 +38,5 @@ export const rehypePlugins = [
     },
   ],
   rehypeRelativeImage,
+  rehypeWrapImage,
 ]
