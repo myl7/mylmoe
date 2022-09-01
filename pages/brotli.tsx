@@ -23,6 +23,13 @@ import { MdArrowForwardIos, MdDone, MdLaunch, MdOutlineFileDownload, MdRefresh }
 import Footer from '../components/footer'
 import Header from '../components/header'
 import colorHooks from '../utils/colors'
+import HeadMeta from '../components/headMeta'
+
+const pageMeta = {
+  title: 'Brotli encode/decode tool working locally in browser',
+  abstract:
+    'Encode/decode (a.k.a. compress/decompress) data in Brotli format. All processing is literally done locally with WebAssembly to keep data safe.',
+}
 
 const Brotli: NextPage = () => {
   // Before loading encoder, `brotli-dec-wasm` which has smaller size would be used for decoding
@@ -51,12 +58,7 @@ const Brotli: NextPage = () => {
   return (
     <div>
       <Head>
-        <title>Brotli encode/decode tool working locally in browser</title>
-        <meta
-          name="description"
-          content="Encode/decode (a.k.a. compress/decompress) data in Brotli format. All processing is literally done locally with WebAssembly to keep data safe."
-        />
-        <link rel="canonical" href="https://myl.moe/brotli" />
+        <HeadMeta pageMeta={pageMeta} ppath={'/brotli'} />
       </Head>
       <Header />
       <VStack as="main" px={4} py={2} alignItems="flex-start" maxW="1100px" spacing={1}>

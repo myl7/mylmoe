@@ -19,6 +19,7 @@ import { rehypePlugins, remarkPlugins } from '../utils/mdx/plugins'
 import { getMeta, getPPathsWithExts, type Meta } from '../utils/posts'
 import type { Frontmatter } from '../posts'
 import ImageMapContext from '../components/imageMapContext'
+import HeadMeta from '../components/headMeta'
 
 interface PostProps {
   mdx: { compiledSource: string; scope?: any }
@@ -35,9 +36,7 @@ const Post: NextPage<PostProps> = (props) => {
   return (
     <div>
       <Head>
-        <title>{meta.title}</title>
-        {meta.abstract && <meta name="description" content={meta.abstract} />}
-        <link rel="canonical" href={'https://myl.moe' + ppath} />
+        <HeadMeta pageMeta={meta} ppath={ppath} />
       </Head>
       <Helmet>
         {colorMode == 'light' ? (
@@ -59,7 +58,7 @@ const Post: NextPage<PostProps> = (props) => {
         )}
       </Helmet>
       <Header />
-      <Box as="main" px={2} pb={2} w="100%">
+      <Box as="main" px={2} pb={2} w="100%" lang={meta.lang}>
         <VStack px={6} my="12px" spacing={2} alignItems="flex-start">
           <Heading as="h1" size="md">
             {meta.title}

@@ -10,4 +10,5 @@ export interface Frontmatter {
   // Prepare for i18n, currently unused
   lang?: string
   categories?: string | string[]
+  image?: string
 }

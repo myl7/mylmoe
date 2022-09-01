@@ -23,9 +23,15 @@ import Footer from '../components/footer'
 import Header from '../components/header'
 import { getMetasWithPPaths, type Meta } from '../utils/posts'
 import colorHooks from '../utils/colors'
+import HeadMeta from '../components/headMeta'
 
 interface IndexProps {
   metas: { [category: string]: { meta: Meta; ppath: string }[] }
+}
+
+const pageMeta = {
+  title: 'mylmoe',
+  abstract: "myl7's blog & utils",
 }
 
 const Home: NextPage<IndexProps> = ({ metas }) => {
@@ -34,9 +40,7 @@ const Home: NextPage<IndexProps> = ({ metas }) => {
   return (
     <div>
       <Head>
-        <title>mylmoe</title>
-        <meta name="description" content="myl7's blog & utils" />
-        <link rel="canonical" href="https://myl.moe" />
+        <HeadMeta pageMeta={pageMeta} ppath={'/'} />
       </Head>
       <Header />
       <VStack as="main" px={2} alignItems={{ base: 'center', md: 'flex-start' }}>

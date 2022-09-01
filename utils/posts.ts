@@ -14,6 +14,7 @@ export interface Meta {
   tags: string[]
   lang: string
   categories: string[]
+  image: string
 }
 
 export function getMeta(fm: Frontmatter) {
@@ -29,6 +30,7 @@ export function getMeta(fm: Frontmatter) {
         ? fm.categories.split(' ')
         : fm.categories
       : ['post'],
+    image: fm.image || 'https://myl.moe/icon-512.png',
   }
   // Validate
   if (!meta.title) throw new Error('title is required in post frontmatter')
