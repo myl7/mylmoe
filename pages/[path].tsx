@@ -66,7 +66,7 @@ const Post: NextPage<PostProps> = (props) => {
           <Text fontSize="sm">
             {meta.updatedDate == meta.createdDate
               ? `Created & updated on ${meta.createdDate}.`
-              : `Created on ${meta.createdDate} & updated on ${meta.updatedDate}.`}
+              : `Updated on ${meta.updatedDate} & created on ${meta.createdDate}.`}
           </Text>
           <Flex gap={1} flexWrap="wrap">
             {meta.tags.map((tag) => (

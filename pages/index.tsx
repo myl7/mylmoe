@@ -97,7 +97,7 @@ function PItem(props: PItemProps) {
       <Text fontSize="sm">
         {meta.updatedDate == meta.createdDate
           ? `Created & updated on ${meta.createdDate}.`
-          : `Created on ${meta.createdDate} & updated on ${meta.updatedDate}.`}
+          : `Updated on ${meta.updatedDate} & Created on ${meta.createdDate}.`}
       </Text>
       {meta.tags.length > 0 && (
         <Flex gap={1} flexWrap="wrap">
