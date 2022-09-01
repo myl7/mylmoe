@@ -11,7 +11,7 @@ import rehypeKatex from 'rehype-katex'
 import rehypeSlug from 'rehype-slug'
 import rehypeHighlight from 'rehype-highlight'
 import remarkCodeAsProp from './remarkCodeAsProp'
-import rehypeRelativeImage from './rehypeRelativeImage.mjs'
+import rehypeRelativeImage from './rehypeRelativeImage'
 import rehypeWrapImage from './rehypeWrapImage'
 
 // Node types that have to be passed through from `mdx`, which is from `mdast-util-mdx`

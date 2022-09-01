@@ -3,6 +3,7 @@
 
 // Allow users to use relative to `/public` paths in image src for backward compatibility
 // .mjs is for reusing in both normal trandformation and collecting image transformation
+// DEPRECATED: But now since collecting image has been dropped, there is no need to use .mjs extension
 
 import path from 'path'
 import { selectAll } from 'hast-util-select'
