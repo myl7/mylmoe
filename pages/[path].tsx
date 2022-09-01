@@ -82,7 +82,7 @@ const Post: NextPage<PostProps> = (props) => {
             {/* @ts-ignore */}
             <MDXRemote {...mdx} components={components} lazy />
           </ImageMapContext.Provider>
-          <Comments />
+          <CommentsNoSSR />
         </Box>
       </Box>
       <Footer />
@@ -117,29 +117,32 @@ export const getStaticProps: GetStaticProps<PostProps> = async ({ params }) => {
 
 export default Post
 
-const Comments = dynamic(
-  async () => () =>
-    (
-      <div className="giscus">
-        <Head>
-          <script
-            src="https://giscus.app/client.js"
-            data-repo="myl7/mylmoe"
-            data-repo-id="MDEwOlJlcG9zaXRvcnkzMDA4MzYxMzI="
-            data-category="Announcements"
-            data-category-id="DIC_kwDOEe5lJM4CRLe1"
-            data-mapping="title"
-            data-strict="0"
-            data-reactions-enabled="1"
-            data-emit-metadata="0"
-            data-input-position="top"
-            data-theme="preferred_color_scheme"
-            data-lang="en"
-            crossOrigin="anonymous"
-            async
-          />
-        </Head>
-      </div>
-    ),
+const CommentsNoSSR = dynamic(
+  async () =>
+    function Comments() {
+      return (
+        <>
+          <div className="giscus" />
+          <Head>
+            <script
+              src="https://giscus.app/client.js"
+              data-repo="myl7/mylmoe"
+              data-repo-id="MDEwOlJlcG9zaXRvcnkzMDA4MzYxMzI="
+              data-category="Announcements"
+              data-category-id="DIC_kwDOEe5lJM4CRLe1"
+              data-mapping="title"
+              data-strict="0"
+              data-reactions-enabled="1"
+              data-emit-metadata="0"
+              data-input-position="top"
+              data-theme="preferred_color_scheme"
+              data-lang="en"
+              crossOrigin="anonymous"
+              async
+            />
+          </Head>
+        </>
+      )
+    },
   { ssr: false }
 )
