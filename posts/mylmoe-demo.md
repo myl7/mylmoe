@@ -1,7 +1,7 @@
 ---
 title: 'Demo of mylmoe: self-written frontend blog system'
 createdDate: 2022-08-21
-updatedDate: 2022-09-01
+updatedDate: 2022-09-02
 abstract: mylmoe v0.5 (which is what you are viewing) is released now after the 5th refactoring/rewriting. The post shows demos of various supported Markdown syntax/features/extensions.
 tags: demo markdown mdx gfm mylmoe
 ---
@@ -196,6 +196,24 @@ _License notice_: The above (2 the same) image is **NOT** licensed under the def
 > 作品に関しては、「他作品等への提供物ではないもの・オリジナル作品」は転載（SNS や掲示板への掲載等）を許可します（趣味イラストなど）（常識的な範囲内での転載行為は許可してるので、メッセージでのご連絡などは無くても大丈夫です）
 
 Notice that images are CSS-reset to become block elements by default other than inline elements
+
+### Details & summary a.k.a. expand/collapse
+
+```md
+<details>
+<summary>Just use HTML details & summary</summary>
+
+Then things will be done finely
+
+</details>
+```
+
+<details>
+<summary>Just use HTML details & summary</summary>
+
+Then things will be done finely
+
+</details>
 
 ### Comments
 
