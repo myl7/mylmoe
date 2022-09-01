@@ -3,6 +3,7 @@
 
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
+import dynamic from 'next/dynamic'
 import { Box, Divider, Flex, Heading, HStack, Tag, Text, useColorMode, VStack } from '@chakra-ui/react'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
@@ -81,6 +82,7 @@ const Post: NextPage<PostProps> = (props) => {
             {/* @ts-ignore */}
             <MDXRemote {...mdx} components={components} lazy />
           </ImageMapContext.Provider>
+          <Comments />
         </Box>
       </Box>
       <Footer />
@@ -114,3 +116,31 @@ export const getStaticProps: GetStaticProps<PostProps> = async ({ params }) => {
 }
 
 export default Post
+
+const Comments = dynamic(
+  async () => () =>
+    (
+      <>
+        <div className="giscus" />
+        <Head>
+          <script
+            src="https://giscus.app/client.js"
+            data-repo="myl7/mylmoe"
+            data-repo-id="MDEwOlJlcG9zaXRvcnkzMDA4MzYxMzI="
+            data-category="Announcements"
+            data-category-id="DIC_kwDOEe5lJM4CRLe1"
+            data-mapping="title"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="top"
+            data-theme="preferred_color_scheme"
+            data-lang="en"
+            crossOrigin="anonymous"
+            async
+          />
+        </Head>
+      </>
+    ),
+  { ssr: false }
+)
