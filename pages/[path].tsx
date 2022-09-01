@@ -3,7 +3,7 @@
 
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
-import { Box, Divider, Heading, HStack, Tag, Text, useColorMode, VStack } from '@chakra-ui/react'
+import { Box, Divider, Flex, Heading, HStack, Tag, Text, useColorMode, VStack } from '@chakra-ui/react'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
 import { Helmet } from 'react-helmet-async'
@@ -77,11 +77,11 @@ const Post: NextPage<PostProps> = (props) => {
               ? `Created & updated on ${meta.createdDate}.`
               : `Created on ${meta.createdDate} & updated on ${meta.updatedDate}.`}
           </Text>
-          <HStack>
+          <Flex gap={1} flexWrap="wrap">
             {meta.tags.map((tag) => (
               <Tag key={tag}>{tag}</Tag>
             ))}
-          </HStack>
+          </Flex>
         </VStack>
         <Divider />
         <Box id="post-body" w="100%" maxW="calc(100% - 1 * var(--post-block-ml))">
