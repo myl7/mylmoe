@@ -77,7 +77,7 @@ const Brotli: NextPage = () => {
           <Text>
             Text input should be in Python byte string format (e.g. <Code>0\xff\\ = [48, 255, 92]</Code>, which can omit
             surrounded quotes and <Code>b</Code> prefix). Text output will also be in that format. When both text and
-            file input exist, file input will be selected. Click upload button again to abort the uploaded file.
+            file input exist, file input will be selected. Click the refresh button aside to abort the uploaded file.
           </Text>
         </VStack>
         <Divider />
