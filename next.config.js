@@ -91,6 +91,10 @@ const nextConfig = {
       {
         test: /\.mdx?$/,
         type: 'asset/source',
+      },
+      {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
       }
     )
     if (isServer && nextRuntime === 'edge') {

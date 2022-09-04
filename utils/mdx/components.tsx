@@ -37,6 +37,7 @@ import {
 } from '@chakra-ui/react'
 import colorHooks from '../colors'
 import ImageMapContext from '../../components/imageMapContext'
+import Admonition from '../../components/admonition'
 
 export const components = {
   a: (props: any) => {
@@ -188,6 +189,7 @@ export const components = {
       </AccordionButton>
     )
   },
+  admonition: Admonition,
 }
 
 // TODO: line numbers

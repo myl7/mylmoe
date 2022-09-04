@@ -1,7 +1,7 @@
 ---
 title: 'Demo of mylmoe: self-written frontend blog system'
 createdDate: 2022-08-21
-updatedDate: 2022-09-02
+updatedDate: 2022-09-05
 abstract: mylmoe v0.5 (which is what you are viewing) is released now after the 5th refactoring/rewriting. The post shows demos of various supported Markdown syntax/features/extensions.
 tags: demo markdown mdx gfm mylmoe
 ---
@@ -184,12 +184,12 @@ Support both inline/remote images and local images.
 ```md
 ![relative path, Markdown-style](../public/images/pixiv_86286793_p0.jpg)
 
-<img src="/images/pixiv_86286793_p0.jpg" alt="absolute path, HTML-style" />
+<img src="/images/pixiv_86286793_p0.jpg" alt="absolute path, HTML-style, with props" width="500px" />
 ```
 
 ![relative path, Markdown-style](../public/images/pixiv_86286793_p0.jpg)
 
-<img src="/images/pixiv_86286793_p0.jpg" alt="absolute path, HTML-style" />
+<img src="/images/pixiv_86286793_p0.jpg" alt="absolute path, HTML-style, with props" width="500px" />
 
 _License notice_: The above (2 the same) image is **NOT** licensed under the default license. **ALL RIGHTS ARE RESERVED.** The image is downloaded by us from https://www.pixiv.net/artworks/86286793 on Pixiv on 2022-09-01, made and owned by MISSILE228. Here we used with permission according to [their Pixiv description](https://www.pixiv.net/users/429077):
 
@@ -214,6 +214,118 @@ Then things will be done finely
 Then things will be done finely
 
 </details>
+
+### Admonitions
+
+Use directives with `admonition` or `admon` as the name to create admonitions.
+Specify `type` to set the type of admonition.
+`type` is case-insensitive.
+Available types and respective styles are from [admonitions of Material for MkDocs](https://squidfunk.github.io/mkdocs-material/reference/admonitions/).
+Specify `title` to set the admonition title.
+Or set `autoTitle` to true value (only `autoTitle` is not enough since it is parsed to `autoTitle=""`) to automatically get the title from the first non-empty text block (`p`) of the content.
+Like Material for MkDocs, without specifying the title, the admonition will have the title defaulting to the capitalized type name.
+
+```md
+:::::admonition{type="note"}
+::::admonition{type="aBsTrAcT"}
+Type is case-insensitive
+
+:::admon{type="info"}
+Nested admonitions
+
+You can abbreviate `admonition` to `admon`
+:::
+::::
+:::::
+
+:::admonition{type="tip", title="Custom title"}
+Tip
+:::
+
+:::admonition{type="success", autoTitle="1"}
+Success
+
+Automatically get the title from the first non-empty text block of the content
+:::
+
+:::admonition{type="question"}
+Question
+:::
+
+:::admonition{type="warning"}
+Warning
+:::
+
+:::admonition{type="failure"}
+Failure
+:::
+
+:::admonition{type="danger"}
+Danger
+:::
+
+:::admonition{type="bug"}
+Bug
+:::
+
+:::admonition{type="example"}
+Example
+:::
+
+:::admonition{type="quote"}
+Quote
+:::
+```
+
+:::::admonition{type="note"}
+::::admonition{type="aBsTrAcT"}
+Type is case-insensitive
+
+:::admon{type="info"}
+Nested admonitions
+
+You can abbreviate `admonition` to `admon`
+:::
+::::
+:::::
+
+:::admonition{type="tip" title="Custom title"}
+Tip
+:::
+
+:::admonition{type="success" autoTitle="1"}
+Success
+
+Automatically get the title from the first non-empty text block of the content
+:::
+
+:::admonition{type="question"}
+Question
+:::
+
+:::admonition{type="warning"}
+Warning
+:::
+
+:::admonition{type="failure"}
+Failure
+:::
+
+:::admonition{type="danger"}
+Danger
+:::
+
+:::admonition{type="bug"}
+Bug
+:::
+
+:::admonition{type="example"}
+Example
+:::
+
+:::admonition{type="quote"}
+Quote
+:::
 
 ### Comments
 
