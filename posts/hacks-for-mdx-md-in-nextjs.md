@@ -195,7 +195,7 @@ Anyway we can not modify Next.js internal logic and have to admit that this meth
 Fix 3: Other than loaders, use webpack plugin API to generate image import statements before running.
 And there is no need to re-parse MDX/Markdown posts.
 On the countrary, globbing the image dir to get the image list.
-If we need to know which images are required by a specified post, since the image paths (relative to `/public` folder) are always literally exist in the post content, just use text searching to check.
+If we need to know which images are required by a specified post, since the image paths (relative to `/public` folder) always literally exist in the post content, just use text searching to check.
 
 </details>
 
