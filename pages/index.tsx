@@ -23,24 +23,37 @@ import Footer from '../components/footer'
 import Header from '../components/header'
 import { getMetasWithPPaths, type Meta } from '../utils/posts'
 import colorHooks from '../utils/colors'
-import HeadMeta from '../components/headMeta'
+import { cleanPageMeta } from '../utils/pageMeta'
 
 interface IndexProps {
   metas: { [category: string]: { meta: Meta; ppath: string }[] }
 }
 
-const pageMeta = {
+const rawPageMeta = {
   title: 'mylmoe',
   abstract: "myl7's blog & utils",
 }
+const ppath = '/'
 
 const Home: NextPage<IndexProps> = ({ metas }) => {
   const { postMetas, miscMetas } = metas
 
+  const pageMeta = cleanPageMeta(rawPageMeta)
+
   return (
     <div>
-      <Head>
-        <HeadMeta pageMeta={pageMeta} ppath={'/'} />
+      {/* key="pageMeta" is required for no duplicated og meta */}
+      <Head key="pageMeta">
+        <title>{pageMeta.title}</title>
+        <meta name="description" content={pageMeta.abstract} />
+        <link rel="canonical" href={'https://myl.moe' + ppath} />
+        <meta property="og:title" content={pageMeta.title} />
+        <meta property="og:type" content={pageMeta.type} />
+        <meta property="og:url" content={'https://myl.moe' + ppath} />
+        <meta property="og:image" content={pageMeta.image} />
+        <meta property="og:description" content={pageMeta.abstract} />
+        <meta property="og:locale" content={pageMeta.locale} />
+        <meta property="og:site_name" content="mylmoe" />
       </Head>
       <Header />
       <VStack as="main" px={2} alignItems={{ base: 'center', md: 'flex-start' }}>

@@ -19,7 +19,7 @@ import { rehypePlugins, remarkPlugins } from '../utils/mdx/plugins'
 import { getMeta, getPPathsWithExts, type Meta } from '../utils/posts'
 import type { Frontmatter } from '../posts'
 import ImageMapContext from '../components/imageMapContext'
-import HeadMeta from '../components/headMeta'
+import { cleanPageMeta } from '../utils/pageMeta'
 
 interface PostProps {
   mdx: { compiledSource: string; scope?: any }
@@ -33,10 +33,27 @@ const Post: NextPage<PostProps> = (props) => {
 
   const { colorMode } = useColorMode()
 
+  const pageMeta = cleanPageMeta(meta)
+
   return (
     <div>
-      <Head>
-        <HeadMeta pageMeta={meta} ppath={ppath} />
+      <Head key="pageMeta">
+        <title>{pageMeta.title}</title>
+        <meta name="description" content={pageMeta.abstract} />
+        <link rel="canonical" href={'https://myl.moe' + ppath} />
+        <meta property="og:title" content={pageMeta.title} />
+        <meta property="og:type" content={pageMeta.type} />
+        <meta property="og:url" content={'https://myl.moe' + ppath} />
+        <meta property="og:image" content={pageMeta.image} />
+        <meta property="og:description" content={pageMeta.abstract} />
+        <meta property="og:locale" content={pageMeta.locale} />
+        <meta property="og:site_name" content="mylmoe" />
+        <meta property="article:published_time" content={meta.createdDate} />
+        <meta property="article:modified_time" content={meta.updatedDate} />
+        <meta property="article:author" content="myl7" />
+        {meta.tags.map((tag) => (
+          <meta property="article:tag" content={tag} key={tag} />
+        ))}
       </Head>
       <Helmet>
         {colorMode == 'light' ? (
@@ -88,7 +105,7 @@ const Post: NextPage<PostProps> = (props) => {
             repoId="MDEwOlJlcG9zaXRvcnkzMDA4MzYxMzI="
             category="Announcements"
             categoryId="DIC_kwDOEe5lJM4CRLe1"
-            mapping="og:title"
+            mapping="title"
             strict="0"
             reactionsEnabled="1"
             emitMetadata="0"

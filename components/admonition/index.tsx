@@ -31,7 +31,6 @@ export interface AdmonitionProps {
 
 export default function Admonition(props: AdmonitionProps) {
   const { type, title, autoTitle, children, ...rest } = props
-  console.log('OK', type)
   const typeName = TYPES[type?.toLowerCase()]
   if (!typeName) {
     throw new Error(`Unknown admonition type: ${type}`)

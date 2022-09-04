@@ -23,13 +23,14 @@ import { MdArrowForwardIos, MdDone, MdLaunch, MdOutlineFileDownload, MdRefresh }
 import Footer from '../components/footer'
 import Header from '../components/header'
 import colorHooks from '../utils/colors'
-import HeadMeta from '../components/headMeta'
+import { cleanPageMeta } from '../utils/pageMeta'
 
-const pageMeta = {
+const rawPageMeta = {
   title: 'Brotli encode/decode tool working locally in browser',
   abstract:
     'Encode/decode (a.k.a. compress/decompress) data in Brotli format. All processing is literally done locally with WebAssembly to keep data safe.',
 }
+const ppath = '/brotli'
 
 const Brotli: NextPage = () => {
   // Before loading encoder, `brotli-dec-wasm` which has smaller size would be used for decoding
@@ -55,10 +56,21 @@ const Brotli: NextPage = () => {
     setAutoLoadEnc(val)
   }
 
+  const pageMeta = cleanPageMeta(rawPageMeta)
+
   return (
     <div>
-      <Head>
-        <HeadMeta pageMeta={pageMeta} ppath={'/brotli'} />
+      <Head key="pageMeta">
+        <title>{pageMeta.title}</title>
+        <meta name="description" content={pageMeta.abstract} />
+        <link rel="canonical" href={'https://myl.moe' + ppath} />
+        <meta property="og:title" content={pageMeta.title} />
+        <meta property="og:type" content={pageMeta.type} />
+        <meta property="og:url" content={'https://myl.moe' + ppath} />
+        <meta property="og:image" content={pageMeta.image} />
+        <meta property="og:description" content={pageMeta.abstract} />
+        <meta property="og:locale" content={pageMeta.locale} />
+        <meta property="og:site_name" content="mylmoe" />
       </Head>
       <Header />
       <VStack as="main" px={4} py={2} alignItems="flex-start" maxW="1100px" spacing={1}>
