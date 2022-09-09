@@ -1,7 +1,7 @@
 ---
 title: 'Hacks for MDX/Markdown in Next.js: implementation in mylmoe'
 createdDate: 2022-08-28
-updatedDate: 2022-09-01
+updatedDate: 2022-09-09
 abstract: The post shows some hacks used in mylmoe v0.5 to leverage MDX/Markdown for writing posts with next-mdx-remote, including custom remark plugins and webpack loaders.
 tags: mdx markdown nextjs ssg edge-runtime remark-plugin remark webpack-loader webpack mylmoe
 ---
@@ -42,7 +42,7 @@ Since it is exported, you can either add @mdx-js/mdx as a dependency to import i
 With plugin rehype-highlight, code blocks are highlighted so there are `<span>` in `<pre><code>`.
 If you want to add a button to copy the code block content, the original code text is unavailable.
 Do not regenerate code text from the children of `<pre><code>`.
-You can create a remark plugin (also available in [this file](https://github.com/myl7/mylmoe/blob/abc69c9b8cd705daf8435cc54ca7d9c9ad955fa7/utils/mdx/plugins/remarkCodeAsProp.js)):
+You can create a remark plugin (also available in [this file](https://github.com/myl7/mylmoe/blob/main/utils/mdx/plugins/remarkCodeAsProp.js)):
 
 ```js
 // Copyright (C) 2022 myl7
@@ -78,7 +78,7 @@ Pages with only `getStaticProps` should be still fine, but API routes for like R
 
 An easy-to-think solution is to embed the post content to the server bundle.
 But there will be many posts in a folder and without other helpers we need to manually import all MDX/Markdown posts.
-To resolve it, we can create a webpack loader to import all files in a folder as a map (also available in [this file](https://github.com/myl7/mylmoe/blob/abc69c9b8cd705daf8435cc54ca7d9c9ad955fa7/utils/webpack/dirLoader.js)):
+To resolve it, we can create a webpack loader to import all files in a folder as a map (also available in [this file](https://github.com/myl7/mylmoe/blob/main/utils/webpack/dirLoader.js)):
 
 ```js
 // Copyright (C) 2022 myl7
@@ -117,7 +117,7 @@ module.exports = function () {
 }
 ```
 
-Then add a webpack loader configuration for it (also available in [this line](https://github.com/myl7/mylmoe/blob/abc69c9b8cd705daf8435cc54ca7d9c9ad955fa7/next.config.js#L82)):
+Then add a webpack loader configuration for it (also available in [this line](https://github.com/myl7/mylmoe/blob/main/next.config.js#L82)):
 
 ```js
 {
@@ -128,7 +128,7 @@ Then add a webpack loader configuration for it (also available in [this line](ht
 ```
 
 Finally put a file named `_dir.ts` into the post folder.
-Though the content of `_dir.ts` has no effect, you can still export corresponding types to mock TypeScript and IDE like (also available in [this file](https://github.com/myl7/mylmoe/blob/abc69c9b8cd705daf8435cc54ca7d9c9ad955fa7/posts/_dir.ts)):
+Though the content of `_dir.ts` has no effect, you can still export corresponding types to mock TypeScript and IDE like (also available in [this file](https://github.com/myl7/mylmoe/blob/main/posts/_dir.ts)):
 
 ```ts
 // These files named /dir\.[jt]sx?$/ will be matched and processed by dirLoader
@@ -158,7 +158,7 @@ But putting it into `Document` will still not work.
 Loaded CSS will not change according to current color mode.
 This is beacause `next/head` `<Head>` uses side effects to add tags to head and can not cancel it.
 To fulfill the requirement, instead use the raw `<Helmet>` (better from `react-helmet-async` other than `react-helmet`).
-An example is available in [this line](https://github.com/myl7/mylmoe/blob/abc69c9b8cd705daf8435cc54ca7d9c9ad955fa7/pages/%5Bpath%5D.tsx#L39).
+An example is available in [this line](https://github.com/myl7/mylmoe/blob/main/pages/%5Bpath%5D.tsx#L39).
 As for this method I am not sure if it will work bad as the `<Head>` warning says, but the worst case should be that only one of the themes for different color modes is loaded.
 That is not perfect, but can be recognized as a pretty fine fallback, and keep the shown content still.
 
@@ -166,11 +166,68 @@ That is not perfect, but can be recognized as a pretty fine fallback, and keep t
 
 next-mdx-remote, while emitting HTML-like AST, give inline code with `<code>` only and code blocks with `<pre><code>`.
 To differ the two situation in custom `<code>` components, you can use `React.cloneElement` to recreate children in `<pre>` to pass a special property like `isInPre: true` to indicate the children that they are in a `<pre>`.
-An example is available in [this line](https://github.com/myl7/mylmoe/blob/abc69c9b8cd705daf8435cc54ca7d9c9ad955fa7/utils/mdx/components.tsx#L119).
+An example is available in [this line](https://github.com/myl7/mylmoe/blob/main/utils/mdx/components.tsx#L119).
 
 ## Reuse Next.js `<Image>`
 
-**TODO**: The section has not been completed.
+The idea is to lookup `/public` dir to get all pending images.
+Then like what we do for edge runtime, add a custom loader to generate image static imports.
+
+The loader is (also available in [this file](https://github.com/myl7/mylmoe/blob/main/utils/webpack/collectedImageLoader.js)):
+
+```js
+// Copyright (C) 2022 myl7
+// SPDX-License-Identifier: Apache-2.0
+
+// Collect all images in /public to generate static imports of them to reuse Next.js image optimization
+
+const path = require('path')
+
+module.exports = function () {
+  const callback = this.async()
+
+  const options = this.getOptions()
+  /** @type {string[]} */
+  const glob = Array.isArray(options.glob)
+    ? options.glob
+    : options.glob
+    ? [options.glob]
+    : // The default extensions are from Next.js https://github.com/vercel/next.js/blob/03eb4b1d612513506a441137a4997bd137e3b014/packages/next/build/webpack-config.ts#L406,
+      // except svg is removed since svg has been changed to be loaded by @svgr/webpack
+      ['**/*.{png,jpg,jpeg,gif,webp,avif,ico,bmp}']
+  const include = Array.isArray(options.include) ? options.include : options.include ? [options.include] : null
+  const exclude = Array.isArray(options.exclude) ? options.exclude : options.exclude ? [options.exclude] : []
+
+  ;(async () => {
+    const { globby } = await import('globby')
+
+    const ipaths = (await Promise.all(glob.map((g) => globby(path.join(__dirname, '../../public', g)))))
+      .flat()
+      .map((ipath) => path.join('/', path.relative(path.join(__dirname, '../../public'), ipath)))
+      .filter((ipath) =>
+        include ? include.some((pattern) => ipath.match(pattern)) : !exclude.some((pattern) => ipath.match(pattern))
+      )
+      .sort((a, b) => a.localeCompare(b))
+
+    this.addContextDependency(path.join(__dirname, '../../public'))
+    ipaths.forEach((ipath) => this.addDependency(path.join(__dirname, '../../public', ipath)))
+
+    let src = ''
+    ipaths.forEach((ipath, i) => {
+      const importPath = path.join('../public', ipath)
+      src += `import i${i} from '${importPath}';\n`
+    })
+    src += 'export default {\n'
+    ipaths.forEach((ipath, i) => {
+      src += `  '${ipath}': i${i},\n`
+    })
+    src += '};\n'
+    return src
+  })()
+    .then((src) => callback(null, src))
+    .catch(callback)
+}
+```
 
 <details>
 <summary>Implementation attempt notes</summary>
@@ -186,7 +243,7 @@ Fix 1: Using a React context to pass image metadata to Next.js `<Image>` compone
 
 Problem 2: While image metadata is generated successfully, generated imports do not make Next.js to copy imported images to `.next/static/media` folder, no matter what the loader order is.
 
-To be more detailed, a webpack loader to generate import statements is available in [this file](https://github.com/myl7/mylmoe/blob/abc69c9b8cd705daf8435cc54ca7d9c9ad955fa7/utils/webpack/collectedImageLoader.js) and a rehype plugin to collect image data is available in [this file](https://github.com/myl7/mylmoe/blob/abc69c9b8cd705daf8435cc54ca7d9c9ad955fa7/utils/mdx/plugins/rehypeCollectImages.mjs).
+To be more detailed, a webpack loader to generate import statements is available in [this file](https://github.com/myl7/mylmoe/blob/main/utils/webpack/collectedImageLoader.js) and a rehype plugin to collect image data is available in [this file](https://github.com/myl7/mylmoe/blob/main/utils/mdx/plugins/rehypeCollectImages.mjs).
 With them we can get width/height from the image import correctly.
 But since the images are not copied to the target folder and src/blurDataUrl(in development) point there, the website failed to load the images with 404.
 It feels like that Next.js has extra operations on image imports before webpack loaders are invoked.
@@ -196,6 +253,12 @@ Fix 3: Other than loaders, use webpack plugin API to generate image import state
 And there is no need to re-parse MDX/Markdown posts.
 On the countrary, globbing the image dir to get the image list.
 If we need to know which images are required by a specified post, since the image paths (relative to `/public` folder) always literally exist in the post content, just use text searching to check.
+
+Problem 4: Next.js can not still automatically move images to `.next/static/media` even when using webpack plugin API.
+
+Fix 4: After checking, the true issue is the React context. Wraping `src` into a context caused Next.js unable to recognize the relationship and failed to ship the images.
+So we just ship the image metadata of all pages.
+Considering we have at most 100 images, this will not increase the client bundle size too much.
 
 </details>
 
@@ -211,5 +274,5 @@ When it comes with next-mdx-remote, it exports `serialize` for server and `<MDXR
 If you are careful enough, you may notice that `serialize` is from `next-mdx-remote/serialize` but `<MDXRemote>` is from `next-mdx-remote`, which are different and may serve as an example.
 As for your code, you may want to provide `remarkPlugins` and `rehypePlugins` for `serialize` and `components` for `<MDXRemote>`.
 The point is that you need to make sure `remarkPlugins`/`rehypePlugins` and `components` are not in the same module, otherwise some remark/rehype plugin code will be falsely bundled into client bundle.
-An example is available in [this folder](https://github.com/myl7/mylmoe/tree/abc69c9b8cd705daf8435cc54ca7d9c9ad955fa7/utils/mdx).
+An example is available in [this folder](https://github.com/myl7/mylmoe/tree/main/utils/mdx).
 [An `IMPORTANT` notice about this](https://github.com/hashicorp/next-mdx-remote#:~:text=IMPORTANT%3A%20Be%20very,filing%20an%20issue.) is also available in next-mdx-remote README.
