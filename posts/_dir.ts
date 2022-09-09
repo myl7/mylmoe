@@ -3,5 +3,4 @@
 // The content will be dropped and has no effect on build output
 // However you can still export corresponding types to mock TS and IDE
 
-const posts = {} as { [fname: string]: string }
-export default posts
+export default {} as { [fname: string]: string }

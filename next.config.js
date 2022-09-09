@@ -82,12 +82,11 @@ const nextConfig = {
         use: { loader: path.resolve('utils/webpack/dirLoader.js'), options: { include: /\.mdx?$/ } },
         type: 'javascript/auto',
       },
-      // DEPRECATED: This loader configuration, even run before Next.js loaders, can still not work fully fine.
-      // {
-      //   test: /_images\.[jt]sx?$/,
-      //   use: path.resolve('utils/webpack/collectedImageLoader.js'),
-      //   type: 'javascript/auto',
-      // },
+      {
+        test: /_images\.[jt]sx?$/,
+        use: { loader: path.resolve('utils/webpack/collectedImageLoader.js'), options: { include: /^\/images\// } },
+        type: 'javascript/auto',
+      },
       {
         test: /\.mdx?$/,
         type: 'asset/source',

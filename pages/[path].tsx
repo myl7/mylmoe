@@ -18,18 +18,16 @@ import { components } from '../utils/mdx/components'
 import { rehypePlugins, remarkPlugins } from '../utils/mdx/plugins'
 import { getMeta, getPPathsWithExts, type Meta } from '../utils/posts'
 import type { Frontmatter } from '../posts'
-import ImageMapContext from '../components/imageMapContext'
 import { cleanPageMeta } from '../utils/pageMeta'
 
 interface PostProps {
   mdx: { compiledSource: string; scope?: any }
   meta: Meta
   ppath: string
-  imageMap: { [key: string]: any }
 }
 
 const Post: NextPage<PostProps> = (props) => {
-  const { mdx, meta, ppath, imageMap } = props
+  const { mdx, meta, ppath } = props
 
   const { colorMode } = useColorMode()
 
@@ -94,11 +92,9 @@ const Post: NextPage<PostProps> = (props) => {
         </VStack>
         <Divider />
         <Box id="post-body" w="100%" px={{ base: 2, md: 8 }}>
-          <ImageMapContext.Provider value={imageMap}>
-            {/* Error due to isInPre attr, but we can ensure it is always passed from pre to code */}
-            {/* @ts-ignore */}
-            <MDXRemote {...mdx} components={components} lazy />
-          </ImageMapContext.Provider>
+          {/* Error due to isInPre attr, but we can ensure it is always passed from pre to code */}
+          {/* @ts-ignore */}
+          <MDXRemote {...mdx} components={components} lazy />
           <Giscus
             id="comments"
             repo="myl7/mylmoe"
@@ -142,8 +138,7 @@ export const getStaticProps: GetStaticProps<PostProps> = async ({ params }) => {
   // Meta could not be serialized if containing Date object
   const meta = getMeta(mdx.frontmatter as any as Frontmatter)
   mdx = { compiledSource: mdx.compiledSource, scope: mdx.scope }
-  const imageMap = {} // TODO
-  return { props: { mdx, meta, ppath, imageMap } }
+  return { props: { mdx, meta, ppath } }
 }
 
 export default Post

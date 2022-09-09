@@ -36,8 +36,8 @@ import {
   AccordionPanel,
 } from '@chakra-ui/react'
 import colorHooks from '../colors'
-import ImageMapContext from '../../components/imageMapContext'
 import Admonition from '../../components/admonition'
+import imageMap from '../../posts/_images'
 
 export const components = {
   a: (props: any) => {
@@ -110,10 +110,11 @@ export const components = {
   h6: hx(4), // h5, h6 are set the same as h4 as fallback. They rarely occur.
   hr: Divider,
   img: (props: any) => {
-    const { src, ...rest } = props
-    const imageMap = React.useContext(ImageMapContext)
+    const { src, width, height, ...rest } = props
     if (imageMap[src]) {
-      return <NextImage src={imageMap[src]} {...rest} />
+      const w = px2int(width)
+      const h = px2int(height)
+      return <NextImage src={imageMap[src]} width={w} height={h} {...rest} />
     } else {
       return <Image {...props} />
     }
@@ -124,6 +125,7 @@ export const components = {
   pre: ({ children, ...rest }: { children: React.ReactNode }) => (
     <chakra.pre {...rest}>
       {React.Children.map(children, (child) =>
+        // @ts-ignore New prop
         React.isValidElement(child) ? React.cloneElement(child, { isInPre: true }) : child
       )}
     </chakra.pre>
@@ -268,4 +270,17 @@ function hx(x: number) {
       </Heading>
     )
   }
+}
+
+const px2int = (a: string | number | undefined) => {
+  if (typeof a == 'number' || typeof a == 'undefined') {
+    return a
+  }
+  if (/^\d+$/.test(a)) {
+    return parseInt(a)
+  }
+  if (/^\d+px$/.test(a)) {
+    return parseInt(a.substring(0, a.length - 2))
+  }
+  throw new Error('Invalid image width/height: The unit can only be px')
 }
