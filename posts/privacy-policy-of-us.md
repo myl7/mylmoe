@@ -1,7 +1,7 @@
 ---
 title: Privacy policy
 createdDate: 2022-08-25
-updatedDate: 2022-08-28
+updatedDate: 2022-09-11
 abstract:
 categories: misc
 ---
@@ -20,5 +20,6 @@ However, some functionality of the website is powered by third-party services th
 - Some CSS is provided by [cdnjs](https://cdnjs.com/)
 - CC-related imgaes are provided by [Creative Commons](https://creativecommons.org/)
 - KV storage of URL shortening function is powered by [Upstash](https://upstash.com/)
+- Comments are powered by [giscus](https://giscus.app/) and stored in [Discussion of myl7/mylmoe](https://github.com/myl7/mylmoe/discussions)
 
 Refer to their respective privacy policies for more information.
