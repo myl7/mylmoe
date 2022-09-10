@@ -6,7 +6,7 @@ abstract:
 categories: misc
 ---
 
-We/I, myl7 \<myl@myl.moe\> (https://myl.moe), as the site owner and administrator of [myl.moe](https://myl.moe), delare that:
+We/I, myl7 \<myl@myl.moe\> (https://myl.moe), as the site owner and administrator of [myl.moe](https://myl.moe), declare that:
 
 We value your privacy. **NO** personal information is collected by us.
 However, some functionality of the website is powered by third-party services that may collect personal information. **ALL** of them are:
