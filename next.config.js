@@ -29,6 +29,12 @@ const nextConfig = {
         destination: '/open-source-desktop-show',
         permanent: true,
       },
+      {
+        source: '/posts/2021-12-19-aria2-socks-proxy-trouble',
+        destination: '/aria2-socks-proxy-trouble',
+        permanent: true,
+      },
+      { source: '/posts/2021-12-26-raspi-headless-init', destination: '/raspi-headless-init', permanent: true },
       { source: '/utils/brotli', destination: '/brotli', permanent: true },
       { source: '/pages/privacy-policy', destination: '/privacy-policy-of-us', permanent: true },
       { source: '/privacy-policy', destination: '/privacy-policy-of-us', permanent: true },
