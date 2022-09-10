@@ -86,7 +86,7 @@ edit `/etc/hostname` **AND** `/etc/hosts` to replace `raspberrypi` with your new
 Please make sure `/etc/hosts` is also modified otherwise DNS (when resolving local names)
 and `sudo` will report errors or sometimes simply become very slow.
 
-# Running
+## Running
 
 Now plug the SD card into the raspi and power it on.
 Connect the RJ45 ethernet wire between the raspi and your PC.
@@ -109,7 +109,7 @@ If you want to enable predictable network interface names, for example the raspi
 then ref to [the StackExchange answer](https://unix.stackexchange.com/questions/73595/wlan-number-assignment)
 to fixedly configure the interface names for NICs.
 
-# Sharing Network
+## Sharing Network
 
 To do further config the raspi need to connect to the Internet.
 You may use commandline Wi-Fi config tools to use raspi on-board Wi-Fi NIC to connect to a Wireless network,
