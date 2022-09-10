@@ -9,6 +9,8 @@ import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
 import { Helmet } from 'react-helmet-async'
 import Giscus from '@giscus/react'
+import type { Article } from 'schema-dts'
+import { jsonLdScriptProps } from 'react-schemaorg'
 // These node modules are only used in SSG
 import fs from 'fs'
 import path from 'path'
@@ -52,6 +54,20 @@ const Post: NextPage<PostProps> = (props) => {
         {meta.tags.map((tag) => (
           <meta property="article:tag" content={tag} key={tag} />
         ))}
+        <script
+          {...jsonLdScriptProps<Article>({
+            '@context': 'https://schema.org',
+            '@type': 'Article',
+            author: {
+              '@type': 'Person',
+              name: 'myl7',
+              url: 'https://myl.moe',
+            },
+            datePublished: meta.createdDate,
+            dateModified: meta.updatedDate,
+            headline: meta.title,
+          })}
+        />
       </Head>
       <Helmet>
         {colorMode == 'light' ? (
