@@ -112,9 +112,7 @@ export const components = {
   img: (props: any) => {
     const { src, width, height, ...rest } = props
     if (imageMap[src]) {
-      const w = px2int(width)
-      const h = px2int(height)
-      return <NextImage src={imageMap[src]} width={w} height={h} {...rest} />
+      return <NextImage src={imageMap[src]} width={1000} {...rest} />
     } else {
       return <Image {...props} />
     }
@@ -270,17 +268,4 @@ function hx(x: number) {
       </Heading>
     )
   }
-}
-
-const px2int = (a: string | number | undefined) => {
-  if (typeof a == 'number' || typeof a == 'undefined') {
-    return a
-  }
-  if (/^\d+$/.test(a)) {
-    return parseInt(a)
-  }
-  if (/^\d+px$/.test(a)) {
-    return parseInt(a.substring(0, a.length - 2))
-  }
-  throw new Error('Invalid image width/height: The unit can only be px')
 }

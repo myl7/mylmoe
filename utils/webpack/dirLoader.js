@@ -24,7 +24,7 @@ module.exports = function () {
     // Add the folder and selected files to dependencies
     this.addContextDependency(dpath)
     const fpaths = fnames.map((fname) => path.join(dpath, fname))
-    fpaths.forEach((fpath) => this.addDependency(fpath))
+    // fpaths.forEach((fpath) => this.addDependency(fpath))
     let src = fpaths.map((fpath, i) => `import p${i} from '${fpath}';`).join('\n') + '\n'
     src += 'const map = {\n' + fnames.map((fname, i) => `  '${fname}': p${i},`).join('\n') + '\n};\n'
     src += 'export default map;'

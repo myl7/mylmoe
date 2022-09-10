@@ -30,6 +30,7 @@ export function cleanPageMeta(m: RawPageMeta) {
     image: m.image || 'https://myl.moe/icon-512.png',
   }
   if (meta.locale == 'en') meta.locale = 'en_US'
+  else if (meta.locale == 'zh') meta.locale = 'zh_CN'
   // Validate
   if (!meta.title) throw new Error('title is required in page meta')
   return meta

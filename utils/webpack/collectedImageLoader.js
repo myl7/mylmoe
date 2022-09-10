@@ -32,7 +32,7 @@ module.exports = function () {
       .sort((a, b) => a.localeCompare(b))
 
     this.addContextDependency(path.join(__dirname, '../../public'))
-    ipaths.forEach((ipath) => this.addDependency(path.join(__dirname, '../../public', ipath)))
+    // ipaths.forEach((ipath) => this.addDependency(path.join(__dirname, '../../public', ipath)))
 
     let src = ''
     ipaths.forEach((ipath, i) => {

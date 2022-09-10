@@ -24,6 +24,11 @@ const nextConfig = {
       // Comment some of them since some pages have not been migrated yet or would not
       // { source: '/posts/:slug', destination: '/:slug', permanent: true },
       // { source: '/pages/:slug(dn42|about|friends|privacy-policy|tags|cv)', destination: '/:slug', permanent: true },
+      {
+        source: '/posts/2021-12-01-open-source-desktop-show',
+        destination: '/open-source-desktop-show',
+        permanent: true,
+      },
       { source: '/utils/brotli', destination: '/brotli', permanent: true },
       { source: '/pages/privacy-policy', destination: '/privacy-policy-of-us', permanent: true },
       { source: '/privacy-policy', destination: '/privacy-policy-of-us', permanent: true },
