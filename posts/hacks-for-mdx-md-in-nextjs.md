@@ -25,7 +25,7 @@ The post will show some hacks used in [mylmoe](https://github.com/myl7/mylmoe) (
 
 next-mdx-remote only provides a `parseFrontmatter` option in `serialize` to control whether to parse frontmatter.
 If you only need frontmatter to, e.g., show post list, next-mdx-remote has no API for that.
-According to its source code, [this line](https://github.com/hashicorp/next-mdx-remote/blob/b3809656ea35fb18eb2fbcf7af2e3aaeaf0e09cf/src/serialize.ts#L47) shows how it parses frontmatter.
+According to its source code, [these lines shows how it parses frontmatter](https://github.com/hashicorp/next-mdx-remote/blob/b3809656ea35fb18eb2fbcf7af2e3aaeaf0e09cf/src/serialize.ts#L45-L48).
 Just use [vfile-matter](https://github.com/vfile/vfile-matter) on your own to fit your requirement.
 
 ## Raw HTML
@@ -33,8 +33,8 @@ Just use [vfile-matter](https://github.com/vfile/vfile-matter) on your own to fi
 Though MDX declares you can use raw HTML in Markdown input, setting format to `md` can not have raw HTML correctly parsed.
 You can switch to MDX input to resolve it, but that may require manual changes as MDX is not a superset of Markdown.
 An example is comments, which are `<!-- a -->` in Markdown but `{/* a */}` in MDX.
-The workaround to use Markdown input with raw HTML is in [this discussion](https://github.com/orgs/mdx-js/discussions/2023#discussioncomment-2649772): Pass option `passThrough: nodeTypes` to rehype-raw.
-You can find `nodeTypes` in [this file](https://github.com/mdx-js/mdx/blob/996771aeb5302cb9d081f38e23bd06411e6bc03e/packages/mdx/lib/node-types.js).
+[The workaround to use Markdown input with raw HTML is in this discussion](https://github.com/orgs/mdx-js/discussions/2023#discussioncomment-2649772): Pass option `passThrough: nodeTypes` to rehype-raw.
+You can find [`nodeTypes` in this file](https://github.com/mdx-js/mdx/blob/996771aeb5302cb9d081f38e23bd06411e6bc03e/packages/mdx/lib/node-types.js).
 Since @mdx-js/mdx exports its, you can add @mdx-js/mdx as a dependency to import it or copy the definition to your code.
 
 ## Copy code block content
@@ -42,7 +42,7 @@ Since @mdx-js/mdx exports its, you can add @mdx-js/mdx as a dependency to import
 With the plugin rehype-highlight, code blocks are highlighted so there are `<span>` in `<pre><code>`.
 This time the original code text is unavailable if you want to add a button to copy the code block content.
 Do not regenerate code text from the children of `<pre><code>`.
-You can create a remark plugin (also available in [this file](https://github.com/myl7/mylmoe/blob/main/utils/mdx/plugins/remarkCodeAsProp.js)):
+You can create [a remark plugin (also available in this file)](https://github.com/myl7/mylmoe/blob/main/utils/mdx/plugins/remarkCodeAsProp.js):
 
 ```js
 // Copyright (C) 2022 myl7
@@ -78,7 +78,7 @@ Pages with only `getStaticProps` should still be fine, but API routes for things
 
 An easy-to-think solution is to embed the post content into the server bundle.
 But there will be many posts in a folder, and without other helpers, we need to import all MDX/Markdown posts manually.
-To resolve it, we can create a webpack loader to import all files in a folder as a map (also available in [this file](https://github.com/myl7/mylmoe/blob/main/utils/webpack/dirLoader.js)):
+To resolve it, we can create [a webpack loader to import all files in a folder as a map (also available in this file)](https://github.com/myl7/mylmoe/blob/main/utils/webpack/dirLoader.js):
 
 ```js
 // Copyright (C) 2022 myl7
@@ -117,7 +117,7 @@ module.exports = function () {
 }
 ```
 
-Then add a webpack loader configuration for it (also available in [this line](https://github.com/myl7/mylmoe/blob/main/next.config.js#L82)):
+Then add [a webpack loader configuration for it (also available in these lines)](https://github.com/myl7/mylmoe/blob/465d499941a6c75f39f63978ce20dc1792fe9f04/next.config.js#L91-L95):
 
 ```js
 {
@@ -128,7 +128,7 @@ Then add a webpack loader configuration for it (also available in [this line](ht
 ```
 
 Finally, put a file named `_dir.ts` into the post folder.
-Though the content of `_dir.ts` has no effect, you can still export corresponding types to mock TypeScript and IDE like (also available in [this file](https://github.com/myl7/mylmoe/blob/main/posts/_dir.ts)):
+Though the content of `_dir.ts` has no effect, you can still [export corresponding types to mock TypeScript and IDE like (also available in this file)](https://github.com/myl7/mylmoe/blob/main/posts/_dir.ts):
 
 ```ts
 // These files named /dir\.[jt]sx?$/ will be matched and processed by dirLoader
@@ -157,22 +157,22 @@ Which tells you to move the `<link>` to `Document`.
 But putting it into `Document` will still not work.
 Loaded CSS will not change according to the current color mode because `next/head` `<Head>` uses side effects to add tags to head and can not cancel it.
 To fulfill the requirement, use the raw `<Helmet>` instead (better from `react-helmet-async` other than `react-helmet`).
-An example is available in [this line](https://github.com/myl7/mylmoe/blob/main/pages/%5Bpath%5D.tsx#L39).
+[An example is available in these lines](https://github.com/myl7/mylmoe/blob/465d499941a6c75f39f63978ce20dc1792fe9f04/pages/%5Bpath%5D.tsx#L72-L90).
 As for this method, I am not sure if it will work as bad as the `<Head>` warning says, but the worst case should be that only one of the themes for different color modes is loaded.
-That is not perfect, but it can be recognized as an acceptable fine fallback and keep the shown content still.
+That is not perfect, but it can be recognized as an acceptable fallback and keep the shown content still.
 
 ## Differ inline code with code blocks
 
 next-mdx-remote, while emitting HTML-like AST, give inline code with `<code>` only and code blocks with `<pre><code>`.
 To differentiate the two situations in custom `<code>` components, you can use `React.cloneElement` to recreate children in `<pre>` to pass a particular property like `isInPre: true` to indicate to the children that they are in a `<pre>`.
-An example is available in [this line](https://github.com/myl7/mylmoe/blob/main/utils/mdx/components.tsx#L119).
+[An example is available in this line](https://github.com/myl7/mylmoe/blob/465d499941a6c75f39f63978ce20dc1792fe9f04/utils/mdx/components.tsx#L130).
 
 ## Reuse Next.js `<Image>`
 
 The idea is to lookup `/public` dir to get all pending images.
 Then like what we do for edge runtime, add a custom loader to generate static image imports.
 
-The loader is (also available in [this file](https://github.com/myl7/mylmoe/blob/main/utils/webpack/collectedImageLoader.js)):
+[The loader is (also available in this file)](https://github.com/myl7/mylmoe/blob/main/utils/webpack/collectedImageLoader.js):
 
 ```js
 // Copyright (C) 2022 myl7
@@ -242,7 +242,7 @@ Fix 1: Using a React context to pass image metadata to Next.js `<Image>` compone
 
 Problem 2: While Next.js successfully generated the image metadata, it does not copy imported images to `.next/static/media` folder, no matter the loader order.
 
-To be more detailed, a webpack loader to generate import statements is available in [this file](https://github.com/myl7/mylmoe/blob/main/utils/webpack/collectedImageLoader.js) and a rehype plugin to collect image data is available in [this file](https://github.com/myl7/mylmoe/blob/main/utils/mdx/plugins/rehypeCollectImages.mjs).
+To be more detailed, [a webpack loader to generate import statements](https://github.com/myl7/mylmoe/blob/main/utils/webpack/collectedImageLoader.js) and [a rehype plugin to collect image data](https://github.com/myl7/mylmoe/blob/main/utils/mdx/plugins/rehypeCollectImages.mjs) are available.
 We can get width/height from the image import correctly with them.
 But since Next.js does not copy the images to the target folder and src/blurDataUrl (in development) point there, the website failed to load the pictures with 404.
 It feels like that Next.js has extra operations on image imports before webpack invokes the loaders of Next.js.
@@ -274,5 +274,5 @@ If you are careful enough, you may notice that `serialize` is from `next-mdx-rem
 As for your code, you may want to provide `remarkPlugins` and `rehypePlugins` for `serialize` and `components` for `<MDXRemote>`.
 The point is that you need to make sure `remarkPlugins`/`rehypePlugins` and `components` are not in the same module.
 Otherwise, Next.js will falsely bundle some remark/rehype plugin code into the client bundle.
-An example is available in [this folder](https://github.com/myl7/mylmoe/tree/main/utils/mdx).
+[An example is available in this folder](https://github.com/myl7/mylmoe/tree/main/utils/mdx).
 [An `IMPORTANT` notice about this](https://github.com/hashicorp/next-mdx-remote#:~:text=IMPORTANT%3A%20Be%20very,filing%20an%20issue.) is also available in next-mdx-remote README.
