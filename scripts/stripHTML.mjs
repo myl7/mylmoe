@@ -22,9 +22,11 @@ if (p.match(/^https?:\/\//)) {
 const dom = htmlparser2.parseDocument(html)
 const $ = cheerio.load(dom)
 
-$('main#post :is(script, style, pre, hr, svg)').remove()
+$('main#post :is(script, style, pre, hr, svg, img, div.math, span.math)').remove()
 $('main#post > div:first-child > p:nth-child(2)').nextAll().remove()
 $('main#post *').each(function () {
   ;[...this.attributes].forEach((attr) => $(this).removeAttr(attr.name))
 })
-process.stdout.write($('main#post').html())
+let newHTML = $('main#post').html()
+newHTML = newHTML.replace(/\n{2,}/g, '\n')
+process.stdout.write(newHTML)

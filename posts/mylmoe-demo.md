@@ -43,7 +43,7 @@ The following remark/rehype plugins are used to enhance Markdown/MDX:
 
 #### h4
 
-Auto-generated TOC of the headings and styles of headings except h4 can be found elsewhere in the page
+You can find auto-generated TOC of the headings and styles of headings except for h4 elsewhere on the page
 
 ### Code blocks
 
@@ -176,7 +176,7 @@ With Link reference definitions
 ### Images
 
 Support both `![]()` Markdown-style images and `<img>` HTML-style images.
-Support both relative path for backward compatibility and absolute path.
+Support both relative paths for backward compatibility and absolute paths.
 Support both inline/remote images and local images.
 
 <!-- Local images can (fully) work with Next.js image optimization. -->
@@ -335,14 +335,14 @@ Markdown/HTML comments can be used for Markdown posts:
 <!-- comment -->
 ```
 
-If you are writting a MDX post, use MDX comments:
+If you are writing a MDX post, use MDX comments:
 
 <!-- prettier-ignore -->
 ```jsx
 {/* comment */}
 ```
 
-Since highlight.js has no MDX support, here the code block for MDX is using JSX as the language
+Since highlight.js has no MDX support, the code block for MDX is using JSX as the language here
 
 ### HTML inlines/blocks
 
@@ -390,7 +390,7 @@ Since highlight.js has no MDX support, here the code block for MDX is using JSX 
 
 Notice that `onclick="alert(1)"` would not work.
 `"alert(1)"` would be parsed as a string and passed to **React** `onClick` event handler, causing no effects.
-Additionally an error would be raised in Next.js development mode.
+Additionally, Next.js would raise an error in the development mode.
 
 ### LaTeX math inlines/blocks
 
@@ -418,5 +418,5 @@ $$
 
 ### MDX deviations
 
-MDX is slightly different from both Markdown and JSX in the corresponding parts.
+MDX is slightly different from Markdown and JSX in the corresponding parts.
 Refer to the [Deviations from Markdown](https://github.com/micromark/mdx-state-machine#72-deviations-from-markdown) and [Deviations from JSX](https://github.com/micromark/mdx-state-machine#73-deviations-from-jsx) sections for details.
