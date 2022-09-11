@@ -23,8 +23,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write '{components,pages,utils,posts}/**/*.{js,jsx,ts,tsx,json,md,mdx}'",
-    "format:check": "prettier --check '{components,pages,utils,posts}/**/*.{js,jsx,ts,tsx,json,md,mdx}'"
+    "format": "prettier --write '{components,pages,utils,posts,scripts}/**/*.{js,mjs,jsx,ts,tsx,json,md,mdx}'",
+    "format:check": "prettier --check '{components,pages,utils,posts,scripts}/**/*.{js,mjs,jsx,ts,tsx,json,md,mdx}'"
   },
   "dependencies": {
     "@chakra-ui/react": "^2.2.8",
@@ -50,12 +50,15 @@
     "@types/node": "18.7.6",
     "@types/react": "18.0.17",
     "@types/react-dom": "18.0.6",
+    "cheerio": "1.0.0-rc.12",
     "eslint": "8.22.0",
     "eslint-config-next": "12.2.5",
     "eslint-config-prettier": "^8.5.0",
     "globby": "^13.1.2",
+    "got": "^12.4.1",
     "hast-util-select": "^5.0.2",
     "hastscript": "^7.0.2",
+    "htmlparser2": "^8.0.1",
     "next-mdx-remote": "^4.1.0",
     "prettier": "^2.7.1",
     "react-schemaorg": "^2.0.0",

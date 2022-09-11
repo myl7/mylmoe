@@ -89,7 +89,7 @@ const Post: NextPage<PostProps> = (props) => {
         )}
       </Helmet>
       <Header />
-      <Box as="main" px={2} pb={2} w="100%" lang={meta.lang}>
+      <Box as="main" id="post" px={2} pb={2} w="100%" lang={meta.lang}>
         <VStack px={6} my="12px" spacing={2} alignItems="flex-start">
           <Heading as="h1" size="md">
             {meta.title}
@@ -107,7 +107,7 @@ const Post: NextPage<PostProps> = (props) => {
           </Flex>
         </VStack>
         <Divider />
-        <Box id="post-body" w="100%" px={{ base: 2, md: 8 }}>
+        <Box w="100%" px={{ base: 2, md: 8 }}>
           {/* Error due to isInPre attr, but we can ensure it is always passed from pre to code */}
           {/* @ts-ignore */}
           <MDXRemote {...mdx} components={components} lazy />
