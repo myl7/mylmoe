@@ -2,7 +2,7 @@
 title: Privacy policy
 createdDate: 2022-08-25
 updatedDate: 2022-09-12
-abstract:
+abstract: We value your privacy. NO personal information is collected by us. However, we use third-party services to power some website functionality, which may collect personal information. Check ALL of them in the post.
 categories: misc
 ---
 
