@@ -1,7 +1,6 @@
 // Copyright (C) 2022 myl7
 // SPDX-License-Identifier: Apache-2.0
 
-import type { NextApiRequest, NextApiResponse } from 'next'
 import { getMetasWithPPaths } from '../../utils/posts'
 
 let SITEMAP = ''
