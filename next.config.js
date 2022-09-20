@@ -37,6 +37,7 @@ const nextConfig = {
       { source: '/posts/2021-12-26-raspi-headless-init', destination: '/raspi-headless-init', permanent: true },
       { source: '/utils/brotli', destination: '/brotli', permanent: true },
       { source: '/pages/privacy-policy', destination: '/privacy-policy-of-us', permanent: true },
+      { source: '/pages/about', destination: '/myl7', permanent: true },
       { source: '/privacy-policy', destination: '/privacy-policy-of-us', permanent: true },
       { source: '/sitemap.xml', destination: '/sitemap.txt', permanent: false },
     ]
