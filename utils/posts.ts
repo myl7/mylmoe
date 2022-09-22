@@ -51,6 +51,7 @@ export async function getPPathsWithExts() {
     }
   })
   // '/' + pslug is safe since we control all post files
+  // No trailing slash
   const ppaths = pslugs.map(({ pslug, ext }) => ({ ppath: '/' + pslug, ext }))
   return ppaths
 }

@@ -15,7 +15,7 @@ module.exports = function () {
   const include = Array.isArray(options.include) ? options.include : options.include ? [options.include] : null
   const exclude = Array.isArray(options.exclude) ? options.exclude : options.exclude ? [options.exclude] : []
 
-  const dpath = path.dirname(this.resourcePath)
+  const dpath = path.dirname(this.utils.absolutify(this.context, this.resourcePath))
   fs.readdir(dpath, (err, allFnames) => {
     if (err) return callback(err)
     const fnames = allFnames.filter((fname) =>

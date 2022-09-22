@@ -99,7 +99,7 @@ module.exports = function () {
   /** @type {(string|RegExp)[]|string|RegExp} */
   const exclude = Array.isArray(options.exclude) ? options.exclude : options.exclude ? [options.exclude] : []
 
-  const dpath = path.dirname(this.resourcePath)
+  const dpath = path.dirname(this.utils.absolutify(this.context, this.resourcePath))
   fs.readdir(dpath, (err, allFnames) => {
     if (err) return callback(err)
     const fnames = allFnames.filter((fname) =>
@@ -200,16 +200,16 @@ module.exports = function () {
   ;(async () => {
     const { globby } = await import('globby')
 
-    const ipaths = (await Promise.all(glob.map((g) => globby(path.join(__dirname, '../../public', g)))))
+    const ipaths = (await Promise.all(glob.map((g) => globby(path.join(process.cwd(), 'public', g)))))
       .flat()
-      .map((ipath) => path.join('/', path.relative(path.join(__dirname, '../../public'), ipath)))
+      .map((ipath) => path.join('/', path.relative(path.join(process.cwd(), 'public'), ipath)))
       .filter((ipath) =>
         include ? include.some((pattern) => ipath.match(pattern)) : !exclude.some((pattern) => ipath.match(pattern))
       )
       .sort((a, b) => a.localeCompare(b))
 
-    this.addContextDependency(path.join(__dirname, '../../public'))
-    ipaths.forEach((ipath) => this.addDependency(path.join(__dirname, '../../public', ipath)))
+    this.addContextDependency(path.join(process.cwd(), 'public'))
+    // ipaths.forEach((ipath) => this.addDependency(path.join(process.cwd(), 'public', ipath)))
 
     let src = ''
     ipaths.forEach((ipath, i) => {
