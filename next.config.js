@@ -16,6 +16,8 @@ const nextConfig = {
       { source: '/atom.xml', destination: '/api/atom' },
       { source: '/sitemap.txt', destination: '/api/sitemap' },
       { source: '/u/:slug', destination: '/api/url/:slug' },
+      { source: '/ssh', destination: '/ssh.pub' },
+      { source: '/gpg', destination: '/gpg.asc' },
     ]
   },
   async redirects() {
@@ -82,6 +84,22 @@ const nextConfig = {
           { key: 'access-control-allow-origin', value: '*' },
         ],
       },
+      {
+        source: '/ssh',
+        headers: [
+          { key: 'content-type', value: 'text/plain' },
+          { key: 'content-disposition', value: 'inline; filename="ssh.pub"' },
+        ],
+      },
+      { source: '/ssh.pub', headers: [{ key: 'content-type', value: 'text/plain' }] },
+      {
+        source: '/gpg',
+        headers: [
+          { key: 'content-type', value: 'text/plain' },
+          { key: 'content-disposition', value: 'inline; filename="gpg.asc"' },
+        ],
+      },
+      { source: '/gpg.asc', headers: [{ key: 'content-type', value: 'text/plain' }] },
     ]
   },
   webpack: (config, { isServer, nextRuntime }) => {
