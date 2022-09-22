@@ -29,7 +29,7 @@ const results = (
   )
 ).filter(({ err }) => err)
 if (results.length > 0) {
-  results.forEach(({err, fpath}) => console.error(`${path.relative(process.cwd(), fpath)}:`, err))
+  results.forEach(({ err, fpath }) => console.error(`${path.relative(process.cwd(), fpath)}:`, err))
   process.exit(1)
 }
 
