@@ -1,3 +1,6 @@
+// Copyright (C) 2022 myl7
+// SPDX-License-Identifier: Apache-2.0
+
 const path = require('path')
 
 const withBundleAnalyzer = process.env.ANALYZE === '1' ? require('@next/bundle-analyzer')({ enabled: true }) : (c) => c

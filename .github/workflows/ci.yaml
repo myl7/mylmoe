@@ -15,3 +15,4 @@ jobs:
       - run: pnpm install
       - run: pnpm run format:check
       - run: pnpm run lint
+      - run: node scripts/checkHeader.mjs

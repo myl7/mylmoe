@@ -23,8 +23,7 @@ module.exports = function () {
   ;(async () => {
     const { globby } = await import('globby')
 
-    const ipaths = (await Promise.all(glob.map((g) => globby(path.join(process.cwd(), 'public', g)))))
-      .flat()
+    const ipaths = (await globby(glob.map((g) => path.join(process.cwd(), 'public', g))))
       .map((ipath) => path.join('/', path.relative(path.join(process.cwd(), 'public'), ipath)))
       .filter((ipath) =>
         include ? include.some((pattern) => ipath.match(pattern)) : !exclude.some((pattern) => ipath.match(pattern))
