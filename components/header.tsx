@@ -114,7 +114,7 @@ function DesktopHeader() {
 
         <HStack justify="end">
           {/* Search */}
-          <InputGroup size="sm" maxW={250} borderColor={colors.textColor}>
+          <InputGroup size="sm" maxW="250px" borderColor={colors.textColor}>
             <Input
               type="search"
               placeholder="Search..."
