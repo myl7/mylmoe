@@ -286,7 +286,7 @@ export default Brotli
 
 function pyB2S(arr: Uint8Array) {
   let res = ''
-  for (const i of arr) {
+  for (const i of Array.from(arr)) {
     if (i === 0x5c) {
       res += '\\\\'
     } else if (i === 0x27) {
