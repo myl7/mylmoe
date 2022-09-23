@@ -185,10 +185,12 @@ function EncDecPanel(props: EncDecPanelProps) {
     }
   }
 
-  const loadEnc = async () => {
+  const loadEnc = () => {
     setLoading(true)
-    await import('brotli-wasm')
-    setEncLoaded!(true) // loadEnc is not triggerred in dec panel
+    import('brotli-wasm').then(() => {
+      // loadEnc is not triggerred in dec panel, so the assertion is safe
+      setEncLoaded!(true)
+    })
   }
 
   const loadRef = React.useRef<HTMLButtonElement>(null)
