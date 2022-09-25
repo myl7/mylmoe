@@ -43,8 +43,12 @@ const nextConfig = {
       { source: '/utils/brotli', destination: '/brotli', permanent: true },
       { source: '/pages/privacy-policy', destination: '/privacy-policy-of-us', permanent: true },
       { source: '/pages/about', destination: '/myl7', permanent: true },
-      { source: '/pages/share', destination: '/share', permanent: true },
+      { source: '/pages/share', destination: '/share-list', permanent: true },
+
+      // Be compatible with uBlock Origin falsely blocked pages
       { source: '/privacy-policy', destination: '/privacy-policy-of-us', permanent: true },
+      { source: '/share', destination: '/share-list', permanent: true },
+
       { source: '/sitemap.xml', destination: '/sitemap.txt', permanent: false },
     ]
   },
