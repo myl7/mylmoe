@@ -18,6 +18,7 @@ import {
   TabPanel,
   Tab,
   Flex,
+  Button,
 } from '@chakra-ui/react'
 import Footer from '../components/footer'
 import Header from '../components/header'
@@ -57,11 +58,18 @@ const Home: NextPage<IndexProps> = ({ metas }) => {
       </Head>
       <Header />
       <VStack as="main" px={2} alignItems={{ base: 'center', md: 'flex-start' }}>
-        <Box px={4} pt={2} pb={1}>
-          <Heading as="h1" size="md">
+        <VStack px={4} alignItems="flex-start">
+          <Heading as="h1" size="md" pt={2}>
             {"Welcome to mylmoe: myl7's blog & utils!"}
           </Heading>
-        </Box>
+          <Flex wrap="wrap" gap={1}>
+            <NextLink href="/myl7" passHref>
+              <Button as={Link} size="sm" variant="outline">
+                About me
+              </Button>
+            </NextLink>
+          </Flex>
+        </VStack>
         <Divider />
         <Tabs px={4} w="100%">
           <TabList>
