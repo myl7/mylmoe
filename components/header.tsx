@@ -343,6 +343,7 @@ const MobileHeader = () => {
               ref={searchInputRef}
               onKeyDown={(e) => (e.key == 'Enter' ? search() : null)}
               _placeholder={{ color: colors.paleTextColor }}
+              sx={{ '&:hover': { borderRightColor: colors.textColor } }}
             />
             <InputRightAddon borderRadius="md" borderWidth={1.5} borderColor={colors.textColor}>
               <IconButton
