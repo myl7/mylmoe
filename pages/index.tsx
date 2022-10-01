@@ -43,8 +43,7 @@ const Home: NextPage<IndexProps> = ({ metas }) => {
 
   return (
     <div>
-      {/* key="pageMeta" is required for no duplicated og meta */}
-      <Head key="pageMeta">
+      <Head>
         <title>{pageMeta.title}</title>
         <meta name="description" content={pageMeta.abstract} />
         <link rel="canonical" href={'https://myl.moe' + ppath} />

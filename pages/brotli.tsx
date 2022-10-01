@@ -60,7 +60,7 @@ const Brotli: NextPage = () => {
 
   return (
     <div>
-      <Head key="pageMeta">
+      <Head>
         <title>{pageMeta.title}</title>
         <meta name="description" content={pageMeta.abstract} />
         <link rel="canonical" href={'https://myl.moe' + ppath} />
