@@ -1,6 +1,8 @@
 // Copyright (C) 2022 myl7
 // SPDX-License-Identifier: Apache-2.0
 
+// Check if there are file header (e.g., copyright and license notice) missing
+
 import fs from 'fs'
 import path from 'path'
 import { globby } from 'globby'

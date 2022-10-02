@@ -1,5 +1,8 @@
 #!/usr/bin/env rust-script
 
+//! Check if some paths will be blocked by adblockers,
+//! since Next.js will fetch the page JSON metadata whose path ends like `share.json?...`.
+
 //! ```cargo
 //! [dependencies]
 //! reqwest = { version = "0.11", features = ["blocking"] }
