@@ -31,3 +31,12 @@ A more detailed & formal [PDF CV](https://share.myl.moe/cv.pdf) is available
   - `1F9DE45ED2A4F36A` `Yulong Ming (myl7) <myl@myl.moe>` (new) available on [myl.moe/gpg](https://myl.moe/gpg)
   - `04F1013B67177C88` (old)
 - SSH: Available on [myl.moe/ssh](https://myl.moe/ssh)
+
+<details>
+<summary>Entertainment</summary>
+
+- osu!: [myl7](https://osu.ppy.sh/users/17450724) can be redirected from [myl.moe/u/osu](https://myl.moe/u/osu)
+  - Modes: osu! & osu!mania
+  - Playstyles: Mouse & keyboard
+
+</details>
