@@ -10,7 +10,7 @@ import rehypeRaw from 'rehype-raw'
 import rehypeKatex from 'rehype-katex'
 import rehypeSlug from 'rehype-slug'
 import rehypeHighlight from 'rehype-highlight'
-import remarkCodeAsProp from './remarkCodeAsProp'
+import remarkTextAsProp from './remarkTextAsProp'
 import rehypeRelativeImage from './rehypeRelativeImage'
 import rehypeWrapImage from './rehypeWrapImage'
 import rehypeTagAlias from './rehypeTagAlias'
@@ -25,7 +25,7 @@ export const remarkPlugins = [
   remarkDirectiveRehype,
   remarkToc,
   remarkMath,
-  remarkCodeAsProp, // Save code content to data-code prop
+  remarkTextAsProp, // Save some raw texts to data-* props
 ]
 
 export const rehypePlugins = [

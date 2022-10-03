@@ -261,10 +261,10 @@ function hx(x: number) {
     const colors = {
       linkColor: colorHooks.useLinkColor(),
     }
-    const { children, ...rest } = props
+    const { children, 'data-title': dataTitle, ...rest } = props
     return (
       <Heading my={2} as={`h${x}`} size={['md', 'sm', 'xs'][x - 2]} {...rest} pl={x - 2}>
-        <Link href={`#${props.id}`} textColor={colors.linkColor}>
+        <Link href={`#${props.id}`} textColor={colors.linkColor} aria-label={dataTitle}>
           <Icon as={MdLink} w={7 - x} h={7 - x} verticalAlign="top" mr={1} />
         </Link>
         {children}

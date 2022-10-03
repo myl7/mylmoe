@@ -6,15 +6,24 @@
 
 import { visit } from 'unist-util-visit'
 
-export default function remarkCodeAsProp() {
+export default function remarkTextAsProp() {
   return (tree) => {
     visit(tree, 'code', (node) => {
       const data = node.data || (node.data = {})
       const props = data.hProperties || (data.hProperties = {})
       if (props.dataCode) {
-        throw new Error('hast prop data-code has been occupied')
+        throw new Error('hast prop data-code of node code has been occupied')
       } else {
         props.dataCode = node.value
+      }
+    })
+    visit(tree, 'heading', (node) => {
+      const data = node.data || (node.data = {})
+      const props = data.hProperties || (data.hProperties = {})
+      if (props.dataTitle) {
+        throw new Error('hast prop data-title of node heading has been occupied')
+      } else {
+        props.dataTitle = node.children.map((child) => child.value).join('')
       }
     })
   }
