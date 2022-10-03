@@ -70,6 +70,15 @@ const Post: NextPage<PostProps> = (props) => {
         />
       </Head>
       <Helmet>
+        {/* KaTeX */}
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.0/katex.min.css"
+          integrity="sha512-Yfxo7zXGaQYyzWNxz8r4s8axNfG4jS3dips8p2HA/wNWmuapakkQiki+/XA3o3Ol+i8WI03cRJVDDUElEtED6g=="
+          crossOrigin="anonymous"
+          referrerPolicy="no-referrer"
+        />
+        {/* highlight.js */}
         {colorMode == 'light' ? (
           <link
             rel="stylesheet"
