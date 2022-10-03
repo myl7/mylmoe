@@ -12,6 +12,7 @@ const GLOB = [
   '{components,pages,utils,posts,scripts}/**/*.{js,mjs,jsx,ts,tsx,json,md,mdx}',
   'index.css',
   'next.config.js',
+  'scripts/**/*.rs',
 ]
 const INCLUDE = null
 const EXCLUDE = [/\.json$/, /(^|\/)_\w+(\.\w+)?$/]

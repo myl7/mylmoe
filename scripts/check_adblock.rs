@@ -1,8 +1,11 @@
 #!/usr/bin/env rust-script
 
+//! Copyright (C) 2022 myl7
+//! SPDX-License-Identifier: Apache-2.0
+//!
 //! Check if some paths will be blocked by adblockers,
 //! since Next.js will fetch the page JSON metadata whose path ends like `share.json?...`.
-
+//!
 //! ```cargo
 //! [dependencies]
 //! reqwest = { version = "0.11", features = ["blocking"] }
