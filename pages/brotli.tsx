@@ -239,8 +239,16 @@ function EncDecPanel(props: EncDecPanelProps) {
             />
           </VStack>
           <Flex gap={2} alignItems="center">
-            {`Or select file to ${opNameLower}:`}
-            <Input size="sm" type="file" w="fit-content" pt={'2px'} borderRadius="md" ref={inputFileRef} />
+            <label htmlFor={`${op}-file-input`}>{`Or select file to ${opNameLower}:`}</label>
+            <Input
+              id={`${op}-file-input`}
+              size="sm"
+              type="file"
+              w="fit-content"
+              pt={'2px'}
+              borderRadius="md"
+              ref={inputFileRef}
+            />
             <IconButton
               size="sm"
               aria-label="Reset file selector state"
