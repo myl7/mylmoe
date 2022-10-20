@@ -36,7 +36,7 @@ A more detailed & formal [PDF CV](https://share.myl.moe/cv.pdf) is available
 <summary>Entertainment</summary>
 
 - osu!: [myl7](https://osu.ppy.sh/users/17450724) can be redirected from [myl.moe/u/osu](https://myl.moe/u/osu)
-  - Modes: osu! & osu!mania
+  - Modes: osu! & osu!mania (4K)
   - Playstyles: Mouse & keyboard
 
 </details>
