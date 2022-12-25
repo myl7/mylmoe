@@ -78,6 +78,7 @@ module.exports = {
       fontFamily: {
         sans: ['var(--font-open-sans)'],
         serif: ['var(--font-roboto-serif)'],
+        mono: ['var(--font-dm-mono)'],
       },
     },
   },

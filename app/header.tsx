@@ -5,7 +5,7 @@ import DarkSwitch from './darkSwitch'
 
 export default function Header() {
   return (
-    <header className="h-[var(--header-height)] w-full bg-bg-l1 dark:bg-bg-d1 px-4 flex items-center gap-4 border-b-2 border-bg-l4 dark:border-bg-d4">
+    <header className="fixed left-0 top-0 z-50 h-[var(--header-height)] w-full bg-bg-l1 dark:bg-bg-d1 px-4 flex items-center gap-4 border-b-2 border-bg-l4 dark:border-bg-d4">
       <div className="flex items-center gap-2">
         <Link href="/" aria-label="Home" className="hover:text-fg-l4 dark:hover:text-fg-d4">
           <MdHome className="w-6 h-6" />
