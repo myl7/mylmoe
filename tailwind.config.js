@@ -79,7 +79,7 @@ module.exports = {
         sans: ['var(--font-open-sans)'],
         serif: ['var(--font-roboto-serif)'],
         mono: ['var(--font-dm-mono)'],
-        sc_hans_serif: ['var(--font-noto-serif-sc)'],
+        hans_serif: ['var(--font-noto-serif-sc)'],
       },
     },
   },

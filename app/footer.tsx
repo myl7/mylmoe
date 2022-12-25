@@ -33,7 +33,7 @@ export default function Footer() {
           <MdLaunch className="h-3.5 w-3.5" />
         </a>
       </p>
-      <p className="font-sc_hans_serif">
+      <p className="font-hans_serif">
         <a href="https://icp.gov.moe" rel="noopener" className="inline-flex items-center text-blue hover:underline">
           萌ICP备
           <MdLaunch className="h-3.5 w-3.5" />
@@ -49,26 +49,16 @@ export default function Footer() {
         号
       </p>
       <p>
-        Favicon created by{' '}
         <a
-          href="https://www.freepik.com"
-          title="Freepik"
+          href="https://www.flaticon.com/free-icons/development"
+          title="Development icons created by Freepik - Flaticon"
           rel="noopener"
           className="inline-flex items-center text-blue hover:underline"
         >
-          Freepik
+          Favicon
           <MdLaunch className="h-3.5 w-3.5" />
         </a>{' '}
-        from{' '}
-        <a
-          href="https://www.flaticon.com"
-          title="Flaticon"
-          rel="noopener"
-          className="inline-flex items-center text-blue hover:underline"
-        >
-          Flaticon
-          <MdLaunch className="h-3.5 w-3.5" />
-        </a>
+        created by Freepik - Flaticon
       </p>
     </footer>
   )

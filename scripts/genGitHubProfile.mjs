@@ -1,12 +1,9 @@
-// Copyright (C) 2022 myl7
-// SPDX-License-Identifier: Apache-2.0
-
 // To sync the GitHub profile with the one of mylmoe
 
 import fs from 'fs'
 
 const lines = (await fs.promises.readFile('app/myl7.md', 'utf8')).trim().split('\n')
-// Currently no frontmatter so comment it
+// Currently no front matter so comment it
 // const fmStart = lines.findIndex((line) => line == '---')
 // lines.splice(0, fmStart + 1)
 // const fmEnd = lines.findIndex((line) => line == '---')
