@@ -12,9 +12,9 @@ A more detailed & formal [PDF CV](https://share.myl.moe/cv.pdf) is available
 - GitHub: [myl7](https://github.com/myl7)
 - Homepage: [myl.moe](https://myl.moe)
 - Emails:
-  - [myl@myl.moe](mailto:myl@myl.moe) (code dev)
-  - [myl.7@my.cityu.edu.hk](mailto:myl.7@my.cityu.edu.hk) (academic)
-  - [myl7.moe@gmail.com](mailto:myl7.moe@gmail.com) (general)
+  - myl AT myl.moe (code dev)
+  - myl.7 AT my.cityu.edu.hk (academic)
+  - myl7.moe AT gmail.com (general)
 - Telegram:
   - Channel [@myl7s](https://t.me/myl7s) (main message stream)
   - Account [@myl107](https://t.me/myl107)

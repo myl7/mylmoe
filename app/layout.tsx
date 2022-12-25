@@ -5,6 +5,7 @@ import { headers } from 'next/headers'
 import classNames from 'classnames'
 
 import Header from './header'
+import Footer from './footer'
 
 const openSans = Open_Sans({ subsets: ['latin'], variable: '--font-open-sans' })
 const robotoSerif = Roboto_Serif({ subsets: ['latin'], variable: '--font-roboto-serif' })
@@ -24,7 +25,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="bg-bg text-fg dark:bg-bg-d dark:text-fg-d">
         <Header />
         <div className="h-[var(--header-height)]" />
-        {children}
+        <main className="flex flex-col gap-4 p-4">
+          {children}
+          <hr className="rounded border-[1px] border-bg-l4 dark:border-bg-d4" />
+          <Footer />
+        </main>
       </body>
     </html>
   )
