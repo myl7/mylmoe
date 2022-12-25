@@ -295,28 +295,28 @@ Sensors 可以按需启动，我是除了 Battery（可以直接看右上角电�
 
 整体效果：
 
-![general](../public/images/open-source-desktop-show/general.png)
+![general](/images/open-source-desktop-show/general.png)
 
 空置效果：
 
-![empty](../public/images/open-source-desktop-show/empty.png)
+![empty](/images/open-source-desktop-show/empty.png)
 
 系统性能数据界面：
 
-![statistics](../public/images/open-source-desktop-show/statistics.png)
+![statistics](/images/open-source-desktop-show/statistics.png)
 
 日期时间界面：
 
-![datetime](../public/images/open-source-desktop-show/datetime.png)
+![datetime](/images/open-source-desktop-show/datetime.png)
 
 壁纸自动切换界面：
 
-![wallpaper switcher](../public/images/open-source-desktop-show/wallpaper_switcher.png)
+![wallpaper switcher](/images/open-source-desktop-show/wallpaper_switcher.png)
 
 历史剪切板界面：
 
-![clipboard history](../public/images/open-source-desktop-show/clipboard_history.png)
+![clipboard history](/images/open-source-desktop-show/clipboard_history.png)
 
 被收纳的操作的界面：
 
-![more actions](../public/images/open-source-desktop-show/actions.png)
+![more actions](/images/open-source-desktop-show/actions.png)

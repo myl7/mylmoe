@@ -1,6 +1,8 @@
 // Copyright (C) 2022 myl7
 // SPDX-License-Identifier: Apache-2.0
 
+import 'server-only'
+
 import { VFile } from 'vfile'
 import { matter } from 'vfile-matter'
 
@@ -24,7 +26,7 @@ import type { StaticImageData } from 'next/image'
 
 /** By default format is md */
 export const rawPosts: {
-  [slug: string]: { src: string; format?: string; images?: { [path: string]: StaticImageData } }
+  [slug: string]: { src: string; format?: 'mdx' | 'md'; images?: { [path: string]: StaticImageData } }
 } = {
   'open-source-desktop-show': {
     src: p0Src,
@@ -51,7 +53,7 @@ export const postMetas: {
   Object.entries(rawPosts).map(([slug, { src, format }]) => [slug, { format, ...cleanFM(parseFM(src)) }])
 )
 
-export function cleanFM(fm: FM): FMCleaned {
+function cleanFM(fm: FM): FMCleaned {
   return {
     title: fm.title,
     pubDate: formatDate(fm.pubDate),

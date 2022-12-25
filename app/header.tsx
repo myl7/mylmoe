@@ -33,7 +33,7 @@ function SearchBox() {
           name="q"
           type="search"
           placeholder="Search..."
-          className="rounded border-2 bg-bg-l1 py-0.5 px-1 placeholder:text-fg-l4 hover:border-fg-l4 dark:bg-bg-d1 dark:placeholder:text-fg-d4 dark:hover:border-fg-d4"
+          className="rounded border bg-bg-l1 py-0.5 px-1 placeholder:text-fg-l4 hover:border-fg-l4 dark:bg-bg-d1 dark:placeholder:text-fg-d4 dark:hover:border-fg-d4"
         />
       </label>
       <input type="hidden" name="as_sitesearch" value="myl.moe" />
@@ -41,7 +41,7 @@ function SearchBox() {
       <button
         type="submit"
         aria-label="Search"
-        className="rounded border-2 p-1 hover:border-fg-l4 hover:bg-bg-l2 dark:hover:border-fg-d4 dark:hover:bg-bg-d2"
+        className="rounded border p-1 hover:border-fg-l4 hover:bg-bg-l2 dark:hover:border-fg-d4 dark:hover:bg-bg-d2"
       >
         <MdSearch className="h-5 w-5" />
       </button>

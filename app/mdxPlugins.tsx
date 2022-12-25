@@ -47,9 +47,16 @@ function rehypeWrapImage() {
   }
 }
 
-export const remarkPlugins = [remarkGfm, remarkDirective, remarkDirectiveRehype, remarkToc, remarkMath]
+// Suppress type errors by any due to plguin options passed by a list
 
-// Suppress type error as a MDX rehype plugin
+export const remarkPlugins = [
+  [remarkGfm, { singleTilde: false }],
+  remarkDirective,
+  remarkDirectiveRehype,
+  remarkToc,
+  remarkMath,
+] as any
+
 export const rehypePlugins = [
   [rehypeRaw, { passThrough: mdxNodeTypes }],
   rehypeKatex,

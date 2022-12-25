@@ -22,20 +22,45 @@ function requiredProp<T>(prop?: T | null): T {
   }
 }
 
+/**
+ * @param x 2-6
+ */
 function hx(x: number) {
-  return function ({ children, id, ...rest }: { children?: React.ReactNode; id?: string }) {
+  return function ({ children, id: idUnchecked, ...rest }: { children?: React.ReactNode; id?: string }) {
     // id is set by remark-slug so no need to check it
+    const id = idUnchecked!
 
     const HTag = `h${x}` as keyof JSX.IntrinsicElements
-    const Elem = withClassname(classNames(''), HTag)
+    const Elem = withClassname(
+      classNames('inline-flex items-center gap-0.5', {
+        // 'text-2xl': x == 1, // For h1
+        'text-xl': x == 2,
+        'text-lg': x == 3,
+        'text-base': x == 4,
+        'text-sm': x == 5,
+        'text-xs': x == 6,
+      }),
+      HTag
+    )
 
     return (
-      <Elem {...rest}>
-        <Link href={`#${id!}`} aria-hidden={true}>
-          <MdLink className="" />
-        </Link>
-        {children}
-      </Elem>
+      <div className="w-full">
+        <Elem {...rest} id={id}>
+          <a href={`#${id}`}>
+            <MdLink
+              className={classNames({
+                'h-5 w-5': x == 2,
+                'h-[1.125rem] w-[1.125rem]': x == 3,
+                'h-4 w-4': x == 4,
+                'h-3.5 w-3.5': x == 5,
+                'h-3 w-3': x == 6,
+              })}
+            />
+          </a>
+          {children}
+        </Elem>
+        <hr className="border-bg-l4 dark:border-bg-d4" />
+      </div>
     )
   }
 }
@@ -43,21 +68,25 @@ function hx(x: number) {
 // classNames wrappers are for TailwindCSS completions
 const components = {
   a: ({ href: hrefUnchecked, children, ...rest }: { href?: string; children?: React.ReactNode }) => {
-    const href = requiredProp(hrefUnchecked)
+    let href = requiredProp(hrefUnchecked)
 
     let external = false
-    if (href.startsWith('http')) {
+    let internal = false
+    if (href.startsWith('/')) {
+      internal = true
+    } else if (href.match(/^https:\/\/myl\.moe(\/|$)/)) {
+      internal = true
+      href = href.substring('https://myl.moe'.length)
+    } else if (href.match(/^[a-z]+:\/\//)) {
       try {
-        const url = new URL(href)
-        if (url.host != 'myl.moe') {
-          external = true
-        }
+        new URL(href)
+        external = true
       } catch (e) {}
     }
 
     const Elem = withClassname(
       classNames('text-blue hover:underline', { 'inline-flex items-center': external }),
-      external ? 'a' : Link
+      internal ? Link : 'a'
     )
     return external ? (
       <Elem href={href} rel="noopener" {...rest}>
@@ -71,21 +100,29 @@ const components = {
     )
   },
 
-  pre: ({ children, ...rest }: { children?: React.ReactNode }) => (
-    <pre {...rest}>
-      {React.Children.map(children, (child) =>
-        // @ts-ignore New prop to distinguish code in pre
-        React.isValidElement(child) ? React.cloneElement(child, { inPre: true }) : child
-      )}
-    </pre>
-  ),
+  pre: ({ children, ...rest }: { children?: React.ReactNode }) => {
+    const Elem = withClassname(
+      classNames('bg-bg-l2 dark:bg-bg-d2 rounded px-2 py-1 max-w-full overflow-x-scroll'),
+      'pre'
+    )
 
+    return (
+      <Elem {...rest}>
+        {React.Children.map(children, (child) =>
+          // @ts-ignore New prop to distinguish code in pre
+          React.isValidElement(child) ? React.cloneElement(child, { inPre: true }) : child
+        )}
+      </Elem>
+    )
+  },
+
+  // TODO: Language tag, line number
   code: (props: any) => {
     // inPre is set in pre components
     const { inPre, ...rest } = props as { inPre?: true }
 
     const Elem = withClassname(
-      inPre ? classNames('') : classNames('font-mono bg-bg-l2 dark:bg-bg-d2 rounded px-0.5'),
+      inPre ? classNames('font-mono') : classNames('font-mono bg-bg-l2 dark:bg-bg-d2 rounded px-0.5'),
       'code'
     )
     return <Elem {...rest} />
@@ -101,9 +138,31 @@ const components = {
   h5: hx(5),
   h6: hx(6),
 
+  // TODO: Handle table
+  // TODO: Handle img
+  // TODO: handle task list in li
+
   ul: withClassname(classNames('list-disc pl-4'), 'ul'),
   ol: withClassname(classNames('list-decimal pl-4'), 'ol'),
+  // TODO: Handle details with proper gap
   summary: withClassname(classNames('cursor-pointer'), 'summary'),
+  hr: withClassname(classNames('border-bg-l4 dark:border-bg-d4 w-full'), 'hr'),
+  blockquote: withClassname(
+    classNames(
+      'bg-bg-l2 dark:bg-bg-d2 border border-bg-l4 dark:border-bg-d4 rounded px-2 py-1 max-w-full overflow-x-scroll'
+    ),
+    'blockquote'
+  ),
+
+  // TODO: LaTeX math
+  div: ({ className, ...rest }: { className?: string }) => {
+    const classes = className?.split(/ +/) ?? []
+    if (classes.includes('math')) {
+      return <div className="" {...rest} />
+    } else {
+      return <div className={className} {...rest} />
+    }
+  },
 }
 
 export default components

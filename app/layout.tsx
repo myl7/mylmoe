@@ -38,7 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div className="h-[var(--header-height)]" />
         <main className="flex flex-col gap-4 p-4">
           {children}
-          <hr className="rounded border-[1px] border-bg-l4 dark:border-bg-d4" />
+          <hr className="border-bg-l4 dark:border-bg-d4" />
           <Footer />
         </main>
       </body>

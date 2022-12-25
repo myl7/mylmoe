@@ -39,11 +39,23 @@ The following remark/rehype plugins are used to enhance Markdown/MDX:
 ### h3
 
 #### h4
+
+##### h5
+
+###### h6
 ```
+
+`h1` is semantic and should not be used in the body
+
+`h2` - `h3` can be seen otherwhere in the page
 
 #### h4
 
-You can find auto-generated TOC of the headings and styles of headings except for h4 elsewhere on the page
+##### h5
+
+###### h6
+
+Auto-generated TOC is in the front of the page
 
 ### Code blocks
 
@@ -182,12 +194,12 @@ Support both inline/remote images and local images.
 <!-- Local images can (fully) work with Next.js image optimization. -->
 
 ```md
-![relative path, Markdown-style](../public/images/pixiv_86286793_p0.jpg)
+![relative path, Markdown-style](/images/pixiv_86286793_p0.jpg)
 
 <img src="/images/pixiv_86286793_p0.jpg" alt="absolute path, HTML-style, with props" width="500px" />
 ```
 
-![relative path, Markdown-style](../public/images/pixiv_86286793_p0.jpg)
+![relative path, Markdown-style](/images/pixiv_86286793_p0.jpg)
 
 <img src="/images/pixiv_86286793_p0.jpg" alt="absolute path, HTML-style, with props" width="500px" />
 
@@ -215,6 +227,7 @@ Then things will be done finely
 
 </details>
 
+<!--
 ### Admonitions
 
 Use directives with `admonition` or `admon` as the name to create admonitions.
@@ -326,6 +339,7 @@ Example
 :::admonition{type="quote"}
 Quote
 :::
+-->
 
 ### Comments
 
