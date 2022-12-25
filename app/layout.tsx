@@ -1,6 +1,6 @@
 import './globals.css'
 
-import { Open_Sans, Roboto_Serif, DM_Mono } from '@next/font/google'
+import { Open_Sans, Roboto_Serif, DM_Mono, Noto_Serif_SC } from '@next/font/google'
 import { headers } from 'next/headers'
 import classNames from 'classnames'
 
@@ -10,6 +10,11 @@ import Footer from './footer'
 const openSans = Open_Sans({ subsets: ['latin'], variable: '--font-open-sans' })
 const robotoSerif = Roboto_Serif({ subsets: ['latin'], variable: '--font-roboto-serif' })
 const dmMono = DM_Mono({ weight: ['400'], subsets: ['latin'], variable: '--font-dm-mono' })
+const notoSerifSC = Noto_Serif_SC({
+  weight: ['400'],
+  subsets: ['chinese-simplified'],
+  variable: '--font-noto-serif-sc',
+})
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const dark = darkSSRPreferred()
@@ -17,9 +22,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={classNames(`${openSans.variable} ${robotoSerif.variable} ${dmMono.variable} font-sans`, {
-        dark: dark,
-      })}
+      className={classNames(
+        `${openSans.variable} ${robotoSerif.variable} ${dmMono.variable} ${notoSerifSC.variable} font-sans`,
+        {
+          dark: dark,
+        }
+      )}
     >
       <head />
       <body className="bg-bg text-fg dark:bg-bg-d dark:text-fg-d">

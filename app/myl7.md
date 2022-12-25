@@ -1,7 +1,7 @@
 <!-- Copyright (C) 2021-2022 myl7 -->
 <!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
 
-- myl7 `==` Yulong Ming in en `==` 明宇龙 in zh-Hans, he/him
+- myl7 `==` Yulong Ming in en `==` <span class="font-sc_hans_serif">明宇龙<span> in zh-Hans, he/him
 - PhD student (2022-26) in CS at [CityU HK](https://www.cityu.edu.hk/ 'City University of Hong Kong') interested in Network Security, especially Metadata Privacy recently
 - [FLOSS](https://wikipedia.org/wiki/FLOSS 'free and open-source software') enthusiast believing that [even once is help](https://www.gnu.org/philosophy/saying-no-even-once.html)
 - GitHub active code contributor with [over 1k contributions per year](https://github.com/myl7)
@@ -20,8 +20,8 @@ A more detailed & formal [PDF CV](https://share.myl.moe/cv.pdf) is available
   - Account [@myl107](https://t.me/myl107)
 - Twitter: [@myl107](https://twitter.com/myl107) (forwarded from Telegram [@myl7s](https://t.me/myl7s) via [myl7/tgchan2tw](https://github.com/myl7/tgchan2tw))
 - GPG:
-  - `1F9DE45ED2A4F36A` `Yulong Ming (myl7) <myl@myl.moe>` (new) available on [myl.moe/gpg](https://myl.moe/gpg)
-  - `04F1013B67177C88` (old)
+  - `1F9DE45ED2A4F36A` `Yulong Ming (myl7) <myl@myl.moe>` (current) available on [myl.moe/gpg](https://myl.moe/gpg)
+  - `04F1013B67177C88` (stale)
 - SSH: Available on [myl.moe/ssh](https://myl.moe/ssh)
 
 <details>

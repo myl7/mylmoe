@@ -33,7 +33,7 @@ export default function Footer() {
           <MdLaunch className="h-3.5 w-3.5" />
         </a>
       </p>
-      <p>
+      <p className="font-sc_hans_serif">
         <a href="https://icp.gov.moe" rel="noopener" className="inline-flex items-center text-blue hover:underline">
           萌ICP备
           <MdLaunch className="h-3.5 w-3.5" />
