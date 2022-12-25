@@ -59,7 +59,7 @@ const components = {
     return external ? (
       <Elem href={href} rel="noopener" {...rest}>
         {children}
-        <MdLaunch className="w-3.5 h-3.5" />
+        <MdLaunch className="h-3.5 w-3.5" />
       </Elem>
     ) : (
       <Elem href={href} {...rest}>

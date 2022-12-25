@@ -5,12 +5,12 @@ import DarkSwitch from './darkSwitch'
 
 export default function Header() {
   return (
-    <header className="fixed left-0 top-0 z-50 h-[var(--header-height)] w-full bg-bg-l1 dark:bg-bg-d1 px-4 flex items-center gap-4 border-b-2 border-bg-l4 dark:border-bg-d4">
+    <header className="fixed left-0 top-0 z-50 flex h-[var(--header-height)] w-full items-center gap-4 border-b-2 border-bg-l4 bg-bg-l1 px-4 dark:border-bg-d4 dark:bg-bg-d1">
       <div className="flex items-center gap-2">
         <Link href="/" aria-label="Home" className="hover:text-fg-l4 dark:hover:text-fg-d4">
-          <MdHome className="w-6 h-6" />
+          <MdHome className="h-6 w-6" />
         </Link>
-        <Link href="/" className="text-xl hover:underline hover:text-fg-l4 dark:hover:text-fg-d4">
+        <Link href="/" className="text-xl hover:text-fg-l4 hover:underline dark:hover:text-fg-d4">
           mylmoe
         </Link>
       </div>
@@ -30,7 +30,7 @@ function SearchBox() {
           name="q"
           type="search"
           placeholder="Search..."
-          className="py-0.5 px-1 border-2 rounded bg-bg-l1 dark:bg-bg-d1 hover:border-fg-l4 dark:hover:border-fg-d4 placeholder:text-fg-l4 dark:placeholder:text-fg-d4"
+          className="rounded border-2 bg-bg-l1 py-0.5 px-1 placeholder:text-fg-l4 hover:border-fg-l4 dark:bg-bg-d1 dark:placeholder:text-fg-d4 dark:hover:border-fg-d4"
         />
       </label>
       <input type="hidden" name="as_sitesearch" value="myl.moe" />
@@ -38,9 +38,9 @@ function SearchBox() {
       <button
         type="submit"
         aria-label="Search"
-        className="p-1 border-2 rounded hover:bg-bg-l2 dark:hover:bg-bg-d2 hover:border-fg-l4 dark:hover:border-fg-d4"
+        className="rounded border-2 p-1 hover:border-fg-l4 hover:bg-bg-l2 dark:hover:border-fg-d4 dark:hover:bg-bg-d2"
       >
-        <MdSearch className="w-5 h-5" />
+        <MdSearch className="h-5 w-5" />
       </button>
     </form>
   )

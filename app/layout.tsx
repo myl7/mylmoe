@@ -21,7 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       })}
     >
       <head />
-      <body className="bg-bg dark:bg-bg-d text-fg dark:text-fg-d">
+      <body className="bg-bg text-fg dark:bg-bg-d dark:text-fg-d">
         <Header />
         <div className="h-[var(--header-height)]" />
         {children}

@@ -10,12 +10,12 @@ export default async function HomePage() {
 
   return (
     <main className="flex flex-col gap-4 p-4">
-      <section className="bg-bg-l1 dark:bg-bg-d1 p-2 rounded flex flex-col gap-2">
+      <section className="flex flex-col gap-2 rounded bg-bg-l1 p-2 dark:bg-bg-d1">
         <h1 className="font-serif text-2xl">Welcome to mylmoe: myl7's blog!</h1>
         <h2 className="font-serif text-xl">I am myl7:</h2>
         <MDXRemote {...mdxSrc} />
       </section>
-      <section className="bg-bg-l1 dark:bg-bg-d1 py-2 px-4 rounded">Hello, world!</section>
+      <section className="rounded bg-bg-l1 py-2 px-4 dark:bg-bg-d1">Hello, world!</section>
     </main>
   )
 }
