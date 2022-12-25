@@ -1,3 +1,6 @@
+// Copyright (C) 2022 myl7
+// SPDX-License-Identifier: Apache-2.0
+
 /**
  * Be compatible with old links
  * Comment some of them since some pages have not been migrated yet or would not

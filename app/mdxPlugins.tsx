@@ -1,3 +1,6 @@
+// Copyright (C) 2022 myl7
+// SPDX-License-Identifier: Apache-2.0
+
 import remarkGfm from 'remark-gfm'
 import remarkDirective from 'remark-directive'
 import remarkDirectiveRehype from 'remark-directive-rehype'

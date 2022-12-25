@@ -1,5 +1,8 @@
 'use client'
 
+// Copyright (C) 2022 myl7
+// SPDX-License-Identifier: Apache-2.0
+
 import { MDXRemote as MDXRemoteInner, MDXRemoteSerializeResult } from 'next-mdx-remote'
 
 import components from './mdxComponents'

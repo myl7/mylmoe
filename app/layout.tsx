@@ -1,3 +1,6 @@
+// Copyright (C) 2022 myl7
+// SPDX-License-Identifier: Apache-2.0
+
 import './globals.css'
 
 import { Open_Sans, Roboto_Serif, DM_Mono, Noto_Serif_SC } from '@next/font/google'

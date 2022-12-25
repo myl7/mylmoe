@@ -1,3 +1,6 @@
+// Copyright (C) 2022 myl7
+// SPDX-License-Identifier: Apache-2.0
+
 // To sync the GitHub profile with the one of mylmoe
 
 import fs from 'fs'
