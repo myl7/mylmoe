@@ -5,7 +5,7 @@
 
 import { MDXRemote as MDXRemoteInner, MDXRemoteSerializeResult } from 'next-mdx-remote'
 
-import components from './mdxComponents'
+import components from './components'
 
 // TODO: Downgrade MDX to 2.1.5 to fix the error:
 // TypeError: _jsxDEV is not a function

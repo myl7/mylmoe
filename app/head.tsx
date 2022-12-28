@@ -1,7 +1,7 @@
 // Copyright (C) 2022 myl7
 // SPDX-License-Identifier: Apache-2.0
 
-import GHead from './ghead'
+import GHead from '@/app/ghead'
 
 export default function Head() {
   return (

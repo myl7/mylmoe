@@ -3,9 +3,9 @@
 
 import { serialize } from 'next-mdx-remote/serialize'
 
-import { MDXRemote } from '@/app/mdxRemote'
-import { remarkPlugins, rehypePlugins } from '@/app/mdxPlugins'
-import { postMetas, rawPosts } from '@/app/posts/posts'
+import { MDXRemote } from '@/app/mdx/mdxRemote'
+import { remarkPlugins, rehypePlugins } from '@/app/mdx/plugins'
+import { postMetas, rawPosts } from '@/app/posts'
 
 interface Params {
   slug: string
