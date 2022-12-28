@@ -6,23 +6,25 @@ import { jsonLdScriptProps } from 'react-schemaorg'
 
 import { MDXRemote } from '@/app/mdx/mdxRemote'
 import { remarkPlugins, rehypePlugins } from '@/app/mdx/plugins'
-import { postMetas, rawPosts } from '@/app/posts'
+
+import privacySrc from './privacy.md?raw'
 
 import type { Article } from 'schema-dts'
 
-export default async function Page({ params: { slug } }: { params: { slug: string } }) {
-  const meta = postMetas[slug]
-  const rawPost = rawPosts[slug]
-  if (!meta || !rawPost) {
-    throw new Error(`Post ${slug} not found`)
-  }
-  const src = rawPost.src
-  const format = rawPost.format ?? 'md'
-
-  const { frontmatter: _, ...mdxSrc } = await serialize(src, {
-    mdxOptions: { remarkPlugins, rehypePlugins, format },
+export default async function Page() {
+  const { frontmatter: metaUnchecked, ...mdxSrc } = await serialize(privacySrc, {
+    mdxOptions: { remarkPlugins, rehypePlugins, format: 'md' },
     parseFrontmatter: true,
   })
+  // TODO: Here specially the front matter of these seperate Markdown/MDX files needs to match the type declared here.
+  // This means you may need to wrap dates in the front matter to strings.
+  // Refactor front matter cleaner to support select fields in the future, but now this is enough.
+  const meta = metaUnchecked as {
+    title: string
+    pubDate: string
+    updDate: string
+    abstract: string
+  }
 
   return (
     <main>
@@ -59,13 +61,3 @@ export default async function Page({ params: { slug } }: { params: { slug: strin
     </main>
   )
 }
-
-// TODO: Fix the error when using generateStaticParams with next/headers:
-// Error: Dynamic server usage: headers
-// See https://github.com/vercel/next.js/issues/43427 and https://github.com/vercel/next.js/issues/43392 for following progress.
-export const generateStaticParams =
-  process.env.NODE_ENV != 'development'
-    ? async function (): Promise<{ slug: string }[]> {
-        return Object.entries(postMetas).map(([slug]) => ({ slug }))
-      }
-    : undefined

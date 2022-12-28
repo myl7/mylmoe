@@ -9,7 +9,7 @@ import { postMetas } from '@/app/posts'
 
 import myl7Src from './myl7.md?raw'
 
-export default async function HomePage() {
+export default async function Page() {
   const mdxSrc = await serialize(myl7Src, { mdxOptions: { remarkPlugins, rehypePlugins, format: 'md' } })
 
   return (

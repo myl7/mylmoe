@@ -3,6 +3,7 @@
 
 import { FaCreativeCommons, FaCreativeCommonsBy, FaCreativeCommonsSa } from 'react-icons/fa'
 import { MdLaunch } from 'react-icons/md'
+import Link from 'next/link'
 
 export default function Footer() {
   return (
@@ -62,6 +63,11 @@ export default function Footer() {
           <MdLaunch className="h-3.5 w-3.5" />
         </a>{' '}
         created by Freepik - Flaticon
+      </p>
+      <p>
+        <Link className="text-blue hover:underline" href="/privacy">
+          Privacy policy
+        </Link>
       </p>
     </footer>
   )

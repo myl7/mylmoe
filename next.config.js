@@ -31,8 +31,9 @@ const compatibleRedirects = [
     permanent: true,
   })),
   { source: '/utils/brotli', destination: '/brotli', permanent: true },
-  { source: '/pages/privacy-policy', destination: '/privacy-policy', permanent: true },
-  { source: '/privacy-policy-of-us', destination: '/privacy-policy', permanent: true },
+  { source: '/pages/privacy-policy', destination: '/privacy', permanent: true },
+  { source: '/privacy-policy-of-us', destination: '/privacy', permanent: true },
+  { source: '/privacy-policy', destination: '/privacy', permanent: true },
   { source: '/share-list', destination: '/share', permanent: true },
   { source: '/sitemap.xml', destination: '/sitemap.txt', permanent: false },
 ]

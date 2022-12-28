@@ -11,7 +11,7 @@ const sitemap = cache(async () => {
   const origin = 'https://myl.moe'
   const urls = Object.entries(postMetas).map(([slug]) => origin + '/posts/' + slug)
   // Other non-post pages
-  urls.push(origin + '/')
+  urls.push(...['/', '/privacy'].map((path) => origin + path))
   return urls.join('\n') + '\n'
 })
 
