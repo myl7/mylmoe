@@ -98,10 +98,7 @@ const components = {
   },
 
   pre: ({ children, ...rest }: { children?: React.ReactNode }) => {
-    const Elem = withClassname(
-      classNames('bg-bg-l2 dark:bg-bg-d2 rounded px-2 py-1 max-w-full overflow-x-scroll'),
-      'pre'
-    )
+    const Elem = withClassname(classNames('rounded px-2 py-1 max-w-full overflow-x-scroll'), 'pre')
 
     return (
       <Elem {...rest}>

@@ -1,6 +1,8 @@
 // Copyright (C) 2022 myl7
 // SPDX-License-Identifier: Apache-2.0
 
+import '@/app/hljs.scss'
+
 import { serialize } from 'next-mdx-remote/serialize'
 import { jsonLdScriptProps } from 'react-schemaorg'
 
