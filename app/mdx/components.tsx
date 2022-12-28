@@ -84,14 +84,11 @@ const components = {
       } catch (e) {}
     }
 
-    const Elem = withClassname(
-      classNames('text-blue hover:underline', { 'inline-flex items-center': external }),
-      internal ? Link : 'a'
-    )
+    const Elem = withClassname(classNames('text-blue hover:underline'), internal ? Link : 'a')
     return external ? (
       <Elem href={href} rel="noopener" {...rest}>
         {children}
-        <MdLaunch className="h-3.5 w-3.5" />
+        <MdLaunch className="inline-block h-3.5 w-3.5" />
       </Elem>
     ) : (
       <Elem href={href} {...rest}>

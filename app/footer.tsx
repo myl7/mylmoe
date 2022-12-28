@@ -19,36 +19,28 @@ export default function Footer() {
         <a
           href="https://creativecommons.org/licenses/by-sa/4.0/"
           rel="license noopener"
-          className="inline-flex items-center text-blue hover:underline"
+          className="text-blue hover:underline"
         >
           CC BY-SA 4.0
-          <MdLaunch className="h-3.5 w-3.5" />
+          <MdLaunch className="inline-block h-3.5 w-3.5" />
         </a>{' '}
         by default, unless otherwise explicitly stated, e.g., in a <span className="italic">License</span> section
       </p>
       <p>
         Code & raw posts available on{' '}
-        <a
-          href="https://github.com/myl7/mylmoe"
-          rel="noopener"
-          className="inline-flex items-center font-mono text-blue hover:underline"
-        >
+        <a href="https://github.com/myl7/mylmoe" rel="noopener" className="font-mono text-blue hover:underline">
           myl7/mylmoe
-          <MdLaunch className="h-3.5 w-3.5" />
+          <MdLaunch className="inline-block h-3.5 w-3.5" />
         </a>
       </p>
       <p className="font-hans_serif">
-        <a href="https://icp.gov.moe" rel="noopener" className="inline-flex items-center text-blue hover:underline">
+        <a href="https://icp.gov.moe" rel="noopener" className="text-blue hover:underline">
           萌ICP备
-          <MdLaunch className="h-3.5 w-3.5" />
+          <MdLaunch className="inline-block h-3.5 w-3.5" />
         </a>{' '}
-        <a
-          href="https://icp.gov.moe/?keyword=20210016"
-          rel="noopener"
-          className="inline-flex items-center text-blue hover:underline"
-        >
+        <a href="https://icp.gov.moe/?keyword=20210016" rel="noopener" className="text-blue hover:underline">
           20210016
-          <MdLaunch className="h-3.5 w-3.5" />
+          <MdLaunch className="inline-block h-3.5 w-3.5" />
         </a>{' '}
         号
       </p>
@@ -57,10 +49,10 @@ export default function Footer() {
           href="https://www.flaticon.com/free-icons/development"
           title="Development icons created by Freepik - Flaticon"
           rel="noopener"
-          className="inline-flex items-center text-blue hover:underline"
+          className="text-blue hover:underline"
         >
           Favicon
-          <MdLaunch className="h-3.5 w-3.5" />
+          <MdLaunch className="inline-block h-3.5 w-3.5" />
         </a>{' '}
         created by Freepik - Flaticon
       </p>

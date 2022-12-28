@@ -36,12 +36,12 @@ export default function DarkSwitch() {
 
   return (
     <div className="flex items-center gap-1">
-      <label className="inline-flex items-center gap-0.5">
-        <span className="inline-flex items-center" aria-label="Toggle dark mode">
+      <label className="flex items-center gap-0.5">
+        <div className="flex items-center" aria-label="Toggle dark mode">
           <MdLightMode className="h-4 w-4" />
           /
           <MdDarkMode className="h-4 w-4" />
-        </span>
+        </div>
         <div className="relative">
           <input
             type="checkbox"
