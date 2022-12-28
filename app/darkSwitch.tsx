@@ -31,7 +31,7 @@ export default function DarkSwitch() {
   React.useEffect(() => setDarkC({ dark: darkCSRPreferred(), persist: false }), [])
 
   return (
-    <div className="flex items-center gap-0.5">
+    <div className="flex items-center gap-1">
       <label className="inline-flex items-center gap-0.5">
         <span className="inline-flex items-center" aria-label="Toggle dark mode">
           <MdLightMode className="h-4 w-4" />
@@ -45,7 +45,8 @@ export default function DarkSwitch() {
             onChange={(e) => setDarkC({ dark: e.target.checked, persist: true })}
             className="peer sr-only"
           />
-          <div className="h-6 w-9 cursor-pointer rounded-xl bg-bg-l2 after:absolute after:left-0.5 after:top-0.5 after:h-5 after:w-5 after:rounded-full after:bg-fg after:transition-all after:content-[''] hover:ring-1 hover:after:bg-fg-l4 peer-checked:after:translate-x-3 dark:bg-bg-d2 dark:after:bg-fg-d dark:hover:after:bg-fg-d4" />
+          {/* TODO: Fix focus-visiable ring color */}
+          <div className="h-6 w-9 cursor-pointer rounded-xl bg-bg-l2 ring-blue after:absolute after:left-0.5 after:top-0.5 after:h-5 after:w-5 after:rounded-full after:bg-fg after:transition-all hover:after:bg-fg-l4 peer-checked:after:translate-x-3 peer-focus:ring-2 dark:bg-bg-d2 dark:after:bg-fg-d dark:hover:after:bg-fg-d4" />
         </div>
       </label>
       <DarkResetButton />

@@ -26,7 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html
       lang="en"
       className={classNames(
-        `${openSans.variable} ${robotoSerif.variable} ${dmMono.variable} ${notoSerifSC.variable} font-sans`,
+        `${openSans.variable} ${robotoSerif.variable} ${dmMono.variable} ${notoSerifSC.variable} scroll-pt-[var(--header-height)] font-sans`,
         {
           dark: dark,
         }
@@ -36,11 +36,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="bg-bg text-fg dark:bg-bg-d dark:text-fg-d">
         <Header />
         <div className="h-[var(--header-height)]" />
-        <main className="flex flex-col gap-4 p-4">
+        <div className="flex flex-col gap-4 p-4">
           {children}
           <hr className="border-bg-l4 dark:border-bg-d4" />
           <Footer />
-        </main>
+        </div>
       </body>
     </html>
   )
