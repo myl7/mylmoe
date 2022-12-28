@@ -14,7 +14,7 @@ import components from './components'
 
 export function MDXRemote(props: MDXRemoteSerializeResult) {
   return (
-    <div className="flex flex-col items-start gap-4 font-serif">
+    <div className="flex flex-col items-start gap-4">
       <MDXRemoteInner components={components} {...props} />
     </div>
   )

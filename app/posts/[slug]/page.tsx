@@ -2,16 +2,15 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { serialize } from 'next-mdx-remote/serialize'
+import { jsonLdScriptProps } from 'react-schemaorg'
 
 import { MDXRemote } from '@/app/mdx/mdxRemote'
 import { remarkPlugins, rehypePlugins } from '@/app/mdx/plugins'
 import { postMetas, rawPosts } from '@/app/posts'
 
-interface Params {
-  slug: string
-}
+import type { Article } from 'schema-dts'
 
-export default async function PostPage({ params: { slug } }: { params: Params }) {
+export default async function PostPage({ params: { slug } }: { params: { slug: string } }) {
   const meta = postMetas[slug]
   const rawPost = rawPosts[slug]
   if (!meta || !rawPost) {
@@ -27,10 +26,34 @@ export default async function PostPage({ params: { slug } }: { params: Params })
 
   return (
     <>
-      <section className="flex flex-col gap-2 rounded border-2 border-bg-l4 bg-bg-l1 p-2 dark:border-bg-d4 dark:bg-bg-d1">
-        {/* TODO: Metadata display */}
-        <h1 className="font-serif text-2xl">{meta.title}</h1>
-        {/* <h2 className="font-serif text-xl"></h2> */}
+      {/* Next.js currently does not accept un-async <script> in <head>, so put this in <body> */}
+      <script
+        {...jsonLdScriptProps<Article>({
+          '@context': 'https://schema.org',
+          '@type': 'Article',
+          author: {
+            '@type': 'Person',
+            name: 'myl7',
+            url: 'https://myl.moe',
+          },
+          datePublished: meta.pubDate,
+          dateModified: meta.updDate,
+          headline: meta.title,
+        })}
+      />
+      <section className="flex flex-col gap-2 rounded border-2 border-bg-l4 bg-bg-l1 p-2 font-serif dark:border-bg-d4 dark:bg-bg-d1">
+        <h1 className="text-2xl">{meta.title}</h1>
+        <hr className="border-bg-l4 dark:border-bg-d4" />
+        <p className="text-sm">
+          {meta.pubDate == meta.updDate
+            ? `updated & published on ${meta.updDate}`
+            : `updated on ${meta.updDate} & published on ${meta.pubDate}`}
+        </p>
+        <hr className="border-bg-l4 dark:border-bg-d4" />
+        <p>
+          <span className="italic">Abstract:</span> {meta.abstract}
+        </p>
+        <hr className="border-bg-l4 dark:border-bg-d4" />
         <MDXRemote {...mdxSrc} />
       </section>
     </>
@@ -42,7 +65,7 @@ export default async function PostPage({ params: { slug } }: { params: Params })
 // See https://github.com/vercel/next.js/issues/43427 and https://github.com/vercel/next.js/issues/43392 for following progress.
 export const generateStaticParams =
   process.env.NODE_ENV != 'development'
-    ? async function (): Promise<Params[]> {
+    ? async function (): Promise<{ slug: string }[]> {
         return Object.entries(postMetas).map(([slug]) => ({ slug }))
       }
     : undefined

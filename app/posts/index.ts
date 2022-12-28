@@ -63,8 +63,10 @@ function cleanFM(fm: FM): FMCleaned {
     abstract: fm.abstract ?? '',
     tags: Array.isArray(fm.tags) ? fm.tags : fm.tags?.split(/ +/) ?? [],
     lang: fm.lang ?? 'en',
+    locale: lang2locale(fm.lang),
     categories: Array.isArray(fm.categories) ? fm.categories : fm.categories?.split(/ +/) ?? [],
-    image: fm.image ?? '',
+    // TODO: Better default og image / add an image for all/most posts
+    image: fm.image ?? 'https://myl.moe/icon-512.png',
   }
 }
 
@@ -78,6 +80,19 @@ function parseFM(src: string) {
 /** Always use UTC */
 function formatDate(date: string | Date) {
   return typeof date == 'string' ? date : date.toISOString().replace(/T.+$/, '')
+}
+
+/**
+ * Convert IEEE lang tags to Open Graph compatible locales.
+ * Return "" when failing to convert.
+ */
+function lang2locale(lang?: string) {
+  return lang
+    ? {
+        en: 'en_US',
+        'zh-hans': 'zh_CN',
+      }[lang] ?? ''
+    : ''
 }
 
 // Front matter
@@ -108,6 +123,7 @@ export interface FMCleaned {
   abstract: string
   tags: string[]
   lang: string
+  locale: string
   categories: string[]
   image: string
 }
