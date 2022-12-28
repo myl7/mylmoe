@@ -54,7 +54,11 @@ const nextConfig = {
     { source: '/sitemap.txt', destination: '/api/sitemap' },
     { source: '/u/:slug', destination: '/api/url/:slug' },
   ],
-  redirects: async () => compatibleRedirects,
+  redirects: async () => [
+    { source: '/ssh', destination: '/ssh.pub', permanent: true },
+    { source: '/gpg', destination: '/gpg.asc', permanent: true },
+    ...compatibleRedirects,
+  ],
   headers: async () => [
     {
       source: '/rss.xml',
@@ -77,6 +81,8 @@ const nextConfig = {
       source: '/sitemap.txt',
       headers: [{ key: 'cache-control', value: 'public, max-age=0, must-revalidate, s-maxage=2678400' }],
     },
+    { source: '/ssh.pub', headers: [{ key: 'content-type', value: 'text/plain' }] },
+    { source: '/gpg.asc', headers: [{ key: 'content-type', value: 'text/plain' }] },
   ],
 }
 
