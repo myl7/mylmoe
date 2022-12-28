@@ -3,7 +3,7 @@
 
 import { cache } from 'react'
 
-import { postMetas } from '@/app/posts/posts'
+import { postMetas } from '@/app/posts'
 
 export const config = { runtime: 'edge' }
 

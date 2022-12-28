@@ -4,7 +4,7 @@
 import { cache } from 'react'
 import { Feed } from 'feed'
 
-import { postMetas } from '@/app/posts/posts'
+import { postMetas } from '@/app/posts'
 
 export async function feed() {
   const feed = new Feed({

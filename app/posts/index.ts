@@ -1,7 +1,9 @@
 // Copyright (C) 2022 myl7
 // SPDX-License-Identifier: Apache-2.0
 
-import 'server-only'
+// TODO: Next.js API routes are wrongly considered as client code
+// See https://github.com/vercel/next.js/issues/43700 for details
+// import 'server-only'
 
 import { VFile } from 'vfile'
 import { matter } from 'vfile-matter'
