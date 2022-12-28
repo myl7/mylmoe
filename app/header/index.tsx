@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { MdHome, MdSearch } from 'react-icons/md'
 
 import DarkSwitch from './darkSwitch'
+import Menu from './menu'
 
 export default function Header() {
   return (
@@ -18,8 +19,15 @@ export default function Header() {
         </Link>
       </div>
       <div className="flex-1" />
-      <SearchBox />
+      <div className="hidden md:block">
+        <SearchBox />
+      </div>
       <DarkSwitch />
+      <div className="h-6 md:hidden">
+        <Menu>
+          <SearchBox />
+        </Menu>
+      </div>
     </header>
   )
 }

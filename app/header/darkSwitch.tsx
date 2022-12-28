@@ -4,9 +4,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import React from 'react'
-import { MdDarkMode, MdLightMode } from 'react-icons/md'
-
-import DarkResetButton from './darkResetButton'
+import { MdDarkMode, MdLightMode, MdRefresh } from 'react-icons/md'
 
 const lSKey = 'mylmoe.dark'
 
@@ -30,6 +28,12 @@ export default function DarkSwitch() {
   // If SSR preference is different, this causes a flash, but it is fair to happen
   React.useEffect(() => setDarkC({ dark: darkCSRPreferred(), persist: false }), [])
 
+  const resetDark = () => {
+    try {
+      localStorage.removeItem(lSKey)
+    } catch {}
+  }
+
   return (
     <div className="flex items-center gap-1">
       <label className="inline-flex items-center gap-0.5">
@@ -46,10 +50,16 @@ export default function DarkSwitch() {
             className="peer sr-only"
           />
           {/* TODO: Fix focus-visiable ring color */}
-          <div className="h-6 w-9 cursor-pointer rounded-xl bg-bg-l2 ring-blue after:absolute after:left-0.5 after:top-0.5 after:h-5 after:w-5 after:rounded-full after:bg-fg after:transition-all hover:after:bg-fg-l4 peer-checked:after:translate-x-3 peer-focus:ring-2 dark:bg-bg-d2 dark:after:bg-fg-d dark:hover:after:bg-fg-d4" />
+          <div className="h-6 w-9 cursor-pointer rounded-xl bg-bg-l2 ring-blue after:absolute after:left-0.5 after:top-0.5 after:h-5 after:w-5 after:rounded-full after:bg-fg after:transition-transform hover:after:bg-fg-l4 peer-checked:after:translate-x-3 peer-focus:ring-2 dark:bg-bg-d2 dark:after:bg-fg-d dark:hover:after:bg-fg-d4" />
         </div>
       </label>
-      <DarkResetButton />
+      <button
+        aria-label="Reset dark mode preference"
+        className="rounded border p-1 hover:border-fg-l4 hover:bg-bg-l2 dark:hover:border-fg-d4 dark:hover:bg-bg-d2"
+        onClick={resetDark}
+      >
+        <MdRefresh className="h-3 w-3" />
+      </button>
     </div>
   )
 }
