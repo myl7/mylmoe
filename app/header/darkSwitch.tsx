@@ -28,7 +28,7 @@ export default function DarkSwitch() {
   // If SSR preference is different, this causes a flash, but it is fair to happen
   React.useEffect(() => setDarkC({ dark: darkCSRPreferred(), persist: false }), [])
 
-  const resetDark = () => {
+  function resetDark() {
     try {
       localStorage.removeItem(lSKey)
     } catch {}

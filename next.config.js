@@ -91,6 +91,12 @@ function withWebpack(nextConfig) {
     webpack(config, options) {
       const { isServer, nextRuntime } = options
 
+      // For brotli-dec-wasm and brotli-wasm
+      config.experiments = {
+        ...config.experiments,
+        asyncWebAssembly: true,
+      }
+
       config.module.rules.push({
         resourceQuery: /raw/,
         type: 'asset/source',
