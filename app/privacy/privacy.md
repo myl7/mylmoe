@@ -1,10 +1,3 @@
----
-title: Privacy policy
-pubDate: '2022-08-25'
-updDate: '2022-12-28'
-abstract: We value your privacy. NO personal information is collected by us. However, we use third-party services to power some website functionality, which may collect personal information. Check ALL of them in the post.
----
-
 <!-- Copyright (C) 2022 myl7 -->
 <!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
 
