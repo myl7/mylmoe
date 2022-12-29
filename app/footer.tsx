@@ -11,7 +11,7 @@ export default function Footer() {
       <p>Copyright (C) 2020-2022 myl7</p>
       <p>
         Posts licensed under{' '}
-        <span className="inline-flex items-center" aria-label="CC BY-SA 4.0">
+        <span className="inline-flex items-center">
           <FaCreativeCommons className="h-4 w-4" />
           <FaCreativeCommonsBy className="h-4 w-4" />
           <FaCreativeCommonsSa className="h-4 w-4" />

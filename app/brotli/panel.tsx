@@ -94,8 +94,7 @@ export function Panel({ variant, proc }: PanelProps) {
         />
       </label>
       <p>Or select a file:</p>
-      {/* Reduce file input clickable area. Screen reader should also ignore it since it is already contained in a p */}
-      <label className="hidden" htmlFor={`${variant}-finput`}>
+      <label className="sr-only" htmlFor={`${variant}-finput`}>
         Or select a file:
       </label>
       <div className="flex items-center gap-1">

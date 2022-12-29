@@ -46,7 +46,7 @@ function hx(x: number) {
     return (
       <div className="w-full">
         <Elem {...rest} id={id}>
-          <a href={`#${id}`}>
+          <a href={`#${id}`} aria-hidden>
             <MdLink
               className={classNames({
                 'h-5 w-5': x == 2,
