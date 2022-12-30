@@ -116,7 +116,7 @@ export interface FM {
   abstract?: string
   tags?: string | string[]
   // HTML lang attr compatible language tag.
-  // Used to set in HTML, select fonts, and prepare for i18n in the future.
+  // Set in HTML lang attr, and may be used to select fonts and make i18n in the future.
   // Empty string by default, which is treated as en.
   lang?: string
   // Currently unimplemented
