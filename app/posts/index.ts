@@ -15,6 +15,7 @@ import p3Src from '@/assets/posts/mylmoe-demo.md?raw'
 import p4Src from '@/assets/posts/hacks-for-mdx-md-in-nextjs.md?raw'
 import p5Src from '@/assets/posts/tree-shaking-on-object-exports.md?raw'
 
+// To use Next.js Image optimization, static imports are required
 import p0i0 from '@/assets/images/open-source-desktop-show/general.png'
 import p0i1 from '@/assets/images/open-source-desktop-show/empty.png'
 import p0i2 from '@/assets/images/open-source-desktop-show/wallpaper_switcher.png'
@@ -26,7 +27,10 @@ import p3i0 from '@/assets/images/pixiv_86286793_p0.jpg'
 
 import type { StaticImageData } from 'next/image'
 
-/** By default format is md */
+/**
+ * rawPosts is a low-cost singleton. Feel free to import it when needed.
+ * By default format is md.
+ */
 export const rawPosts: {
   [slug: string]: { src: string; format?: 'mdx' | 'md'; images?: { [path: string]: StaticImageData } }
 } = {
@@ -49,6 +53,11 @@ export const rawPosts: {
   'tree-shaking-on-object-exports': { src: p5Src },
 }
 
+/**
+ * postMetas is relatively high-cost since it parses all front matters.
+ * Currently posts are not so many so it is fine to just parse them all.
+ * TODO: Lazy parse
+ */
 export const postMetas: {
   [slug: string]: { format?: string } & FMCleaned
 } = Object.fromEntries(
