@@ -4,7 +4,7 @@ pubDate: 2021-12-01
 updDate: 2021-12-01
 abstract: 我的 Linux 桌面解决方案，投稿到 ustclug/Open-Source-Desktop-Show 个人桌面美化配置分享项目。
 tags: linux-desktop gnome-extension linux gnome wayland font
-lang: zh-hans
+lang: zh-Hans
 ---
 
 <!-- Copyright (C) 2021, 2022 myl7 -->

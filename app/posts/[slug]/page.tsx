@@ -5,6 +5,7 @@ import '@/app/hljs.scss'
 
 import { serialize } from 'next-mdx-remote/serialize'
 import { jsonLdScriptProps } from 'react-schemaorg'
+import classNames from 'classnames'
 
 import MDXRemote from '@/app/mdx/mdxRemote'
 import MDXImages from '@/app/mdx/mdxImages'
@@ -44,7 +45,12 @@ export default async function Page({ params: { slug } }: { params: { slug: strin
           headline: meta.title,
         })}
       />
-      <section className="flex flex-col gap-2 rounded border-2 border-bg-l4 bg-bg-l1 p-2 font-serif dark:border-bg-d4 dark:bg-bg-d1">
+      <section
+        className={classNames(
+          'flex flex-col gap-2 rounded border-2 border-bg-l4 bg-bg-l1 p-2 font-serif dark:border-bg-d4 dark:bg-bg-d1',
+          { 'font-hans_serif': meta.lang == 'zh-Hans' }
+        )}
+      >
         <h1 className="text-2xl">{meta.title}</h1>
         <hr className="border-bg-l4 dark:border-bg-d4" />
         <p className="text-sm">

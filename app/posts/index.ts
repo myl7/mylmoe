@@ -92,14 +92,16 @@ function formatDate(date: string | Date) {
 }
 
 /**
- * Convert IEEE lang tags to Open Graph compatible locales.
+ * Convert lang tags to Open Graph compatible locales.
  * Return "" when failing to convert.
+ * The mapping is made according to my preference.
+ * Customize it if you are not.
  */
 function lang2locale(lang?: string) {
   return lang
     ? {
         en: 'en_US',
-        'zh-hans': 'zh_CN',
+        'zh-Hans': 'zh_CN',
       }[lang] ?? ''
     : ''
 }
@@ -113,8 +115,9 @@ export interface FM {
   updDate?: string | Date
   abstract?: string
   tags?: string | string[]
-  // IETF language tag, all lowercase.
-  // Used to select fonts, and prepare for i18n in the future.
+  // HTML lang attr compatible language tag.
+  // Used to set in HTML, select fonts, and prepare for i18n in the future.
+  // Empty string by default, which is treated as en.
   lang?: string
   // Currently unimplemented
   categories?: string | string[]

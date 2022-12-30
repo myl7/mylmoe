@@ -3,6 +3,7 @@
 
 import { serialize } from 'next-mdx-remote/serialize'
 import { MdLaunch } from 'react-icons/md'
+import classNames from 'classnames'
 
 import MDXRemote from '@/app/mdx/mdxRemote'
 import { remarkPlugins, rehypePlugins } from '@/app/mdx/plugins'
@@ -59,7 +60,12 @@ export default async function Page() {
               .map(([slug, meta]) => (
                 <div key={slug}>
                   <a href={`/posts/${slug}`} className="group block">
-                    <article className="flex flex-col gap-1 rounded border-2 border-t-[6px] border-bg-l4 bg-bg-l1 p-2 pt-1 ring-blue group-hover:ring-2 dark:border-bg-d4 dark:bg-bg-d1">
+                    <article
+                      className={classNames(
+                        'flex flex-col gap-1 rounded border-2 border-t-[6px] border-bg-l4 bg-bg-l1 p-2 pt-1 ring-blue group-hover:ring-2 dark:border-bg-d4 dark:bg-bg-d1',
+                        { 'font-hans_serif': meta.lang == 'zh-Hans' }
+                      )}
+                    >
                       <h2 className="text-xl">{meta.title}</h2>
                       <hr className="border-bg-l4 dark:border-bg-d4" />
                       <p className="text-sm">
