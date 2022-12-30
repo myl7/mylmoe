@@ -2,9 +2,12 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import classNames from 'classnames'
+import Image, { StaticImageData } from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { MdLaunch, MdLink } from 'react-icons/md'
+
+import { MDXImagesCtx } from './mdxImages'
 
 /** The caller needs to ensure proper props are passed */
 function withClassname<P>(extraClassName: string, Elem: keyof JSX.IntrinsicElements | React.FC<P>) {
@@ -131,6 +134,19 @@ const components = {
   h4: hx(4),
   h5: hx(5),
   h6: hx(6),
+
+  img: ({ src: srcUnchecked, alt, ...rest }: { src?: string; alt?: string }) => {
+    const src = requiredProp(srcUnchecked)
+
+    const imagesCtx = React.useContext(MDXImagesCtx)
+
+    let srcProps: StaticImageData | null = null
+    if (imagesCtx[src]) {
+      srcProps = imagesCtx[src]
+    }
+
+    return <Image src={srcProps || src} alt={alt ?? ''} {...rest} />
+  },
 
   // TODO: Handle table
   // TODO: Handle img

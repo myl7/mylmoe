@@ -3,7 +3,7 @@
 
 import { serialize } from 'next-mdx-remote/serialize'
 
-import { MDXRemote } from '@/app/mdx/mdxRemote'
+import MDXRemote from '@/app/mdx/mdxRemote'
 import { remarkPlugins, rehypePlugins } from '@/app/mdx/plugins'
 import { postMetas } from '@/app/posts'
 

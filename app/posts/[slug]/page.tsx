@@ -6,7 +6,8 @@ import '@/app/hljs.scss'
 import { serialize } from 'next-mdx-remote/serialize'
 import { jsonLdScriptProps } from 'react-schemaorg'
 
-import { MDXRemote } from '@/app/mdx/mdxRemote'
+import MDXRemote from '@/app/mdx/mdxRemote'
+import MDXImages from '@/app/mdx/mdxImages'
 import { remarkPlugins, rehypePlugins } from '@/app/mdx/plugins'
 import { postMetas, rawPosts } from '@/app/posts'
 
@@ -56,7 +57,9 @@ export default async function Page({ params: { slug } }: { params: { slug: strin
           <span className="italic">Abstract:</span> {meta.abstract}
         </p>
         <hr className="border-bg-l4 dark:border-bg-d4" />
-        <MDXRemote {...mdxSrc} />
+        <MDXImages images={rawPost.images ?? {}}>
+          <MDXRemote {...mdxSrc} />
+        </MDXImages>
       </section>
     </main>
   )

@@ -12,7 +12,7 @@ import components from './components'
 // See https://github.com/hashicorp/next-mdx-remote/issues/307 for details.
 // Remove the overrides in package.json when fixed by upstream.
 
-export function MDXRemote(props: MDXRemoteSerializeResult) {
+export default function MDXRemote(props: MDXRemoteSerializeResult) {
   return (
     <div className="flex flex-col items-start gap-4">
       <MDXRemoteInner components={components} {...props} />
