@@ -1,7 +1,7 @@
 <!-- Copyright (C) 2021, 2022 myl7 -->
 <!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
 
-- myl7 `==` Yulong Ming in en `==` <span class="font-hans_serif">明宇龙<span> in zh-Hans, he/him
+- myl7 `==` Yulong Ming in en `==` 明宇龙 in zh-Hans, he/him
 - PhD student (2022-26) in CS at [CityU HK](https://www.cityu.edu.hk/ 'City University of Hong Kong') interested in Network Security, especially Metadata Privacy recently
 - [FLOSS](https://wikipedia.org/wiki/FLOSS 'free and open-source software') enthusiast believing that [even once is help](https://www.gnu.org/philosophy/saying-no-even-once.html)
 - GitHub active code contributor with [over 1k contributions per year](https://github.com/myl7)

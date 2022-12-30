@@ -77,9 +77,9 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['var(--font-open-sans)'],
-        serif: ['var(--font-roboto-serif)'],
+        // This causes Hans texts to use Latin punctuations, but it is not so harmful and can be tolerated.
+        serif: ['var(--font-roboto-serif)', 'var(--font-noto-serif-sc)'],
         mono: ['var(--font-dm-mono)'],
-        hans_serif: ['var(--font-noto-serif-sc)'],
       },
     },
   },
