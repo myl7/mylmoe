@@ -2,12 +2,14 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { serialize } from 'next-mdx-remote/serialize'
+import { MdLaunch } from 'react-icons/md'
 
 import MDXRemote from '@/app/mdx/mdxRemote'
 import { remarkPlugins, rehypePlugins } from '@/app/mdx/plugins'
 import { postMetas } from '@/app/posts'
 
 import myl7Src from './myl7.md?raw'
+import friends from './friends'
 
 export default async function Page() {
   const mdxSrc = await serialize(myl7Src, { mdxOptions: { remarkPlugins, rehypePlugins, format: 'md' } })
@@ -82,6 +84,26 @@ export default async function Page() {
                   </a>
                 </div>
               ))}
+          </div>
+        </details>
+      </section>
+      <section className="flex flex-col gap-2 rounded border-2 border-bg-l4 bg-bg-l1 p-2  font-serif dark:border-bg-d4 dark:bg-bg-d1">
+        <details open>
+          <summary className="cursor-pointer marker:text-xl">
+            <h2 className="inline-block text-xl">Friends:</h2>
+          </summary>
+          <div className="flex flex-col gap-1 pt-1">
+            <hr className="border-bg-l4 dark:border-bg-d4" />
+            <ul className="flex list-inside list-disc flex-wrap gap-4">
+              {friends.map((friend) => (
+                <li key={friend.name}>
+                  <a href={friend.url} rel="noopener" className="text-blue hover:underline">
+                    {friend.name}
+                    <MdLaunch className="inline-block h-3.5 w-3.5" />
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </details>
       </section>

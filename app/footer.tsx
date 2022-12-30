@@ -56,11 +56,17 @@ export default function Footer() {
         </a>{' '}
         created by Freepik - Flaticon
       </p>
-      <p>
-        <Link className="text-blue hover:underline" href="/privacy">
+      <div className="flex flex-wrap gap-4">
+        <Link className="inline-block text-blue hover:underline" href="/privacy">
           Privacy policy
         </Link>
-      </p>
+        <Link className="inline-block text-blue hover:underline" href="/rss.xml">
+          RSS
+        </Link>
+        <Link className="inline-block text-blue hover:underline" href="/atom.xml">
+          Atom
+        </Link>
+      </div>
     </footer>
   )
 }
