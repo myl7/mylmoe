@@ -96,24 +96,26 @@ export function Panel({ variant, proc }: PanelProps) {
           className="w-full rounded border bg-bg-l1 py-0.5 px-1 placeholder:text-fg-l4 hover:border-fg-l4 dark:bg-bg-d1 dark:placeholder:text-fg-d4 dark:hover:border-fg-d4"
         />
       </label>
-      <p>Or select a file:</p>
-      <label className="sr-only" htmlFor={`${variant}-finput`}>
-        Or select a file:
-      </label>
-      <div className="flex items-center gap-1">
-        <button
-          aria-label="Reset the selected file"
-          onClick={resetFile}
-          className="rounded border p-1 hover:border-fg-l4 hover:bg-bg-l2 dark:hover:border-fg-d4 dark:hover:bg-bg-d2"
-        >
-          <MdRefresh className="h-4 w-4" />
-        </button>
-        <input
-          ref={fRef}
-          type="file"
-          id={`${variant}-finput`}
-          className="file:cursor-pointer file:rounded file:border file:border-solid file:border-fg file:bg-bg-l1 file:py-0.5 file:px-1 file:text-fg file:hover:border-fg-l4 file:hover:bg-bg-l2 dark:file:border-fg-d dark:file:bg-bg-d1 dark:file:text-fg-d dark:file:hover:border-fg-d4 dark:file:hover:bg-bg-d2"
-        />
+      <div className="flex flex-wrap gap-2">
+        <p>Or select a file:</p>
+        <label className="sr-only" htmlFor={`${variant}-finput`}>
+          Or select a file:
+        </label>
+        <div className="flex items-center gap-1">
+          <button
+            aria-label="Reset the selected file"
+            onClick={resetFile}
+            className="rounded border p-1 hover:border-fg-l4 hover:bg-bg-l2 dark:hover:border-fg-d4 dark:hover:bg-bg-d2"
+          >
+            <MdRefresh className="h-4 w-4" />
+          </button>
+          <input
+            ref={fRef}
+            type="file"
+            id={`${variant}-finput`}
+            className="file:cursor-pointer file:rounded file:border file:border-solid file:border-fg file:bg-bg-l1 file:py-0.5 file:px-1 file:text-fg file:hover:border-fg-l4 file:hover:bg-bg-l2 dark:file:border-fg-d dark:file:bg-bg-d1 dark:file:text-fg-d dark:file:hover:border-fg-d4 dark:file:hover:bg-bg-d2"
+          />
+        </div>
       </div>
       <div className="flex justify-center">
         <button
