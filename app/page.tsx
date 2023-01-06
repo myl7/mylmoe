@@ -104,6 +104,7 @@ export default async function Page() {
                 </li>
               ))}
             </ul>
+            <p>Feel free to request a friend link if you have met me in reality!</p>
           </div>
         </details>
       </section>
