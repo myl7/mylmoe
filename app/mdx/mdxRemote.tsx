@@ -7,11 +7,6 @@ import { MDXRemote as MDXRemoteInner, MDXRemoteSerializeResult } from 'next-mdx-
 
 import components from './components'
 
-// TODO: Downgrade MDX to 2.1.5 to fix the error:
-// TypeError: _jsxDEV is not a function
-// See https://github.com/hashicorp/next-mdx-remote/issues/307 for details.
-// Remove the overrides in package.json when fixed by upstream.
-
 export default function MDXRemote(props: MDXRemoteSerializeResult) {
   return (
     <div className="flex flex-col items-start gap-4">

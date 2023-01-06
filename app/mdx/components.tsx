@@ -68,7 +68,7 @@ function hx(x: number) {
   }
 }
 
-// classNames wrappers are for TailwindCSS completions
+// classNames wrappers are for TailwindCSS completion
 const components = {
   a: ({ href: hrefUnchecked, children, ...rest }: { href?: string; children?: React.ReactNode }) => {
     let href = requiredProp(hrefUnchecked)
@@ -148,27 +148,67 @@ const components = {
     return <Image src={srcProps || src} alt={alt ?? ''} {...rest} />
   },
 
-  // TODO: Handle table
-  // TODO: Handle img
-  // TODO: handle task list in li
+  table: withClassname(
+    classNames('block border border-collapse border-bg-l4 dark:border-bg-d4 max-w-full overflow-x-scroll'),
+    'table'
+  ),
+  thead: withClassname(classNames('bg-bg-l2 dark:bg-bg-d2'), 'thead'),
+  td: withClassname(classNames('border border-bg-l4 dark:border-bg-d4 px-2 py-1'), 'td'),
+  th: withClassname(classNames('border border-bg-l4 dark:border-bg-d4 px-2 py-1'), 'th'),
 
   ul: withClassname(classNames('list-disc pl-4'), 'ul'),
   ol: withClassname(classNames('list-decimal pl-4'), 'ol'),
-  // TODO: Handle details with proper gap
+  li: ({ children, className, ...rest }: { children?: React.ReactNode; className?: string }) => {
+    const classes = className?.split(/ +/) ?? []
+    if (classes.includes('task-list-item')) {
+      // Task list item with an uninteractive checkbox
+      return (
+        <li className={className} {...rest}>
+          <label>
+            {React.Children.map(children, (child, i) =>
+              i == 0 ? (
+                // The checkbox
+                child
+              ) : (
+                // Normally there will be only 2 children, so this is the text
+                // Not to set cursor-text on label so the label background would not make the cursor become text and cause cursor jumpping when moving across the checkbox border
+                <span className="cursor-text">{child}</span>
+              )
+            )}
+          </label>
+        </li>
+      )
+    } else {
+      return (
+        <li className={className} {...rest}>
+          {children}
+        </li>
+      )
+    }
+  },
+
   summary: withClassname(classNames('cursor-pointer'), 'summary'),
   hr: withClassname(classNames('border-bg-l4 dark:border-bg-d4 w-full'), 'hr'),
   blockquote: withClassname(
     classNames(
-      'bg-bg-l2 dark:bg-bg-d2 border border-bg-l4 dark:border-bg-d4 rounded px-2 py-1 max-w-full overflow-x-scroll'
+      "bg-bg dark:bg-bg-d border border-bg-l4 dark:border-bg-d4 rounded pl-6 p-2 max-w-full overflow-x-scroll relative before:content-['>'] before:absolute before:left-2 before:top-2 flex flex-col items-start gap-2"
     ),
     'blockquote'
   ),
 
-  // TODO: LaTeX math
   div: ({ className, ...rest }: { className?: string }) => {
     const classes = className?.split(/ +/) ?? []
     if (classes.includes('math')) {
-      return <div className="" {...rest} />
+      // LaTeX math
+      return (
+        <div
+          className={classNames(
+            'max-w-full overflow-x-scroll rounded border border-bg-l4 px-2 dark:border-bg-d4',
+            classes
+          )}
+          {...rest}
+        />
+      )
     } else {
       return <div className={className} {...rest} />
     }

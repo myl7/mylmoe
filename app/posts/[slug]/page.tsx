@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import '@/app/hljs.scss'
+import 'katex/dist/katex.min.css'
 
 import { serialize } from 'next-mdx-remote/serialize'
 import { jsonLdScriptProps } from 'react-schemaorg'

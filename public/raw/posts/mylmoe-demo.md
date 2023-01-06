@@ -114,12 +114,22 @@ paragraph b
 | ----- | --- | --- |
 | a     | /   | 1   |
 | b     | 1   | /   |
+
+| table | a   | b   | c                                                                                                    |
+| ----- | --- | --- | ---------------------------------------------------------------------------------------------------- |
+| a     | /   | 1   | aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa |
+| b     | 1   | /   | /                                                                                                    |
 ```
 
 | table | a   | b   |
 | ----- | --- | --- |
 | a     | /   | 1   |
 | b     | 1   | /   |
+
+| table | a   | b   | c                                                                                                    |
+| ----- | --- | --- | ---------------------------------------------------------------------------------------------------- |
+| a     | /   | 1   | aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa |
+| b     | 1   | /   | /                                                                                                    |
 
 ### Blockquotes
 
@@ -408,7 +418,7 @@ Additionally, Next.js would raise an error in the development mode.
 
 ### LaTeX math inlines/blocks
 
-```md
+```latex
 $x = \frac{-b\plusmn\sqrt{b^2-4ac}}{2a}$
 
 $$

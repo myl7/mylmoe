@@ -1,9 +1,5 @@
 lockfileVersion: 5.4
 
-overrides:
-  '@mdx-js/mdx': 2.1.5
-  '@mdx-js/react': 2.1.5
-
 specifiers:
   '@next/bundle-analyzer': ^13.1.1
   '@next/font': 13.1.1
@@ -22,9 +18,11 @@ specifiers:
   globby: ^13.1.3
   hast-util-select: ^5.0.2
   hastscript: ^7.1.0
+  highlight.js: ^11.7.0
   ioredis: ^5.2.4
+  katex: ^0.16.4
   next: 13.1.1
-  next-mdx-remote: ^4.2.0
+  next-mdx-remote: ^4.2.1
   postcss: ^8.4.20
   prettier: ^2.8.1
   prettier-plugin-tailwindcss: ^0.2.1
@@ -68,9 +66,11 @@ dependencies:
   globby: 13.1.3
   hast-util-select: 5.0.2
   hastscript: 7.1.0
+  highlight.js: 11.7.0
   ioredis: 5.2.4
+  katex: 0.16.4
   next: 13.1.1_3duxcpitbtplz62feflag7fwby
-  next-mdx-remote: 4.2.0_biqbaboplfbrettd7655fr4n2y
+  next-mdx-remote: 4.2.1_biqbaboplfbrettd7655fr4n2y
   postcss: 8.4.20
   prettier: 2.8.1
   prettier-plugin-tailwindcss: 0.2.1_prettier@2.8.1
@@ -154,15 +154,15 @@ packages:
     resolution: {integrity: sha512-Sx1pU8EM64o2BrqNpEO1CNLtKQwyhuXuqyfH7oGKCk+1a33d2r5saW8zNwm3j6BTExtjrv2BxTgzzkMwts6vGg==}
     dev: false
 
-  /@mdx-js/mdx/2.1.5:
-    resolution: {integrity: sha512-zEG0lt+Bl/r5U6e0TOS7qDbsXICtemfAPquxWFsMbdzrvlWaqMGemLl+sjVpqlyaaiCiGVQBSGdCk0t1qXjkQg==}
+  /@mdx-js/mdx/2.2.1:
+    resolution: {integrity: sha512-hZ3ex7exYLJn6FfReq8yTvA6TE53uW9UHJQM9IlSauOuS55J9y8RtA7W+dzp6Yrzr00/U1sd7q+Wf61q6SfiTQ==}
     dependencies:
       '@types/estree-jsx': 1.0.0
       '@types/mdx': 2.0.3
       estree-util-build-jsx: 2.2.0
       estree-util-is-identifier-name: 2.0.1
       estree-util-to-js: 1.1.0
-      estree-walker: 3.0.1
+      estree-walker: 3.0.2
       hast-util-to-estree: 2.1.0
       markdown-extensions: 1.1.1
       periscopic: 3.0.4
@@ -178,8 +178,8 @@ packages:
       - supports-color
     dev: false
 
-  /@mdx-js/react/2.1.5_react@18.2.0:
-    resolution: {integrity: sha512-3Az1I6SAWA9R38rYjz5rXBrGKeZhq96CSSyQtqY+maPj8stBsoUH5pNcmIixuGkufYsh8F5+ka2CVPo2fycWZw==}
+  /@mdx-js/react/2.2.1_react@18.2.0:
+    resolution: {integrity: sha512-YdXcMcEnqZhzql98RNrqYo9cEhTTesBiCclEtoiQUbJwx87q9453GTapYU6kJ8ZZ2ek1Vp25SiAXEFy5O/eAPw==}
     peerDependencies:
       react: '>=16'
     dependencies:
@@ -1380,7 +1380,7 @@ packages:
     dependencies:
       '@types/estree-jsx': 1.0.0
       estree-util-is-identifier-name: 2.0.1
-      estree-walker: 3.0.1
+      estree-walker: 3.0.2
     dev: false
 
   /estree-util-is-identifier-name/2.0.1:
@@ -1402,8 +1402,8 @@ packages:
       '@types/unist': 2.0.6
     dev: false
 
-  /estree-walker/3.0.1:
-    resolution: {integrity: sha512-woY0RUD87WzMBUiZLx8NsYr23N5BKsOMZHhu2hoNRVh6NXGfoiT1KOL8G3UHlJAnEDGmfa5ubNA/AacfG+Kb0g==}
+  /estree-walker/3.0.2:
+    resolution: {integrity: sha512-C03BvXCQIH/po+PNPONx/zSM9ziPr9weX8xNhYb/IJtdJ9z+L4z9VKPTB+UTHdmhnIopA2kc419ueyVyHVktwA==}
     dev: false
 
   /esutils/2.0.3:
@@ -1782,7 +1782,7 @@ packages:
       comma-separated-tokens: 2.0.3
       estree-util-attach-comments: 2.1.0
       estree-util-is-identifier-name: 2.0.1
-      hast-util-whitespace: 2.0.0
+      hast-util-whitespace: 2.0.1
       mdast-util-mdx-expression: 1.3.1
       mdast-util-mdxjs-esm: 1.3.0
       property-information: 6.2.0
@@ -1821,6 +1821,10 @@ packages:
 
   /hast-util-whitespace/2.0.0:
     resolution: {integrity: sha512-Pkw+xBHuV6xFeJprJe2BBEoDV+AvQySaz3pPDRUs5PNZEMQjpXJJueqrpcHIXxnWTcAGi/UOCgVShlkY6kLoqg==}
+    dev: false
+
+  /hast-util-whitespace/2.0.1:
+    resolution: {integrity: sha512-nAxA0v8+vXSBDt3AnRUNjyRIQ0rD+ntpbAp4LnPkumc5M9yUbSMa4XDU9Q6etY4f1Wp4bNgvc1yjiZtsTTrSng==}
     dev: false
 
   /hastscript/7.1.0:
@@ -2013,8 +2017,8 @@ packages:
     engines: {node: '>=12'}
     dev: false
 
-  /is-reference/3.0.0:
-    resolution: {integrity: sha512-Eo1W3wUoHWoCoVM4GVl/a+K0IgiqE5aIo4kJABFyMum1ZORlPkC+UC357sSQUL5w5QCE5kCC9upl75b7+7CY/Q==}
+  /is-reference/3.0.1:
+    resolution: {integrity: sha512-baJJdQLiYaJdvFbJqXrcGv3WU3QCzBlUcI5QhbesIm6/xPsvmO+2CDoi/GMOFBQEQm+PXkwOPrp9KK5ozZsp2w==}
     dependencies:
       '@types/estree': 1.0.0
     dev: false
@@ -2111,6 +2115,13 @@ packages:
 
   /katex/0.15.6:
     resolution: {integrity: sha512-UpzJy4yrnqnhXvRPhjEuLA4lcPn6eRngixW7Q3TJErjg3Aw2PuLFBzTkdUb89UtumxjhHTqL3a5GDGETMSwgJA==}
+    hasBin: true
+    dependencies:
+      commander: 8.3.0
+    dev: false
+
+  /katex/0.16.4:
+    resolution: {integrity: sha512-WudRKUj8yyBeVDI4aYMNxhx5Vhh2PjpzQw1GRu/LVGqL4m1AxwD1GcUp0IMbdJaf5zsjtj8ghP0DOQRYhroNkw==}
     hasBin: true
     dependencies:
       commander: 8.3.0
@@ -2319,7 +2330,7 @@ packages:
       '@types/hast': 2.3.4
       '@types/mdast': 3.0.10
       mdast-util-from-markdown: 1.2.0
-      mdast-util-to-markdown: 1.4.0
+      mdast-util-to-markdown: 1.5.0
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -2331,7 +2342,7 @@ packages:
       '@types/hast': 2.3.4
       '@types/mdast': 3.0.10
       ccount: 2.0.1
-      mdast-util-to-markdown: 1.4.0
+      mdast-util-to-markdown: 1.5.0
       parse-entities: 4.0.0
       stringify-entities: 4.0.3
       unist-util-remove-position: 4.0.1
@@ -2356,13 +2367,20 @@ packages:
       '@types/hast': 2.3.4
       '@types/mdast': 3.0.10
       mdast-util-from-markdown: 1.2.0
-      mdast-util-to-markdown: 1.4.0
+      mdast-util-to-markdown: 1.5.0
     transitivePeerDependencies:
       - supports-color
     dev: false
 
-  /mdast-util-to-hast/12.2.4:
-    resolution: {integrity: sha512-a21xoxSef1l8VhHxS1Dnyioz6grrJkoaCUgGzMD/7dWHvboYX3VW53esRUfB5tgTyz4Yos1n25SPcj35dJqmAg==}
+  /mdast-util-phrasing/3.0.0:
+    resolution: {integrity: sha512-S+QYsDRLkGi8U7o5JF1agKa/sdP+CNGXXLqC17pdTVL8FHHgQEiwFGa9yE5aYtUxNiFGYoaDy9V1kC85Sz86Gg==}
+    dependencies:
+      '@types/mdast': 3.0.10
+      unist-util-is: 5.1.1
+    dev: false
+
+  /mdast-util-to-hast/12.2.5:
+    resolution: {integrity: sha512-EFNhT35ZR/VZ85/EedDdCNTq0oFM+NM/+qBomVGQ0+Lcg0nhI8xIwmdCzNMlVlCJNXRprpobtKP/IUh8cfz6zQ==}
     dependencies:
       '@types/hast': 2.3.4
       '@types/mdast': 3.0.10
@@ -2381,6 +2399,19 @@ packages:
       '@types/mdast': 3.0.10
       '@types/unist': 2.0.6
       longest-streak: 3.1.0
+      mdast-util-to-string: 3.1.0
+      micromark-util-decode-string: 1.0.2
+      unist-util-visit: 4.1.1
+      zwitch: 2.0.4
+    dev: false
+
+  /mdast-util-to-markdown/1.5.0:
+    resolution: {integrity: sha512-bbv7TPv/WC49thZPg3jXuqzuvI45IL2EVAr/KxF0BSdHsU0ceFHOmwQn6evxAh1GaoK/6GQ1wp4R4oW2+LFL/A==}
+    dependencies:
+      '@types/mdast': 3.0.10
+      '@types/unist': 2.0.6
+      longest-streak: 3.1.0
+      mdast-util-phrasing: 3.0.0
       mdast-util-to-string: 3.1.0
       micromark-util-decode-string: 1.0.2
       unist-util-visit: 4.1.1
@@ -2815,15 +2846,15 @@ packages:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
     dev: false
 
-  /next-mdx-remote/4.2.0_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-X5RhD7f7b78pH2abbuusObSGgII5l54OdusS/2iXljN7WN1cel6ToLlZeCZcyxx9cR4wmBGQYGongIttDYNmAA==}
+  /next-mdx-remote/4.2.1_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-PcVF1r5XTBjiNVXw0GyaIcOwQsklHo36+7ycfmtJb52TIkT0nM4Hzv4wgJwNg7+jvTbap99qWsMwdKUYR9WxAA==}
     engines: {node: '>=14', npm: '>=7'}
     peerDependencies:
       react: '>=16.x <=18.x'
       react-dom: '>=16.x <=18.x'
     dependencies:
-      '@mdx-js/mdx': 2.1.5
-      '@mdx-js/react': 2.1.5_react@18.2.0
+      '@mdx-js/mdx': 2.2.1
+      '@mdx-js/react': 2.2.1_react@18.2.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       vfile: 5.3.6
@@ -3061,8 +3092,8 @@ packages:
   /periscopic/3.0.4:
     resolution: {integrity: sha512-SFx68DxCv0Iyo6APZuw/AKewkkThGwssmU0QWtTlvov3VAtPX+QJ4CadwSaz8nrT5jPIuxdvJWB4PnD2KNDxQg==}
     dependencies:
-      estree-walker: 3.0.1
-      is-reference: 3.0.0
+      estree-walker: 3.0.2
+      is-reference: 3.0.1
     dev: false
 
   /picocolors/1.0.0:
@@ -3411,7 +3442,7 @@ packages:
     dependencies:
       '@types/hast': 2.3.4
       '@types/mdast': 3.0.10
-      mdast-util-to-hast: 12.2.4
+      mdast-util-to-hast: 12.2.5
       unified: 10.1.2
     dev: false
 

@@ -13,6 +13,8 @@ import rehypeHighlight from 'rehype-highlight'
 import { selectAll } from 'hast-util-select'
 import { h } from 'hastscript'
 
+import hljsLangLatex from 'highlight.js/lib/languages/latex'
+
 import type { Root, Element } from 'hast'
 
 /**
@@ -66,6 +68,9 @@ export const rehypePlugins = [
     {
       // No language auto-detection but still add hljs class
       subset: [],
+      languages: {
+        latex: hljsLangLatex,
+      },
     },
   ],
   rehypeImageDir,
