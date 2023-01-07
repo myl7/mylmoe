@@ -14,6 +14,7 @@ import p2Src from '@/assets/posts/raspi-headless-init.md?raw'
 import p3Src from '@/assets/posts/mylmoe-demo.md?raw'
 import p4Src from '@/assets/posts/hacks-for-mdx-md-in-nextjs.md?raw'
 import p5Src from '@/assets/posts/tree-shaking-on-object-exports.md?raw'
+import p6Src from '@/assets/posts/golang-error-handling.md?raw'
 
 // To use Next.js Image optimization, static imports are required
 import p0i0 from '@/assets/images/open-source-desktop-show/general.png'
@@ -51,6 +52,7 @@ export const rawPosts: {
   'mylmoe-demo': { src: p3Src, images: { '/images/pixiv_86286793_p0.jpg': p3i0 } },
   'hacks-for-mdx-md-in-nextjs': { src: p4Src },
   'tree-shaking-on-object-exports': { src: p5Src },
+  'golang-error-handling': { src: p6Src },
 }
 
 /**
