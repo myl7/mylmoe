@@ -1,4 +1,4 @@
-// Copyright (C) 2022 myl7
+// Copyright (C) 2022, 2023 myl7
 // SPDX-License-Identifier: Apache-2.0
 
 import { FaCreativeCommons, FaCreativeCommonsBy, FaCreativeCommonsSa } from 'react-icons/fa'
@@ -8,7 +8,7 @@ import Link from 'next/link'
 export default function Footer() {
   return (
     <footer className="rounded border-2 border-bg-l4 bg-bg-l1 p-2 font-serif dark:border-bg-d4 dark:bg-bg-d1">
-      <p>Copyright (C) 2020-2022 myl7</p>
+      <p>Copyright (C) 2020-2023 myl7</p>
       <p>
         Posts licensed under{' '}
         <span className="inline-flex items-center">
