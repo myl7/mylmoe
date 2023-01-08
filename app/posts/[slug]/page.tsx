@@ -6,6 +6,7 @@ import 'katex/dist/katex.min.css'
 
 import { serialize } from 'next-mdx-remote/serialize'
 import { jsonLdScriptProps } from 'react-schemaorg'
+import Link from 'next/link'
 
 import MDXRemote from '@/app/mdx/mdxRemote'
 import MDXImages from '@/app/mdx/mdxImages'
@@ -49,9 +50,18 @@ export default async function Page({ params: { slug } }: { params: { slug: strin
         <h1 className="text-2xl">{meta.title}</h1>
         <hr className="border-bg-l4 dark:border-bg-d4" />
         <p className="text-sm">
-          {meta.pubDate == meta.updDate
-            ? `updated & published on ${meta.updDate}`
-            : `updated on ${meta.updDate} & published on ${meta.pubDate}`}
+          {meta.pubDate == meta.updDate ? (
+            <>
+              updated & published on <time>{meta.updDate}</time>
+            </>
+          ) : (
+            <>
+              updated on <time>{meta.updDate}</time> & published on <time>{meta.pubDate}</time>
+            </>
+          )}{' '}
+          <Link href={`/raw/posts/${slug}.md`} className="text-blue hover:underline">
+            raw
+          </Link>
         </p>
         <hr className="border-bg-l4 dark:border-bg-d4" />
         <p>

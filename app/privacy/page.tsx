@@ -1,4 +1,4 @@
-// Copyright (C) 2022 myl7
+// Copyright (C) 2022, 2023 myl7
 // SPDX-License-Identifier: Apache-2.0
 
 import { serialize } from 'next-mdx-remote/serialize'
@@ -19,9 +19,15 @@ export default async function Page() {
         <h1 className="text-2xl">{meta.title}</h1>
         <hr className="border-bg-l4 dark:border-bg-d4" />
         <p className="text-sm">
-          {meta.pubDate == meta.updDate
-            ? `updated & published on ${meta.updDate}`
-            : `updated on ${meta.updDate} & published on ${meta.pubDate}`}
+          {meta.pubDate == meta.updDate ? (
+            <>
+              updated & published on <time>{meta.updDate}</time>
+            </>
+          ) : (
+            <>
+              updated on <time>{meta.updDate}</time> & published on <time>{meta.pubDate}</time>
+            </>
+          )}
         </p>
         <hr className="border-bg-l4 dark:border-bg-d4" />
         <p>
