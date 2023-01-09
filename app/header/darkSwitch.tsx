@@ -1,16 +1,19 @@
 'use client'
 
-// Copyright (C) 2022 myl7
+// Copyright (C) 2022, 2023 myl7
 // SPDX-License-Identifier: Apache-2.0
 
 import React from 'react'
 import { MdDarkMode, MdLightMode, MdRefresh } from 'react-icons/md'
 
+import { giscusTheme } from '@/app/posts/[slug]/giscus'
+
 const lSKey = 'mylmoe.dark'
 
 export default function DarkSwitch() {
   // persist is true if need to save the preference to localStorage.
-  const [darkC, setDarkC] = React.useState({ dark: false, persist: false })
+  // init is true if it happens just after page loading.
+  const [darkC, setDarkC] = React.useState<{ dark: boolean; persist?: boolean; init?: boolean }>({ dark: false })
   React.useEffect(() => {
     // This allows dup calls
     if (darkC.dark) {
@@ -24,9 +27,12 @@ export default function DarkSwitch() {
         localStorage.setItem(lSKey, darkC.dark ? '1' : '0')
       } catch {}
     }
+
+    // Sync giscus theme
+    giscusTheme.setDark(darkC.dark, darkC.init)
   }, [darkC])
   // If SSR preference is different, this causes a flash, but it is fair to happen
-  React.useEffect(() => setDarkC({ dark: darkCSRPreferred(), persist: false }), [])
+  React.useEffect(() => setDarkC({ dark: darkCSRPreferred(), init: true }), [])
 
   function resetDark() {
     try {

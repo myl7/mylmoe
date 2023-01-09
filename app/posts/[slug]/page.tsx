@@ -13,6 +13,8 @@ import MDXImages from '@/app/mdx/mdxImages'
 import { remarkPlugins, rehypePlugins } from '@/app/mdx/plugins'
 import { postMetas, rawPosts } from '@/app/posts'
 
+import Giscus from './giscus'
+
 import type { Article } from 'schema-dts'
 
 export default async function Page({ params: { slug } }: { params: { slug: string } }) {
@@ -71,6 +73,8 @@ export default async function Page({ params: { slug } }: { params: { slug: strin
         <MDXImages images={rawPost.images ?? {}}>
           <MDXRemote {...mdxSrc} />
         </MDXImages>
+        <hr className="border-bg-l4 dark:border-bg-d4" />
+        <Giscus />
       </section>
     </main>
   )
