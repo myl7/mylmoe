@@ -23,6 +23,7 @@ A more detailed & formal [PDF CV](https://share.myl.moe/cv.pdf) is available
   - `1F9DE45ED2A4F36A` `Yulong Ming (myl7) <myl@myl.moe>` (current) available on [myl.moe/gpg](https://myl.moe/gpg)
   - `04F1013B67177C88` (stale)
 - SSH: Available on [myl.moe/ssh](https://myl.moe/ssh)
+- Avatar: [Gravatar myl AT myl.moe](https://www.gravatar.com/avatar/41e17fe63d0c1f91234b320b1feb3bef?s=200) from [Pixiv](https://www.pixiv.net/artworks/57793944) if required
 
 <details>
 <summary>Entertainment</summary>
