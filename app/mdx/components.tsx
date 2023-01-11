@@ -80,6 +80,9 @@ const components = {
     } else if (href.match(/^https:\/\/myl\.moe(\/|$)/)) {
       internal = true
       href = href.substring('https://myl.moe'.length)
+      if (href == '') {
+        href = '/'
+      }
     } else if (href.match(/^[a-z]+:\/\//)) {
       try {
         new URL(href)
