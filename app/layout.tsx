@@ -4,7 +4,7 @@
 import './globals.css'
 
 import { Open_Sans, Roboto_Serif, DM_Mono, Noto_Serif_SC } from '@next/font/google'
-import { headers } from 'next/headers'
+// import { headers } from 'next/headers'
 import classNames from 'classnames'
 
 import Header from './header'
@@ -51,12 +51,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 // TODO: Fix the error when using generateStaticParams with next/headers:
 // Error: Dynamic server usage: headers
 // See https://github.com/vercel/next.js/issues/43427 and https://github.com/vercel/next.js/issues/43392 for following progress.
+// Only disable the headers() use in development make things work,
+// but when using headers() in production, dynamicParams = false fails to work and would cause soft 404 error.
+// So now completely comment it as a temporary fix.
 function darkSSRPreferred() {
-  if (process.env.NODE_ENV != 'development') {
-    const h = headers()
-    const mode = h.get('Sec-CH-Prefers-Color-Scheme')
-    return mode == 'dark'
-  } else {
-    return false
-  }
+  // const h = headers()
+  // const mode = h.get('Sec-CH-Prefers-Color-Scheme')
+  // return mode == 'dark'
+  return false
 }
