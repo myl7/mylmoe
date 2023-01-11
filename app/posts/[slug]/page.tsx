@@ -80,3 +80,5 @@ export default async function Page({ params: { slug } }: { params: { slug: strin
 export async function generateStaticParams() {
   return Object.entries(postMetas).map(([slug]) => ({ slug }))
 }
+
+export const dynamicParams = false
