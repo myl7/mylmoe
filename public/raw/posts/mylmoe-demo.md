@@ -2,7 +2,7 @@
 title: 'Demo of mylmoe: self-written frontend blog system'
 pubDate: 2022-08-21
 updDate: 2022-09-05
-abstract: mylmoe v0.5 (which is what you are viewing) is released now after the 5th refactoring/rewriting. The post shows demos of various supported Markdown syntax/features/extensions.
+abstract: The post, while also serves as an integrated test page, shows demo of various supported Markdown syntax/features/extensions in mylmoe (which is what you are viewing).
 tags: demo markdown mdx gfm mylmoe
 ---
 
