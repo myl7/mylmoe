@@ -76,12 +76,7 @@ export default async function Page({ params: { slug } }: { params: { slug: strin
   )
 }
 
-// TODO: Fix the error when using generateStaticParams with next/headers:
-// Error: Dynamic server usage: headers
-// See https://github.com/vercel/next.js/issues/43427 and https://github.com/vercel/next.js/issues/43392 for following progress.
-export const generateStaticParams =
-  process.env.NODE_ENV != 'development'
-    ? async function (): Promise<{ slug: string }[]> {
-        return Object.entries(postMetas).map(([slug]) => ({ slug }))
-      }
-    : undefined
+// TODO: See root layout
+export async function generateStaticParams() {
+  return Object.entries(postMetas).map(([slug]) => ({ slug }))
+}

@@ -1,4 +1,4 @@
-// Copyright (C) 2022 myl7
+// Copyright (C) 2022, 2023 myl7
 // SPDX-License-Identifier: Apache-2.0
 
 import './globals.css'
@@ -47,8 +47,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 }
 
 /** Dark mode preference of HTTP headers */
+// TODO: Read preference from cookie
+// TODO: Fix the error when using generateStaticParams with next/headers:
+// Error: Dynamic server usage: headers
+// See https://github.com/vercel/next.js/issues/43427 and https://github.com/vercel/next.js/issues/43392 for following progress.
 function darkSSRPreferred() {
-  const h = headers()
-  const mode = h.get('Sec-CH-Prefers-Color-Scheme')
-  return mode == 'dark'
+  if (process.env.NODE_ENV != 'development') {
+    const h = headers()
+    const mode = h.get('Sec-CH-Prefers-Color-Scheme')
+    return mode == 'dark'
+  } else {
+    return false
+  }
 }
