@@ -74,7 +74,11 @@ export default async function Page({ params: { slug } }: { params: { slug: strin
         <MDXImages images={rawPost.images ?? {}}>
           <MDXRemote {...mdxSrc} />
         </MDXImages>
-        <hr className="border-bg-l4 dark:border-bg-d4" />
+        {/* Cuz post body uses gap-4 but the card uses gap-2, add pt-2 to increase the gap */}
+        <div className="flex flex-col gap-1 pt-2">
+          <hr className="border-bg-l4 dark:border-bg-d4" />
+          <hr className="border-bg-l4 dark:border-bg-d4" />
+        </div>
         <Giscus />
       </section>
     </main>
