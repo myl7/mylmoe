@@ -61,7 +61,9 @@ function hx(x: number) {
 
     return (
       <div
-        className={classNames('w-full', {
+        // Class heading-div helps to locate the footnotes with a title already
+        // so that we can hide their sr-only part completely
+        className={classNames('heading-div w-full', {
           'sr-only': classes.indexOf('sr-only') != -1,
         })}
       >

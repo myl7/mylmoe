@@ -11,6 +11,11 @@
   --header-height: 50px;
 }
 
+/** Hide sr-only part of footnotes that already have a title completely */
+.heading-div + section.footnotes > .sr-only {
+  @apply hidden;
+}
+
 @layer base {
   button {
     @apply ring-blue focus:ring-2;
