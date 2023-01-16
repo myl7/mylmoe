@@ -26,16 +26,29 @@ function requiredProp<T>(prop?: T | null): T {
 }
 
 /**
+ * Since ...rest is not forwarded to the root but the inner h*,
+ * some control classes need manual handling, like sr-only.
+ *
  * @param x 2-6
  */
 function hx(x: number) {
-  return function ({ children, id: idUnchecked, ...rest }: { children?: React.ReactNode; id?: string }) {
+  return function ({
+    children,
+    id: idUnchecked,
+    className,
+    ...rest
+  }: {
+    children?: React.ReactNode
+    id?: string
+    className?: string
+  }) {
     // id is set by remark-slug so no need to check it
     const id = idUnchecked!
+    const classes = className?.split(/ +/) ?? []
 
     const HTag = `h${x}` as keyof JSX.IntrinsicElements
     const Elem = withClassname(
-      classNames('inline-flex items-center gap-0.5', {
+      classNames(className, 'inline-flex items-center gap-0.5', {
         // 'text-2xl': x == 1, // For h1
         'text-xl': x == 2,
         'text-lg': x == 3,
@@ -47,7 +60,11 @@ function hx(x: number) {
     )
 
     return (
-      <div className="w-full">
+      <div
+        className={classNames('w-full', {
+          'sr-only': classes.indexOf('sr-only') != -1,
+        })}
+      >
         <Elem {...rest} id={id}>
           <a href={`#${id}`} aria-hidden>
             <MdLink
