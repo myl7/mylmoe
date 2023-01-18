@@ -217,6 +217,12 @@ const components = {
     ),
     'blockquote'
   ),
+  q: withClassname(
+    classNames(
+      'bg-bg dark:bg-bg-d border border-bg-l4 dark:border-bg-d4 rounded before:content-none after:content-none px-1'
+    ),
+    'q'
+  ),
 
   div: ({ className, ...rest }: { className?: string }) => {
     const classes = className?.split(/ +/) ?? []
