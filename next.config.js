@@ -57,6 +57,7 @@ const nextConfig = {
   redirects: async () => [
     { source: '/ssh', destination: '/ssh.pub', permanent: true },
     { source: '/gpg', destination: '/gpg.asc', permanent: true },
+    { source: '/.well-known/webfinger', destination: 'https://social.myl.moe/.well-known/webfinger', permanent: true },
     ...compatibleRedirects,
   ],
   headers: async () => [
