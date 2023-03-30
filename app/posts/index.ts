@@ -15,6 +15,7 @@ import p3Src from '@/assets/posts/mylmoe-demo.md?raw'
 import p4Src from '@/assets/posts/hacks-for-mdx-md-in-nextjs.md?raw'
 import p5Src from '@/assets/posts/tree-shaking-on-object-exports.md?raw'
 import p6Src from '@/assets/posts/golang-error-handling.md?raw'
+import p7Src from '@/assets/posts/cityu-ta-canvas-grade-upload.md?raw'
 
 // To use Next.js Image optimization, static imports are required
 import p0i0 from '@/assets/images/open-source-desktop-show/general.png'
@@ -53,6 +54,7 @@ export const rawPosts: {
   'hacks-for-mdx-md-in-nextjs': { src: p4Src },
   'tree-shaking-on-object-exports': { src: p5Src },
   'golang-error-handling': { src: p6Src },
+  'cityu-ta-canvas-grade-upload': { src: p7Src },
 }
 
 /**
