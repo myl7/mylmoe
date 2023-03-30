@@ -1,4 +1,4 @@
-// Copyright (C) 2022 myl7
+// Copyright (C) myl7
 // SPDX-License-Identifier: Apache-2.0
 
 // Check if there is file header (copyright and license notice) missing

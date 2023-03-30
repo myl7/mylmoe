@@ -1,6 +1,6 @@
 'use client'
 
-// Copyright (C) 2023 myl7
+// Copyright (C) myl7
 // SPDX-License-Identifier: Apache-2.0
 
 import React from 'react'

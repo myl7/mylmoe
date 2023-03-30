@@ -1,4 +1,4 @@
-<!-- Copyright (C) 2022 myl7 -->
+<!-- Copyright (C) myl7 -->
 <!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
 
 We/I, myl7 \<myl@myl.moe\> (https://myl.moe), as the site owner and administrator of [myl.moe](https://myl.moe), declare that:

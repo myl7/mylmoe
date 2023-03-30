@@ -6,7 +6,7 @@ abstract: aria2 cares application layer much and transport layer not enough, cau
 tags: aria2 socks-proxy proxy cpp inheritance
 ---
 
-<!-- Copyright (C) 2021, 2022 myl7 -->
+<!-- Copyright (C) myl7 -->
 <!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
 
 ## TOC

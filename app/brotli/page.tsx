@@ -1,4 +1,4 @@
-// Copyright (C) 2022 myl7
+// Copyright (C) myl7
 // SPDX-License-Identifier: Apache-2.0
 
 import { MdLaunch } from 'react-icons/md'

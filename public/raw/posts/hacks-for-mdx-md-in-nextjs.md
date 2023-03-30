@@ -6,7 +6,7 @@ abstract: The post shows some hacks used in mylmoe v0.5 to leverage MDX/Markdown
 tags: mdx markdown nextjs ssg edge-runtime remark-plugin remark webpack-loader webpack mylmoe
 ---
 
-<!-- Copyright (C) 2022 myl7 -->
+<!-- Copyright (C) myl7 -->
 <!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
 
 ## TOC
@@ -45,7 +45,7 @@ Do not regenerate code text from the children of `<pre><code>`.
 You can create [a remark plugin (also available in this file)](https://github.com/myl7/mylmoe/blob/main/utils/mdx/plugins/remarkCodeAsProp.js):
 
 ```js
-// Copyright (C) 2022 myl7
+// Copyright (C) myl7
 // SPDX-License-Identifier: Apache-2.0
 
 // remark/rehype plugins are widely used in no-ts envs (e.g. Next.js config)
@@ -81,7 +81,7 @@ But there will be many posts in a folder, and without other helpers, we need to 
 To resolve it, we can create [a webpack loader to import all files in a folder as a map (also available in this file)](https://github.com/myl7/mylmoe/blob/main/utils/webpack/dirLoader.js):
 
 ```js
-// Copyright (C) 2022 myl7
+// Copyright (C) myl7
 // SPDX-License-Identifier: Apache-2.0
 
 // Webpack plugin to import all files in the dir
@@ -175,7 +175,7 @@ Then like what we do for edge runtime, add a custom loader to generate static im
 [The loader is (also available in this file)](https://github.com/myl7/mylmoe/blob/main/utils/webpack/collectedImageLoader.js):
 
 ```js
-// Copyright (C) 2022 myl7
+// Copyright (C) myl7
 // SPDX-License-Identifier: Apache-2.0
 
 // Collect all images in /public to generate static imports of them to reuse Next.js image optimization

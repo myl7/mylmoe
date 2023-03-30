@@ -5,7 +5,7 @@ updDate: 2023-01-07
 tags: error-handling golang
 ---
 
-<!-- Copyright (C) 2023 myl7 -->
+<!-- Copyright (C) myl7 -->
 <!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
 
 ## TOC

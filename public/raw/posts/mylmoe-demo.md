@@ -6,7 +6,7 @@ abstract: The post, while also serves as an integrated test page, shows demo of 
 tags: demo markdown mdx gfm mylmoe
 ---
 
-<!-- Copyright (C) 2022, 2023 myl7 -->
+<!-- Copyright (C) myl7 -->
 <!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
 
 ## TOC

@@ -1,4 +1,4 @@
-// Copyright (C) 2020-2022 myl7
+// Copyright (C) myl7
 // SPDX-License-Identifier: Apache-2.0
 
 const friends = [

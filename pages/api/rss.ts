@@ -1,4 +1,4 @@
-// Copyright (C) 2022, 2023 myl7
+// Copyright (C) myl7
 // SPDX-License-Identifier: Apache-2.0
 
 import { cache } from 'react'
@@ -14,7 +14,7 @@ export async function feed() {
     link: 'https://myl.moe',
     language: 'en',
     favicon: 'https://myl.moe/favicon.ico',
-    copyright: 'Copyright (C) 2020-2023 myl7',
+    copyright: 'Copyright (C) myl7',
     // At least 1 post is required
     updated: new Date(
       Object.entries(postMetas)

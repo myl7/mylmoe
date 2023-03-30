@@ -1,4 +1,4 @@
-// Copyright (C) 2022, 2023 myl7
+// Copyright (C) myl7
 // SPDX-License-Identifier: Apache-2.0
 
 import { FaCreativeCommons, FaCreativeCommonsBy, FaCreativeCommonsSa } from 'react-icons/fa'

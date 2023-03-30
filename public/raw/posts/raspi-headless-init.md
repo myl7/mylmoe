@@ -6,7 +6,7 @@ abstract: Modify files of 2 partitions on SD card previously. Share PC network w
 tags: raspi commandline linux windows network
 ---
 
-<!-- Copyright (C) 2021, 2022 myl7 -->
+<!-- Copyright (C) myl7 -->
 <!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
 
 ## TOC

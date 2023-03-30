@@ -6,7 +6,7 @@ abstract: Exporting multiple things as an object (as expected) means always bund
 tags: javascript tree-shaking esm
 ---
 
-<!-- Copyright (C) 2022 myl7 -->
+<!-- Copyright (C) myl7 -->
 <!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
 
 Assume a module `export.js` for exports:

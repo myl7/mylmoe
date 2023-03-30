@@ -1,4 +1,4 @@
-<!-- Copyright (C) 2021, 2022 myl7 -->
+<!-- Copyright (C) myl7 -->
 <!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
 
 - myl7 `==` Yulong Ming in en `==` 明宇龙 in zh-Hans, he/him
