@@ -57,7 +57,7 @@ function checkHeader(text, fpath) {
   if (lines.length < 2) {
     return 'Too short to include the header'
   }
-  if (!lines[0].match(/Copyright \(C\) (\d{4}|, |-)+ .+/) || !lines[1].match(/SPDX-License-Identifier: [^ ]+/)) {
+  if (!lines[0].match(/Copyright \(C\) .+/) || !lines[1].match(/SPDX-License-Identifier: [^ ]+/)) {
     return 'Invalid license header'
   }
   return null
