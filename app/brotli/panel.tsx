@@ -71,7 +71,17 @@ export function Panel({ variant, proc }: PanelProps) {
     if (inputBlob) {
       input = new Uint8Array(await inputBlob.arrayBuffer())
     }
-    const result = await proc(input!)
+    let result: Uint8Array
+    try {
+      result = await proc(input!)
+    } catch (e) {
+      if (bOutRef.current) {
+        bOutRef.current.value = `[${t('Decoding')} failed. The original error message is: ${e}.]`
+      }
+      return
+    } finally {
+      setProcessing(false)
+    }
     setResult(result)
     if (result.length > maxBOutLen) {
       if (bOutRef.current) {
@@ -82,7 +92,6 @@ export function Panel({ variant, proc }: PanelProps) {
         bOutRef.current.value = pyB2S(result)
       }
     }
-    setProcessing(false)
   }
 
   return (
