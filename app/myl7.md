@@ -7,7 +7,7 @@
 - GitHub active code contributor with [over ~~1k~~ 500 contributions per year](https://github.com/myl7)
 - Linux fan running Arch Linux for everyday use
 
-A more detailed & formal [PDF CV](https://share.myl.moe/cv.pdf) is available
+A more detailed & formal [PDF CV](https://s.myl.moe/public/cv.pdf) is available
 
 - GitHub: [myl7](https://github.com/myl7)
 - Homepage: [myl.moe](https://myl.moe)
