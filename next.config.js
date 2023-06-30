@@ -85,6 +85,13 @@ const nextConfig = {
     { source: '/ssh.pub', headers: [{ key: 'content-type', value: 'text/plain' }] },
     { source: '/gpg.asc', headers: [{ key: 'content-type', value: 'text/plain' }] },
     { source: '/.well-known/matrix/server', headers: [{ key: 'content-type', value: 'application/json' }] },
+    {
+      source: '/.well-known/matrix/client',
+      headers: [
+        { key: 'content-type', value: 'application/json' },
+        { key: 'access-control-allow-origin', value: '*' },
+      ],
+    },
   ],
 }
 
