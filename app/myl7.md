@@ -4,7 +4,7 @@
 - myl7 `==` Yulong Ming in en `==` 明宇龙 in zh-Hans, he/him
 - PhD student (2022-26) in CS at [CityU HK](https://www.cityu.edu.hk/ 'City University of Hong Kong') interested in Network Security, especially Metadata Privacy recently
 - [FLOSS](https://wikipedia.org/wiki/FLOSS 'free and open-source software') enthusiast believing that [even once is help](https://www.gnu.org/philosophy/saying-no-even-once.html)
-- GitHub active code contributor with [over ~~1k~~ 500 contributions per year](https://github.com/myl7)
+- GitHub active code contributor with [over ~~1k~~ ~~500~~ 300 contributions per year](https://github.com/myl7)
 - Linux fan running Arch Linux for everyday use
 
 A more detailed & formal [PDF CV](https://s.myl.moe/public/cv.pdf) is available
