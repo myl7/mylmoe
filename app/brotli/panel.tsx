@@ -13,7 +13,7 @@ export interface PanelProps {
   proc: (b: Uint8Array) => Promise<Uint8Array>
 }
 
-export function Panel({ variant, proc }: PanelProps) {
+function Panel({ variant, proc }: PanelProps) {
   const bRef = React.useRef<HTMLTextAreaElement>(null)
   const bOutRef = React.useRef<HTMLTextAreaElement>(null)
   const fRef = React.useRef<HTMLInputElement>(null)
