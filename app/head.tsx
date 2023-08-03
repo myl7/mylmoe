@@ -9,7 +9,7 @@ const description =
 export default function Head() {
   return (
     <>
-      <title>mylmoe: myl7's blog</title>
+      <title>{"mylmoe: myl7's blog"}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href="https://myl.moe/" />
       <meta property="og:title" content="mylmoe: myl7's blog" />

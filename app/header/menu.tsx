@@ -22,7 +22,7 @@ export default function Menu({ children }: { children?: React.ReactNode }) {
       <div
         // Located at the moddle of the gap
         className={classNames(
-          'fixed top-[calc(var(--header-height)_+_14px_/_2)] right-2 z-10 rounded border-2 border-bg-l4 bg-bg-l1 p-2 transition-transform dark:border-bg-d4 dark:bg-bg-d1',
+          'fixed right-2 top-[calc(var(--header-height)_+_14px_/_2)] z-10 rounded border-2 border-bg-l4 bg-bg-l1 p-2 transition-transform dark:border-bg-d4 dark:bg-bg-d1',
           { 'translate-x-[calc(100%_+_8px)]': !open }
         )}
       >

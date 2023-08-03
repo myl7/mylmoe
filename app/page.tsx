@@ -17,7 +17,7 @@ export default async function Page() {
   return (
     <main className="flex flex-col gap-4">
       <section className="flex flex-col gap-2 rounded border-2 border-bg-l4 bg-bg-l1 p-2 font-serif dark:border-bg-d4 dark:bg-bg-d1">
-        <h1 className="text-2xl">Welcome to mylmoe: myl7's blog!</h1>
+        <h1 className="text-2xl">{"Welcome to mylmoe: myl7's blog!"}</h1>
         <h2 className="text-xl">I am myl7:</h2>
         <MDXRemote {...mdxSrc} />
       </section>

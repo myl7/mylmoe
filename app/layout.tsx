@@ -15,7 +15,10 @@ const robotoSerif = Roboto_Serif({ subsets: ['latin'], variable: '--font-roboto-
 const dmMono = DM_Mono({ weight: ['400'], subsets: ['latin'], variable: '--font-dm-mono' })
 const notoSerifSC = Noto_Serif_SC({
   weight: ['400'],
-  subsets: ['chinese-simplified'],
+  // TODO: Google Fonts does not embed the subsets in the comments of CSS files,
+  // so Next.js needs a new way to find available subsets.
+  // subsets: ['chinese-simplified'],
+  subsets: ['latin'],
   variable: '--font-noto-serif-sc',
 })
 

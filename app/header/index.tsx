@@ -41,7 +41,7 @@ function SearchBox() {
           name="q"
           type="search"
           placeholder="Search..."
-          className="rounded border bg-bg-l1 py-0.5 px-1 placeholder:text-fg-l4 hover:border-fg-l4 dark:bg-bg-d1 dark:placeholder:text-fg-d4 dark:hover:border-fg-d4"
+          className="rounded border bg-bg-l1 px-1 py-0.5 placeholder:text-fg-l4 hover:border-fg-l4 dark:bg-bg-d1 dark:placeholder:text-fg-d4 dark:hover:border-fg-d4"
         />
       </label>
       <input type="hidden" name="as_sitesearch" value="myl.moe" />

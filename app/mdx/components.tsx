@@ -11,7 +11,7 @@ import { MDXImagesCtx } from './mdxImages'
 
 /** The caller needs to ensure proper props are passed */
 function withClassname<P>(extraClassName: string, Elem: keyof JSX.IntrinsicElements | React.FC<P>) {
-  return (props: any) => {
+  return function withClassname(props: any) {
     const { className, ...rest } = props
     return <Elem className={classNames(className, extraClassName)} {...rest} />
   }
@@ -32,7 +32,7 @@ function requiredProp<T>(prop?: T | null): T {
  * @param x 2-6
  */
 function hx(x: number) {
-  return function ({
+  return function hx({
     children,
     id: idUnchecked,
     className,
@@ -157,7 +157,7 @@ const components = {
   h5: hx(5),
   h6: hx(6),
 
-  img: ({ src: srcUnchecked, alt, ...rest }: { src?: string; alt?: string }) => {
+  img: function Img({ src: srcUnchecked, alt, ...rest }: { src?: string; alt?: string }) {
     const src = requiredProp(srcUnchecked)
 
     const imagesCtx = React.useContext(MDXImagesCtx)

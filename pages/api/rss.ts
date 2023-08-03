@@ -1,7 +1,6 @@
 // Copyright (C) myl7
 // SPDX-License-Identifier: Apache-2.0
 
-import { cache } from 'react'
 import { Feed } from 'feed'
 
 import { postMetas } from '@/app/posts'
@@ -54,7 +53,12 @@ export async function feed() {
 
 export const config = { runtime: 'edge' }
 
-const rss = cache(async () => (await feed()).rss2())
+let rssStore: string
+const rss = async () => {
+  if (rssStore) return rssStore
+  rssStore = (await feed()).rss2()
+  return rssStore
+}
 
 export default async function handler() {
   return new Response(await rss(), { status: 200 })

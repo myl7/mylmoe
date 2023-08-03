@@ -41,13 +41,16 @@ const compatibleRedirects = [
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  experimental: {
-    appDir: true,
-    // TODO: Using serialize causes the error in building:
-    // export 'serialize' (reexported as 'serialize') was not found in './dist/serialize.js' (module has no exports)
-    // Wait for next-mdx-remote to fix this.
-    // runtime: 'experimental-edge',
-  },
+  // TODO: Using serialize causes the error in building:
+  // export 'serialize' (reexported as 'serialize') was not found in './dist/serialize.js' (module has no exports)
+  // Wait for next-mdx-remote to fix this.
+  //
+  // Now next.config.js no longer contains such an option.
+  // To change the runtime, we need to set `export const runtime = 'edge'` in pages/layouts.
+  // But the error is the same.
+  // experimental: {
+  //   runtime: 'experimental-edge',
+  // },
   rewrites: async () => [
     { source: '/rss.xml', destination: '/api/rss' },
     { source: '/atom.xml', destination: '/api/atom' },

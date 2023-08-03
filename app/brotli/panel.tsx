@@ -102,7 +102,7 @@ export function Panel({ variant, proc }: PanelProps) {
           ref={bRef}
           rows={4}
           placeholder="Python-format byte strings are supported"
-          className="w-full rounded border bg-bg-l1 py-0.5 px-1 placeholder:text-fg-l4 hover:border-fg-l4 dark:bg-bg-d1 dark:placeholder:text-fg-d4 dark:hover:border-fg-d4"
+          className="w-full rounded border bg-bg-l1 px-1 py-0.5 placeholder:text-fg-l4 hover:border-fg-l4 dark:bg-bg-d1 dark:placeholder:text-fg-d4 dark:hover:border-fg-d4"
         />
       </label>
       <div className="flex flex-wrap gap-2">
@@ -122,7 +122,7 @@ export function Panel({ variant, proc }: PanelProps) {
             ref={fRef}
             type="file"
             id={`${variant}-finput`}
-            className="file:cursor-pointer file:rounded file:border file:border-solid file:border-fg file:bg-bg-l1 file:py-0.5 file:px-1 file:text-fg file:hover:border-fg-l4 file:hover:bg-bg-l2 dark:file:border-fg-d dark:file:bg-bg-d1 dark:file:text-fg-d dark:file:hover:border-fg-d4 dark:file:hover:bg-bg-d2"
+            className="file:cursor-pointer file:rounded file:border file:border-solid file:border-fg file:bg-bg-l1 file:px-1 file:py-0.5 file:text-fg file:hover:border-fg-l4 file:hover:bg-bg-l2 dark:file:border-fg-d dark:file:bg-bg-d1 dark:file:text-fg-d dark:file:hover:border-fg-d4 dark:file:hover:bg-bg-d2"
           />
         </div>
       </div>
@@ -130,7 +130,7 @@ export function Panel({ variant, proc }: PanelProps) {
         <button
           disabled={processing}
           onClick={doProc}
-          className="flex items-center rounded border py-0.5 px-1 hover:border-fg-l4 hover:bg-bg-l2 disabled:cursor-not-allowed disabled:border-fg-l4 disabled:bg-bg-l2 dark:hover:border-fg-d4 dark:hover:bg-bg-d2 dark:disabled:border-fg-d4 dark:disabled:bg-bg-d2"
+          className="flex items-center rounded border px-1 py-0.5 hover:border-fg-l4 hover:bg-bg-l2 disabled:cursor-not-allowed disabled:border-fg-l4 disabled:bg-bg-l2 dark:hover:border-fg-d4 dark:hover:bg-bg-d2 dark:disabled:border-fg-d4 dark:disabled:bg-bg-d2"
         >
           {processing ? (
             <MdRefresh className="h-5 w-5 animate-spin motion-reduce:animate-none" />
@@ -145,12 +145,12 @@ export function Panel({ variant, proc }: PanelProps) {
         rows={4}
         readOnly
         placeholder="Result"
-        className="w-full rounded border bg-bg-l1 py-0.5 px-1 placeholder:text-fg-l4 hover:border-fg-l4 dark:bg-bg-d1 dark:placeholder:text-fg-d4 dark:hover:border-fg-d4"
+        className="w-full rounded border bg-bg-l1 px-1 py-0.5 placeholder:text-fg-l4 hover:border-fg-l4 dark:bg-bg-d1 dark:placeholder:text-fg-d4 dark:hover:border-fg-d4"
       />
       <div className="flex justify-center">
         <button
           onClick={dlResult}
-          className="flex items-center rounded border py-0.5 px-1 hover:border-fg-l4 hover:bg-bg-l2 dark:hover:border-fg-d4 dark:hover:bg-bg-d2"
+          className="flex items-center rounded border px-1 py-0.5 hover:border-fg-l4 hover:bg-bg-l2 dark:hover:border-fg-d4 dark:hover:bg-bg-d2"
         >
           Download the result as a file
         </button>
