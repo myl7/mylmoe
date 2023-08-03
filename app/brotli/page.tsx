@@ -4,6 +4,8 @@
 import { MdLaunch } from 'react-icons/md'
 import { DecPanel, EncPanel } from './panel'
 
+// TODO: brotli-(dec-)wasm v2
+
 export default function Page() {
   return (
     <main className="flex flex-col gap-4">
