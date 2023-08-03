@@ -27,7 +27,7 @@ export default async function Page({ params: { slug } }: { params: { slug: strin
   const src = rawPost.src
   const format = rawPost.format ?? 'md'
 
-  const { frontmatter: _, ...mdxSrc } = await serialize(src, {
+  const mdxSrc = await serialize(src, {
     mdxOptions: { remarkPlugins, rehypePlugins, format },
     parseFrontmatter: true,
   })
