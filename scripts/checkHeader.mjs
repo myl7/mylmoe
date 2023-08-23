@@ -10,7 +10,7 @@ import { globby } from 'globby'
 const GLOB = ['{app,scripts,pages,public/raw/posts}/**/*.{js,mjs,jsx,ts,tsx,json,css,md,mdx}', 'next.config.js']
 const INCLUDE = null
 // JSON can not have comments
-const EXCLUDE = [/\.json$/]
+const EXCLUDE = [/\.json$/, 'app/nmconn/nmconnTemplate.ts']
 
 const fpaths = (await globby(GLOB))
   .map((fpath) => path.resolve(fpath))
