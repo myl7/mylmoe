@@ -11,9 +11,6 @@ dependencies:
   '@next/bundle-analyzer':
     specifier: ^13.4.12
     version: 13.4.12
-  '@next/font':
-    specifier: ^13.4.12
-    version: 13.4.12
   '@types/hast':
     specifier: ^2.3.5
     version: 2.3.5
@@ -333,10 +330,6 @@ packages:
     resolution: {integrity: sha512-6rhK9CdxEgj/j1qvXIyLTWEaeFv7zOK8yJMulz3Owel0uek0U9MJCGzmKgYxM3aAUBo3gKeywCZKyQnJKto60A==}
     dependencies:
       glob: 7.1.7
-    dev: false
-
-  /@next/font@13.4.12:
-    resolution: {integrity: sha512-w/ygNFuscvvFKFTMoIqhU8Kaq1wM6x4XEu9bwzJaj8G7aloH866TUPeCgiKf+M/ACpMKfRahQa06REcg6T3CyA==}
     dev: false
 
   /@next/swc-darwin-arm64@13.4.12:

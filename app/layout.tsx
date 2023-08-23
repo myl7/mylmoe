@@ -3,7 +3,7 @@
 
 import './globals.css'
 
-import { Open_Sans, Roboto_Serif, DM_Mono, Noto_Serif_SC } from '@next/font/google'
+import { Open_Sans, Roboto_Serif, DM_Mono, Noto_Serif_SC } from 'next/font/google'
 // import { headers } from 'next/headers'
 import classNames from 'classnames'
 
