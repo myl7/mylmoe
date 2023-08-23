@@ -18,7 +18,6 @@ export default function Head() {
       {/* TODO: Better default og image */}
       <meta property="og:image" content="https://myl.moe/icon-512.png" />
       <meta property="og:description" content={description} />
-      <meta property="og:locale" content="en_US" />
       <meta property="og:site_name" content="mylmoe" />
       <GHead />
     </>

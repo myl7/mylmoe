@@ -16,6 +16,11 @@ export default function Head() {
       <meta name="description" content={meta.abstract} />
       <link rel="canonical" href="https://myl.moe/brotli" />
       <GHead />
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content={meta.title} />
+      <meta property="og:description" content={meta.abstract} />
+      <meta property="og:url" content="https://myl.moe/brotli" />
+      <meta property="og:site_name" content="mylmoe" />
     </>
   )
 }
