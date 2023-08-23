@@ -39,6 +39,22 @@ export default async function Page() {
                 </article>
               </a>
             </div>
+            <div>
+              <a href="/nmconn" className="group block">
+                <article className="flex flex-col gap-1 rounded border-2 border-t-[6px] border-bg-l4 bg-bg-l1 p-2 pt-1 ring-blue group-hover:ring-2 dark:border-bg-d4 dark:bg-bg-d1">
+                  <h2 className="text-xl">
+                    Generate the NetworkManager nmconnection file for the Wi-Fi with WPA & WPA2 Enterprise + PEAP
+                  </h2>
+                  <hr className="border-bg-l4 dark:border-bg-d4" />
+                  <p>
+                    Wi-Fi with WPA & WPA2 Enterprise + PEAP is commonly used in the networks of universities, e.g.,
+                    eduroam. Unlike Windows/Android which work out of the box, Linux, e.g., with GNOME, has issues when
+                    connecting with the GUI. This tool generates the NetworkManager config file directly to make the
+                    connection simple and painless. All processing is literally done locally to keep data safe.
+                  </p>
+                </article>
+              </a>
+            </div>
           </div>
         </details>
       </section>
