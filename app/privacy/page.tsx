@@ -10,7 +10,7 @@ import privacySrc from './privacy.md?raw'
 
 import type { Metadata } from 'next'
 
-const meta = {
+export const meta = {
   title: 'Privacy policy',
   description:
     'We value your privacy. NO personal information is collected by us. However, we use third-party services to power some website functionality, which may collect personal information. Check ALL of them in the post.',

@@ -34,8 +34,6 @@ const compatibleRedirects = [
   { source: '/pages/privacy-policy', destination: '/privacy', permanent: true },
   { source: '/privacy-policy-of-us', destination: '/privacy', permanent: true },
   { source: '/privacy-policy', destination: '/privacy', permanent: true },
-  { source: '/share-list', destination: '/share', permanent: true },
-  { source: '/sitemap.xml', destination: '/sitemap.txt', permanent: false },
 ]
 
 /** @type {import('next').NextConfig} */
@@ -54,7 +52,6 @@ const nextConfig = {
   rewrites: async () => [
     { source: '/rss.xml', destination: '/api/rss' },
     { source: '/atom.xml', destination: '/api/atom' },
-    { source: '/sitemap.txt', destination: '/api/sitemap' },
     { source: '/u/:slug', destination: '/api/url/:slug' },
   ],
   redirects: async () => [
@@ -80,10 +77,6 @@ const nextConfig = {
         { key: 'content-disposition', value: 'inline' },
         { key: 'cache-control', value: 'public, max-age=0, must-revalidate, s-maxage=2678400' },
       ],
-    },
-    {
-      source: '/sitemap.txt',
-      headers: [{ key: 'cache-control', value: 'public, max-age=0, must-revalidate, s-maxage=2678400' }],
     },
     { source: '/ssh.pub', headers: [{ key: 'content-type', value: 'text/plain' }] },
     { source: '/gpg.asc', headers: [{ key: 'content-type', value: 'text/plain' }] },
