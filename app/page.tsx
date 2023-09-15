@@ -11,6 +11,29 @@ import { postMetas } from '@/app/posts'
 import myl7Src from './myl7.md?raw'
 import friends from './friends'
 
+import type { Metadata } from 'next'
+
+const meta = {
+  title: "mylmoe: myl7's blog",
+  description:
+    'Welcome to mylmoe! I am myl7, and mylmoe is my blog containing my profile with a CV, posts mainly about computer science, and other fun or useful stuff like utilities and file sharing.',
+  url: '/',
+}
+
+export const metadata: Metadata = {
+  description: meta.description,
+  alternates: {
+    canonical: meta.url,
+  },
+  openGraph: {
+    title: meta.title,
+    description: meta.description,
+    url: meta.url,
+    siteName: 'mylmoe',
+    type: 'website',
+  },
+}
+
 export default async function Page() {
   const mdxSrc = await serialize(myl7Src, { mdxOptions: { remarkPlugins, rehypePlugins, format: 'md' } })
 

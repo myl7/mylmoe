@@ -6,9 +6,35 @@ import { serialize } from 'next-mdx-remote/serialize'
 import MDXRemote from '@/app/mdx/mdxRemote'
 import { remarkPlugins, rehypePlugins } from '@/app/mdx/plugins'
 
-import { meta } from './head'
-
 import privacySrc from './privacy.md?raw'
+
+import type { Metadata } from 'next'
+
+const meta = {
+  title: 'Privacy policy',
+  description:
+    'We value your privacy. NO personal information is collected by us. However, we use third-party services to power some website functionality, which may collect personal information. Check ALL of them in the post.',
+  url: '/privacy',
+  pubDate: '2022-08-25',
+  updDate: '2022-12-28',
+}
+
+export const metadata: Metadata = {
+  title: meta.title,
+  description: meta.description,
+  alternates: {
+    canonical: meta.url,
+  },
+  openGraph: {
+    title: meta.title,
+    description: meta.description,
+    url: meta.url,
+    siteName: 'mylmoe',
+    type: 'article',
+    publishedTime: `${meta.pubDate}T00:00:00.000Z`,
+    modifiedTime: `${meta.updDate}T00:00:00.000Z`,
+  },
+}
 
 export default async function Page() {
   const mdxSrc = await serialize(privacySrc, { mdxOptions: { remarkPlugins, rehypePlugins, format: 'md' } })
@@ -31,7 +57,7 @@ export default async function Page() {
         </p>
         <hr className="border-bg-l4 dark:border-bg-d4" />
         <p>
-          <span className="italic">Abstract:</span> {meta.abstract}
+          <span className="italic">Abstract:</span> {meta.description}
         </p>
         <hr className="border-bg-l4 dark:border-bg-d4" />
         <MDXRemote {...mdxSrc} />

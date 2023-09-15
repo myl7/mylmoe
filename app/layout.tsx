@@ -10,6 +10,8 @@ import classNames from 'classnames'
 import Header from './header'
 import Footer from './footer'
 
+import type { Metadata } from 'next'
+
 const openSans = Open_Sans({ subsets: ['latin'], variable: '--font-open-sans' })
 const robotoSerif = Roboto_Serif({ subsets: ['latin'], variable: '--font-roboto-serif' })
 const dmMono = DM_Mono({ weight: ['400'], subsets: ['latin'], variable: '--font-dm-mono' })
@@ -21,6 +23,16 @@ const notoSerifSC = Noto_Serif_SC({
   subsets: ['latin'],
   variable: '--font-noto-serif-sc',
 })
+
+export const metadata: Metadata = {
+  title: {
+    template: "%s | mylmoe: myl7's blog",
+    default: "mylmoe: myl7's blog",
+  },
+  viewport: { width: 'device-width', initialScale: 1 },
+  colorScheme: 'light dark',
+  // TODO: Better default og image
+}
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const dark = darkSSRPreferred()
@@ -35,7 +47,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         }
       )}
     >
-      <head />
       <body className="bg-bg text-fg dark:bg-bg-d dark:text-fg-d">
         <Header />
         <div className="h-[var(--header-height)]" />

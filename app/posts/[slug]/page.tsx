@@ -17,8 +17,45 @@ import { postMetas, rawPosts } from '@/app/posts'
 import Giscus from './giscus'
 
 import type { Article } from 'schema-dts'
+import type { Metadata, ResolvingMetadata } from 'next'
 
-export default async function Page({ params: { slug } }: { params: { slug: string } }) {
+type Props = {
+  params: { slug: string }
+}
+
+export async function generateMetadata({ params: { slug } }: Props, _parent: ResolvingMetadata): Promise<Metadata> {
+  const _meta = postMetas[slug]
+  if (!_meta) {
+    throw new Error(`Post ${slug} not found`)
+  }
+  const meta: typeof _meta & { description: typeof _meta.abstract; url: string } = {
+    ..._meta,
+    description: _meta.abstract,
+    url: `/posts/${slug}`,
+  }
+
+  return {
+    title: meta.title,
+    description: meta.description,
+    alternates: {
+      canonical: meta.url,
+    },
+    openGraph: {
+      title: meta.title,
+      description: meta.description,
+      url: meta.url,
+      siteName: 'mylmoe',
+      type: 'article',
+      locale: meta.locale,
+      publishedTime: `${meta.pubDate}T00:00:00.000Z`,
+      modifiedTime: `${meta.updDate}T00:00:00.000Z`,
+      authors: 'myl7',
+      tags: meta.tags,
+    },
+  }
+}
+
+export default async function Page({ params: { slug } }: Props) {
   const meta = postMetas[slug]
   const rawPost = rawPosts[slug]
   if (!meta || !rawPost) {

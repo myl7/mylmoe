@@ -6,6 +6,30 @@ import { DecPanel, EncPanel } from './panel'
 
 // TODO: brotli-(dec-)wasm v2
 
+import type { Metadata } from 'next'
+
+const meta = {
+  title: 'Brotli encode/decode tool working locally in browser',
+  description:
+    'Encode/decode (a.k.a. compress/decompress) data in Brotli format. All processing is literally done locally with WebAssembly to keep data safe.',
+  url: '/brotli',
+}
+
+export const metadata: Metadata = {
+  title: meta.title,
+  description: meta.description,
+  alternates: {
+    canonical: meta.url,
+  },
+  openGraph: {
+    title: meta.title,
+    description: meta.description,
+    url: meta.url,
+    siteName: 'mylmoe',
+    type: 'website',
+  },
+}
+
 export default function Page() {
   return (
     <main className="flex flex-col gap-4">

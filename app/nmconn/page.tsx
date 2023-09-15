@@ -4,6 +4,31 @@
 import { MdLaunch } from 'react-icons/md'
 import Panel from './panel'
 
+import type { Metadata } from 'next'
+
+const meta = {
+  title:
+    'Generate the NetworkManager nmconnection file for the Wi-Fi with WPA & WPA2 Enterprise security and PEAP authentication',
+  description:
+    'Wi-Fi with WPA & WPA2 Enterprise + PEAP is commonly used in the networks of universities, e.g., eduroam. Unlike Windows/Android which work out of the box, Linux, e.g., with GNOME, has issues when connecting with the GUI. This tool generates the NetworkManager config file directly to make the connection simple and painless. All processing is literally done locally to keep data safe.',
+  url: '/nmconn',
+}
+
+export const metadata: Metadata = {
+  title: meta.title,
+  description: meta.description,
+  alternates: {
+    canonical: meta.url,
+  },
+  openGraph: {
+    title: meta.title,
+    description: meta.description,
+    url: meta.url,
+    siteName: 'mylmoe',
+    type: 'website',
+  },
+}
+
 export default function Page() {
   return (
     <main className="flex flex-col gap-4">
