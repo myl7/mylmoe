@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { postMetas } from '@/app/posts'
-import { meta as privacyMeta } from '@/app/privacy/page'
+import privacyMeta from '@/app/privacy/meta'
 
 import type { MetadataRoute } from 'next'
 
