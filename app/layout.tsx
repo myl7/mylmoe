@@ -24,12 +24,24 @@ const notoSerifSC = Noto_Serif_SC({
   variable: '--font-noto-serif-sc',
 })
 
+const metadataBase = (() => {
+  let url = process.env.MYLMOE_URL
+  if (!url) {
+    if (process.env.NODE_ENV == 'production') url = 'https://myl.moe'
+    else return undefined
+  }
+  if (url.startsWith('http://')) throw new Error('Insecure metadataBase with `http://` protocol head')
+  if (!url.startsWith('https://') && url.indexOf('://') != -1) throw new Error('Unknown protocol head: Not `https://`')
+  if (!url.startsWith('https://')) url = 'https://' + url
+  return new URL(url)
+})()
+
 export const metadata: Metadata = {
+  metadataBase,
   title: {
     template: "%s | mylmoe: myl7's blog",
     default: "mylmoe: myl7's blog",
   },
-  viewport: { width: 'device-width', initialScale: 1 },
   colorScheme: 'light dark',
   // TODO: Better default og image
 }
