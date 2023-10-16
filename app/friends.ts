@@ -26,6 +26,10 @@ const friends = [
     name: 'iBug',
     url: 'https://ibug.io',
   },
+  {
+    name: 'Catoverflow',
+    url: 'https://cathy-cai.page',
+  },
 ]
 
 export default friends
