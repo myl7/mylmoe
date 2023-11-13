@@ -10,7 +10,7 @@ import classNames from 'classnames'
 import Header from './header'
 import Footer from './footer'
 
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 
 const openSans = Open_Sans({ subsets: ['latin'], variable: '--font-open-sans' })
 const robotoSerif = Roboto_Serif({ subsets: ['latin'], variable: '--font-roboto-serif' })
@@ -42,8 +42,11 @@ export const metadata: Metadata = {
     template: "%s | mylmoe: myl7's blog",
     default: "mylmoe: myl7's blog",
   },
-  colorScheme: 'light dark',
   // TODO: Better default og image
+}
+
+export const viewport: Viewport = {
+  colorScheme: 'light dark',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
