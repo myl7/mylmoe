@@ -15,7 +15,7 @@ const EXCLUDE = [/\.json$/, 'app/nmconn/nmconnTemplate.ts']
 const fpaths = (await globby(GLOB))
   .map((fpath) => path.resolve(fpath))
   .filter((fpath) =>
-    INCLUDE ? INCLUDE.some((pattern) => fpath.match(pattern)) : !EXCLUDE.some((pattern) => fpath.match(pattern))
+    INCLUDE ? INCLUDE.some((pattern) => fpath.match(pattern)) : !EXCLUDE.some((pattern) => fpath.match(pattern)),
   )
 const results = (
   await Promise.all(
@@ -23,7 +23,7 @@ const results = (
       const text = await fs.promises.readFile(fpath, 'utf8')
       const err = checkHeader(text, fpath)
       return { err, fpath }
-    })
+    }),
   )
 ).filter(({ err }) => err)
 if (results.length > 0) {

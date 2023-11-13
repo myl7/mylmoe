@@ -22,7 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Disable to temporarily suppress them.
     ...OTHER_URLS.map((path) => ({
       url: `${origin}${path}`,
-    }))
+    })),
   )
   pages.push({
     url: `${origin}/privacy`,

@@ -19,7 +19,7 @@ export async function feed() {
       Object.entries(postMetas)
         .map(([_, meta]) => meta.updDate)
         .sort()
-        .reverse()[0]
+        .reverse()[0],
     ),
     feedLinks: {
       rss: 'https://myl.moe/rss.xml',

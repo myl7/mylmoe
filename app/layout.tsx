@@ -59,7 +59,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         `${openSans.variable} ${robotoSerif.variable} ${dmMono.variable} ${notoSerifSC.variable} scroll-pt-[var(--header-height)] font-sans`,
         {
           dark: dark,
-        }
+        },
       )}
     >
       <body className="bg-bg text-fg dark:bg-bg-d dark:text-fg-d">

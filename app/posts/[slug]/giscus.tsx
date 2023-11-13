@@ -50,7 +50,7 @@ class GiscusTheme {
             },
           },
         },
-        'https://giscus.app'
+        'https://giscus.app',
       )
       return true
     } catch {}

@@ -65,7 +65,7 @@ export const rawPosts: {
 export const postMetas: {
   [slug: string]: { format?: string } & FMCleaned
 } = Object.fromEntries(
-  Object.entries(rawPosts).map(([slug, { src, format }]) => [slug, { format, ...cleanFM(parseFM(src)) }])
+  Object.entries(rawPosts).map(([slug, { src, format }]) => [slug, { format, ...cleanFM(parseFM(src)) }]),
 )
 
 function cleanFM(fm: FM): FMCleaned {

@@ -21,6 +21,6 @@ lines.splice(
     '# Hi, I am myl7!',
     '',
     "![myl7's GitHub Stats](https://github-readme-stats.vercel.app/api?username=myl7&count_private=true&theme=gruvbox&show_icons=true)",
-  ]
+  ],
 )
 process.stdout.write(lines.join('\n') + '\n')

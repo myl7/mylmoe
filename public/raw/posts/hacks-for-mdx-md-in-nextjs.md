@@ -103,7 +103,7 @@ module.exports = function () {
   fs.readdir(dpath, (err, allFnames) => {
     if (err) return callback(err)
     const fnames = allFnames.filter((fname) =>
-      include ? include.some((pattern) => fname.match(pattern)) : !exclude.some((pattern) => fname.match(pattern))
+      include ? include.some((pattern) => fname.match(pattern)) : !exclude.some((pattern) => fname.match(pattern)),
     )
     // Add the folder and selected files to dependencies
     this.addContextDependency(dpath)
@@ -190,10 +190,10 @@ module.exports = function () {
   const glob = Array.isArray(options.glob)
     ? options.glob
     : options.glob
-    ? [options.glob]
-    : // The default extensions are from Next.js https://github.com/vercel/next.js/blob/03eb4b1d612513506a441137a4997bd137e3b014/packages/next/build/webpack-config.ts#L406,
-      // except svg is removed since svg has been changed to be loaded by @svgr/webpack
-      ['**/*.{png,jpg,jpeg,gif,webp,avif,ico,bmp}']
+      ? [options.glob]
+      : // The default extensions are from Next.js https://github.com/vercel/next.js/blob/03eb4b1d612513506a441137a4997bd137e3b014/packages/next/build/webpack-config.ts#L406,
+        // except svg is removed since svg has been changed to be loaded by @svgr/webpack
+        ['**/*.{png,jpg,jpeg,gif,webp,avif,ico,bmp}']
   const include = Array.isArray(options.include) ? options.include : options.include ? [options.include] : null
   const exclude = Array.isArray(options.exclude) ? options.exclude : options.exclude ? [options.exclude] : []
 
@@ -204,7 +204,7 @@ module.exports = function () {
       .flat()
       .map((ipath) => path.join('/', path.relative(path.join(process.cwd(), 'public'), ipath)))
       .filter((ipath) =>
-        include ? include.some((pattern) => ipath.match(pattern)) : !exclude.some((pattern) => ipath.match(pattern))
+        include ? include.some((pattern) => ipath.match(pattern)) : !exclude.some((pattern) => ipath.match(pattern)),
       )
       .sort((a, b) => a.localeCompare(b))
 

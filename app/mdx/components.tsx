@@ -56,7 +56,7 @@ function hx(x: number) {
         'text-sm': x == 5,
         'text-xs': x == 6,
       }),
-      HTag
+      HTag,
     )
 
     return (
@@ -129,7 +129,7 @@ const components = {
       <Elem {...rest}>
         {React.Children.map(children, (child) =>
           // @ts-ignore New prop to distinguish code in pre
-          React.isValidElement(child) ? React.cloneElement(child, { inPre: true }) : child
+          React.isValidElement(child) ? React.cloneElement(child, { inPre: true }) : child,
         )}
       </Elem>
     )
@@ -142,7 +142,7 @@ const components = {
 
     const Elem = withClassname(
       inPre ? classNames('font-mono') : classNames('font-mono bg-bg-l2 dark:bg-bg-d2 rounded px-0.5'),
-      'code'
+      'code',
     )
     return <Elem {...rest} />
   },
@@ -172,7 +172,7 @@ const components = {
 
   table: withClassname(
     classNames('block border border-collapse border-bg-l4 dark:border-bg-d4 max-w-full overflow-x-scroll'),
-    'table'
+    'table',
   ),
   thead: withClassname(classNames('bg-bg-l2 dark:bg-bg-d2'), 'thead'),
   td: withClassname(classNames('border border-bg-l4 dark:border-bg-d4 px-2 py-1'), 'td'),
@@ -195,7 +195,7 @@ const components = {
                 // Normally there will be only 2 children, so this is the text
                 // Not to set cursor-text on label so the label background would not make the cursor become text and cause cursor jumpping when moving across the checkbox border
                 <span className="cursor-text">{child}</span>
-              )
+              ),
             )}
           </label>
         </li>
@@ -213,15 +213,15 @@ const components = {
   hr: withClassname(classNames('border-bg-l4 dark:border-bg-d4 w-full'), 'hr'),
   blockquote: withClassname(
     classNames(
-      "bg-bg dark:bg-bg-d border border-bg-l4 dark:border-bg-d4 rounded pl-6 p-2 max-w-full overflow-x-scroll relative before:content-['>'] before:absolute before:left-2 before:top-2 flex flex-col items-start gap-2"
+      "bg-bg dark:bg-bg-d border border-bg-l4 dark:border-bg-d4 rounded pl-6 p-2 max-w-full overflow-x-scroll relative before:content-['>'] before:absolute before:left-2 before:top-2 flex flex-col items-start gap-2",
     ),
-    'blockquote'
+    'blockquote',
   ),
   q: withClassname(
     classNames(
-      'bg-bg dark:bg-bg-d border border-bg-l4 dark:border-bg-d4 rounded before:content-none after:content-none px-1'
+      'bg-bg dark:bg-bg-d border border-bg-l4 dark:border-bg-d4 rounded before:content-none after:content-none px-1',
     ),
-    'q'
+    'q',
   ),
 
   div: ({ className, ...rest }: { className?: string }) => {
@@ -232,7 +232,7 @@ const components = {
         <div
           className={classNames(
             'max-w-full overflow-x-scroll rounded border border-bg-l4 px-2 dark:border-bg-d4',
-            classes
+            classes,
           )}
           {...rest}
         />
