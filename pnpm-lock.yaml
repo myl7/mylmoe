@@ -30,8 +30,8 @@ dependencies:
     specifier: ^10.4.16
     version: 10.4.16(postcss@8.4.31)
   brotli-dec-wasm:
-    specifier: ^1.3.3
-    version: 1.3.3
+    specifier: ^2.0.3
+    version: 2.0.3
   brotli-wasm:
     specifier: ^1.3.1
     version: 1.3.1
@@ -844,8 +844,8 @@ packages:
       fill-range: 7.0.1
     dev: false
 
-  /brotli-dec-wasm@1.3.3:
-    resolution: {integrity: sha512-4M9jtpNoU1QDYDquDpoD/vYfWGP395SDGfRrhTeh/qgCpEbe/BJkObwnuTGNkr/dNFG/XjCAcWWSk8mMeEwaAg==}
+  /brotli-dec-wasm@2.0.3:
+    resolution: {integrity: sha512-9McI5b9Bg9hwnoIa2w8ZHfL+QFMG3sIJ5cI3+gp1tAbFJI21TuqQ+ttqkkHAvNm5oN2hl0Ss3MD+jyw2AGUcLQ==}
     dev: false
 
   /brotli-wasm@1.3.1:

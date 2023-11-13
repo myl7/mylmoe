@@ -168,8 +168,8 @@ export function EncPanel() {
 }
 
 async function decode(b: Uint8Array) {
-  const { brotliDec } = await import(/* webpackMode: "eager" */ 'brotli-dec-wasm')
-  return brotliDec(b)
+  const { decompress } = await (await import(/* webpackMode: "eager" */ 'brotli-dec-wasm')).default
+  return decompress(b)
 }
 
 // TODO: Add cancelation or mitigate the heavy load that causes blocking
