@@ -1,0 +1,34 @@
+{
+  "name": "mylmoe",
+  "version": "0.7.0",
+  "author": "myl7 <myl@myl.moe> (https://myl.moe)",
+  "description": "myl7's blog at myl.moe",
+  "keywords": [
+    "blog"
+  ],
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/myl7/mylmoe.git"
+  },
+  "bugs": {
+    "url": "https://github.com/myl7/mylmoe/issues"
+  },
+  "homepage": "https://github.com/myl7/mylmoe#readme",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.5.10",
+    "astro": "^4.6.1",
+    "prettier-plugin-astro": "^0.13.0",
+    "typescript": "^5.4.5"
+  }
+}
