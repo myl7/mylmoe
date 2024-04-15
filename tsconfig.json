@@ -2,6 +2,14 @@
   "extends": "astro/tsconfigs/strictest",
   "compilerOptions": {
     // By `astro dev`
-    "allowJs": true
+    "allowJs": true,
+    // By `astro add react`
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    // By shadcn-ui
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   }
 }
