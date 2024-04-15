@@ -10,6 +10,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    // Others
+    "exactOptionalPropertyTypes": false
   }
 }

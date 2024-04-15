@@ -4,10 +4,16 @@ const posts = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
-    pub_date: z.string(),
-    upd_date: z.string().optional(),
+    pubDate: z.date(),
+    updDate: z.date().optional(),
   }),
 })
+
+export interface PostFrontmatter {
+  title: string
+  pubDate: Date
+  updDate?: Date
+}
 
 export const collections = {
   posts,

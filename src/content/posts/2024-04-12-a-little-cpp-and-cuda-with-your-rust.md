@@ -1,6 +1,6 @@
 ---
 title: A little C++ and CUDA with your Rust
-pub_date: 2024-04-12
+pubDate: 2024-04-12
 ---
 
 <!-- Copyright (C) myl7 -->
