@@ -1,9 +1,12 @@
 ---
 import '@/styles/globals.css'
-import Layout from '@/layouts/Layout.astro'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const title = "myl7's blog"
+const description = "myl7's blog"
 ---
 
-<Layout title="Welcome to Astro.">
+<BaseLayout {title} {description}>
   <main>
     <h1>Welcome to <span class="text-gradient">Astro</span></h1>
     <p class="instructions">
@@ -11,4 +14,4 @@ import Layout from '@/layouts/Layout.astro'
       <strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
     </p>
   </main>
-</Layout>
+</BaseLayout>

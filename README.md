@@ -1,4 +1,4 @@
-# mylmoe
+# myl7's blog
 
 [myl.moe](https://myl.moe "myl7's blog")
 
