@@ -1,4 +1,5 @@
 ---
+import 'katex/dist/katex.css'
 import BaseLayout from './BaseLayout.astro'
 import type { PostFrontmatter } from '@/content/config'
 
@@ -23,3 +24,11 @@ const updDateStr = updDate?.toISOString()?.slice(0, 10)
     </article>
   </div>
 </BaseLayout>
+
+<style>
+  html.dark .shiki,
+  html.dark .shiki span {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+  }
+</style>

@@ -22,6 +22,8 @@ In the post, We will step further to solve the same FFI problem in a more comple
 
 </details>
 
+## TOC
+
 ## Setup
 
 We discuss the problem on the codebase [myl7/fss-prg-cuda].
@@ -107,7 +109,7 @@ fn main() {
 
 When running the build, it should not be surprising to see an unknown symbol error from the linker:
 
-```log
+```text
 undefined reference to `Aes128MatyasMeyerOseas'
 collect2: error: ld returned 1 exit status
 ```
@@ -119,7 +121,7 @@ You can check the mangled name of the current code with the command `nm`:
 
 [documentation of the `cc` crate]: https://docs.rs/cc/1.0.92/cc/#c-support
 
-```shell
+```console
 $ nm build/libfssprgcuda.a | grep Aes128MatyasMeyerOseas
 0000000000000000 T _ZN10fssprgcuda22Aes128MatyasMeyerOseasEPhmPKhm
 ```
@@ -152,7 +154,7 @@ Because the `build` directory is not in the dynamic library searching path in ru
 Rerun the build, and now we get a bunch of errors (~~C++ style, is not it?~~).
 We can see the following lines in all the errors:
 
-```log
+```text
 /usr/bin/ld: fssprgcuda.cpp:(.text+0x8a): undefined reference to `std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string()'
 /usr/bin/ld: fssprgcuda.cpp:(.text+0x93): undefined reference to `std::allocator<char>::~allocator()'
 ```
@@ -178,7 +180,7 @@ If dynamicly linking, you need to put the above line after the `println!("cargo:
 
 Now the error number has decreased largely, but we still get unknown symbol errors like:
 
-```log
+```text
 /usr/local/cuda-12.1/bin/../targets/x86_64-linux/include/crt/host_runtime.h:259: undefined reference to `__cudaUnregisterFatBinary'
 /usr/bin/ld: build/libfssprgcuda.a(kernels.cu.o): in function `__nv_init_managed_rt_with_module(void**)':
 /usr/local/cuda-12.1/bin/../targets/x86_64-linux/include/crt/host_runtime.h:264: undefined reference to `__cudaInitModule'
@@ -204,7 +206,7 @@ It is not required in this project though.
 
 The final barrier is some kind of weird unknown symbol errors:
 
-```log
+```text
 /usr/bin/ld: build/libfssprgcuda.a(kernels.cu.o): in function `__sti____cudaRegisterAll()':
 /tmp/tmpxft_00005164_00000000-6_kernels.cudafe1.stub.c:21: undefined reference to `__cudaRegisterLinkedBinary_ff2660a9_10_kernels_cu_9b2baf5b_20846'
 /usr/bin/ld: build/libfssprgcuda.a(owcf.cu.o): in function `__sti____cudaRegisterAll()':
