@@ -20,12 +20,17 @@ const { title, description } = Astro.props
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="alternate" type="application/rss+xml" title="myl7's blog" href="/rss.xml" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" /><!-- 180×180 -->
+    <link rel="manifest" href="/manifest.webmanifest" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={Astro.url.href} />
     <slot name="head" />
   </head>
   <body class="flex min-h-screen flex-col gap-4">
