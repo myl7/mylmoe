@@ -19,7 +19,7 @@ const updDateStr = updDate?.toISOString()?.slice(0, 10)
       {updDateStr ? `Published on ${pubDateStr} and updated on ${updDateStr}` : `Published on ${pubDateStr}`}
     </p>
     <hr />
-    <article class="flex flex-col gap-4 font-serif">
+    <article class="post flex flex-col gap-4 font-serif">
       <slot />
     </article>
   </div>
