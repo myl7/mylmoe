@@ -7,13 +7,17 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
 import rehypeRaw from 'rehype-raw'
+import sitemap from '@astrojs/sitemap'
 
+// https://astro.build/config
 export default defineConfig({
+  site: 'https://myl.moe',
   integrations: [
     react(),
     tailwind({
       applyBaseStyles: false,
     }),
+    sitemap(),
   ],
   markdown: {
     shikiConfig: {
@@ -23,6 +27,16 @@ export default defineConfig({
       },
     },
     remarkPlugins: [remarkToc, remarkMath],
-    rehypePlugins: [rehypeRaw, rehypeHeadingIds, [rehypeAutolinkHeadings, { behavior: 'append' }], rehypeKatex],
+    rehypePlugins: [
+      rehypeRaw,
+      rehypeHeadingIds,
+      [
+        rehypeAutolinkHeadings,
+        {
+          behavior: 'append',
+        },
+      ],
+      rehypeKatex,
+    ],
   },
 })
