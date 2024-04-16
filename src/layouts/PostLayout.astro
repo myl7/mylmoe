@@ -25,9 +25,9 @@ const updDateStr = updDate?.toISOString()?.slice(0, 10)
   </div>
 </BaseLayout>
 
-<style>
-  html.dark .shiki,
-  html.dark .shiki span {
+<style is:global>
+  html.dark .astro-code,
+  html.dark .astro-code span {
     color: var(--shiki-dark) !important;
     background-color: var(--shiki-dark-bg) !important;
   }
