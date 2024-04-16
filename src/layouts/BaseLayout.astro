@@ -1,5 +1,9 @@
 ---
 import '@/styles/globals.css'
+import '@fontsource/open-sans'
+import '@fontsource/dm-mono'
+import '@fontsource/roboto-serif'
+import '@fontsource/noto-serif-sc'
 import Header from '@/components/Header.astro'
 import Footer from '@/components/Footer.astro'
 
@@ -49,3 +53,12 @@ const { title, description } = Astro.props
     observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] })
   }
 </script>
+
+<style is:global>
+  html {
+    font-family: 'Open Sans', sans-serif;
+  }
+  code {
+    font-family: 'DM Mono', monospace;
+  }
+</style>

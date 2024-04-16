@@ -1,3 +1,4 @@
+import defaultTheme from 'tailwindcss/defaultTheme'
 import type { Config } from 'tailwindcss'
 
 export default {
@@ -13,6 +14,11 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ['Open Sans', ...defaultTheme.fontFamily.sans],
+        mono: ['DM Mono', ...defaultTheme.fontFamily.mono],
+        serif: ['Roboto Serif', 'Noto Serif SC', ...defaultTheme.fontFamily.serif],
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',

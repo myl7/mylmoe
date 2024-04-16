@@ -14,12 +14,12 @@ const updDateStr = updDate?.toISOString()?.slice(0, 10)
 
 <BaseLayout {title} description={'TODO'}>
   <div class="flex flex-col gap-4 px-4 md:px-6">
-    <h1 class="text-xl">{title}</h1>
+    <h1 class="font-serif text-xl">{title}</h1>
     <p class="text-sm">
       {updDateStr ? `Published on ${pubDateStr} and updated on ${updDateStr}` : `Published on ${pubDateStr}`}
     </p>
     <hr />
-    <article class="flex flex-col gap-4">
+    <article class="flex flex-col gap-4 font-serif">
       <slot />
     </article>
   </div>

@@ -17,7 +17,7 @@ export default function HeaderSheet() {
             <Home className="h-6 w-6" />
             <span className="sr-only">Home</span>
           </a> */}
-          <a href="/" className="text-muted-foreground hover:text-foreground">
+          <a href="/" className="font-serif text-muted-foreground hover:text-foreground">
             Home
           </a>
         </nav>
