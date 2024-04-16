@@ -1,10 +1,10 @@
 ---
 import 'katex/dist/katex.css'
 import BaseLayout from './BaseLayout.astro'
-import type { PostFrontmatter } from '@/content/config'
+import type { PostScheme } from '@/content/config'
 
-interface Props extends Pick<PostFrontmatter, 'title' | 'pubDate' | 'updDate'> {
-  frontmatter?: PostFrontmatter
+interface Props extends Pick<PostScheme, 'title' | 'pubDate' | 'updDate'> {
+  frontmatter?: PostScheme
 }
 
 const { title, pubDate, updDate } = Astro.props.frontmatter || Astro.props

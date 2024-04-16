@@ -1,19 +1,15 @@
 import { z, defineCollection } from 'astro:content'
 
+const postScheme = z.object({
+  title: z.string(),
+  pubDate: z.date(),
+  updDate: z.date().optional(),
+})
+export type PostScheme = z.infer<typeof postScheme>
 const posts = defineCollection({
   type: 'content',
-  schema: z.object({
-    title: z.string(),
-    pubDate: z.date(),
-    updDate: z.date().optional(),
-  }),
+  schema: postScheme,
 })
-
-export interface PostFrontmatter {
-  title: string
-  pubDate: Date
-  updDate?: Date
-}
 
 export const collections = {
   posts,
