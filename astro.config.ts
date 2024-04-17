@@ -8,6 +8,7 @@ import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
 import rehypeRaw from 'rehype-raw'
 import sitemap from '@astrojs/sitemap'
+import vercel from '@astrojs/vercel/serverless'
 
 // https://astro.build/config
 export default defineConfig({
@@ -19,6 +20,16 @@ export default defineConfig({
     }),
     sitemap(),
   ],
+  redirects: {
+    '/ssh': {
+      status: 301,
+      destination: '/ssh.pub',
+    },
+    '/gpg': {
+      status: 301,
+      destination: '/gpg.asc',
+    },
+  },
   markdown: {
     shikiConfig: {
       themes: {
@@ -39,4 +50,8 @@ export default defineConfig({
       rehypeKatex,
     ],
   },
+  output: 'hybrid',
+  adapter: vercel({
+    edgeMiddleware: true,
+  }),
 })
