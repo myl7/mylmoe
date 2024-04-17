@@ -20,3 +20,8 @@ Code opened at [myl7/mylmoe]
 [Favicon] created by Freepik - Flaticon
 
 [Favicon]: https://www.flaticon.com/free-icons/development
+
+[Privacy policy] [RSS]
+
+[Privacy policy]: /privacy-policy
+[RSS]: /rss.xml

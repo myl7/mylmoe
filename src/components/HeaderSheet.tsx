@@ -20,6 +20,12 @@ export default function HeaderSheet() {
           <a href="/" className="font-serif text-muted-foreground hover:text-foreground">
             Home
           </a>
+          <a href="/rss.xml" className="font-serif text-muted-foreground hover:text-foreground">
+            RSS
+          </a>
+          <a href="/privacy-policy" className="font-serif text-muted-foreground hover:text-foreground">
+            Privacy policy
+          </a>
         </nav>
       </SheetContent>
     </Sheet>

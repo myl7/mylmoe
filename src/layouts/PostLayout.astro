@@ -7,9 +7,16 @@ interface Props extends Pick<PostScheme, 'title' | 'pubDate' | 'updDate' | 'desc
   frontmatter?: PostScheme
 }
 
+function dateToStr(date?: Date | string) {
+  if (typeof date == 'string') {
+    date = new Date(date)
+  }
+  return date?.toISOString()?.slice(0, 10)
+}
+
 const { title, pubDate, updDate, description } = Astro.props.frontmatter || Astro.props
-const pubDateStr = pubDate.toISOString().slice(0, 10)
-const updDateStr = updDate?.toISOString()?.slice(0, 10)
+const pubDateStr = dateToStr(pubDate)!
+const updDateStr = dateToStr(updDate)
 ---
 
 <BaseLayout {title} {description}>
