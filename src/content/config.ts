@@ -5,6 +5,7 @@ const postScheme = z.object({
   pubDate: z.date(),
   updDate: z.date().optional(),
   unlisted: z.boolean().optional(),
+  description: z.string(),
 })
 export type PostScheme = z.infer<typeof postScheme>
 const posts = defineCollection({

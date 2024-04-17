@@ -8,12 +8,15 @@ export async function GET(context: APIContext) {
     title: "myl7's blog",
     description: "myl7's blog",
     site: context.site!,
-    items: posts.map((post) => ({
-      title: post.data.title,
-      link: `/p/${post.slug}`,
-      pubDate: post.data.pubDate,
-      // description: '' // TODO
-      author: 'myl@myl.moe (myl7)',
-    })),
+    items: posts.map((post) => {
+      const { title, pubDate, description } = post.data
+      return {
+        title,
+        link: `/p/${post.slug}`,
+        pubDate,
+        description,
+        author: 'myl@myl.moe (myl7)',
+      }
+    }),
   })
 }

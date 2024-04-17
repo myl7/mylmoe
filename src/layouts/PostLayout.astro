@@ -3,16 +3,16 @@ import 'katex/dist/katex.css'
 import BaseLayout from './BaseLayout.astro'
 import type { PostScheme } from '@/content/config'
 
-interface Props extends Pick<PostScheme, 'title' | 'pubDate' | 'updDate'> {
+interface Props extends Pick<PostScheme, 'title' | 'pubDate' | 'updDate' | 'description'> {
   frontmatter?: PostScheme
 }
 
-const { title, pubDate, updDate } = Astro.props.frontmatter || Astro.props
+const { title, pubDate, updDate, description } = Astro.props.frontmatter || Astro.props
 const pubDateStr = pubDate.toISOString().slice(0, 10)
 const updDateStr = updDate?.toISOString()?.slice(0, 10)
 ---
 
-<BaseLayout {title} description={'TODO'}>
+<BaseLayout {title} {description}>
   <div class="flex flex-col gap-4 px-4 md:px-6">
     <h1 class="font-serif text-xl">{title}</h1>
     <p class="text-sm">

@@ -2,6 +2,8 @@
 title: Sample Markdown post of this blog system
 pubDate: 2024-04-16
 unlisted: true
+description: >-
+  The post shows how various Markdown components are rendered in this blog system, and also serves as a test for the Markdown rendering functionality
 ---
 
 <!-- Copyright (C) myl7 -->
