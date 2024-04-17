@@ -2,7 +2,7 @@ import React from 'react'
 import { Moon, Sun } from 'lucide-react'
 import { Button } from './ui/button'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from './ui/dropdown-menu'
-import { setGiscusTheme } from './Giscus'
+import setGiscusTheme from '@/lib/setGiscusTheme'
 
 export default function ThemeToggle() {
   const [theme, setThemeState] = React.useState<'theme-light' | 'dark' | 'system'>('theme-light')
