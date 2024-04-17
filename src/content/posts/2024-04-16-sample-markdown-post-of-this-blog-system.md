@@ -1,6 +1,7 @@
 ---
 title: Sample Markdown post of this blog system
 pubDate: 2024-04-16
+unlisted: true
 ---
 
 <!-- Copyright (C) myl7 -->

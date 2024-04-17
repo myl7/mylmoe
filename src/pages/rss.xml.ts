@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content'
 import type { APIContext } from 'astro'
 
 export async function GET(context: APIContext) {
-  const posts = await getCollection('posts')
+  const posts = await getCollection('posts', ({ data: { unlisted } }) => unlisted != true)
   return rss({
     title: "myl7's blog",
     description: "myl7's blog",
