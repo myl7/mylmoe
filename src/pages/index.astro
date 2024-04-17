@@ -2,6 +2,8 @@
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import { getCollection } from 'astro:content'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import ProfileCollapsible from '@/components/ProfileCollapsible'
+import Profile from '@/content/fragments/myl7.md'
 
 const title = "myl7's blog"
 const description = "myl7's blog"
@@ -14,7 +16,7 @@ const posts = (await getCollection('posts', ({ data: { unlisted } }) => unlisted
 ---
 
 <BaseLayout {title} {description}>
-  <main class="flex flex-col px-4">
+  <main class="flex flex-col gap-4 px-4">
     <h1 class="sr-only">myl7's blog!</h1>
     <section class="flex flex-col gap-4">
       <div class="flex flex-col gap-1">
@@ -41,6 +43,11 @@ const posts = (await getCollection('posts', ({ data: { unlisted } }) => unlisted
           </Card>
         ))
       }
+    </section>
+    <section>
+      <ProfileCollapsible client:load>
+        <Profile />
+      </ProfileCollapsible>
     </section>
   </main>
 </BaseLayout>
