@@ -42,8 +42,9 @@
     @apply before:mr-2 before:border-r before:border-muted-foreground before:pr-1 before:text-muted-foreground before:content-[counter(line)];
     counter-increment: line;
   }
-  .post pre.astro-code .line:empty:last-child {
-    @apply hidden before:content-none;
+  .post pre.astro-code .line:empty:last-child,
+  .post pre.astro-code .line:last-child:has(> span:empty) {
+    @apply before:content-none;
   }
   .post blockquote {
     @apply relative overflow-x-scroll text-wrap rounded border border-muted-foreground bg-zinc-200 pl-4 pr-2 before:absolute before:left-1 before:content-['>'] dark:bg-zinc-800;
