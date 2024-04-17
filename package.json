@@ -36,6 +36,7 @@
     "@fontsource/noto-serif-sc": "^5.0.11",
     "@fontsource/open-sans": "^5.0.27",
     "@fontsource/roboto-serif": "^5.0.12",
+    "@giscus/react": "^3.0.0",
     "@radix-ui/react-collapsible": "^1.0.3",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-dropdown-menu": "^2.0.6",

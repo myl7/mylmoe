@@ -2,6 +2,7 @@
 import 'katex/dist/katex.css'
 import BaseLayout from './BaseLayout.astro'
 import type { PostScheme } from '@/content/config'
+import Giscus from '@/components/Giscus'
 
 interface Props extends Pick<PostScheme, 'title' | 'pubDate' | 'updDate' | 'description'> {
   frontmatter?: PostScheme
@@ -29,6 +30,7 @@ const updDateStr = dateToStr(updDate)
     <article class="post flex flex-col gap-4 font-serif">
       <slot />
     </article>
+    <Giscus client:load />
   </div>
 </BaseLayout>
 

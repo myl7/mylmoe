@@ -1,0 +1,52 @@
+import React from 'react'
+import { default as GiscusInner } from '@giscus/react'
+
+export default function Giscus() {
+  const [theme, setTheme] = React.useState<'light' | 'dark'>('light')
+  // Should only run once in the initial render
+  React.useEffect(() => {
+    const dark = document.documentElement.classList.contains('dark')
+    if (dark && theme != 'dark') {
+      setTheme('dark')
+    } else if (!dark && theme != 'light') {
+      setTheme('light')
+    }
+  }, [])
+
+  return (
+    <GiscusInner
+      id="giscus"
+      repo="myl7/mylmoe"
+      repoId="MDEwOlJlcG9zaXRvcnkzMDA4MzYxMzI="
+      category="Announcements"
+      categoryId="DIC_kwDOEe5lJM4CRLe1"
+      mapping="title"
+      strict="0"
+      reactionsEnabled="1"
+      emitMetadata="0"
+      inputPosition="top"
+      theme={theme}
+      lang="en"
+      loading="lazy"
+    />
+  )
+}
+
+export function setGiscusTheme(dark: boolean) {
+  const iframe = document.querySelector('#giscus')?.shadowRoot?.querySelector('iframe')
+  if (!iframe || !iframe.contentWindow) return false
+  try {
+    iframe.contentWindow.postMessage(
+      {
+        giscus: {
+          setConfig: {
+            theme: dark ? 'dark' : 'light',
+          },
+        },
+      },
+      'https://giscus.app',
+    )
+    return true
+  } catch {}
+  return false
+}
