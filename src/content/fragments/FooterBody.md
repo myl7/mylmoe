@@ -4,7 +4,7 @@ Most content licensed under [CC BY-SA 4.0], unless otherwise explicitly stated, 
 
 [CC BY-SA 4.0]: https://creativecommons.org/licenses/by-sa/4.0/ 'Creative Commons Attribution-ShareAlike 4.0 International Public License'
 
-Code opened at [myl7/mylmoe]
+Code and raw content available at [myl7/mylmoe]
 
 [myl7/mylmoe]: https://github.com/myl7/mylmoe
 
