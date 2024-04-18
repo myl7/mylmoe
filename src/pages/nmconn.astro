@@ -1,0 +1,46 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import NmconnPanel from '@/components/NmconnPanel'
+
+const title = 'Generate NetworkManager .nmconnection for WPA(2) Enterprise with PEAP'
+const description =
+  'For WPA/WPA2 Enterprise security with PEAP authentication, e.g., eduroam, unlike Windows/Android, Linux, e.g., with GNOME, has issues when connecting with GUI. This tool generates NetworkManager .nmconnection config files directly. All done locally to maximize privacy.'
+---
+
+<BaseLayout {title} {description}>
+  <main class="flex flex-col gap-4 px-4">
+    <Card>
+      <CardHeader>
+        <CardTitle className="text-xl">
+          Generate NetworkManager .nmconnection files for WPA/WPA2 Enterprise security with PEAP authentication, e.g.,
+          eduroam
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <CardDescription>
+          For WPA/WPA2 Enterprise security with PEAP authentication, e.g., eduroam, unlike Windows/Android, Linux, e.g.,
+          with GNOME, has issues when connecting with GUI. This tool generates NetworkManager .nmconnection config files
+          directly. All done locally to maximize privacy.
+        </CardDescription>
+        <details class="text-sm text-muted-foreground">
+          <summary class="cursor-pointer">
+            <h2 class="inline-block">Do manually without the application</h2>
+          </summary>
+          <p>
+            Please refer to <a href="https://github.com/myl7/mylmoe/tree/main/src/lib/genNmconn.ts" class="link"
+              >this nmconnection template</a
+            >.
+          </p>
+          <p>
+            It is in a simple .ini-style format. Please refer to the <a
+              href="https://developer-old.gnome.org/NetworkManager/stable/nm-settings-keyfile.html"
+              class="link">nm-settings-keyfile manual</a
+            > for the format.
+          </p>
+        </details>
+      </CardContent>
+    </Card>
+    <NmconnPanel client:load />
+  </main>
+</BaseLayout>
