@@ -1,0 +1,54 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { EncPanel, DecPanel } from '@/components/brotliPanels'
+
+const title = 'Brotli online encode/decode tool'
+const description = 'En/decode ((de)compress) data online with Brotli. All done locally to maximize privacy.'
+---
+
+<BaseLayout {title} {description}>
+  <main class="flex flex-col gap-4 px-4">
+    <Card>
+      <CardHeader>
+        <CardTitle className="text-xl">Brotli online encode/decode tool</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <CardDescription>
+          Encode/decode (compress/decompress) data online with Brotli leveraging WASM. All done locally to maximize
+          privacy.
+        </CardDescription>
+        <CardDescription>
+          Text input should be in Python byte string format (e.g., <code class="inline-code"
+            >0\xff\\ = [48, 255, 92]</code
+          >, in which you can omit the surrounded quotes and <code class="inline-code">b</code> prefix). Text output would
+          also be in that format. When both text and file input are given, file input will be used. Click the refresh button
+          aside to abort uploaded files.
+        </CardDescription>
+      </CardContent>
+    </Card>
+    <Card>
+      <CardHeader>
+        <CardTitle className="text-xl">Decode</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <CardDescription>
+          Powered by <a href="https://github.com/myl7/brotli-dec-wasm" class="link">brotli-dec-wasm</a>
+        </CardDescription>
+        <DecPanel client:load />
+      </CardContent>
+    </Card>
+    <Card>
+      <CardHeader>
+        <CardTitle className="text-xl">Encode</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <CardDescription>
+          Powered by <a href="https://github.com/httptoolkit/brotli-wasm" class="link">brotli-wasm</a>. This library is
+          dynamically loaded.
+        </CardDescription>
+        <EncPanel client:load />
+      </CardContent>
+    </Card>
+  </main>
+</BaseLayout>
