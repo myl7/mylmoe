@@ -48,6 +48,9 @@
     "astro": "^4.6.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
+    "hast-util-heading": "^3.0.0",
+    "hastscript": "^9.0.0",
+    "lucide": "^0.370.0",
     "lucide-react": "^0.368.0",
     "prettier-plugin-astro": "^0.13.0",
     "prettier-plugin-tailwindcss": "^0.5.13",
@@ -61,6 +64,7 @@
     "tailwind-merge": "^2.2.2",
     "tailwindcss": "^3.4.3",
     "tailwindcss-animate": "^1.0.7",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "unist-util-visit": "^5.0.0"
   }
 }

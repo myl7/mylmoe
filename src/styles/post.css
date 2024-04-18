@@ -16,6 +16,13 @@
   .post ol {
     @apply list-decimal pl-4;
   }
+  .post h2,
+  .post h3,
+  .post h4,
+  .post h5,
+  .post h6 {
+    @apply flex gap-2;
+  }
   .post h2 {
     @apply text-xl;
   }

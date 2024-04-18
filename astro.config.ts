@@ -9,6 +9,11 @@ import rehypeKatex from 'rehype-katex'
 import rehypeRaw from 'rehype-raw'
 import sitemap from '@astrojs/sitemap'
 import vercel from '@astrojs/vercel/serverless'
+import { Link2 } from 'lucide'
+import { visit } from 'unist-util-visit'
+import { heading } from 'hast-util-heading'
+import iconNodeToHast from './src/lib/iconNodeToHast'
+import { h } from 'hastscript'
 
 // https://astro.build/config
 export default defineConfig({
@@ -45,8 +50,20 @@ export default defineConfig({
         rehypeAutolinkHeadings,
         {
           behavior: 'append',
+          content: [iconNodeToHast([Link2[0], { ...Link2[1], class: 'inline w-5 h-5' }, Link2[2]])],
         },
       ],
+      function () {
+        return (tree) => {
+          visit(
+            tree,
+            (node) => heading(node),
+            (_, index, parent) => {
+              parent!.children.splice(index! + 1, 0, h('hr'))
+            },
+          )
+        }
+      },
       rehypeKatex,
     ],
   },
