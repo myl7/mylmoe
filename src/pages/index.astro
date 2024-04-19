@@ -32,14 +32,14 @@ const posts = (await getCollection('posts', ({ data: { unlisted } }) => unlisted
                 Published on {pubDate.toISOString().slice(0, 10)}
                 {updDate && ` and updated on ${updDate.toISOString().slice(0, 10)}`}
               </p>
-              <CardTitle className="text-xl">
-                <a class="hover:underline" href={`/p/${slug}`}>
+              <CardTitle className="text-xl font-serif">
+                <a class="link" href={`/p/${slug}`}>
                   {title}
                 </a>
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <CardDescription>{description}</CardDescription>
+              <CardDescription className="font-serif">{description}</CardDescription>
             </CardContent>
           </Card>
         ))
