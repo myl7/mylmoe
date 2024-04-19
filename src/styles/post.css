@@ -1,6 +1,9 @@
 @tailwind components;
 
 @layer components {
+  .post {
+    @apply break-words;
+  }
   .post a {
     @apply text-blue-600 hover:text-blue-500 hover:underline dark:text-blue-400 dark:hover:text-blue-300;
   }
@@ -16,11 +19,7 @@
   .post ol {
     @apply list-decimal pl-4;
   }
-  .post h2,
-  .post h3,
-  .post h4,
-  .post h5,
-  .post h6 {
+  .post :is(h2, h3, h4, h5, h6) {
     @apply flex gap-2;
   }
   .post h2 {
@@ -49,8 +48,7 @@
     @apply before:mr-2 before:border-r before:border-muted-foreground before:pr-1 before:text-muted-foreground before:content-[counter(line)];
     counter-increment: line;
   }
-  .post pre.astro-code .line:empty:last-child,
-  .post pre.astro-code .line:last-child:has(> span:empty) {
+  .post pre.astro-code :is(.line:empty:last-child, .line:last-child:has(> span:empty)) {
     @apply before:content-none;
   }
   .post blockquote {
@@ -62,8 +60,7 @@
   .post thead {
     @apply border-b-4 border-double border-muted-foreground;
   }
-  .post td,
-  .post th {
+  .post :is(th, td) {
     @apply border border-muted-foreground bg-slate-200 px-2 dark:bg-slate-900;
   }
   .post .katex-display {
