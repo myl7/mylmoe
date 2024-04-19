@@ -2,6 +2,8 @@ import React from 'react'
 import { ArrowDown, RefreshCw } from 'lucide-react'
 import { default as brotliDecWasmInit, decompress as brotliDecWasmDecompress } from 'brotli-dec-wasm/web'
 import brotliDecWasmUrl from 'brotli-dec-wasm/web/bg.wasm?url'
+import { default as brotliWasmInit, compress as brotliWasmCompress } from 'brotli-wasm/web'
+import brotliWasmUrl from 'brotli-wasm/web/bg.wasm?url'
 
 const maxBOutLen = 1024
 
@@ -171,8 +173,8 @@ async function decode(b: Uint8Array) {
 
 // TODO: Add cancelation or mitigate the heavy load that causes blocking
 async function encode(b: Uint8Array) {
-  const { compress } = await (await import('brotli-wasm')).default
-  return compress(b)
+  await brotliWasmInit(brotliWasmUrl)
+  return brotliWasmCompress(b)
 }
 
 /** Convert bytes to Python-format display string */

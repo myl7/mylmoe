@@ -75,11 +75,11 @@ dependencies:
     specifier: ^4.6.1
     version: 4.6.2(@types/node@20.12.7)(typescript@5.4.5)
   brotli-dec-wasm:
-    specifier: ^2.2.0
-    version: 2.2.0(typescript@5.4.5)
+    specifier: ^2.3.0
+    version: 2.3.0(typescript@5.4.5)
   brotli-wasm:
-    specifier: ^2.0.1
-    version: 2.0.1
+    specifier: https://github.com/myl7/brotli-wasm/releases/download/v3.0.0-1/brotli-wasm-3.0.0-1.tgz
+    version: '@github.com/myl7/brotli-wasm/releases/download/v3.0.0-1/brotli-wasm-3.0.0-1.tgz'
   class-variance-authority:
     specifier: ^0.7.0
     version: 0.7.0
@@ -2462,17 +2462,13 @@ packages:
       fill-range: 7.0.1
     dev: false
 
-  /brotli-dec-wasm@2.2.0(typescript@5.4.5):
-    resolution: {integrity: sha512-OUmFZa+GBJz+1HyWXzRCC85zDV6JdPp9y4FyLMDR647GlxRtMMf8Cz91gdgRifJRfCIqder0P8293IVGBSrvfQ==}
+  /brotli-dec-wasm@2.3.0(typescript@5.4.5):
+    resolution: {integrity: sha512-CNck+1A1ofvHk1oyqsKCuoIHLgD2FYy9KTVGHQlV1AKr/v/7N/Owh62nBKEcJxS3YOk+iwWhCi2rcaLhz9VN5g==}
     peerDependencies:
       typescript: ^5.0.0
     dependencies:
       prettier: 3.2.5
       typescript: 5.4.5
-    dev: false
-
-  /brotli-wasm@2.0.1:
-    resolution: {integrity: sha512-+3USgYsC7bzb5yU0/p2HnnynZl0ak0E6uoIm4UW4Aby/8s8HFCq6NCfrrf1E9c3O8OCSzq3oYO1tUVqIi61Nww==}
     dev: false
 
   /browserslist@4.23.0:
@@ -6110,4 +6106,11 @@ packages:
 
   /zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
+    dev: false
+
+  '@github.com/myl7/brotli-wasm/releases/download/v3.0.0-1/brotli-wasm-3.0.0-1.tgz':
+    resolution: {tarball: https://github.com/myl7/brotli-wasm/releases/download/v3.0.0-1/brotli-wasm-3.0.0-1.tgz}
+    name: brotli-wasm
+    version: 3.0.0-1
+    engines: {node: '>=v18.0.0'}
     dev: false
