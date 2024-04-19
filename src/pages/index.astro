@@ -4,6 +4,8 @@ import { getCollection } from 'astro:content'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import ProfileCollapsible from '@/components/ProfileCollapsible'
 import Profile from '@/content/fragments/myl7.md'
+import FriendCollapsible from '@/components/FriendCollapsible'
+import friends from '@/content/data/friends'
 
 const title = "myl7's blog"
 const description = "myl7's blog"
@@ -48,6 +50,9 @@ const posts = (await getCollection('posts', ({ data: { unlisted } }) => unlisted
       <ProfileCollapsible client:load>
         <Profile />
       </ProfileCollapsible>
+    </section>
+    <section>
+      <FriendCollapsible {friends} client:load />
     </section>
   </main>
 </BaseLayout>
