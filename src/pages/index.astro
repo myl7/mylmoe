@@ -1,10 +1,9 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import { getCollection } from 'astro:content'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import ProfileCollapsible from '@/components/ProfileCollapsible'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card'
+import SectionCollapsible from '@/components/SectionCollapsible'
 import Profile from '@/content/fragments/myl7.md'
-import FriendCollapsible from '@/components/FriendCollapsible'
 import friends from '@/content/data/friends'
 
 const title = "myl7's blog"
@@ -47,12 +46,36 @@ const posts = (await getCollection('posts', ({ data: { unlisted } }) => unlisted
       }
     </section>
     <section>
-      <ProfileCollapsible client:load>
-        <Profile />
-      </ProfileCollapsible>
+      <SectionCollapsible title="About me" client:load>
+        <Card>
+          <CardHeader>
+            <CardTitle>I am myl7:</CardTitle>
+          </CardHeader>
+          <CardContent className="post">
+            <Profile />
+          </CardContent>
+        </Card>
+      </SectionCollapsible>
     </section>
     <section>
-      <FriendCollapsible {friends} client:load />
+      <SectionCollapsible title="Friends" client:load>
+        <Card className="pt-6">
+          <CardContent>
+            <ul class="flex list-inside list-disc flex-wrap gap-4">
+              {
+                friends.map((friend) => (
+                  <li>
+                    <a href={friend.url} class="link">
+                      {friend.name}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </CardContent>
+          <CardFooter>Feel free to request a friend link if you have met me in reality!</CardFooter>
+        </Card>
+      </SectionCollapsible>
     </section>
   </main>
 </BaseLayout>
