@@ -1,6 +1,7 @@
 ---
-import PostLayout from '@/layouts/PostLayout.astro'
 import { getCollection } from 'astro:content'
+import PostLayout from '@/layouts/PostLayout.astro'
+import Giscus from '@/components/Giscus'
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts')
@@ -17,4 +18,7 @@ const { Content } = await entry.render()
 
 <PostLayout {title} {pubDate} {updDate} {description}>
   <Content />
+  <div class="min-h-[26rem]">
+    <Giscus client:load />
+  </div>
 </PostLayout>
