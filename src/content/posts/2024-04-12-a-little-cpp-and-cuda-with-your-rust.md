@@ -3,18 +3,18 @@ title: A little C++ and CUDA with your Rust
 pubDate: 2024-04-12
 description: >-
   A little C with your Rust, a well-known article, of The Embedded Rust Book has breifly introduced how to call a C function from Rust without a third-party build dependency.
-  In the post, We will step further to solve the same FFI problem in a more complex scenario: calling a C++ function that additionaly contains some CUDA code from Rust without a third-party build dependency, e.g., cxx.
+  In the post, we will step further to solve the same FFI problem in a more complex scenario: calling a C++ function that additionally contains some CUDA code from Rust without a third-party build dependency, e.g., cxx.
 ---
 
 <!-- Copyright (C) myl7 -->
 <!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
 
 [_A little C with your Rust_], a well-known article, of [_The Embedded Rust Book_] has breifly introduced how to call a C function from Rust without a third-party build dependency.
-In the post, We will step further to solve the same FFI problem in a more complex scenario: calling a C++ function that additionaly contains some CUDA code from Rust without a third-party build dependency, e.g., [cxx].
+In the post, we will step further to solve the same FFI problem in a more complex scenario: calling a C++ function that additionally contains some CUDA code from Rust without a third-party build dependency, e.g., [cxx].
 
 [_A little C with your Rust_]: https://docs.rust-embedded.org/book/interoperability/c-with-rust.html
 [_The Embedded Rust Book_]: https://docs.rust-embedded.org/book/
-[cxx]: cxx.rs
+[cxx]: https://cxx.rs/
 
 <details>
   <summary>TL;DR</summary>
