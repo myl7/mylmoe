@@ -136,5 +136,8 @@ dist
 .vscode
 .idea
 
+# Vercel
+.vercel
+
 # Content licensed under other licenses
 /src/content

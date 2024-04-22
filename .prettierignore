@@ -136,6 +136,9 @@ dist
 .vscode
 .idea
 
+# Vercel
+.vercel
+
 # Lock files
 package-lock.json
 yarn.lock

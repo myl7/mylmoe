@@ -129,9 +129,12 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+# Astro
+.astro/
+
 # IDE
 .vscode
 .idea
 
-# Astro
-.astro/
+# Vercel
+.vercel
