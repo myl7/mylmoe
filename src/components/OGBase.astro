@@ -1,0 +1,20 @@
+---
+interface Props {
+  title: string
+  description: string
+  type?: string
+  image?: string
+  locale?: string
+}
+
+const { title, description, type, image, locale } = Astro.props
+const ogImage = new URL(image ?? '/og-image.png', Astro.url.origin)
+---
+
+<meta property="og:title" content={title} />
+<meta property="og:type" content={type ?? 'website'} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:url" content={Astro.url.href} />
+<meta property="og:description" content={description} />
+{locale && <meta property="og:locale" content={locale} />}
+<meta property="og:site_name" content="myl7's blog" />

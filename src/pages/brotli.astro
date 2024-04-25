@@ -2,12 +2,15 @@
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { EncPanel, DecPanel } from '@/components/brotliPanels'
+import OGBase from '@/components/OGBase.astro'
 
 const title = 'Brotli online encode/decode tool'
+const ogTitle = `${title} | Utilities on myl7's blog`
 const description = 'En/decode ((de)compress) data online with Brotli. All done locally to maximize privacy.'
 ---
 
 <BaseLayout {title} {description}>
+  <OGBase slot="head" title={ogTitle} {description} />
   <main class="flex flex-col gap-4 px-4">
     <Card>
       <CardHeader>

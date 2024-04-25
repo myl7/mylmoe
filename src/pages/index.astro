@@ -3,6 +3,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
 import { getCollection } from 'astro:content'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card'
 import SectionCollapsible from '@/components/SectionCollapsible'
+import OGBase from '@/components/OGBase.astro'
 import Profile from '@/content/fragments/myl7.md'
 import friends from '@/content/data/friends'
 
@@ -17,6 +18,7 @@ const posts = (await getCollection('posts', ({ data: { unlisted } }) => unlisted
 ---
 
 <BaseLayout {title} {description}>
+  <OGBase slot="head" {title} {description} />
   <main class="flex flex-col gap-4 px-4">
     <h1 class="sr-only">myl7's blog!</h1>
     <section class="flex flex-col gap-4">
