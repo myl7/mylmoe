@@ -5,8 +5,7 @@ import OGBase from '@/components/OGBase.astro'
 import OGArticle from '@/components/OGArticle.astro'
 import type { PostScheme } from '@/content/config'
 
-// TODO: Locale
-interface Props extends Pick<PostScheme, 'title' | 'pubDate' | 'updDate' | 'description'> {
+interface Props extends Pick<PostScheme, 'title' | 'pubDate' | 'updDate' | 'description' | 'locale'> {
   frontmatter?: PostScheme
 }
 
@@ -17,14 +16,14 @@ function dateToStr(date?: Date | string) {
   return date?.toISOString()?.slice(0, 10)
 }
 
-const { title, pubDate, updDate, description } = Astro.props.frontmatter || Astro.props
+const { title, pubDate, updDate, description, locale } = Astro.props.frontmatter || Astro.props
 const ogTitle = `${title} | myl7's blog`
 const pubDateStr = dateToStr(pubDate)!
 const updDateStr = dateToStr(updDate)
 ---
 
 <BaseLayout {title} {description}>
-  <OGBase slot="head" title={ogTitle} {description} type="article" />
+  <OGBase slot="head" title={ogTitle} {description} type="article" {locale} />
   <OGArticle slot="head" {pubDate} {updDate} />
   <div class="flex flex-col gap-4 px-4 md:px-6">
     <h1 class="font-serif text-xl">{title}</h1>
