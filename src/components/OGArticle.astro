@@ -1,18 +1,12 @@
 ---
 interface Props {
-  pubDate: Date
-  updDate?: Date
+  pubDateFullStr: string
+  updDateFullStr?: string
 }
 
-const { pubDate, updDate } = Astro.props
-
-function dateToStr(date: Date) {
-  return date.toISOString()
-}
-const pubDateStr = dateToStr(pubDate)
-const updDateStr = updDate ? dateToStr(updDate) : pubDateStr
+const { pubDateFullStr, updDateFullStr } = Astro.props
 ---
 
-<meta property="article:published_time" content={pubDateStr} />
-<meta property="article:modified_time" content={updDateStr} />
+<meta property="article:published_time" content={pubDateFullStr} />
+<meta property="article:modified_time" content={updDateFullStr} />
 <meta property="article:author" content="myl7" />

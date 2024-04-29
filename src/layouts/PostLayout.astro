@@ -13,18 +13,20 @@ function dateToStr(date?: Date | string) {
   if (typeof date == 'string') {
     date = new Date(date)
   }
-  return date?.toISOString()?.slice(0, 10)
+  return date?.toISOString()
 }
 
 const { title, pubDate, updDate, description, locale } = Astro.props.frontmatter || Astro.props
 const ogTitle = `${title} | myl7's blog`
-const pubDateStr = dateToStr(pubDate)!
-const updDateStr = dateToStr(updDate)
+const pubDateFullStr = dateToStr(pubDate)!
+const pubDateStr = pubDateFullStr.slice(0, 10)
+const updDateFullStr = dateToStr(updDate)
+const updDateStr = updDateFullStr?.slice(0, 10)
 ---
 
 <BaseLayout {title} {description}>
   <OGBase slot="head" title={ogTitle} {description} type="article" {locale} />
-  <OGArticle slot="head" {pubDate} {updDate} />
+  <OGArticle slot="head" {pubDateFullStr} {updDateFullStr} />
   <div class="flex flex-col gap-4 px-4 md:px-6">
     <h1 class="font-serif text-xl">{title}</h1>
     <p class="text-sm">
