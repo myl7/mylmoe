@@ -8,7 +8,6 @@ description: >-
 layout: '@/layouts/PostLayout.astro'
 ---
 
-<!-- Copyright (C) myl7 -->
 <!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
 
 We, as the site owners and administrators of [myl.moe]:

@@ -1,5 +1,6 @@
-<!-- Copyright (C) myl7 -->
-<!-- SPDX-License-Identifier: CC-BY-NC-ND-4.0 -->
+<!-- Notice that though this is licensed under SPDX-License-Identifier: CC-BY-SA-4.0 ,
+it does not mean you can pretend to be me.
+Open source licenses are about copyrights and do not cover share of personal information. -->
 
 - myl7 == Yulong Ming in en == 明宇龙 in zh-Hans, he/him
 - PhD student (2022-26) in CS at [CityU HK](https://www.cityu.edu.hk/ 'City University of Hong Kong') interested in network security, especially metadata private messaging recently

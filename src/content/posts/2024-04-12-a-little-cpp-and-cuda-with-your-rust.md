@@ -6,9 +6,6 @@ description: >-
   In the post, we will step further to solve the same FFI problem in a more complex scenario: calling a C++ function that additionally contains some CUDA code from Rust without a third-party build dependency, e.g., cxx.
 ---
 
-<!-- Copyright (C) myl7 -->
-<!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
-
 [_A little C with your Rust_], a well-known article in [_The Embedded Rust Book_], has briefly introduced how to call a C function from Rust without a third-party build dependency.
 In the post, we will step further to solve the same FFI problem in a more complex scenario: calling a C++ function that additionally contains some CUDA code from Rust without a third-party build dependency, e.g., [cxx].
 

@@ -6,9 +6,6 @@ description: >-
   The post shows how various Markdown components are rendered in this blog system, and also serves as a test for the Markdown rendering functionality
 ---
 
-<!-- Copyright (C) myl7 -->
-<!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
-
 The post shows how various Markdown components are rendered in this blog system, and also serves as a test for the Markdown rendering functionality
 
 ## TOC

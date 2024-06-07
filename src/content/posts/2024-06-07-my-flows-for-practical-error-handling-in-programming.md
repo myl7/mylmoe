@@ -5,9 +5,6 @@ description: >-
   There are flowcharts on error handling in different programming languages
 ---
 
-<!-- Copyright (C) myl7 -->
-<!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
-
 There are flowcharts on error handling in different programming languages
 
 ## TOC
