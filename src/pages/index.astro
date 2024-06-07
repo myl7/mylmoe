@@ -21,6 +21,18 @@ const posts = (await getCollection('posts', ({ data: { unlisted } }) => unlisted
   <OGBase slot="head" {title} {description} />
   <main class="flex flex-col gap-4 px-4">
     <h1 class="sr-only">myl7's blog!</h1>
+    <section>
+      <SectionCollapsible title="About me" client:load>
+        <Card>
+          <CardHeader>
+            <CardTitle>I am myl7:</CardTitle>
+          </CardHeader>
+          <CardContent className="post">
+            <Profile />
+          </CardContent>
+        </Card>
+      </SectionCollapsible>
+    </section>
     <section class="flex flex-col gap-4">
       <div class="flex flex-col gap-1">
         <h2 class="text-xl">Posts</h2>
@@ -46,18 +58,6 @@ const posts = (await getCollection('posts', ({ data: { unlisted } }) => unlisted
           </Card>
         ))
       }
-    </section>
-    <section>
-      <SectionCollapsible title="About me" client:load>
-        <Card>
-          <CardHeader>
-            <CardTitle>I am myl7:</CardTitle>
-          </CardHeader>
-          <CardContent className="post">
-            <Profile />
-          </CardContent>
-        </Card>
-      </SectionCollapsible>
     </section>
     <section>
       <SectionCollapsible title="Friends" client:load>
