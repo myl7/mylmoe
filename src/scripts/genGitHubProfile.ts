@@ -1,6 +1,3 @@
-// Copyright (C) myl7
-// SPDX-License-Identifier: Apache-2.0
-
 /** To sync the GitHub profile with the one at mylmoe */
 
 import { readFile } from 'fs/promises'
