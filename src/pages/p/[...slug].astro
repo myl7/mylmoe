@@ -19,7 +19,8 @@ const { Content } = await entry.render()
 
 <PostLayout {title} {pubDate} {updDate} {description}>
   <Content />
-  <div class={cn('min-h-[26rem]', { hidden: unlisted })}>
+  <hr />
+  <div class={cn({ hidden: unlisted })}>
     <Giscus client:visible={{ rootMargin: '200px' }} />
   </div>
 </PostLayout>

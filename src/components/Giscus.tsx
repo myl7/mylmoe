@@ -14,20 +14,22 @@ export default function Giscus() {
   }, [])
 
   return (
-    <GiscusInner
-      id="giscus"
-      repo="myl7/mylmoe"
-      repoId="MDEwOlJlcG9zaXRvcnkzMDA4MzYxMzI="
-      category="Announcements"
-      categoryId="DIC_kwDOEe5lJM4CRLe1"
-      mapping="title"
-      strict="0"
-      reactionsEnabled="1"
-      emitMetadata="0"
-      inputPosition="top"
-      theme={theme}
-      lang="en"
-      loading="lazy"
-    />
+    <div className="min-h-[26rem]">
+      <GiscusInner
+        id="giscus"
+        repo="myl7/mylmoe"
+        repoId="MDEwOlJlcG9zaXRvcnkzMDA4MzYxMzI="
+        category="Announcements"
+        categoryId="DIC_kwDOEe5lJM4CRLe1"
+        mapping="title"
+        strict="0"
+        reactionsEnabled="1"
+        emitMetadata="0"
+        inputPosition="top"
+        theme={theme}
+        lang="en"
+        loading="lazy"
+      />
+    </div>
   )
 }
