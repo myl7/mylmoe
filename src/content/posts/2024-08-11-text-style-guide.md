@@ -19,7 +19,11 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 Commonly used terms in this document are described below.
 
 - Period-ended sentence: A sentence that ends with a period.
+  Its first letter MUST be capitalized.
+  You SHOULD keep the capitalization of proper nouns.
 - Non-period-ended sentence: A sentence that does not end with a period.
+  Its first letter MUST be capitalized.
+  You SHOULD keep the capitalization of proper nouns.
 
 ## Whitespaces
 
