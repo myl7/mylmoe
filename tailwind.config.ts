@@ -17,7 +17,7 @@ export default {
       fontFamily: {
         sans: ['Open Sans', ...defaultTheme.fontFamily.sans],
         mono: ['DM Mono', ...defaultTheme.fontFamily.mono],
-        serif: ['Roboto Serif', 'Noto Serif SC', ...defaultTheme.fontFamily.serif],
+        serif: ['EB Garamond', 'Noto Serif SC', ...defaultTheme.fontFamily.serif],
       },
       colors: {
         border: 'hsl(var(--border))',
