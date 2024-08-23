@@ -38,26 +38,28 @@ const posts = (await getCollection('posts', ({ data: { unlisted } }) => unlisted
         <h2 class="text-xl">Posts</h2>
         <hr />
       </div>
-      {
-        posts.map(({ slug, data: { title, pubDate, description, updDate } }) => (
-          <Card>
-            <CardHeader>
-              <p class="text-xs text-muted-foreground">
-                Published on {pubDate.toISOString().slice(0, 10)}
-                {updDate && ` and updated on ${updDate.toISOString().slice(0, 10)}`}
-              </p>
-              <CardTitle className="text-xl font-serif">
-                <a class="link" href={`/p/${slug}`}>
-                  {title}
-                </a>
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <CardDescription className="font-serif">{description}</CardDescription>
-            </CardContent>
-          </Card>
-        ))
-      }
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          posts.map(({ slug, data: { title, pubDate, description, updDate } }) => (
+            <Card>
+              <CardHeader>
+                <p class="text-xs text-muted-foreground">
+                  Published on {pubDate.toISOString().slice(0, 10)}
+                  {updDate && ` and updated on ${updDate.toISOString().slice(0, 10)}`}
+                </p>
+                <CardTitle className="text-xl font-serif">
+                  <a class="link" href={`/p/${slug}`}>
+                    {title}
+                  </a>
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="font-serif">{description}</CardDescription>
+              </CardContent>
+            </Card>
+          ))
+        }
+      </div>
     </section>
     <section>
       <SectionCollapsible title="Friends" client:load>
