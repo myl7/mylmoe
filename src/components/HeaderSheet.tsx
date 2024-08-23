@@ -1,6 +1,6 @@
-import { Menu } from 'lucide-react'
-import { Sheet, SheetTrigger, SheetContent } from './ui/sheet'
-import { Button } from './ui/button'
+import { Menu } from "lucide-react";
+import { Sheet, SheetTrigger, SheetContent } from "./ui/sheet";
+import { Button } from "./ui/button";
 
 export default function HeaderSheet() {
   return (
@@ -29,5 +29,5 @@ export default function HeaderSheet() {
         </nav>
       </SheetContent>
     </Sheet>
-  )
+  );
 }

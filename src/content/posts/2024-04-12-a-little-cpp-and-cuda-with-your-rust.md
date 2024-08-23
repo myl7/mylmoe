@@ -78,7 +78,7 @@ target_compile_options(fssprgcuda PRIVATE $<$<COMPILE_LANGUAGE:CUDA>:--extended-
 Notice the flag `CUDA_SEPARABLE_COMPILATION`.
 It is suggested in tutorials like [this one in the CUDA technical blog][Building Cross-Platform CUDA Applications with CMake]
 
-[Building Cross-Platform CUDA Applications with CMake]: https://developer.nvidia.com/blog/building-cuda-applications-cmake/#separable_compilation 'Building Cross-Platform CUDA Applications with CMake'
+[Building Cross-Platform CUDA Applications with CMake]: https://developer.nvidia.com/blog/building-cuda-applications-cmake/#separable_compilation "Building Cross-Platform CUDA Applications with CMake"
 
 Finally, we start with a primitive Rust binding like:
 

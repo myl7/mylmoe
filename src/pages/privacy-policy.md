@@ -5,7 +5,7 @@ description: >-
   We value your privacy.
   We collect NO personal information.
   However, we use third-party services to power some website functionalities, which may collect personal information.
-layout: '@/layouts/PostLayout.astro'
+layout: "@/layouts/PostLayout.astro"
 ---
 
 <!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->

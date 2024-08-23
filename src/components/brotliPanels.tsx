@@ -1,94 +1,94 @@
-import React from 'react'
-import { ArrowDown, RefreshCw } from 'lucide-react'
-import { default as brotliDecWasmInit, decompress as brotliDecWasmDecompress } from 'brotli-dec-wasm/web'
-import brotliDecWasmUrl from 'brotli-dec-wasm/web/bg.wasm?url'
-import { default as brotliWasmInit, compress as brotliWasmCompress } from 'brotli-wasm/web'
-import brotliWasmUrl from 'brotli-wasm/web/bg.wasm?url'
+import React from "react";
+import { ArrowDown, RefreshCw } from "lucide-react";
+import { default as brotliDecWasmInit, decompress as brotliDecWasmDecompress } from "brotli-dec-wasm/web";
+import brotliDecWasmUrl from "brotli-dec-wasm/web/bg.wasm?url";
+import { default as brotliWasmInit, compress as brotliWasmCompress } from "brotli-wasm/web";
+import brotliWasmUrl from "brotli-wasm/web/bg.wasm?url";
 
-const maxBOutLen = 1024
+const maxBOutLen = 1024;
 
 export interface PanelProps {
-  variant: 'dec' | 'enc'
-  proc: (b: Uint8Array) => Promise<Uint8Array>
+  variant: "dec" | "enc";
+  proc: (b: Uint8Array) => Promise<Uint8Array>;
 }
 
 function Panel({ variant, proc }: PanelProps) {
-  const bRef = React.useRef<HTMLTextAreaElement>(null)
-  const bOutRef = React.useRef<HTMLTextAreaElement>(null)
-  const fRef = React.useRef<HTMLInputElement>(null)
+  const bRef = React.useRef<HTMLTextAreaElement>(null);
+  const bOutRef = React.useRef<HTMLTextAreaElement>(null);
+  const fRef = React.useRef<HTMLInputElement>(null);
   function resetFile() {
     if (fRef.current) {
-      fRef.current.value = ''
+      fRef.current.value = "";
     }
   }
 
-  const [processing, setProcessing] = React.useState(false)
+  const [processing, setProcessing] = React.useState(false);
 
-  const [result, setResult] = React.useState<Uint8Array | null>(null)
+  const [result, setResult] = React.useState<Uint8Array | null>(null);
   function dlResult() {
     if (result) {
-      const name = fRef.current?.files?.[0]?.name ? fRef.current.files[0].name + '.result.bin' : 'result.bin'
-      dlFile(new Blob([result]), name)
+      const name = fRef.current?.files?.[0]?.name ? fRef.current.files[0].name + ".result.bin" : "result.bin";
+      dlFile(new Blob([result]), name);
     }
   }
 
   /** Transform display texts across variants by replacing the 2-char prefix */
-  const t = ((variant: 'dec' | 'enc') =>
+  const t = ((variant: "dec" | "enc") =>
     function (text: string) {
-      if (variant == 'dec') {
-        return text
+      if (variant == "dec") {
+        return text;
       } else {
-        const prefix = text.substring(0, 2)
+        const prefix = text.substring(0, 2);
         return (
           ({
-            De: 'En',
-            de: 'en',
+            De: "En",
+            de: "en",
           }[prefix] ?? prefix) + text.substring(2)
-        )
+        );
       }
-    })(variant)
+    })(variant);
 
   async function doProc() {
     // We should setProcessing before async action.
     // File input can override textarea input.
-    let input: Uint8Array | null = null
-    let inputBlob: Blob | null = null
-    const f = fRef.current?.files?.[0]
+    let input: Uint8Array | null = null;
+    let inputBlob: Blob | null = null;
+    const f = fRef.current?.files?.[0];
     if (f) {
-      inputBlob = f
+      inputBlob = f;
     } else {
-      const bS = bRef.current?.value
+      const bS = bRef.current?.value;
       if (bS) {
-        input = pyS2B(bS)
+        input = pyS2B(bS);
       }
     }
     if (!input && !inputBlob) {
-      return
+      return;
     }
-    setProcessing(true)
+    setProcessing(true);
 
     if (inputBlob) {
-      input = new Uint8Array(await inputBlob.arrayBuffer())
+      input = new Uint8Array(await inputBlob.arrayBuffer());
     }
-    let result: Uint8Array
+    let result: Uint8Array;
     try {
-      result = await proc(input!)
+      result = await proc(input!);
     } catch (e) {
       if (bOutRef.current) {
-        bOutRef.current.value = `[${t('Decoding')} failed. The original error message is: ${e}.]`
+        bOutRef.current.value = `[${t("Decoding")} failed. The original error message is: ${e}.]`;
       }
-      return
+      return;
     } finally {
-      setProcessing(false)
+      setProcessing(false);
     }
-    setResult(result)
+    setResult(result);
     if (result.length > maxBOutLen) {
       if (bOutRef.current) {
-        bOutRef.current.value = `[The result is too long (${result.length}B > 1KB). Use the button below to download it as a file to view it.]`
+        bOutRef.current.value = `[The result is too long (${result.length}B > 1KB). Use the button below to download it as a file to view it.]`;
       }
     } else {
       if (bOutRef.current) {
-        bOutRef.current.value = pyB2S(result)
+        bOutRef.current.value = pyB2S(result);
       }
     }
   }
@@ -136,7 +136,7 @@ function Panel({ variant, proc }: PanelProps) {
           ) : (
             <ArrowDown className="h-5 w-5" />
           )}
-          {processing ? t('Decoding...') : t('Decode')}
+          {processing ? t("Decoding...") : t("Decode")}
         </button>
       </div>
       <textarea
@@ -155,77 +155,77 @@ function Panel({ variant, proc }: PanelProps) {
         </button>
       </div>
     </div>
-  )
+  );
 }
 
 export function DecPanel() {
-  return <Panel variant="dec" proc={decode} />
+  return <Panel variant="dec" proc={decode} />;
 }
 
 export function EncPanel() {
-  return <Panel variant="enc" proc={encode} />
+  return <Panel variant="enc" proc={encode} />;
 }
 
 async function decode(b: Uint8Array) {
-  await brotliDecWasmInit(brotliDecWasmUrl)
-  return brotliDecWasmDecompress(b)
+  await brotliDecWasmInit(brotliDecWasmUrl);
+  return brotliDecWasmDecompress(b);
 }
 
 // TODO: Add cancelation or mitigate the heavy load that causes blocking
 async function encode(b: Uint8Array) {
-  await brotliWasmInit(brotliWasmUrl)
-  return brotliWasmCompress(b)
+  await brotliWasmInit(brotliWasmUrl);
+  return brotliWasmCompress(b);
 }
 
 /** Convert bytes to Python-format display string */
 function pyB2S(arr: Uint8Array) {
-  let res = ''
+  let res = "";
   for (const i of Array.from(arr)) {
     if (i === 0x5c) {
-      res += '\\\\'
+      res += "\\\\";
     } else if (i === 0x27) {
-      res += "\\'"
+      res += "\\'";
     } else if (0x20 <= i && i <= 0x7e) {
-      res += String.fromCharCode(i)
+      res += String.fromCharCode(i);
     } else {
-      res += '\\x' + i.toString(16).padStart(2, '0')
+      res += "\\x" + i.toString(16).padStart(2, "0");
     }
   }
-  res = "b'" + res + "'"
-  return res
+  res = "b'" + res + "'";
+  return res;
 }
 
 /** Convert Python-format display string to bytes */
 function pyS2B(s: string) {
-  let m
+  let m;
   if ((m = /^b['"](.*)['"]/.exec(s))) {
-    s = m[1]!
+    s = m[1]!;
   }
-  const arr = []
+  const arr = [];
   while (s) {
     if ((m = /^\\x([0-9a-fA-F]{2})/.exec(s))) {
-      s = s.substring(4)
-      arr.push(parseInt(m[1]!, 16))
-    } else if (s.substring(0, 2) == '\\\\') {
-      arr.push(s[0]!.charCodeAt(0))
-      s = s.substring(2)
+      s = s.substring(4);
+      arr.push(parseInt(m[1]!, 16));
+    } else if (s.substring(0, 2) == "\\\\") {
+      arr.push(s[0]!.charCodeAt(0));
+      s = s.substring(2);
     } else {
-      arr.push(s[0]!.charCodeAt(0))
-      s = s.substring(1)
+      arr.push(s[0]!.charCodeAt(0));
+      s = s.substring(1);
     }
   }
-  return new Uint8Array(arr)
+  return new Uint8Array(arr);
 }
 
 /** Download the blob as a file */
 function dlFile(f: Blob, fname?: string) {
-  const url = window.URL.createObjectURL(f)
-  const a = document.createElement('a')
-  a.style.display = 'none'
-  a.download = fname ? fname : 'result'
-  a.href = url
-  document.body.appendChild(a)
-  a.click()
-  window.URL.revokeObjectURL(url)
-  a.remove()
+  const url = window.URL.createObjectURL(f);
+  const a = document.createElement("a");
+  a.style.display = "none";
+  a.download = fname ? fname : "result";
+  a.href = url;
+  document.body.appendChild(a);
+  a.click();
+  window.URL.revokeObjectURL(url);
+  a.remove();
 }

@@ -1,26 +1,26 @@
 ---
-import { getCollection } from 'astro:content'
-import PostLayout from '@/layouts/PostLayout.astro'
-import Giscus from '@/components/Giscus'
-import { cn } from '@/lib/utils'
+import { getCollection } from "astro:content";
+import PostLayout from "@/layouts/PostLayout.astro";
+import Giscus from "@/components/Giscus";
+import { cn } from "@/lib/utils";
 
 export async function getStaticPaths() {
-  const posts = await getCollection('posts')
+  const posts = await getCollection("posts");
   return posts.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },
-  }))
+  }));
 }
 
-const { entry } = Astro.props
-const { title, pubDate, updDate, description, unlisted } = entry.data
-const { Content } = await entry.render()
+const { entry } = Astro.props;
+const { title, pubDate, updDate, description, unlisted } = entry.data;
+const { Content } = await entry.render();
 ---
 
 <PostLayout {title} {pubDate} {updDate} {description}>
   <Content />
   <hr />
   <div class={cn({ hidden: unlisted })}>
-    <Giscus client:visible={{ rootMargin: '200px' }} />
+    <Giscus client:visible={{ rootMargin: "200px" }} />
   </div>
 </PostLayout>

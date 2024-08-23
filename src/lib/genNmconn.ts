@@ -2,11 +2,11 @@
 
 // Feel free to copy the snippet
 
-import { v4 as uuidv4 } from 'uuid'
+import { v4 as uuidv4 } from "uuid";
 
 export default function genNmconn({ id, uuid, iface, ssid, identity, password }: NmconnArgs) {
-  id = id ?? ssid
-  uuid = uuid ?? uuidv4()
+  id = id ?? ssid;
+  uuid = uuid ?? uuidv4();
 
   return `\
 [connection]
@@ -36,14 +36,14 @@ addr-gen-mode=default
 method=auto
 
 [proxy]
-`
+`;
 }
 
 export interface NmconnArgs {
-  id?: string
-  uuid?: string
-  iface: string
-  ssid: string
-  identity: string
-  password: string
+  id?: string;
+  uuid?: string;
+  iface: string;
+  ssid: string;
+  identity: string;
+  password: string;
 }

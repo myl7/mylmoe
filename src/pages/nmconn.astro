@@ -1,13 +1,13 @@
 ---
-import BaseLayout from '@/layouts/BaseLayout.astro'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import NmconnPanel from '@/components/NmconnPanel'
-import OGBase from '@/components/OGBase.astro'
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import NmconnPanel from "@/components/NmconnPanel";
+import OGBase from "@/components/OGBase.astro";
 
-const title = 'Generate NetworkManager .nmconnection for WPA(2) Enterprise with PEAP'
-const ogTitle = `${title} | Utilities on myl7's blog`
+const title = "Generate NetworkManager .nmconnection for WPA(2) Enterprise with PEAP";
+const ogTitle = `${title} | Utilities on myl7's blog`;
 const description =
-  'For WPA/WPA2 Enterprise security with PEAP authentication, e.g., eduroam, unlike Windows/Android, Linux, e.g., with GNOME, has issues when connecting with GUI. This tool generates NetworkManager .nmconnection config files directly. All done locally to maximize privacy.'
+  "For WPA/WPA2 Enterprise security with PEAP authentication, e.g., eduroam, unlike Windows/Android, Linux, e.g., with GNOME, has issues when connecting with GUI. This tool generates NetworkManager .nmconnection config files directly. All done locally to maximize privacy.";
 ---
 
 <BaseLayout {title} {description}>

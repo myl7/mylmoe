@@ -1,17 +1,17 @@
-import React from 'react'
-import { default as GiscusInner } from '@giscus/react'
+import React from "react";
+import { default as GiscusInner } from "@giscus/react";
 
 export default function Giscus() {
-  const [theme, setTheme] = React.useState<'light' | 'dark'>('light')
+  const [theme, setTheme] = React.useState<"light" | "dark">("light");
   // Should only run once in the initial render
   React.useEffect(() => {
-    const dark = document.documentElement.classList.contains('dark')
-    if (dark && theme != 'dark') {
-      setTheme('dark')
-    } else if (!dark && theme != 'light') {
-      setTheme('light')
+    const dark = document.documentElement.classList.contains("dark");
+    if (dark && theme != "dark") {
+      setTheme("dark");
+    } else if (!dark && theme != "light") {
+      setTheme("light");
     }
-  }, [])
+  }, []);
 
   return (
     <div className="min-h-[26rem]">
@@ -31,5 +31,5 @@ export default function Giscus() {
         loading="lazy"
       />
     </div>
-  )
+  );
 }

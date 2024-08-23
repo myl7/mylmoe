@@ -1,27 +1,27 @@
 ---
-import 'katex/dist/katex.css'
-import BaseLayout from './BaseLayout.astro'
-import OGBase from '@/components/OGBase.astro'
-import OGArticle from '@/components/OGArticle.astro'
-import type { PostScheme } from '@/content/config'
+import "katex/dist/katex.css";
+import BaseLayout from "./BaseLayout.astro";
+import OGBase from "@/components/OGBase.astro";
+import OGArticle from "@/components/OGArticle.astro";
+import type { PostScheme } from "@/content/config";
 
-interface Props extends Pick<PostScheme, 'title' | 'pubDate' | 'updDate' | 'description' | 'locale'> {
-  frontmatter?: PostScheme
+interface Props extends Pick<PostScheme, "title" | "pubDate" | "updDate" | "description" | "locale"> {
+  frontmatter?: PostScheme;
 }
 
 function dateToStr(date?: Date | string) {
-  if (typeof date == 'string') {
-    date = new Date(date)
+  if (typeof date == "string") {
+    date = new Date(date);
   }
-  return date?.toISOString()
+  return date?.toISOString();
 }
 
-const { title, pubDate, updDate, description, locale } = Astro.props.frontmatter || Astro.props
-const ogTitle = `${title} | myl7's blog`
-const pubDateFullStr = dateToStr(pubDate)!
-const pubDateStr = pubDateFullStr.slice(0, 10)
-const updDateFullStr = dateToStr(updDate)
-const updDateStr = updDateFullStr?.slice(0, 10)
+const { title, pubDate, updDate, description, locale } = Astro.props.frontmatter || Astro.props;
+const ogTitle = `${title} | myl7's blog`;
+const pubDateFullStr = dateToStr(pubDate)!;
+const pubDateStr = pubDateFullStr.slice(0, 10);
+const updDateFullStr = dateToStr(updDate);
+const updDateStr = updDateFullStr?.slice(0, 10);
 ---
 
 <BaseLayout {title} {description}>

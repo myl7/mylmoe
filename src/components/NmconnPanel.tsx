@@ -1,39 +1,39 @@
-import React from 'react'
-import genNmconn from '@/lib/genNmconn'
+import React from "react";
+import genNmconn from "@/lib/genNmconn";
 
 export default function NmconnPanel() {
-  const [nmconn, setNmconn] = React.useState('')
+  const [nmconn, setNmconn] = React.useState("");
 
   return (
     <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2">
       <InputPanel setNmConn={setNmconn} />
       <OutputPanel nmConn={nmconn} />
     </div>
-  )
+  );
 }
 
 function InputPanel({ setNmConn }: { setNmConn: (nmConn: string) => void }) {
   function submit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault()
-    let elems = e.currentTarget.elements
+    e.preventDefault();
+    let elems = e.currentTarget.elements;
     let fields = {
-      ssid: (elems.namedItem('ssid') as HTMLInputElement).value,
-      iface: (elems.namedItem('interface') as HTMLInputElement).value,
-      identity: (elems.namedItem('identity') as HTMLInputElement).value,
-      password: (elems.namedItem('password') as HTMLInputElement).value,
-      id: (elems.namedItem('name') as HTMLInputElement).value as string | undefined,
-    }
+      ssid: (elems.namedItem("ssid") as HTMLInputElement).value,
+      iface: (elems.namedItem("interface") as HTMLInputElement).value,
+      identity: (elems.namedItem("identity") as HTMLInputElement).value,
+      password: (elems.namedItem("password") as HTMLInputElement).value,
+      id: (elems.namedItem("name") as HTMLInputElement).value as string | undefined,
+    };
 
-    if (fields.id == '') delete fields.id
+    if (fields.id == "") delete fields.id;
     for (const key in fields) {
       if (!(fields[key as keyof typeof fields] as string)) {
-        setNmConn('[Invalid input. Please check if all fields are filled.]')
-        return
+        setNmConn("[Invalid input. Please check if all fields are filled.]");
+        return;
       }
     }
 
-    let s = genNmconn(fields)
-    setNmConn(s)
+    let s = genNmconn(fields);
+    setNmConn(s);
   }
 
   return (
@@ -87,16 +87,16 @@ function InputPanel({ setNmConn }: { setNmConn: (nmConn: string) => void }) {
         </button>
       </div>
     </form>
-  )
+  );
 }
 
 function OutputPanel({ nmConn }: { nmConn: string }) {
-  let rows = nmConn.split('\n').length
+  let rows = nmConn.split("\n").length;
   // Matches the height of the input form
-  if (rows > 12) rows = 12
+  if (rows > 12) rows = 12;
 
   async function copyToClipboard() {
-    await navigator.clipboard.writeText(nmConn)
+    await navigator.clipboard.writeText(nmConn);
     // TODO: Notify
   }
 
@@ -107,7 +107,7 @@ function OutputPanel({ nmConn }: { nmConn: string }) {
         <textarea
           rows={rows}
           value={nmConn}
-          className="bg-bg-l1 hover:border-fg-l4 dark:bg-bg-d1 dark:hover:border-fg-d4 w-full rounded border px-1  py-0.5"
+          className="bg-bg-l1 hover:border-fg-l4 dark:bg-bg-d1 dark:hover:border-fg-d4 w-full rounded border px-1 py-0.5"
         />
       </label>
       <div className="flex justify-center">
@@ -119,5 +119,5 @@ function OutputPanel({ nmConn }: { nmConn: string }) {
         </button>
       </div>
     </div>
-  )
+  );
 }

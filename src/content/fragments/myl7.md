@@ -3,8 +3,8 @@ it does not mean you can pretend to be me.
 Open source licenses are about copyrights and do not cover share of personal information. -->
 
 - myl7 == Yulong Ming in en == 明宇龙 in zh-Hans, he/him
-- PhD student (2022-26) in CS at [CityU HK](https://www.cityu.edu.hk/ 'City University of Hong Kong') interested in network security, especially metadata private messaging recently
-- [FOSS](https://wikipedia.org/wiki/FOSS 'free and open-source software') enthusiast believing that [even once is help](https://www.gnu.org/philosophy/saying-no-even-once.html)
+- PhD student (2022-26) in CS at [CityU HK](https://www.cityu.edu.hk/ "City University of Hong Kong") interested in network security, especially metadata private messaging recently
+- [FOSS](https://wikipedia.org/wiki/FOSS "free and open-source software") enthusiast believing that [even once is help](https://www.gnu.org/philosophy/saying-no-even-once.html)
 - GitHub active code contributor with [over ~~1k~~ 500 contributions per year](https://github.com/myl7)
 - Linux fan running Arch Linux for everyday use
 

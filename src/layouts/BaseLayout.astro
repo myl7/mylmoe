@@ -1,19 +1,19 @@
 ---
-import '@/styles/globals.css'
-import '@fontsource/open-sans'
-import '@fontsource/dm-mono'
-import '@fontsource/roboto-serif'
-import '@fontsource/noto-serif-sc'
-import '@/styles/post.css'
-import Header from '@/components/Header.astro'
-import Footer from '@/components/Footer.astro'
+import "@/styles/globals.css";
+import "@fontsource/open-sans";
+import "@fontsource/dm-mono";
+import "@fontsource/roboto-serif";
+import "@fontsource/noto-serif-sc";
+import "@/styles/post.css";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
 
 interface Props {
-  title: string
-  description: string
+  title: string;
+  description: string;
 }
 
-const { title, description } = Astro.props
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>
@@ -45,28 +45,28 @@ const { title, description } = Astro.props
 
 <script is:inline>
   const getThemePreference = () => {
-    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-      return localStorage.getItem('theme')
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme");
     }
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-  }
-  const isDark = getThemePreference() === 'dark'
-  document.documentElement.classList[isDark ? 'add' : 'remove']('dark')
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  };
+  const isDark = getThemePreference() === "dark";
+  document.documentElement.classList[isDark ? "add" : "remove"]("dark");
 
-  if (typeof localStorage !== 'undefined') {
+  if (typeof localStorage !== "undefined") {
     const observer = new MutationObserver(() => {
-      const isDark = document.documentElement.classList.contains('dark')
-      localStorage.setItem('theme', isDark ? 'dark' : 'light')
-    })
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] })
+      const isDark = document.documentElement.classList.contains("dark");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
   }
 </script>
 
 <style is:global>
   html {
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
   }
   code {
-    font-family: 'DM Mono', monospace;
+    font-family: "DM Mono", monospace;
   }
 </style>

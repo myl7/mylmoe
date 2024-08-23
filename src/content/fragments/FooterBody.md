@@ -2,7 +2,7 @@ Copyright (C) myl7
 
 Most content licensed under [CC BY-SA 4.0], unless otherwise explicitly stated, e.g., in a _License_ section / noted right below
 
-[CC BY-SA 4.0]: https://creativecommons.org/licenses/by-sa/4.0/ 'Creative Commons Attribution-ShareAlike 4.0 International Public License'
+[CC BY-SA 4.0]: https://creativecommons.org/licenses/by-sa/4.0/ "Creative Commons Attribution-ShareAlike 4.0 International Public License"
 
 Code and raw content available at [myl7/mylmoe]
 

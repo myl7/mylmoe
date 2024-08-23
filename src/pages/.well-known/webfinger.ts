@@ -1,7 +1,7 @@
-import type { APIContext } from 'astro'
+import type { APIContext } from "astro";
 
-export const prerender = false
+export const prerender = false;
 
 export async function GET({ redirect }: APIContext) {
-  return redirect('https://social.myl.moe/.well-known/webfinger', 301)
+  return redirect("https://social.myl.moe/.well-known/webfinger", 301);
 }
