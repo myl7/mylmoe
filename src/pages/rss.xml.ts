@@ -5,7 +5,7 @@ import type { APIContext } from "astro";
 export async function GET(context: APIContext) {
   const posts = await getCollection("posts", ({ data: { unlisted } }) => unlisted != true);
   return rss({
-    title: "myl7's blog",
+    title: "myl7's Blog",
     description: "myl7's blog",
     site: context.site!,
     items: posts.map((post) => {

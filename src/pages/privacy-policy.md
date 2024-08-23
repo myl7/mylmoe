@@ -12,7 +12,7 @@ layout: "@/layouts/PostLayout.astro"
 
 We, as the site owners and administrators of [myl.moe]:
 
-[myl.moe]: https://myl.moe "myl7's blog"
+[myl.moe]: https://myl.moe "myl7's Blog"
 
 - myl7 \<myl@myl.moe\> (https://myl.moe)
 

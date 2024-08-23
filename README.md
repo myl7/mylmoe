@@ -1,6 +1,6 @@
-# myl7's blog
+# myl7's Blog
 
-[myl.moe](https://myl.moe "myl7's blog")
+[myl.moe](https://myl.moe "myl7's Blog")
 
 ## License
 

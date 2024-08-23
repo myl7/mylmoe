@@ -7,7 +7,7 @@ import OGBase from "@/components/OGBase.astro";
 import Profile from "@/content/fragments/myl7.md";
 import friends from "@/content/data/friends";
 
-const title = "myl7's blog";
+const title = "myl7's Blog";
 const description = "myl7's blog";
 
 const posts = (await getCollection("posts", ({ data: { unlisted } }) => unlisted != true)).sort((a, b) => {
@@ -20,7 +20,7 @@ const posts = (await getCollection("posts", ({ data: { unlisted } }) => unlisted
 <BaseLayout {title} {description}>
   <OGBase slot="head" {title} {description} />
   <main class="flex flex-col gap-4 px-4">
-    <h1 class="sr-only">myl7's blog!</h1>
+    <h1 class="sr-only">myl7's Blog!</h1>
     <section>
       <SectionCollapsible title="About me" client:load>
         <Card>

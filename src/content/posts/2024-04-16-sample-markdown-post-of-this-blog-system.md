@@ -30,7 +30,7 @@ _Italic text_.
 [Inline internal link to this section](#paragraphs-and-inlines).
 [External link to this site by link reference definitions][mylmoe].
 
-[mylmoe]: https://myl.moe "myl7's blog"
+[mylmoe]: https://myl.moe "myl7's Blog"
 ```
 
 `Inline code`.
@@ -43,7 +43,7 @@ _Italic text_.
 <!-- TODO -->
 <!-- <span class="spoiler">Spoiler</span> -->
 
-[mylmoe]: https://myl.moe "myl7's blog"
+[mylmoe]: https://myl.moe "myl7's Blog"
 
 ## Blockquotes and headings
 

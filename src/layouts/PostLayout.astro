@@ -17,7 +17,7 @@ function dateToStr(date?: Date | string) {
 }
 
 const { title, pubDate, updDate, description, locale } = Astro.props.frontmatter || Astro.props;
-const ogTitle = `${title} | myl7's blog`;
+const ogTitle = `${title} | myl7's Blog`;
 const pubDateFullStr = dateToStr(pubDate)!;
 const pubDateStr = pubDateFullStr.slice(0, 10);
 const updDateFullStr = dateToStr(updDate);
