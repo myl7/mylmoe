@@ -29,6 +29,8 @@ plugins:
   - search
   - blog:
       blog_dir: "."
+nav:
+  - Friends: friends.md
 markdown_extensions:
   - admonition
   - pymdownx.details
