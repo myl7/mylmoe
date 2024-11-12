@@ -4,3 +4,6 @@
 
 # mkdocs documentation
 /site
+
+# mkdocs cache / Unit test / coverage reports
+.cache

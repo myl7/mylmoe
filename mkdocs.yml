@@ -28,7 +28,14 @@ theme:
 plugins:
   - search
   - blog:
-      blog_dir: "."
+      blog_dir: .
+      categories_allowed: []
+  - rss:
+      match_path: posts/.*
+      date_from_meta:
+        as_creation: date
+      categories:
+        - categories
 nav:
   - Friends: friends.md
 markdown_extensions:
