@@ -1,0 +1,17 @@
+[tool.poetry]
+package-mode = false
+name = "mylmoe"
+version = "0.8.0"
+description = "myl7's blog"
+authors = ["myl7 <myl@myl.moe>"]
+license = "Apache-2.0 AND CC-BY-4.0"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+mkdocs-material = "^9.5.44"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

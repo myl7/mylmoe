@@ -1,0 +1,18 @@
+site_name: myl7's Blog
+site_url: https://myl.moe
+site_description: myl7's blog
+site_author: Yulong Ming (myl7)
+repo_url: https://github.com/myl7/mylmoe
+copyright: >-
+  Copyright (C) 2024 Yulong Ming (myl7).
+  Posts licensed under CC BY 4.0, unless otherwise stated.
+theme:
+  name: material
+plugins:
+  - search
+  - blog:
+      blog_dir: "."
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
