@@ -1,6 +1,7 @@
 {
   "redirects": [
     { "source": "/ssh", "destination": "/ssh.pub", "permanent": true },
-    { "source": "/gpg", "destination": "/gpg.asc", "permanent": true }
+    { "source": "/gpg", "destination": "/gpg.asc", "permanent": true },
+    { "source": "/rss.xml", "destination": "/feed_rss_created.xml", "permanent": false }
   ]
 }
