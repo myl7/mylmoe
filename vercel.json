@@ -1,0 +1,6 @@
+{
+  "redirects": [
+    { "source": "/ssh", "destination": "/ssh.pub", "permanent": true },
+    { "source": "/gpg", "destination": "/gpg.asc", "permanent": true }
+  ]
+}
