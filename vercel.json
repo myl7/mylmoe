@@ -1,4 +1,8 @@
 {
+  "installCommand": "python3 -m venv poetry && poetry/bin/pip install poetry==1.8.4 && ln -s -t /usr/local/bin $(pwd)/poetry/bin/poetry && poetry install",
+  "buildCommand": "poetry run mkdocs build",
+  "devCommand": "poetry run mkdocs serve",
+  "outputDirectory": "site",
   "redirects": [
     { "source": "/ssh", "destination": "/ssh.pub", "permanent": true },
     { "source": "/gpg", "destination": "/gpg.asc", "permanent": true },
