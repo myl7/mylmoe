@@ -38,6 +38,7 @@ plugins:
       categories:
         - categories
 nav:
+  - index.md
   - About: about.md
   - Friends: friends.md
 markdown_extensions:
