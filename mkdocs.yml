@@ -10,6 +10,8 @@ theme:
   name: material
   features:
     - navigation.footer
+    - navigation.tabs
+    - toc.follow
   palette:
     - media: "(prefers-color-scheme)"
       toggle:
