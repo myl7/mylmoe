@@ -19,7 +19,7 @@ After the build, an output directory is served as a static website by Vercel.
 Vercel can also deploy dynamic websites, but this is not the focus of this post.
 
 To install Poetry in Vercel Builds, which are CI environments, [Poetry's doc](https://python-poetry.org/docs/#ci-recommendations) recommends **pipx** or **pip** to install an exact version of Poetry.
-Vercel's build image is based on Amazon Linux 2023, which is minimized to reduce its size.
+Vercel's build image is based on Amazon Linux 2023, which is trimmed to reduce its size.
 While pip is available in the build image as `pyhton3 -m pip` (`python`/`pip`/`pip3` commands are not), pipx needs installation described in [pipx's doc](https://github.com/pypa/pipx?tab=readme-ov-file#on-linux).
 Both methods encounter problems.
 
