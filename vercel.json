@@ -6,6 +6,7 @@
   "redirects": [
     { "source": "/ssh", "destination": "/ssh.pub", "permanent": true },
     { "source": "/gpg", "destination": "/gpg.asc", "permanent": true },
+    { "source": "/brotli", "destination": "https://brotli.myl.moe", "permanent": true },
     { "source": "/rss.xml", "destination": "/feed_rss_created.xml", "permanent": false }
   ]
 }
