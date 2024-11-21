@@ -6,12 +6,14 @@ description = "myl7's blog"
 authors = ["myl7 <myl@myl.moe>"]
 license = "Apache-2.0 AND CC-BY-4.0"
 readme = "README.md"
+homepage = "https://myl.moe"
+repository = "https://github.com/myl7/mylmoe"
+keywords = ["blog"]
 
 [tool.poetry.dependencies]
 python = "^3.12"
 mkdocs-material = "^9.5.44"
 mkdocs-rss-plugin = "^1.16.0"
-
 
 [build-system]
 requires = ["poetry-core"]
