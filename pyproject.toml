@@ -1,14 +1,16 @@
-[tool.poetry]
-package-mode = false
+[project]
 name = "mylmoe"
 version = "0.8.0"
 description = "myl7's blog"
 authors = ["myl7 <myl@myl.moe>"]
-license = "Apache-2.0 AND CC-BY-4.0"
+license = { text = "Apache-2.0 AND CC-BY-4.0" }
 readme = "README.md"
 homepage = "https://myl.moe"
 repository = "https://github.com/myl7/mylmoe"
 keywords = ["blog"]
+
+[tool.poetry]
+package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.12"
