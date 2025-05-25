@@ -1,7 +1,7 @@
 {
-  "installCommand": "python3 -m venv poetry && poetry/bin/pip install poetry==1.8.4 && ln -s -t /usr/local/bin $(pwd)/poetry/bin/poetry && poetry install",
-  "buildCommand": "poetry run mkdocs build",
-  "devCommand": "poetry run mkdocs serve",
+  "installCommand": "python3 -m venv uv && uv/bin/pip install uv && ln -s -t /usr/local/bin $(pwd)/uv/bin/uv && ln -s -t /usr/local/bin $(pwd)/uv/bin/uvx && uv sync",
+  "buildCommand": "uv run mkdocs build",
+  "devCommand": "uv run mkdocs serve",
   "outputDirectory": "site",
   "redirects": [
     { "source": "/ssh", "destination": "/ssh.pub", "permanent": true },
