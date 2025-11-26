@@ -1,0 +1,9 @@
+printWidth = 120
+
+[[overrides]]
+files = "*.md"
+[overrides.options]
+# Fix the indent width issue that violates Markdown standard.
+# See also https://python-markdown.github.io/#differences .
+tabWidth = 4
+embeddedLanguageFormatting = "off"
