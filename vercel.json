@@ -1,0 +1,5 @@
+{
+  "redirects": [
+    { "source": "/brotli", "destination": "https://brotli.myl.moe", "permanent": true }
+  ]
+}
