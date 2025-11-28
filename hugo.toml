@@ -1,0 +1,33 @@
+baseURL = "https://myl.moe/"
+languageCode = "en-us"
+title = "myl7's Blog"
+theme = ["PaperMod"]
+copyright = "Copyright (C) 2025 Yulong Ming"
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[markup.goldmark.extensions.passthrough]
+enable = true
+
+[markup.goldmark.extensions.passthrough.delimiters]
+block = [["\\[", "\\]"], ["$$", "$$"]]
+inline = [["\\(", "\\)"], ["$", "$"]]
+
+[outputFormats.RSS]
+baseName = "rss"
+
+[services.rss]
+limit = 10
+
+[[menu.main]]
+name = "About Me"
+url = "posts/about"
+
+[[menu.main]]
+name = "Source"
+url = "https://github.com/myl7/mylmoe"
+
+[params]
+math = true
+ShowToc = true
