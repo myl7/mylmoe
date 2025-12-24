@@ -15,7 +15,7 @@ I do run Arch Linux for my daily work.
 
 I run SNS channels and post regularly for years:
 
--   Telegram: Channel [@myl7s](https://t.me/myl7s) and account [@myl107](https://t.me/myl107)
+-   Telegram: Channel [@myl7s](https://t.me/myl7s) and account [@myl7s1](https://t.me/myl7s1)
 -   As for Chinese SNS, I run a channel on [小红书](https://www.xiaohongshu.com/user/profile/64f3012b000000000603199d). All my channels have almost the same content.
 
 Some other links:
@@ -23,7 +23,7 @@ Some other links:
 -   Blog: [myl.moe](https://myl.moe)
 -   GitHub: [myl7](https://github.com/myl7)
 -   Research: [Google Scholar](https://scholar.google.com/citations?user=J9cpSb0AAAAJ) and [ORCID](https://orcid.org/0000-0002-6010-2661)
--   Emails: myl7.moe AT gmail.com for general purpose, myl.7 AT my.cityu.edu.hk for research, and myl AT myl.moe for code dev
+-   Emails: i AT myl.moe for code dev, myl.7 AT my.cityu.edu.hk for research, and myl7.moe AT gmail.com for general purpose
 
 <details>
 <summary style="display: block;">

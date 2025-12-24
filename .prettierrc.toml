@@ -1,9 +1,12 @@
-printWidth = 120
+tabWidth = 4
+printWidth = 100
 
 [[overrides]]
-files = "*.md"
+files = ["*.yaml", "*.yml"]
 [overrides.options]
-# Fix the indent width issue that violates Markdown standard.
-# See also https://python-markdown.github.io/#differences .
-tabWidth = 4
-embeddedLanguageFormatting = "off"
+tabWidth = 2
+
+[[overrides]]
+files = "*.json"
+[overrides.options]
+tabWidth = 2
